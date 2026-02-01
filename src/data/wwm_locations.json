@@ -1,0 +1,249 @@
+{
+  "regions": [
+    {
+      "id": "qinghe",
+      "names": {
+        "en": "Qinghe",
+        "cn": "清河",
+        "pinyin": "Qīng Hé",
+        "fr": "Qinghe"
+      },
+      "description": {
+        "en": "Starting region with pastoral landscapes and beginner content",
+        "fr": "Région de départ avec paysages pastoraux et contenu pour débutants"
+      },
+      "level_range": "1-20",
+      "locations": [
+        {
+          "id": "immortal_crossing",
+          "names": { "en": "Immortal Crossing", "cn": "神仙渡", "pinyin": "Shén Xiān Dù", "fr": "Passage des Immortels" },
+          "type": "town",
+          "features": ["Fast travel point", "Basic merchants", "Starting quests"]
+        },
+        {
+          "id": "blissful_retreat",
+          "names": { "en": "Blissful Retreat", "cn": "极乐坊", "pinyin": "Jí Lè Fāng", "fr": "Retraite Bienheureuse" },
+          "type": "player_housing",
+          "features": ["Player home", "Grooming station", "Storage"]
+        },
+        {
+          "id": "bodhi_sea",
+          "names": { "en": "Bodhi Sea", "cn": "菩提海", "pinyin": "Pú Tí Hǎi", "fr": "Mer de Bodhi" },
+          "type": "temple",
+          "features": ["Buddhist temple", "Meditation spot", "Monk NPCs"]
+        },
+        {
+          "id": "wildmane_ranch",
+          "names": { "en": "Wildmane Ranch", "cn": "野马牧场", "pinyin": "Yě Mǎ Mù Chǎng", "fr": "Ranch du Crin Sauvage" },
+          "type": "ranch",
+          "features": ["Horse acquisition", "Mount training"]
+        },
+        {
+          "id": "dragon_sanctum_qinghe",
+          "names": { "en": "Heavenquaker Spear Sanctum", "cn": "震天枪圣地", "pinyin": "Zhèn Tiān Qiāng Shèng Dì", "fr": "Sanctuaire de la Lance Ébranle-Cieux" },
+          "type": "skill_theft",
+          "features": ["Dragon Key required", "Heavenquaker Spear skill", "Wolfchaser's Art chest"],
+          "access": "Hidden entrance east of Wildmane Ranch"
+        },
+        {
+          "id": "bamboo_forest",
+          "names": { "en": "Bamboo Forest", "cn": "竹林", "pinyin": "Zhú Lín", "fr": "Forêt de Bambou" },
+          "type": "exploration",
+          "features": ["Resource gathering", "Hidden chests", "Peaceful atmosphere"]
+        },
+        {
+          "id": "river_village",
+          "names": { "en": "River Village", "cn": "河村", "pinyin": "Hé Cūn", "fr": "Village de la Rivière" },
+          "type": "village",
+          "features": ["Fishing spot", "Local quests", "NPC housing"]
+        },
+        {
+          "id": "old_temple_ruins",
+          "names": { "en": "Old Temple Ruins", "cn": "古庙废墟", "pinyin": "Gǔ Miào Fèi Xū", "fr": "Ruines du Vieux Temple" },
+          "type": "dungeon",
+          "features": ["Exploration dungeon", "Hidden treasures", "Puzzle elements"]
+        }
+      ]
+    },
+    {
+      "id": "kaifeng",
+      "names": {
+        "en": "Kaifeng",
+        "cn": "开封",
+        "pinyin": "Kāi Fēng",
+        "fr": "Kaifeng"
+      },
+      "description": {
+        "en": "Capital city with urban environments and political intrigue",
+        "fr": "Capitale avec environnements urbains et intrigues politiques"
+      },
+      "level_range": "20-40",
+      "locations": [
+        {
+          "id": "ghostlight_market",
+          "names": { "en": "Ghostlight Market", "cn": "鬼市", "pinyin": "Guǐ Shì", "fr": "Marché des Fantômes" },
+          "type": "market",
+          "features": ["Night market", "Ni Laoshan (book merchant)", "Rare items"],
+          "notable_npcs": ["Ni Laoshan"]
+        },
+        {
+          "id": "fanggold_tower",
+          "names": { "en": "Fanggold Tower", "cn": "樊楼", "pinyin": "Fán Lóu", "fr": "Tour Fanggold" },
+          "type": "entertainment",
+          "features": ["Restaurant", "Social activities", "Information gathering"]
+        },
+        {
+          "id": "ever_normal_granary",
+          "names": { "en": "Ever-Normal Granary", "cn": "常平仓", "pinyin": "Cháng Píng Cāng", "fr": "Grenier Toujours-Normal" },
+          "type": "government",
+          "features": ["Storage facility", "Theft opportunities", "Guard patrols"]
+        },
+        {
+          "id": "divine_constabulary_hq",
+          "names": { "en": "Divine Constabulary HQ", "cn": "神侯府", "pinyin": "Shén Hóu Fǔ", "fr": "QG de la Constabulaire Divine" },
+          "type": "faction_base",
+          "features": ["Faction quests", "Investigation missions", "Equipment vendors"]
+        },
+        {
+          "id": "imperial_palace",
+          "names": { "en": "Imperial Palace", "cn": "皇宫", "pinyin": "Huáng Gōng", "fr": "Palais Impérial" },
+          "type": "landmark",
+          "features": ["Story missions", "High-security area", "Political events"]
+        },
+        {
+          "id": "flower_district",
+          "names": { "en": "Flower District", "cn": "花街", "pinyin": "Huā Jiē", "fr": "Quartier des Fleurs" },
+          "type": "entertainment",
+          "features": ["Flower Court sect base", "Social activities", "Information network"]
+        },
+        {
+          "id": "underground_tunnels",
+          "names": { "en": "Underground Tunnels", "cn": "地下隧道", "pinyin": "Dì Xià Suì Dào", "fr": "Tunnels Souterrains" },
+          "type": "dungeon",
+          "features": ["Midnight Blades territory", "Stealth missions", "Hidden passages"]
+        }
+      ]
+    },
+    {
+      "id": "hexi",
+      "names": {
+        "en": "Hexi",
+        "cn": "河西",
+        "pinyin": "Hé Xī",
+        "fr": "Hexi"
+      },
+      "description": {
+        "en": "Western corridor with desert and Silk Road influences",
+        "fr": "Corridor occidental avec désert et influences de la Route de la Soie"
+      },
+      "level_range": "25-45",
+      "locations": [
+        {
+          "id": "silk_road_outpost",
+          "names": { "en": "Silk Road Outpost", "cn": "丝路驿站", "pinyin": "Sī Lù Yì Zhàn", "fr": "Avant-poste de la Route de la Soie" },
+          "type": "town",
+          "features": ["Trading hub", "Foreign merchants", "Exotic goods"]
+        },
+        {
+          "id": "desert_oasis",
+          "names": { "en": "Desert Oasis", "cn": "沙漠绿洲", "pinyin": "Shā Mò Lǜ Zhōu", "fr": "Oasis du Désert" },
+          "type": "rest_area",
+          "features": ["Safe zone", "Resource replenishment", "Camel acquisition"]
+        },
+        {
+          "id": "ancient_ruins",
+          "names": { "en": "Ancient Ruins", "cn": "古代遗迹", "pinyin": "Gǔ Dài Yí Jì", "fr": "Ruines Anciennes" },
+          "type": "exploration",
+          "features": ["Archaeological site", "Hidden treasures", "Puzzle dungeons"]
+        },
+        {
+          "id": "bandit_fortress",
+          "names": { "en": "Bandit Fortress", "cn": "匪徒堡垒", "pinyin": "Fěi Tú Bǎo Lěi", "fr": "Forteresse des Bandits" },
+          "type": "dungeon",
+          "features": ["Combat dungeon", "Boss encounters", "Loot drops"]
+        }
+      ]
+    },
+    {
+      "id": "yannan",
+      "names": {
+        "en": "Yannan",
+        "cn": "燕南",
+        "pinyin": "Yàn Nán",
+        "fr": "Yannan"
+      },
+      "description": {
+        "en": "Southern region with lush landscapes and cultural diversity",
+        "fr": "Région sud avec paysages luxuriants et diversité culturelle"
+      },
+      "level_range": "30-50",
+      "locations": [
+        {
+          "id": "misty_mountains",
+          "names": { "en": "Misty Mountains", "cn": "雾山", "pinyin": "Wù Shān", "fr": "Montagnes Brumeuses" },
+          "type": "exploration",
+          "features": ["Scenic views", "Hidden caves", "Rare resources"]
+        },
+        {
+          "id": "port_city",
+          "names": { "en": "Southern Port", "cn": "南港", "pinyin": "Nán Gǎng", "fr": "Port du Sud" },
+          "type": "city",
+          "features": ["Naval activities", "Sea trade", "Fishing industry"]
+        },
+        {
+          "id": "scholars_academy",
+          "names": { "en": "Scholar's Academy", "cn": "书院", "pinyin": "Shū Yuàn", "fr": "Académie des Lettrés" },
+          "type": "institution",
+          "features": ["Knowledge quests", "Calligraphy activities", "Lore collection"]
+        }
+      ]
+    },
+    {
+      "id": "yanbei",
+      "names": {
+        "en": "Yanbei",
+        "cn": "燕北",
+        "pinyin": "Yàn Běi",
+        "fr": "Yanbei"
+      },
+      "description": {
+        "en": "Northern frontier with war-torn landscapes and resistance fighters",
+        "fr": "Frontière nord avec paysages ravagés par la guerre et résistants"
+      },
+      "level_range": "40-60",
+      "locations": [
+        {
+          "id": "northern_vow_camp",
+          "names": { "en": "Northern Vow Camp", "cn": "燕北盟营地", "pinyin": "Yàn Běi Méng Yíng Dì", "fr": "Camp du Serment du Nord" },
+          "type": "faction_base",
+          "features": ["Main faction hub", "War council", "Training grounds"]
+        },
+        {
+          "id": "gleaming_abyss",
+          "names": { "en": "Gleaming Abyss", "cn": "辉煌深渊", "pinyin": "Huī Huáng Shēn Yuān", "fr": "Abysse Scintillant" },
+          "type": "raid",
+          "features": ["End-game dungeon", "Void King boss", "Legendary drops"],
+          "notable_boss": "Void King"
+        },
+        {
+          "id": "frozen_fortress",
+          "names": { "en": "Frozen Fortress", "cn": "冰封要塞", "pinyin": "Bīng Fēng Yào Sài", "fr": "Forteresse Gelée" },
+          "type": "dungeon",
+          "features": ["Ice-themed dungeon", "Zheng Frostwing boss", "Cold resistance needed"]
+        },
+        {
+          "id": "battlefield",
+          "names": { "en": "Northern Battlefield", "cn": "北方战场", "pinyin": "Běi Fāng Zhàn Chǎng", "fr": "Champ de Bataille du Nord" },
+          "type": "pvp_area",
+          "features": ["Large-scale battles", "Faction warfare", "Territory control"]
+        },
+        {
+          "id": "great_wall_section",
+          "names": { "en": "Great Wall Section", "cn": "长城段", "pinyin": "Cháng Chéng Duàn", "fr": "Section de la Grande Muraille" },
+          "type": "landmark",
+          "features": ["Iconic location", "Defense missions", "Scenic viewpoint"]
+        }
+      ]
+    }
+  ]
+}

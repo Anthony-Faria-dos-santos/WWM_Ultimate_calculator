@@ -1,0 +1,277 @@
+{
+  "currencies": [
+    {
+      "id": "echo_jade",
+      "names": {
+        "en": "Echo Jade",
+        "cn": "回响玉",
+        "pinyin": "Huíxiǎng Yù",
+        "fr": "Jade d'Écho"
+      },
+      "type": "premium_soft",
+      "source": "Weiyang activities",
+      "uses": ["merchant_purchases", "inner_way_materials"]
+    },
+    {
+      "id": "commerce_coins",
+      "names": {
+        "en": "Commerce Coins",
+        "cn": "商钱",
+        "pinyin": "Shāng Qián",
+        "fr": "Pièces de Commerce"
+      },
+      "type": "standard",
+      "source": "trading",
+      "uses": ["general_purchases", "book_purchases"]
+    },
+    {
+      "id": "longming_coins",
+      "names": {
+        "en": "Longming Coins",
+        "cn": "长鸣币",
+        "pinyin": "Chángmíng Bì",
+        "fr": "Pièces Longming"
+      },
+      "type": "premium",
+      "source": "real_money",
+      "uses": ["cosmetics", "guild_creation"]
+    },
+    {
+      "id": "vintage_bookmarks",
+      "names": {
+        "en": "Vintage Bookmarks",
+        "cn": "古书签",
+        "pinyin": "Gǔ Shūqiān",
+        "fr": "Marque-pages Anciens"
+      },
+      "type": "exchange",
+      "source": "tips_recycling",
+      "uses": ["recommendation_tomes"]
+    },
+    {
+      "id": "book_tokens",
+      "names": {
+        "en": "Book Tokens",
+        "cn": "书券",
+        "pinyin": "Shūquàn",
+        "fr": "Jetons de Livre"
+      },
+      "type": "exchange",
+      "source": "tips_exchange",
+      "uses": ["inner_way_notes"]
+    }
+  ],
+  "materials": {
+    "weapon_upgrade": [
+      {
+        "id": "ebon_iron",
+        "names": {
+          "en": "Ebon Iron",
+          "cn": "乌金铁",
+          "pinyin": "Wūjīn Tiě",
+          "fr": "Fer d'Ébène"
+        },
+        "rarity": "rare",
+        "uses": ["weapon_upgrade", "mystic_art_upgrade"]
+      },
+      {
+        "id": "vibrant_jade",
+        "names": {
+          "en": "Vibrant Jade",
+          "cn": "振玉",
+          "pinyin": "Zhènyù",
+          "fr": "Jade Vibrant"
+        },
+        "rarity": "epic",
+        "uses": ["weapon_upgrade"]
+      },
+      {
+        "id": "raw_ore",
+        "names": {
+          "en": "Raw Ore",
+          "cn": "粗矿",
+          "pinyin": "Cū Kuàng",
+          "fr": "Minerai Brut"
+        },
+        "rarity": "common",
+        "uses": ["crafting"],
+        "shop_limited": true
+      },
+      {
+        "id": "coarse_fur",
+        "names": {
+          "en": "Coarse Fur",
+          "cn": "粗毛皮",
+          "pinyin": "Cū Máopí",
+          "fr": "Fourrure Brute"
+        },
+        "rarity": "common",
+        "uses": ["crafting"],
+        "shop_limited": true
+      }
+    ],
+    "inner_way_upgrade": [
+      {
+        "id": "inner_way_notes",
+        "names": {
+          "en": "Inner Way Notes / Tips",
+          "cn": "心法残章",
+          "pinyin": "Xīnfǎ Cánzhāng",
+          "fr": "Notes de Voie Intérieure"
+        },
+        "description": "Specific to each Inner Way",
+        "uses": ["inner_way_breakthrough"]
+      },
+      {
+        "id": "tip_tome",
+        "names": {
+          "en": "Tip Tome / Inner Way Tome",
+          "cn": "心法秘籍",
+          "pinyin": "Xīnfǎ Mìjí",
+          "fr": "Tome de Conseils"
+        },
+        "description": "Grants random tips for specific path",
+        "weekly_limit": 20
+      },
+      {
+        "id": "recommendation_tome",
+        "names": {
+          "en": "Recommendation Tome",
+          "cn": "推荐秘籍",
+          "pinyin": "Tuījiàn Mìjí",
+          "fr": "Tome de Recommandation"
+        },
+        "description": "Purchased with Vintage Bookmarks",
+        "source": "tips_exchange"
+      }
+    ],
+    "shop_items": [
+      {
+        "id": "lingering_melody",
+        "names": {
+          "en": "Lingering Melody",
+          "cn": "余音",
+          "pinyin": "Yúyīn",
+          "fr": "Mélodie Persistante"
+        },
+        "shop": "items_shop",
+        "daily_limited": true
+      },
+      {
+        "id": "oscillating_jade",
+        "names": {
+          "en": "Oscillating Jade",
+          "cn": "摇玉",
+          "pinyin": "Yáoyù",
+          "fr": "Jade Oscillant"
+        },
+        "shop": "season_shop",
+        "weekly_limited": true
+      },
+      {
+        "id": "life_supplies_box",
+        "names": {
+          "en": "Life Supplies Support Box",
+          "cn": "生活物资箱",
+          "pinyin": "Shēnghuó Wùzī Xiāng",
+          "fr": "Boîte de Fournitures"
+        },
+        "shop": "season_shop",
+        "weekly_limited": true
+      },
+      {
+        "id": "martial_arts_chest",
+        "names": {
+          "en": "Martial Arts Chest",
+          "cn": "武学宝箱",
+          "pinyin": "Wǔxué Bǎoxiāng",
+          "fr": "Coffre d'Arts Martiaux"
+        },
+        "shop": "season_shop",
+        "weekly_limited": true
+      }
+    ]
+  },
+  "keys": [
+    {
+      "id": "dragon_key",
+      "names": {
+        "en": "Dragon Key",
+        "cn": "龙钥",
+        "pinyin": "Lóng Yào",
+        "fr": "Clé du Dragon",
+        "alias_en": "Loong Key"
+      },
+      "uses": ["sanctum_access", "hidden_areas"],
+      "obtainable": "exploration",
+      "region_limit": "per_region"
+    }
+  ],
+  "collectibles": [
+    {
+      "id": "oddity",
+      "names": {
+        "en": "Oddity",
+        "cn": "奇物",
+        "pinyin": "Qíwù",
+        "fr": "Curiosité"
+      },
+      "uses": ["qi_sheng_exchange", "vitality_increase"],
+      "exchange_npc": "qi_sheng"
+    },
+    {
+      "id": "adventure_slip",
+      "names": {
+        "en": "Adventure Slip",
+        "cn": "冒险票",
+        "pinyin": "Màoxiǎn Piào",
+        "fr": "Billet d'Aventure"
+      },
+      "uses": ["sect_requirements"],
+      "associated_sect": "well_of_heaven"
+    }
+  ],
+  "tomes_and_books": [
+    {
+      "id": "morale_chant_page",
+      "names": {
+        "en": "Morale Chant: Page",
+        "cn": "易水歌残页",
+        "pinyin": "Yì Shuǐ Gē Cányè",
+        "fr": "Page du Chant du Moral"
+      },
+      "required_count": 10,
+      "cost_per_page": 500,
+      "currency": "echo_jade",
+      "total_cost": 5000,
+      "merchant": "tang_bao",
+      "unlocks": "morale_chant_inner_way"
+    },
+    {
+      "id": "unknown_old_book",
+      "names": {
+        "en": "Unknown Old Book",
+        "cn": "无名古书",
+        "pinyin": "Wúmíng Gǔshū",
+        "fr": "Vieux Livre Inconnu"
+      },
+      "merchant": "ni_laoshan",
+      "location": "ghostlight_market",
+      "stock": 30,
+      "estimated_cost": "~375,000 coins",
+      "unlocks": "sword_horizon_inner_way"
+    },
+    {
+      "id": "bitter_seasons_tome",
+      "names": {
+        "en": "Bitter Seasons: Tome",
+        "cn": "苦四时秘籍",
+        "pinyin": "Kǔ Sìshí Mìjí",
+        "fr": "Tome des Saisons Amères"
+      },
+      "source": "chest",
+      "location": "gleaming_abyss",
+      "unlock_condition": "after_defeating_void_king"
+    }
+  ]
+}

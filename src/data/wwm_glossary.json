@@ -1,0 +1,239 @@
+{
+  "glossary": {
+    "wuxia_concepts": [
+      {
+        "id": "jianghu",
+        "names": { "en": "Jianghu", "cn": "江湖", "pinyin": "Jiāng Hú", "fr": "Monde des Rivières et Lacs" },
+        "description": { "en": "The martial arts world / underworld society", "fr": "Le monde des arts martiaux / société souterraine" }
+      },
+      {
+        "id": "wuxia",
+        "names": { "en": "Wuxia", "cn": "武侠", "pinyin": "Wǔ Xiá", "fr": "Chevalier Martial" },
+        "description": { "en": "Martial hero genre / martial arts chivalry", "fr": "Genre du héros martial / chevalerie des arts martiaux" }
+      },
+      {
+        "id": "qi",
+        "names": { "en": "Qi / Chi", "cn": "气", "pinyin": "Qì", "fr": "Qi / Énergie Vitale" },
+        "description": { "en": "Life force / internal energy", "fr": "Force vitale / énergie interne" }
+      },
+      {
+        "id": "qinggong",
+        "names": { "en": "Qinggong", "cn": "轻功", "pinyin": "Qīng Gōng", "fr": "Art de la Légèreté" },
+        "description": { "en": "Lightness skill / movement techniques", "fr": "Technique de légèreté / techniques de mouvement" }
+      },
+      {
+        "id": "neigong",
+        "names": { "en": "Neigong", "cn": "内功", "pinyin": "Nèi Gōng", "fr": "Art Interne" },
+        "description": { "en": "Internal martial arts / inner cultivation", "fr": "Arts martiaux internes / cultivation intérieure" }
+      },
+      {
+        "id": "waigong",
+        "names": { "en": "Waigong", "cn": "外功", "pinyin": "Wài Gōng", "fr": "Art Externe" },
+        "description": { "en": "External martial arts / physical techniques", "fr": "Arts martiaux externes / techniques physiques" }
+      },
+      {
+        "id": "dianxue",
+        "names": { "en": "Dianxue", "cn": "点穴", "pinyin": "Diǎn Xué", "fr": "Frappe des Points Vitaux" },
+        "description": { "en": "Pressure point striking technique", "fr": "Technique de frappe des points de pression" }
+      },
+      {
+        "id": "wulin",
+        "names": { "en": "Wulin", "cn": "武林", "pinyin": "Wǔ Lín", "fr": "Forêt des Arts Martiaux" },
+        "description": { "en": "The martial arts community / martial world", "fr": "La communauté des arts martiaux / monde martial" }
+      },
+      {
+        "id": "sect",
+        "names": { "en": "Sect / School", "cn": "门派", "pinyin": "Mén Pài", "fr": "Secte / École" },
+        "description": { "en": "Martial arts organization / faction", "fr": "Organisation d'arts martiaux / faction" }
+      },
+      {
+        "id": "shifu",
+        "names": { "en": "Shifu / Master", "cn": "师父", "pinyin": "Shī Fu", "fr": "Maître" },
+        "description": { "en": "Teacher / martial arts master", "fr": "Professeur / maître d'arts martiaux" }
+      }
+    ],
+    "game_terms": [
+      {
+        "id": "martial_art",
+        "names": { "en": "Martial Art", "cn": "武学", "pinyin": "Wǔ Xué", "fr": "Art Martial" },
+        "description": { "en": "Weapon skill set equipped to character", "fr": "Ensemble de compétences d'arme équipé au personnage" }
+      },
+      {
+        "id": "inner_way",
+        "names": { "en": "Inner Way / Internal Art", "cn": "心法", "pinyin": "Xīn Fǎ", "fr": "Voie Intérieure" },
+        "description": { "en": "Passive skill that provides bonuses", "fr": "Compétence passive qui fournit des bonus" }
+      },
+      {
+        "id": "mystic_art",
+        "names": { "en": "Mystic Art / Mystic Skill", "cn": "奇术", "pinyin": "Qí Shù", "fr": "Art Mystique" },
+        "description": { "en": "Special technique using Vitality", "fr": "Technique spéciale utilisant la Vitalité" }
+      },
+      {
+        "id": "skill_theft",
+        "names": { "en": "Skill Theft", "cn": "偷学", "pinyin": "Tōu Xué", "fr": "Vol de Compétence" },
+        "description": { "en": "Learning martial arts from defeated enemies or sanctums", "fr": "Apprentissage d'arts martiaux d'ennemis vaincus ou de sanctuaires" }
+      },
+      {
+        "id": "vitality",
+        "names": { "en": "Vitality", "cn": "精力", "pinyin": "Jīng Lì", "fr": "Vitalité" },
+        "description": { "en": "Resource used for Mystic Arts", "fr": "Ressource utilisée pour les Arts Mystiques" }
+      },
+      {
+        "id": "endurance",
+        "names": { "en": "Endurance", "cn": "耐力", "pinyin": "Nài Lì", "fr": "Endurance" },
+        "description": { "en": "Stamina for attacks and dodges", "fr": "Stamina pour attaques et esquives" }
+      },
+      {
+        "id": "mental_energy",
+        "names": { "en": "Mental Energy", "cn": "精神能量", "pinyin": "Jīng Shén Néng Liàng", "fr": "Énergie Mentale" },
+        "description": { "en": "Daily resource for activities", "fr": "Ressource quotidienne pour les activités" }
+      },
+      {
+        "id": "solo_mode",
+        "names": { "en": "Solo Mode / Roaming", "cn": "独行", "pinyin": "Dú Xíng", "fr": "Mode Solo" },
+        "description": { "en": "Account progression level system", "fr": "Système de niveau de progression du compte" }
+      },
+      {
+        "id": "weiyang",
+        "names": { "en": "Weiyang", "cn": "未央", "pinyin": "Wèi Yāng", "fr": "Weiyang" },
+        "description": { "en": "Endgame activity system with rewards", "fr": "Système d'activités de fin de jeu avec récompenses" }
+      },
+      {
+        "id": "heros_realm",
+        "names": { "en": "Hero's Realm", "cn": "英雄境", "pinyin": "Yīng Xióng Jìng", "fr": "Royaume du Héros" },
+        "description": { "en": "Weekly dungeon challenge", "fr": "Défi de donjon hebdomadaire" }
+      },
+      {
+        "id": "dragon_key",
+        "names": { "en": "Dragon Key / Loong Key", "cn": "龙钥", "pinyin": "Lóng Yào", "fr": "Clé du Dragon" },
+        "description": { "en": "Key to unlock Skill Theft sanctums", "fr": "Clé pour débloquer les sanctuaires de Vol de Compétence" }
+      },
+      {
+        "id": "breakthrough",
+        "names": { "en": "Breakthrough", "cn": "突破", "pinyin": "Tū Pò", "fr": "Percée" },
+        "description": { "en": "Upgrading Inner Ways to higher tiers", "fr": "Amélioration des Voies Intérieures vers des niveaux supérieurs" }
+      },
+      {
+        "id": "tips_notes",
+        "names": { "en": "Tips / Notes", "cn": "残章", "pinyin": "Cán Zhāng", "fr": "Notes / Fragments" },
+        "description": { "en": "Materials for Inner Way breakthrough", "fr": "Matériaux pour percée de Voie Intérieure" }
+      }
+    ],
+    "status_effects": [
+      {
+        "id": "bleed",
+        "names": { "en": "Bleed / Bleeding", "cn": "流血", "pinyin": "Liú Xuè", "fr": "Saignement" },
+        "description": { "en": "DoT damage, stacks up to 5 times", "fr": "Dégâts sur la durée, cumulable jusqu'à 5 fois" },
+        "associated_path": "bellstrike_umbra"
+      },
+      {
+        "id": "weeping_blood",
+        "names": { "en": "Weeping Blood", "cn": "泣血", "pinyin": "Qì Xuè", "fr": "Sang Pleurant" },
+        "description": { "en": "Enhanced bleeding effect", "fr": "Effet de saignement amélioré" },
+        "associated_path": "bellstrike_umbra"
+      },
+      {
+        "id": "sin",
+        "names": { "en": "Sin", "cn": "罪", "pinyin": "Zuì", "fr": "Péché" },
+        "description": { "en": "Stacking debuff from Silkbind attacks", "fr": "Malus cumulable des attaques Lien de Soie" },
+        "associated_path": "silkbind"
+      },
+      {
+        "id": "karma",
+        "names": { "en": "Karma", "cn": "业", "pinyin": "Yè", "fr": "Karma" },
+        "description": { "en": "Accumulated sin effect, triggers burst damage", "fr": "Effet de péché accumulé, déclenche dégâts en rafale" },
+        "associated_path": "silkbind"
+      },
+      {
+        "id": "yi_river",
+        "names": { "en": "Yi River", "cn": "易水", "pinyin": "Yì Shuǐ", "fr": "Rivière Yi" },
+        "description": { "en": "Special stack from Morale Chant Inner Way", "fr": "Cumul spécial de la Voie Intérieure Chant du Moral" },
+        "associated_inner_way": "morale_chant"
+      },
+      {
+        "id": "poison",
+        "names": { "en": "Poison", "cn": "毒", "pinyin": "Dú", "fr": "Poison" },
+        "description": { "en": "DoT damage that ignores defense", "fr": "Dégâts sur la durée qui ignorent la défense" }
+      },
+      {
+        "id": "burn",
+        "names": { "en": "Burn", "cn": "燃烧", "pinyin": "Rán Shāo", "fr": "Brûlure" },
+        "description": { "en": "Fire DoT damage", "fr": "Dégâts de feu sur la durée" }
+      },
+      {
+        "id": "freeze",
+        "names": { "en": "Freeze", "cn": "冻结", "pinyin": "Dòng Jié", "fr": "Gel" },
+        "description": { "en": "Movement impairment and damage vulnerability", "fr": "Gêne de mouvement et vulnérabilité aux dégâts" }
+      }
+    ],
+    "stats": [
+      {
+        "id": "physical_attack",
+        "names": { "en": "Physical Attack", "cn": "物理攻击", "pinyin": "Wù Lǐ Gōng Jī", "fr": "Attaque Physique" },
+        "description": { "en": "Base damage for physical skills", "fr": "Dégâts de base pour compétences physiques" }
+      },
+      {
+        "id": "physical_penetration",
+        "names": { "en": "Physical Penetration", "cn": "物理穿透", "pinyin": "Wù Lǐ Chuān Tòu", "fr": "Pénétration Physique" },
+        "description": { "en": "Ignores portion of enemy defense", "fr": "Ignore une partie de la défense ennemie" }
+      },
+      {
+        "id": "critical_rate",
+        "names": { "en": "Critical Rate", "cn": "暴击率", "pinyin": "Bào Jī Lǜ", "fr": "Taux de Critique" },
+        "description": { "en": "Chance to deal critical damage", "fr": "Chance d'infliger des dégâts critiques" }
+      },
+      {
+        "id": "critical_damage",
+        "names": { "en": "Critical Damage", "cn": "暴击伤害", "pinyin": "Bào Jī Shāng Hài", "fr": "Dégâts Critiques" },
+        "description": { "en": "Multiplier for critical hits", "fr": "Multiplicateur pour coups critiques" }
+      },
+      {
+        "id": "defense",
+        "names": { "en": "Defense", "cn": "防御", "pinyin": "Fáng Yù", "fr": "Défense" },
+        "description": { "en": "Reduces incoming physical damage", "fr": "Réduit les dégâts physiques entrants" }
+      },
+      {
+        "id": "max_hp",
+        "names": { "en": "Max HP", "cn": "最大生命值", "pinyin": "Zuì Dà Shēng Mìng Zhí", "fr": "PV Maximum" },
+        "description": { "en": "Total health points", "fr": "Points de vie totaux" }
+      },
+      {
+        "id": "affinity_attack",
+        "names": { "en": "Affinity Attack", "cn": "亲和攻击", "pinyin": "Qīn Hé Gōng Jī", "fr": "Attaque d'Affinité" },
+        "description": { "en": "Path-specific attack bonus (Bellstrike/Silkbind/Bamboocut/Stonesplit)", "fr": "Bonus d'attaque spécifique au path" }
+      },
+      {
+        "id": "attack_speed",
+        "names": { "en": "Attack Speed", "cn": "攻击速度", "pinyin": "Gōng Jī Sù Dù", "fr": "Vitesse d'Attaque" },
+        "description": { "en": "Speed of attack animations", "fr": "Vitesse des animations d'attaque" }
+      }
+    ],
+    "historical_terms": [
+      {
+        "id": "five_dynasties",
+        "names": { "en": "Five Dynasties and Ten Kingdoms", "cn": "五代十国", "pinyin": "Wǔ Dài Shí Guó", "fr": "Cinq Dynasties et Dix Royaumes" },
+        "description": { "en": "Historical period (907-979 CE) - game setting", "fr": "Période historique (907-979 EC) - cadre du jeu" }
+      },
+      {
+        "id": "song_dynasty",
+        "names": { "en": "Song Dynasty", "cn": "宋朝", "pinyin": "Sòng Cháo", "fr": "Dynastie Song" },
+        "description": { "en": "Chinese dynasty that followed the Five Dynasties period", "fr": "Dynastie chinoise qui a suivi la période des Cinq Dynasties" }
+      },
+      {
+        "id": "liao_dynasty",
+        "names": { "en": "Liao Dynasty", "cn": "辽朝", "pinyin": "Liáo Cháo", "fr": "Dynastie Liao" },
+        "description": { "en": "Khitan empire that ruled northern China", "fr": "Empire khitan qui régnait sur le nord de la Chine" }
+      },
+      {
+        "id": "sixteen_prefectures",
+        "names": { "en": "Sixteen Prefectures", "cn": "十六州", "pinyin": "Shí Liù Zhōu", "fr": "Seize Préfectures" },
+        "description": { "en": "Strategic northern territories - key to game's conflict", "fr": "Territoires stratégiques du nord - clé du conflit du jeu" }
+      },
+      {
+        "id": "northern_vow_alliance",
+        "names": { "en": "Northern Vow Alliance", "cn": "燕北盟", "pinyin": "Yàn Běi Méng", "fr": "Alliance du Serment du Nord" },
+        "description": { "en": "Resistance faction fighting to reclaim the north", "fr": "Faction de résistance combattant pour reconquérir le nord" }
+      }
+    ]
+  }
+}

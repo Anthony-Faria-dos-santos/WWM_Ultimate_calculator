@@ -1,0 +1,258 @@
+{
+  "characters": {
+    "protagonist": {
+      "id": "protagonist",
+      "names": {
+        "en": "The Protagonist / Wanderer",
+        "cn": "主角 / 游侠",
+        "pinyin": "Zhǔ Jué / Yóu Xiá",
+        "fr": "Le Protagoniste / Vagabond"
+      },
+      "description": "Player-created character who lost their memory",
+      "voice_actors": {
+        "cn_male": "萧翟",
+        "cn_female_1": "蔡娜",
+        "cn_female_2": "张安琪"
+      },
+      "role": "Playable protagonist"
+    },
+    "main_characters": [
+      {
+        "id": "jiang_yan",
+        "names": {
+          "en": "Jiang Yan",
+          "cn": "江晏",
+          "pinyin": "Jiāng Yàn",
+          "fr": "Jiang Yan"
+        },
+        "title": {
+          "en": "Young Master",
+          "cn": "少爷",
+          "fr": "Jeune Maître"
+        },
+        "description": "Mysterious noble with hidden agenda",
+        "faction": "Well of Heaven",
+        "role": "Key story NPC"
+      },
+      {
+        "id": "ruby",
+        "names": {
+          "en": "Ruby / Zhou Hongxian",
+          "cn": "周红线",
+          "pinyin": "Zhōu Hóng Xiàn",
+          "fr": "Ruby / Zhou Hongxian"
+        },
+        "title": {
+          "en": "The Red Thread",
+          "cn": "红线",
+          "fr": "Le Fil Rouge"
+        },
+        "description": "Skilled assassin with a mysterious past",
+        "faction": "Midnight Blades",
+        "role": "Major companion"
+      },
+      {
+        "id": "han_xiangxun",
+        "names": {
+          "en": "Han Xiangxun",
+          "cn": "寒香寻",
+          "pinyin": "Hán Xiāng Xún",
+          "fr": "Han Xiangxun"
+        },
+        "title": {
+          "en": "Cold Fragrance Seeker",
+          "cn": "寻香客",
+          "fr": "Chercheur de Parfum Froid"
+        },
+        "description": "Elegant warrior seeking revenge",
+        "faction": "Flower Court",
+        "role": "Major companion"
+      },
+      {
+        "id": "yingying",
+        "names": {
+          "en": "Yingying",
+          "cn": "盈盈",
+          "pinyin": "Yíng Yíng",
+          "fr": "Yingying"
+        },
+        "title": {
+          "en": "The Graceful",
+          "cn": "盈盈姑娘",
+          "fr": "La Gracieuse"
+        },
+        "description": "Kind-hearted healer with musical talents",
+        "faction": "Flower Court",
+        "role": "Major companion"
+      },
+      {
+        "id": "shen_yuan",
+        "names": {
+          "en": "Shen Yuan",
+          "cn": "沈渊",
+          "pinyin": "Shěn Yuān",
+          "fr": "Shen Yuan"
+        },
+        "title": {
+          "en": "The Abyss",
+          "cn": "深渊",
+          "fr": "L'Abysse"
+        },
+        "description": "Stoic warrior with tragic backstory",
+        "faction": "Northern Vow",
+        "role": "Major companion"
+      },
+      {
+        "id": "xiao_man",
+        "names": {
+          "en": "Xiao Man",
+          "cn": "小蛮",
+          "pinyin": "Xiǎo Mán",
+          "fr": "Xiao Man"
+        },
+        "title": {
+          "en": "Little Barbarian",
+          "cn": "小蛮",
+          "fr": "Petit Barbare"
+        },
+        "description": "Energetic young warrior from the north",
+        "faction": "Northern Vow",
+        "role": "Companion"
+      }
+    ],
+    "faction_leaders": [
+      {
+        "id": "leader_well_of_heaven",
+        "names": {
+          "en": "Sect Leader of Well of Heaven",
+          "cn": "天泉掌门",
+          "pinyin": "Tiān Quán Zhǎng Mén",
+          "fr": "Chef de Secte du Puits du Ciel"
+        },
+        "faction": "Well of Heaven",
+        "role": "Faction leader"
+      },
+      {
+        "id": "leader_midnight_blades",
+        "names": {
+          "en": "Master of Midnight Blades",
+          "cn": "三更天主",
+          "pinyin": "Sān Gēng Tiān Zhǔ",
+          "fr": "Maître des Lames de Minuit"
+        },
+        "faction": "Midnight Blades",
+        "role": "Faction leader"
+      }
+    ],
+    "merchants": [
+      {
+        "id": "qi_sheng",
+        "names": {
+          "en": "Qi Sheng",
+          "cn": "奇生",
+          "pinyin": "Qí Shēng",
+          "fr": "Qi Sheng"
+        },
+        "title": {
+          "en": "The Oddity Collector",
+          "cn": "奇物收藏家",
+          "fr": "Le Collectionneur de Curiosités"
+        },
+        "description": "Exchanges Oddities for Vitality increases",
+        "location": "Various locations (moves around)",
+        "trades": ["Oddities", "Vitality upgrades"]
+      },
+      {
+        "id": "tang_bao",
+        "names": {
+          "en": "Tang Bao",
+          "cn": "唐宝",
+          "pinyin": "Táng Bǎo",
+          "fr": "Tang Bao"
+        },
+        "title": {
+          "en": "The Treasure Merchant",
+          "cn": "宝物商人",
+          "fr": "Le Marchand de Trésors"
+        },
+        "description": "Sells Inner Way pages for Echo Jade",
+        "location": "Major cities",
+        "trades": ["Morale Chant Pages", "Inner Way materials"],
+        "currency": "Echo Jade"
+      },
+      {
+        "id": "ni_laoshan",
+        "names": {
+          "en": "Ni Laoshan",
+          "cn": "倪老山",
+          "pinyin": "Ní Lǎo Shān",
+          "fr": "Ni Laoshan"
+        },
+        "title": {
+          "en": "The Old Book Dealer",
+          "cn": "古书商",
+          "fr": "Le Vieux Libraire"
+        },
+        "description": "Sells Unknown Old Books for Commerce Coins",
+        "location": "Ghostlight Market (Kaifeng)",
+        "trades": ["Unknown Old Books", "Sword Horizon pages"],
+        "currency": "Commerce Coins",
+        "notes": "~375,000 coins total for 30 books"
+      }
+    ],
+    "bosses": [
+      {
+        "id": "void_king",
+        "names": {
+          "en": "Void King",
+          "cn": "虚空王",
+          "pinyin": "Xū Kōng Wáng",
+          "fr": "Roi du Vide"
+        },
+        "description": "Final boss of Gleaming Abyss dungeon",
+        "location": "Gleaming Abyss",
+        "difficulty": "Very Hard",
+        "drops": ["Bitter Seasons: Tome", "Legendary equipment"]
+      },
+      {
+        "id": "ye_wanshan",
+        "names": {
+          "en": "Ye Wanshan",
+          "cn": "叶万山",
+          "pinyin": "Yè Wàn Shān",
+          "fr": "Ye Wanshan"
+        },
+        "description": "Powerful martial artist boss",
+        "location": "Story dungeon",
+        "difficulty": "Hard",
+        "drops": ["Epic Inner Ways", "Weapon materials"]
+      },
+      {
+        "id": "zheng_frostwing",
+        "names": {
+          "en": "Zheng Frostwing",
+          "cn": "郑霜翼",
+          "pinyin": "Zhèng Shuāng Yì",
+          "fr": "Zheng Aile de Givre"
+        },
+        "description": "Ice-element boss with freezing attacks",
+        "location": "Northern regions",
+        "difficulty": "Hard",
+        "drops": ["Ice-element equipment", "Rare materials"]
+      },
+      {
+        "id": "crimson_demon",
+        "names": {
+          "en": "Crimson Demon",
+          "cn": "赤魔",
+          "pinyin": "Chì Mó",
+          "fr": "Démon Écarlate"
+        },
+        "description": "Fire-element world boss",
+        "location": "Volcanic area",
+        "difficulty": "Very Hard",
+        "drops": ["Fire-element equipment", "Legendary materials"]
+      }
+    ]
+  }
+}

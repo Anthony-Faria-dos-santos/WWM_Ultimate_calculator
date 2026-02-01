@@ -1,0 +1,299 @@
+{
+  "sects": [
+    {
+      "id": "well_of_heaven",
+      "names": {
+        "en": "Well of Heaven",
+        "cn": "天泉",
+        "pinyin": "Tiān Quán",
+        "fr": "Puits du Ciel"
+      },
+      "philosophy": {
+        "en": "Heroic Righteousness",
+        "cn": "侠义",
+        "pinyin": "Xiá Yì",
+        "fr": "Droiture Héroïque"
+      },
+      "associated_martial_arts": ["strategic_sword", "heavenquaker_spear"],
+      "rules": [
+        { "en": "Never harm innocents", "cn": "不伤无辜", "fr": "Ne jamais blesser les innocents" },
+        { "en": "Help those in need", "cn": "扶危济困", "fr": "Aider ceux dans le besoin" },
+        { "en": "Uphold justice", "cn": "主持正义", "fr": "Défendre la justice" },
+        { "en": "Complete Adventure Slips", "cn": "完成冒险票", "fr": "Compléter les billets d'aventure" }
+      ],
+      "playstyle": "Bleed DPS focused",
+      "unlock_requirements": "Adventure Slip collection",
+      "location": "Qinghe region"
+    },
+    {
+      "id": "midnight_blades",
+      "names": {
+        "en": "Midnight Blades",
+        "cn": "三更天",
+        "pinyin": "Sān Gēng Tiān",
+        "fr": "Lames de Minuit"
+      },
+      "philosophy": {
+        "en": "Midnight Judgement",
+        "cn": "子夜裁决",
+        "pinyin": "Zǐ Yè Cái Jué",
+        "fr": "Jugement de Minuit"
+      },
+      "associated_martial_arts": ["soulshade_umbrella"],
+      "rules": [
+        { "en": "Work only in shadows", "cn": "只在暗处行动", "fr": "Agir uniquement dans l'ombre" },
+        { "en": "Leave no witnesses", "cn": "不留活口", "fr": "Ne laisser aucun témoin" },
+        { "en": "Complete contracts", "cn": "完成契约", "fr": "Accomplir les contrats" },
+        { "en": "Loyalty to the sect", "cn": "忠于门派", "fr": "Loyauté envers la secte" }
+      ],
+      "playstyle": "Assassination and stealth",
+      "unlock_requirements": "Stealth mission completion",
+      "location": "Kaifeng underground"
+    },
+    {
+      "id": "nine_mortal_ways",
+      "names": {
+        "en": "Nine Mortal Ways",
+        "cn": "九凡道",
+        "pinyin": "Jiǔ Fán Dào",
+        "fr": "Neuf Voies Mortelles"
+      },
+      "philosophy": {
+        "en": "Jianghu Fun / Freedom",
+        "cn": "江湖乐",
+        "pinyin": "Jiāng Hú Lè",
+        "fr": "Plaisir du Jianghu"
+      },
+      "associated_martial_arts": ["mortal_rope_dart", "infernal_twinblades"],
+      "rules": [
+        { "en": "Enjoy life to the fullest", "cn": "尽享人生", "fr": "Profiter pleinement de la vie" },
+        { "en": "Never betray a friend", "cn": "不背叛朋友", "fr": "Ne jamais trahir un ami" },
+        { "en": "Fight with style", "cn": "战斗有风格", "fr": "Combattre avec style" },
+        { "en": "Share wine freely", "cn": "分享美酒", "fr": "Partager le vin librement" }
+      ],
+      "playstyle": "Combo and mobility focused",
+      "unlock_requirements": "Social activities and reputation",
+      "location": "Various taverns"
+    },
+    {
+      "id": "suspended_sword",
+      "names": {
+        "en": "Suspended Sword",
+        "cn": "悬剑",
+        "pinyin": "Xuán Jiàn",
+        "fr": "Épée Suspendue"
+      },
+      "philosophy": {
+        "en": "Balance of Power",
+        "cn": "权力平衡",
+        "pinyin": "Quán Lì Píng Héng",
+        "fr": "Équilibre des Pouvoirs"
+      },
+      "associated_martial_arts": ["nameless_sword", "strategic_sword"],
+      "rules": [
+        { "en": "Maintain political neutrality", "cn": "保持政治中立", "fr": "Maintenir la neutralité politique" },
+        { "en": "Honor all agreements", "cn": "遵守所有协议", "fr": "Honorer tous les accords" },
+        { "en": "Protect the weak", "cn": "保护弱者", "fr": "Protéger les faibles" },
+        { "en": "Seek knowledge", "cn": "追求知识", "fr": "Rechercher la connaissance" }
+      ],
+      "playstyle": "Balanced swordsmanship",
+      "unlock_requirements": "Story progression",
+      "location": "Central regions"
+    },
+    {
+      "id": "flower_court",
+      "names": {
+        "en": "Flower Court",
+        "cn": "花阁",
+        "pinyin": "Huā Gé",
+        "fr": "Cour des Fleurs"
+      },
+      "philosophy": {
+        "en": "Beauty and Grace",
+        "cn": "美丽与优雅",
+        "pinyin": "Měi Lì Yǔ Yōu Yǎ",
+        "fr": "Beauté et Grâce"
+      },
+      "associated_martial_arts": ["panacea_fan", "inkwell_fan"],
+      "rules": [
+        { "en": "Maintain elegance", "cn": "保持优雅", "fr": "Maintenir l'élégance" },
+        { "en": "Use charm before force", "cn": "魅力优先", "fr": "Utiliser le charme avant la force" },
+        { "en": "Gather information", "cn": "收集情报", "fr": "Rassembler des informations" },
+        { "en": "Protect sect sisters", "cn": "保护门派姐妹", "fr": "Protéger les sœurs de la secte" }
+      ],
+      "playstyle": "Support and aerial combat",
+      "unlock_requirements": "Social reputation",
+      "location": "Kaifeng entertainment district"
+    },
+    {
+      "id": "divine_constabulary",
+      "names": {
+        "en": "Divine Constabulary",
+        "cn": "神侯府",
+        "pinyin": "Shén Hóu Fǔ",
+        "fr": "Constabulaire Divine"
+      },
+      "philosophy": {
+        "en": "Imperial Justice",
+        "cn": "皇家正义",
+        "pinyin": "Huáng Jiā Zhèng Yì",
+        "fr": "Justice Impériale"
+      },
+      "associated_martial_arts": ["thundercry_blade", "stormbreaker_spear"],
+      "rules": [
+        { "en": "Uphold imperial law", "cn": "维护皇法", "fr": "Défendre la loi impériale" },
+        { "en": "Investigate crimes", "cn": "调查罪行", "fr": "Enquêter sur les crimes" },
+        { "en": "Capture criminals alive", "cn": "活捉罪犯", "fr": "Capturer les criminels vivants" },
+        { "en": "Report to superiors", "cn": "向上级报告", "fr": "Rapporter aux supérieurs" }
+      ],
+      "playstyle": "Tank and crowd control",
+      "unlock_requirements": "Law enforcement quests",
+      "location": "Kaifeng capital"
+    },
+    {
+      "id": "iron_guards",
+      "names": {
+        "en": "Iron Guards",
+        "cn": "铁卫",
+        "pinyin": "Tiě Wèi",
+        "fr": "Gardes de Fer"
+      },
+      "philosophy": {
+        "en": "Unwavering Duty",
+        "cn": "坚定职责",
+        "pinyin": "Jiān Dìng Zhí Zé",
+        "fr": "Devoir Inébranlable"
+      },
+      "associated_martial_arts": ["thundercry_blade"],
+      "rules": [
+        { "en": "Protect the client", "cn": "保护客户", "fr": "Protéger le client" },
+        { "en": "Never abandon post", "cn": "永不弃岗", "fr": "Ne jamais abandonner son poste" },
+        { "en": "Train daily", "cn": "每日训练", "fr": "S'entraîner quotidiennement" },
+        { "en": "Honor contracts", "cn": "尊重契约", "fr": "Honorer les contrats" }
+      ],
+      "playstyle": "Defense and protection",
+      "unlock_requirements": "Escort missions",
+      "location": "Trade routes"
+    },
+    {
+      "id": "beggars_sect",
+      "names": {
+        "en": "Beggar's Sect",
+        "cn": "丐帮",
+        "pinyin": "Gài Bāng",
+        "fr": "Secte des Mendiants"
+      },
+      "philosophy": {
+        "en": "Brotherhood of the Streets",
+        "cn": "街头兄弟会",
+        "pinyin": "Jiē Tóu Xiōng Dì Huì",
+        "fr": "Fraternité des Rues"
+      },
+      "associated_martial_arts": ["nameless_spear"],
+      "rules": [
+        { "en": "Share with the poor", "cn": "与穷人分享", "fr": "Partager avec les pauvres" },
+        { "en": "Gather intelligence", "cn": "收集情报", "fr": "Rassembler des renseignements" },
+        { "en": "Help fellow beggars", "cn": "帮助乞丐同伴", "fr": "Aider les mendiants" },
+        { "en": "Oppose tyranny", "cn": "反对暴政", "fr": "S'opposer à la tyrannie" }
+      ],
+      "playstyle": "Information network and versatile combat",
+      "unlock_requirements": "Reputation with common folk",
+      "location": "City slums"
+    },
+    {
+      "id": "shaolin",
+      "names": {
+        "en": "Shaolin Temple",
+        "cn": "少林寺",
+        "pinyin": "Shào Lín Sì",
+        "fr": "Temple Shaolin"
+      },
+      "philosophy": {
+        "en": "Buddhist Enlightenment",
+        "cn": "佛教开悟",
+        "pinyin": "Fó Jiào Kāi Wù",
+        "fr": "Éveil Bouddhiste"
+      },
+      "associated_martial_arts": ["nameless_sword", "nameless_spear"],
+      "rules": [
+        { "en": "No killing without necessity", "cn": "非必要不杀生", "fr": "Ne pas tuer sans nécessité" },
+        { "en": "Practice meditation", "cn": "修行冥想", "fr": "Pratiquer la méditation" },
+        { "en": "Vegetarian diet", "cn": "素食", "fr": "Régime végétarien" },
+        { "en": "Help all sentient beings", "cn": "帮助众生", "fr": "Aider tous les êtres sensibles" }
+      ],
+      "playstyle": "Balanced and defensive",
+      "unlock_requirements": "Temple pilgrimage",
+      "location": "Mountain monastery"
+    },
+    {
+      "id": "wudang",
+      "names": {
+        "en": "Wudang Sect",
+        "cn": "武当派",
+        "pinyin": "Wǔ Dāng Pài",
+        "fr": "Secte Wudang"
+      },
+      "philosophy": {
+        "en": "Taoist Harmony",
+        "cn": "道教和谐",
+        "pinyin": "Dào Jiào Hé Xié",
+        "fr": "Harmonie Taoïste"
+      },
+      "associated_martial_arts": ["strategic_sword"],
+      "rules": [
+        { "en": "Follow the Tao", "cn": "遵循道", "fr": "Suivre le Tao" },
+        { "en": "Balance yin and yang", "cn": "平衡阴阳", "fr": "Équilibrer le yin et le yang" },
+        { "en": "Practice internal arts", "cn": "修炼内功", "fr": "Pratiquer les arts internes" },
+        { "en": "Seek immortality", "cn": "追求长生", "fr": "Rechercher l'immortalité" }
+      ],
+      "playstyle": "Technical swordsmanship",
+      "unlock_requirements": "Wisdom trials",
+      "location": "Wudang Mountains"
+    },
+    {
+      "id": "northern_vow",
+      "names": {
+        "en": "Northern Vow",
+        "cn": "燕北盟",
+        "pinyin": "Yàn Běi Méng",
+        "fr": "Serment du Nord"
+      },
+      "philosophy": {
+        "en": "Resistance and Freedom",
+        "cn": "抵抗与自由",
+        "pinyin": "Dǐ Kàng Yǔ Zì Yóu",
+        "fr": "Résistance et Liberté"
+      },
+      "associated_martial_arts": ["heavenquaker_spear", "infernal_twinblades"],
+      "rules": [
+        { "en": "Fight the oppressors", "cn": "对抗压迫者", "fr": "Combattre les oppresseurs" },
+        { "en": "Protect the homeland", "cn": "保护家园", "fr": "Protéger la patrie" },
+        { "en": "Never surrender", "cn": "永不投降", "fr": "Ne jamais se rendre" },
+        { "en": "Honor fallen comrades", "cn": "缅怀阵亡战友", "fr": "Honorer les camarades tombés" }
+      ],
+      "playstyle": "Aggressive combat",
+      "unlock_requirements": "Story progression (main faction)",
+      "location": "Yanbei region"
+    },
+    {
+      "id": "sectless",
+      "names": {
+        "en": "Sectless / Wanderer",
+        "cn": "无门派 / 游侠",
+        "pinyin": "Wú Mén Pài / Yóu Xiá",
+        "fr": "Sans Secte / Vagabond"
+      },
+      "philosophy": {
+        "en": "Personal Freedom",
+        "cn": "个人自由",
+        "pinyin": "Gè Rén Zì Yóu",
+        "fr": "Liberté Personnelle"
+      },
+      "associated_martial_arts": ["all"],
+      "rules": [],
+      "playstyle": "Flexible - can learn from all sects",
+      "unlock_requirements": "Default state",
+      "location": "Anywhere"
+    }
+  ]
+}

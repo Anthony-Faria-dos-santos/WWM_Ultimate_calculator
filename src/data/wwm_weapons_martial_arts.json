@@ -1,0 +1,2019 @@
+{
+  "metadata": {
+    "version": "3.0.0",
+    "total_weapons": 14,
+    "last_updated": "2026-01-29",
+    "sources": [
+      "Boarhat.gg",
+      "Game8",
+      "Fextralife Wiki",
+      "MetaBattle",
+      "GameKee"
+    ],
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "paths": [
+      "Bellstrike - Splendor",
+      "Bellstrike - Umbra",
+      "Silkbind - Deluge",
+      "Silkbind - Jade",
+      "Bamboocut - Wind",
+      "Stonesplit - Might"
+    ]
+  },
+  "martial_arts": [
+    {
+      "id": "nameless_sword",
+      "names": {
+        "en": "Nameless Sword",
+        "cn": "无名剑法",
+        "pinyin": "Wúmíng Jiànfǎ",
+        "fr": "Épée Sans Nom"
+      },
+      "weapon_type": "sword",
+      "path": "bellstrike",
+      "variant": "splendor",
+      "full_path": {
+        "en": "Bellstrike - Splendor",
+        "fr": "Frappe de Cloche - Splendeur"
+      },
+      "role": {
+        "en": "Single-target DPS / Mobility",
+        "fr": "DPS mono-cible / Mobilité"
+      },
+      "description": {
+        "en": "A balanced sword style focusing on precise strikes and endurance management. High mobility and single-target control; excels at kiting enemies. Combine strong endurance with charged skills to unleash burst damage.",
+        "fr": "Un style d'épée équilibré axé sur les frappes précises et la gestion de l'endurance. Haute mobilité et contrôle mono-cible ; excelle à kiter les ennemis. Combine une forte endurance avec des compétences chargées pour libérer des dégâts en rafale."
+      },
+      "unlock_method": {
+        "en": "Default starting weapon",
+        "fr": "Arme de départ par défaut"
+      },
+      "special_resource": null,
+      "skills": {
+        "light_attack": {
+          "id": "nameless_sword_light",
+          "names": {
+            "en": "Sword - Light Combo",
+            "cn": "剑·轻攻击",
+            "pinyin": "Jiàn · Qīng Gōngjī",
+            "fr": "Épée - Combo Léger"
+          },
+          "description": {
+            "en": "Perform up to four light attacks with a Longsword.",
+            "fr": "Effectue jusqu'à quatre attaques légères avec une épée longue."
+          },
+          "hits": 4,
+          "endurance_cost": 0
+        },
+        "heavy_attack": {
+          "id": "nameless_sword_heavy",
+          "names": {
+            "en": "Sword - Heavy Combo",
+            "cn": "剑·重攻击",
+            "pinyin": "Jiàn · Zhòng Gōngjī",
+            "fr": "Épée - Combo Lourd"
+          },
+          "description": {
+            "en": "Perform up to three heavy attacks with a Longsword.",
+            "fr": "Effectue jusqu'à trois attaques lourdes avec une épée longue."
+          },
+          "hits": 3,
+          "endurance_cost": 0
+        },
+        "charged_skill": {
+          "id": "vagrant_sword",
+          "names": {
+            "en": "Vagrant Sword",
+            "cn": "流浪剑气",
+            "pinyin": "Liúlàng Jiànqì",
+            "fr": "Épée Vagabonde"
+          },
+          "description": {
+            "en": "Consume Endurance to charge up and unleash Sword Qi forward. Sword Qi damage decreases by 20% with each hit, to a minimum of 50%. Charge level increases over time, boosting damage and range. With Sword Morph Inner Way and Qi Shield active, unleashes multiple sword energy waves.",
+            "fr": "Consomme de l'Endurance pour charger et libérer du Qi d'épée vers l'avant. Les dégâts du Qi d'épée diminuent de 20% à chaque touche, jusqu'à un minimum de 50%. Le niveau de charge augmente avec le temps, amplifiant les dégâts et la portée. Avec la Voie Intérieure Métamorphose de l'Épée et un Bouclier de Qi actif, libère plusieurs vagues d'énergie d'épée."
+          },
+          "endurance_cost": "variable",
+          "charge_levels": 3,
+          "special_effect": {
+            "en": "With Qi Shield + Sword Morph: releases up to 3 sword waves",
+            "fr": "Avec Bouclier de Qi + Métamorphose de l'Épée : libère jusqu'à 3 vagues d'épée"
+          }
+        },
+        "martial_skill": {
+          "id": "daunting_strike",
+          "names": {
+            "en": "Daunting Strike",
+            "cn": "惊鸿斩",
+            "pinyin": "Jīnghóng Zhǎn",
+            "fr": "Frappe Intimidante"
+          },
+          "description": {
+            "en": "Throw the flying sword to deal light damage to the enemy hit, then dash forward to follow the sword. During the follow-through, press again to unleash up to two strikes of Relentless Chase, each dealing increased damage. After the second strike, gain a Qi Shield that lasts 3 seconds.",
+            "fr": "Lance l'épée volante pour infliger des dégâts légers à l'ennemi touché, puis fonce vers l'avant pour suivre l'épée. Pendant le suivi, appuyez à nouveau pour déclencher jusqu'à deux frappes de Poursuite Implacable, chacune infligeant des dégâts accrus. Après la deuxième frappe, obtient un Bouclier de Qi qui dure 3 secondes."
+          },
+          "cooldown": 0,
+          "endurance_cost": 15,
+          "follow_ups": 2,
+          "grants": {
+            "en": "Qi Shield (3s) after 2nd strike",
+            "fr": "Bouclier de Qi (3s) après la 2ème frappe"
+          }
+        },
+        "special_skill": {
+          "id": "shadow_step",
+          "names": {
+            "en": "Shadow Step",
+            "cn": "影步",
+            "pinyin": "Yǐng Bù",
+            "fr": "Pas de l'Ombre"
+          },
+          "description": {
+            "en": "Consume Endurance to dodge backward and unleash several waves of sword energy that bounce between nearby enemies. The damage of the sword energy decreases by 20% with each bounce, down to a minimum of 50% of its original damage. Within 3s, press again to follow up with Sword - Dash.",
+            "fr": "Consomme de l'Endurance pour esquiver vers l'arrière et libérer plusieurs vagues d'énergie d'épée qui rebondissent entre les ennemis proches. Les dégâts de l'énergie d'épée diminuent de 20% à chaque rebond, jusqu'à un minimum de 50% des dégâts originaux. Dans les 3s, appuyez à nouveau pour enchaîner avec Épée - Dash."
+          },
+          "cooldown": 0,
+          "endurance_cost": 20,
+          "follow_up_window": 3,
+          "follow_up_skill": {
+            "en": "Sword - Dash",
+            "fr": "Épée - Dash"
+          }
+        },
+        "conversion_skill": {
+          "id": "sword_conversion",
+          "names": {
+            "en": "Sword - Conversion",
+            "cn": "剑·转换",
+            "pinyin": "Jiàn · Zhuǎnhuàn",
+            "fr": "Épée - Conversion"
+          },
+          "description": {
+            "en": "Switch to a Sword and slash.",
+            "fr": "Passe à l'épée et tranche."
+          }
+        }
+      },
+      "associated_inner_ways": [
+        "sword_morph",
+        "battle_anthem",
+        "wildfire_spark",
+        "mountains_might"
+      ],
+      "recommended_pairs": [
+        "nameless_spear",
+        "strategic_sword",
+        "soulshade_umbrella"
+      ],
+      "strengths": {
+        "en": [
+          "High mobility",
+          "Strong ranged damage with Vagrant Sword",
+          "Good gap closer",
+          "Qi Shield generation"
+        ],
+        "fr": [
+          "Haute mobilité",
+          "Forts dégâts à distance avec Épée Vagabonde",
+          "Bon rapprochement",
+          "Génération de Bouclier de Qi"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "High endurance consumption",
+          "Requires Sword Morph for full potential",
+          "Lower sustained DPS than Strategic Sword"
+        ],
+        "fr": [
+          "Haute consommation d'endurance",
+          "Nécessite Métamorphose de l'Épée pour le plein potentiel",
+          "DPS soutenu inférieur à l'Épée Stratégique"
+        ]
+      }
+    },
+    {
+      "id": "nameless_spear",
+      "names": {
+        "en": "Nameless Spear",
+        "cn": "无名枪法",
+        "pinyin": "Wúmíng Qiāngfǎ",
+        "fr": "Lance Sans Nom"
+      },
+      "weapon_type": "spear",
+      "path": "bellstrike",
+      "variant": "splendor",
+      "full_path": {
+        "en": "Bellstrike - Splendor",
+        "fr": "Frappe de Cloche - Splendeur"
+      },
+      "role": {
+        "en": "AoE DPS / Crowd Control",
+        "fr": "DPS de zone / Contrôle de foule"
+      },
+      "description": {
+        "en": "A versatile spear style effective against groups and individuals. Features heavy and committed combos with utility skills for charged hits and high DPS. Excels at crowd control with Qiankun's Lock.",
+        "fr": "Un style de lance polyvalent efficace contre les groupes et les individus. Propose des combos lourds et engagés avec des compétences utilitaires pour les coups chargés et un DPS élevé. Excelle au contrôle de foule avec le Verrou Qiankun."
+      },
+      "unlock_method": {
+        "en": "Default starting weapon",
+        "fr": "Arme de départ par défaut"
+      },
+      "special_resource": null,
+      "skills": {
+        "light_attack": {
+          "id": "nameless_spear_light",
+          "names": {
+            "en": "Spear - Light Combo",
+            "cn": "枪·轻攻击",
+            "pinyin": "Qiāng · Qīng Gōngjī",
+            "fr": "Lance - Combo Léger"
+          },
+          "description": {
+            "en": "Perform up to four light attacks with a Spear. Good reach and decent damage.",
+            "fr": "Effectue jusqu'à quatre attaques légères avec une lance. Bonne portée et dégâts corrects."
+          },
+          "hits": 4,
+          "endurance_cost": 0
+        },
+        "heavy_attack": {
+          "id": "nameless_spear_heavy",
+          "names": {
+            "en": "Spear - Heavy Combo",
+            "cn": "枪·重攻击",
+            "pinyin": "Qiāng · Zhòng Gōngjī",
+            "fr": "Lance - Combo Lourd"
+          },
+          "description": {
+            "en": "Perform up to three heavy attacks with a Spear. Higher stagger and Qi damage.",
+            "fr": "Effectue jusqu'à trois attaques lourdes avec une lance. Plus de chancellement et dégâts de Qi."
+          },
+          "hits": 3,
+          "endurance_cost": 0
+        },
+        "charged_skill": {
+          "id": "storm_dance",
+          "names": {
+            "en": "Storm Dance",
+            "cn": "风暴舞",
+            "pinyin": "Fēngbào Wǔ",
+            "fr": "Danse de la Tempête"
+          },
+          "description": {
+            "en": "Consume Endurance to charge up and unleash a spinning spear attack dealing massive damage. High damage move but requires a stationary target to be effective. Best used after immobilizing enemies.",
+            "fr": "Consomme de l'Endurance pour charger et déclencher une attaque de lance tournoyante infligeant des dégâts massifs. Mouvement à haut dégât mais nécessite une cible stationnaire pour être efficace. Mieux utilisé après avoir immobilisé les ennemis."
+          },
+          "endurance_cost": "variable",
+          "charge_levels": 3,
+          "aoe": true
+        },
+        "martial_skill": {
+          "id": "qiankuns_lock",
+          "names": {
+            "en": "Qiankun's Lock",
+            "cn": "乾坤锁",
+            "pinyin": "Qiánkūn Suǒ",
+            "fr": "Verrou Qiankun"
+          },
+          "description": {
+            "en": "Thrust the spear forward to immobilize the target. Grants Endless Gale effect, increasing Endurance cost reduction to 20% for 5 seconds. Essential for setting up Storm Dance combos.",
+            "fr": "Projette la lance vers l'avant pour immobiliser la cible. Accorde l'effet Rafale Sans Fin, augmentant la réduction du coût d'Endurance à 20% pendant 5 secondes. Essentiel pour préparer les combos Danse de la Tempête."
+          },
+          "cooldown": 8,
+          "endurance_cost": 15,
+          "cc_type": "immobilize",
+          "buff": {
+            "en": "Endless Gale: 20% Endurance cost reduction for 5s",
+            "fr": "Rafale Sans Fin : 20% de réduction du coût d'Endurance pendant 5s"
+          }
+        },
+        "special_skill": {
+          "id": "spear_sweep",
+          "names": {
+            "en": "Spear Sweep",
+            "cn": "横扫千军",
+            "pinyin": "Héngsǎo Qiānjūn",
+            "fr": "Balayage de Lance"
+          },
+          "description": {
+            "en": "Perform a wide sweeping attack with the spear, hitting all enemies in a cone in front of you.",
+            "fr": "Effectue une attaque de balayage large avec la lance, touchant tous les ennemis dans un cône devant vous."
+          },
+          "cooldown": 0,
+          "endurance_cost": 20,
+          "aoe": true
+        }
+      },
+      "associated_inner_ways": [
+        "mountains_might",
+        "battle_anthem",
+        "sword_morph",
+        "wildfire_spark"
+      ],
+      "recommended_pairs": [
+        "nameless_sword",
+        "strategic_sword"
+      ],
+      "strengths": {
+        "en": [
+          "Strong crowd control",
+          "High burst damage with Storm Dance",
+          "Good reach",
+          "Synergizes well with Nameless Sword"
+        ],
+        "fr": [
+          "Fort contrôle de foule",
+          "Hauts dégâts en rafale avec Danse de la Tempête",
+          "Bonne portée",
+          "Bonne synergie avec Épée Sans Nom"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Committed combos",
+          "Requires setup for maximum damage",
+          "Lower mobility than swords"
+        ],
+        "fr": [
+          "Combos engagés",
+          "Nécessite une préparation pour des dégâts maximum",
+          "Mobilité inférieure aux épées"
+        ]
+      }
+    },
+    {
+      "id": "strategic_sword",
+      "names": {
+        "en": "Strategic Sword",
+        "cn": "积矩九剑",
+        "pinyin": "Jī Jǔ Jiǔ Jiàn",
+        "fr": "Épée Stratégique"
+      },
+      "weapon_type": "sword",
+      "path": "bellstrike",
+      "variant": "umbra",
+      "full_path": {
+        "en": "Bellstrike - Umbra",
+        "fr": "Frappe de Cloche - Ombre"
+      },
+      "role": {
+        "en": "Bleed DPS / DoT Specialist",
+        "fr": "DPS Saignement / Spécialiste DoT"
+      },
+      "description": {
+        "en": "A precise bleed-oriented melee DPS style built around controlled burst windows and relentless mobility. Strategic Sword excels at stacking Bleed rapidly, then detonating those stacks with powerful follow-up skills for explosive damage.",
+        "fr": "Un style DPS mêlée précis orienté saignement, construit autour de fenêtres de burst contrôlées et d'une mobilité implacable. L'Épée Stratégique excelle à empiler rapidement le Saignement, puis à faire exploser ces charges avec de puissantes compétences de suivi pour des dégâts explosifs."
+      },
+      "unlock_method": {
+        "en": "Skill Theft: Strategic Sword Sanctum in Qinghe Region",
+        "fr": "Vol de Compétence : Sanctuaire de l'Épée Stratégique dans la Région de Qinghe"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Bleed",
+          "cn": "流血",
+          "fr": "Saignement"
+        },
+        "description": {
+          "en": "Deals continuous HP damage over time, stacking up to 5 layers. At 5 stacks, can be consumed for massive bonus damage.",
+          "fr": "Inflige des dégâts de PV continus sur la durée, cumulable jusqu'à 5 couches. À 5 charges, peut être consommé pour des dégâts bonus massifs."
+        },
+        "max_stacks": 5
+      },
+      "skills": {
+        "light_attack": {
+          "id": "strategic_sword_light",
+          "names": {
+            "en": "Sword - Light Combo",
+            "cn": "剑·轻攻击",
+            "pinyin": "Jiàn · Qīng Gōngjī",
+            "fr": "Épée - Combo Léger"
+          },
+          "description": {
+            "en": "Perform up to four light attacks with a Longsword. Fast strikes for building combos.",
+            "fr": "Effectue jusqu'à quatre attaques légères avec une épée longue. Frappes rapides pour construire des combos."
+          },
+          "hits": 4,
+          "endurance_cost": 0
+        },
+        "heavy_attack": {
+          "id": "strategic_sword_heavy",
+          "names": {
+            "en": "Sword - Heavy Combo",
+            "cn": "剑·重攻击",
+            "pinyin": "Jiàn · Zhòng Gōngjī",
+            "fr": "Épée - Combo Lourd"
+          },
+          "description": {
+            "en": "Perform up to three heavy attacks with a Longsword.",
+            "fr": "Effectue jusqu'à trois attaques lourdes avec une épée longue."
+          },
+          "hits": 3,
+          "endurance_cost": 0
+        },
+        "charged_skill": {
+          "id": "second_track_slash",
+          "names": {
+            "en": "Second Track Slash",
+            "cn": "二轨斩",
+            "pinyin": "Èr Guǐ Zhǎn",
+            "fr": "Entaille Seconde Voie"
+          },
+          "description": {
+            "en": "Consume Endurance to charge up and dash forward rapidly, dealing massive damage to enemies along the path and inflicting Bleed with each hit. During the dash, you become untargetable and immune to damage. Applies 4-5 Bleed stacks.",
+            "fr": "Consomme de l'Endurance pour charger et foncer rapidement vers l'avant, infligeant des dégâts massifs aux ennemis sur le chemin et appliquant Saignement à chaque coup. Pendant le dash, vous devenez inciblable et immunisé aux dégâts. Applique 4-5 charges de Saignement."
+          },
+          "endurance_cost": "variable",
+          "charge_levels": 3,
+          "bleed_stacks": "4-5",
+          "special_effect": {
+            "en": "Untargetable and immune to damage during dash",
+            "fr": "Inciblable et immunisé aux dégâts pendant le dash"
+          }
+        },
+        "martial_skill": {
+          "id": "inner_track_slash",
+          "names": {
+            "en": "Inner Track Slash",
+            "cn": "内轨斩",
+            "pinyin": "Nèi Guǐ Zhǎn",
+            "fr": "Entaille Voie Intérieure"
+          },
+          "description": {
+            "en": "Dash to an enemy and unleash a quick slash, dealing damage and applying Bleed. During the follow-through, press again within 2s to unleash four consecutive slashes against enemies in front, applying Bleed with each hit.",
+            "fr": "Fonce vers un ennemi et déclenche une entaille rapide, infligeant des dégâts et appliquant Saignement. Pendant le suivi, appuyez à nouveau dans les 2s pour déclencher quatre entailles consécutives contre les ennemis devant, appliquant Saignement à chaque coup."
+          },
+          "cooldown": 0,
+          "endurance_cost": 15,
+          "follow_up_window": 2,
+          "follow_up_hits": 4,
+          "applies_bleed": true
+        },
+        "special_skill": {
+          "id": "inner_balance_strike",
+          "names": {
+            "en": "Inner Balance Strike III",
+            "cn": "内衡一击",
+            "pinyin": "Nèi Héng Yī Jī",
+            "fr": "Frappe d'Équilibre Intérieur III"
+          },
+          "description": {
+            "en": "Consume Endurance to dodge backward and unleash a flurry of attacks against enemies in front, inflicting Bleed. If an enemy is already affected by 5 stacks of Bleed, this attack deals massive bonus damage and clears all Bleed stacks from them.",
+            "fr": "Consomme de l'Endurance pour esquiver vers l'arrière et déclencher une rafale d'attaques contre les ennemis devant, infligeant Saignement. Si un ennemi a déjà 5 charges de Saignement, cette attaque inflige des dégâts bonus massifs et retire toutes les charges de Saignement."
+          },
+          "cooldown": 0,
+          "endurance_cost": 20,
+          "bleed_consumption": {
+            "en": "Consumes 5 Bleed stacks for massive bonus damage",
+            "fr": "Consomme 5 charges de Saignement pour des dégâts bonus massifs"
+          }
+        },
+        "perception_skill": {
+          "id": "crisscrossing_sword",
+          "names": {
+            "en": "Crisscrossing Sword",
+            "cn": "纵横剑",
+            "pinyin": "Zònghéng Jiàn",
+            "fr": "Épée Entrecroisée"
+          },
+          "description": {
+            "en": "After casting Strategic Sword's Martial Arts Skill, Special Skill, or Charged Skill, press the skill button at perfect timing during the ending phase to cast Crisscrossing Sword and unleash follow-up attacks. If the target has 5 stacks of Bleed, remove all Bleed stacks and deal high Bleed damage once. Requires Sword Horizon Inner Way.",
+            "fr": "Après avoir lancé la Compétence d'Art Martial, Spéciale ou Chargée de l'Épée Stratégique, appuyez sur le bouton de compétence au timing parfait pendant la phase finale pour lancer Épée Entrecroisée et déclencher des attaques de suivi. Si la cible a 5 charges de Saignement, retire toutes les charges et inflige de hauts dégâts de Saignement une fois. Nécessite la Voie Intérieure Horizon de l'Épée."
+          },
+          "requires_inner_way": "sword_horizon",
+          "bleed_consumption": true
+        }
+      },
+      "associated_inner_ways": [
+        "sword_horizon",
+        "adaptive_steel",
+        "insightful_strike",
+        "wolfchasers_art"
+      ],
+      "recommended_pairs": [
+        "heavenquaker_spear",
+        "nameless_sword",
+        "nameless_spear"
+      ],
+      "strengths": {
+        "en": [
+          "High sustained DPS",
+          "Excellent bleed damage",
+          "Good mobility",
+          "Lower endurance consumption than Nameless Sword",
+          "Easy combos"
+        ],
+        "fr": [
+          "Haut DPS soutenu",
+          "Excellents dégâts de saignement",
+          "Bonne mobilité",
+          "Consommation d'endurance plus faible que l'Épée Sans Nom",
+          "Combos faciles"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Requires building Bleed stacks",
+          "Needs Sword Horizon for full potential",
+          "Weaker ranged options"
+        ],
+        "fr": [
+          "Nécessite de construire des charges de Saignement",
+          "Nécessite Horizon de l'Épée pour le plein potentiel",
+          "Options à distance plus faibles"
+        ]
+      }
+    },
+    {
+      "id": "heavenquaker_spear",
+      "names": {
+        "en": "Heavenquaker Spear",
+        "cn": "震天枪",
+        "pinyin": "Zhèn Tiān Qiāng",
+        "fr": "Lance Ébranle-Cieux"
+      },
+      "weapon_type": "spear",
+      "path": "bellstrike",
+      "variant": "umbra",
+      "full_path": {
+        "en": "Bellstrike - Umbra",
+        "fr": "Frappe de Cloche - Ombre"
+      },
+      "role": {
+        "en": "Bleed Support / Burst DPS",
+        "fr": "Support Saignement / DPS Burst"
+      },
+      "description": {
+        "en": "A powerful spear that complements Strategic Sword with bleeding synergy. Provides buffs against bleeding targets and can quickly ramp up Bleed stacks. Essential for Bellstrike - Umbra builds.",
+        "fr": "Une lance puissante qui complète l'Épée Stratégique avec une synergie de saignement. Fournit des buffs contre les cibles saignantes et peut rapidement accumuler les charges de Saignement. Essentielle pour les builds Frappe de Cloche - Ombre."
+      },
+      "unlock_method": {
+        "en": "Skill Theft Sanctum (Dragon Key required)",
+        "fr": "Sanctuaire de Vol de Compétence (Clé du Dragon requise)"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Bleed",
+          "cn": "流血",
+          "fr": "Saignement"
+        },
+        "description": {
+          "en": "Synergizes with Strategic Sword's Bleed mechanics.",
+          "fr": "Synergie avec les mécaniques de Saignement de l'Épée Stratégique."
+        },
+        "max_stacks": 5
+      },
+      "skills": {
+        "light_attack": {
+          "id": "heavenquaker_light",
+          "names": {
+            "en": "Spear - Light Combo",
+            "cn": "枪·轻攻击",
+            "pinyin": "Qiāng · Qīng Gōngjī",
+            "fr": "Lance - Combo Léger"
+          },
+          "description": {
+            "en": "Perform up to four light attacks with a Spear.",
+            "fr": "Effectue jusqu'à quatre attaques légères avec une lance."
+          },
+          "hits": 4,
+          "endurance_cost": 0
+        },
+        "heavy_attack": {
+          "id": "heavenquaker_heavy",
+          "names": {
+            "en": "Spear - Heavy Combo",
+            "cn": "枪·重攻击",
+            "pinyin": "Qiāng · Zhòng Gōngjī",
+            "fr": "Lance - Combo Lourd"
+          },
+          "description": {
+            "en": "Perform up to three heavy attacks with a Spear.",
+            "fr": "Effectue jusqu'à trois attaques lourdes avec une lance."
+          },
+          "hits": 3,
+          "endurance_cost": 0
+        },
+        "charged_skill": {
+          "id": "drifting_thrust",
+          "names": {
+            "en": "Drifting Thrust",
+            "cn": "漂泊刺",
+            "pinyin": "Piāobó Cì",
+            "fr": "Estoc Dérivant"
+          },
+          "description": {
+            "en": "Charge up and unleash a powerful thrusting attack. The final hit grants Drumbeat buff, increasing all charged skill damage by 15% for 6 seconds. Can trigger Thundercry Blade's Perception Skill.",
+            "fr": "Charge et déclenche une puissante attaque d'estoc. Le dernier coup accorde le buff Roulement de Tambour, augmentant tous les dégâts de compétence chargée de 15% pendant 6 secondes. Peut déclencher la Compétence de Perception de la Lame Cri de Tonnerre."
+          },
+          "endurance_cost": "variable",
+          "charge_levels": 3,
+          "buff": {
+            "name": "Drumbeat",
+            "effect": {
+              "en": "+15% Charged Skill damage for 6s",
+              "fr": "+15% dégâts de Compétence Chargée pendant 6s"
+            }
+          }
+        },
+        "martial_skill": {
+          "id": "sober_sorrow",
+          "names": {
+            "en": "Sober Sorrow",
+            "cn": "醒悲",
+            "pinyin": "Xǐng Bēi",
+            "fr": "Chagrin Lucide"
+          },
+          "description": {
+            "en": "Thrust forward with the spear, dealing damage. Grants Riverflow and Flowing River buffs when combo count reaches certain thresholds. Essential for maintaining damage buffs in rotation.",
+            "fr": "Projette la lance vers l'avant, infligeant des dégâts. Accorde les buffs Flux du Fleuve et Fleuve Coulant quand le compteur de combo atteint certains seuils. Essentiel pour maintenir les buffs de dégâts dans la rotation."
+          },
+          "cooldown": 6,
+          "endurance_cost": 15,
+          "combo_thresholds": {
+            "5_hits": "Riverflow buff",
+            "10_hits": "Flowing River buff"
+          }
+        },
+        "special_skill": {
+          "id": "sweep_all",
+          "names": {
+            "en": "Sweep All",
+            "cn": "横扫千军",
+            "pinyin": "Héngsǎo Qiānjūn",
+            "fr": "Balayage Total"
+          },
+          "description": {
+            "en": "Perform a wide sweeping attack that deals damage and lowers enemy defenses. Good for applying Soul Shaken stacks.",
+            "fr": "Effectue une attaque de balayage large qui inflige des dégâts et réduit les défenses ennemies. Bon pour appliquer les charges d'Âme Ébranlée."
+          },
+          "cooldown": 0,
+          "endurance_cost": 20,
+          "debuff": {
+            "name": "Soul Shaken",
+            "effect": {
+              "en": "Reduces target defense",
+              "fr": "Réduit la défense de la cible"
+            }
+          }
+        }
+      },
+      "associated_inner_ways": [
+        "wolfchasers_art",
+        "sword_horizon",
+        "adaptive_steel",
+        "insightful_strike"
+      ],
+      "recommended_pairs": [
+        "strategic_sword"
+      ],
+      "strengths": {
+        "en": [
+          "Excellent synergy with Strategic Sword",
+          "Provides damage buffs",
+          "Good Bleed support",
+          "Defense reduction"
+        ],
+        "fr": [
+          "Excellente synergie avec l'Épée Stratégique",
+          "Fournit des buffs de dégâts",
+          "Bon support Saignement",
+          "Réduction de défense"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Requires Strategic Sword for full effectiveness",
+          "Less standalone viability"
+        ],
+        "fr": [
+          "Nécessite l'Épée Stratégique pour une pleine efficacité",
+          "Moins viable en standalone"
+        ]
+      }
+    },
+    {
+      "id": "panacea_fan",
+      "names": {
+        "en": "Panacea Fan",
+        "cn": "百药扇",
+        "pinyin": "Bǎi Yào Shàn",
+        "fr": "Éventail Panacée"
+      },
+      "weapon_type": "fan",
+      "path": "silkbind",
+      "variant": "deluge",
+      "full_path": {
+        "en": "Silkbind - Deluge",
+        "fr": "Lien de Soie - Déluge"
+      },
+      "role": {
+        "en": "Healer / Support",
+        "fr": "Soigneur / Support"
+      },
+      "description": {
+        "en": "A healing-focused fan that restores HP to self and allies. The main healing weapon in the game with strong AoE support through Cloudburst Healing and reliable single-target recovery. Can resurrect fallen teammates.",
+        "fr": "Un éventail axé sur les soins qui restaure les PV de soi et des alliés. L'arme de soin principale du jeu avec un fort support de zone grâce à Soin Nuage Éclatant et une récupération mono-cible fiable. Peut ressusciter les coéquipiers tombés."
+      },
+      "unlock_method": {
+        "en": "Story progression, Silver Needle Sect, or Skill Theft",
+        "fr": "Progression de l'histoire, Secte de l'Aiguille d'Argent, ou Vol de Compétence"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Dew / Dewdrops",
+          "cn": "露珠",
+          "pinyin": "Lùzhū",
+          "fr": "Rosée / Gouttes de Rosée"
+        },
+        "description": {
+          "en": "A special martial arts resource used by Panacea Fan and Soulshade Umbrella, with a maximum of 100 Points. Powers healing skills.",
+          "fr": "Une ressource d'arts martiaux spéciale utilisée par l'Éventail Panacée et l'Ombrelle Ombre d'Âme, avec un maximum de 100 Points. Alimente les compétences de soin."
+        },
+        "max_value": 100
+      },
+      "skills": {
+        "light_attack": {
+          "id": "fourfold_inquiry",
+          "names": {
+            "en": "Fourfold Inquiry",
+            "cn": "四问",
+            "pinyin": "Sì Wèn",
+            "fr": "Quadruple Interrogation"
+          },
+          "description": {
+            "en": "A four-strike ranged combo that deals minor damage to enemies. Primarily used for building Dew.",
+            "fr": "Un combo à distance de quatre coups qui inflige des dégâts mineurs aux ennemis. Principalement utilisé pour générer de la Rosée."
+          },
+          "hits": 4,
+          "endurance_cost": 0,
+          "generates_dew": true
+        },
+        "heavy_attack": {
+          "id": "emerald_dewtouch",
+          "names": {
+            "en": "Emerald Dewtouch",
+            "cn": "翠露触",
+            "pinyin": "Cuì Lù Chù",
+            "fr": "Toucher de Rosée Émeraude"
+          },
+          "description": {
+            "en": "A healing whirl that generates Dew at 3, 5, and 12 points per strike. Main source of healing while skills are on cooldown. Automatically targets the lowest-HP ally.",
+            "fr": "Un tourbillon de soin qui génère de la Rosée à 3, 5 et 12 points par frappe. Source principale de soin pendant le cooldown des compétences. Cible automatiquement l'allié avec le moins de PV."
+          },
+          "dew_generation": [
+            3,
+            5,
+            12
+          ],
+          "auto_target_lowest_hp": true
+        },
+        "martial_skill": {
+          "id": "cloudburst_healing",
+          "names": {
+            "en": "Cloudburst Healing",
+            "cn": "云破疗",
+            "pinyin": "Yún Pò Liáo",
+            "fr": "Soin Nuage Éclatant"
+          },
+          "description": {
+            "en": "Summon a dancing clone that provides strong healing for every ally within AoE for 7 seconds. Instantly grants 20 Dew after using. At max Dew, re-using creates a water clone that can be reactivated for a burst heal and triggers Soulshade Umbrella's Echoing Grow skill.",
+            "fr": "Invoque un clone dansant qui fournit de forts soins à tous les alliés dans la zone pendant 7 secondes. Accorde instantanément 20 Rosée après utilisation. À Rosée max, réutiliser crée un clone d'eau qui peut être réactivé pour un soin en rafale et déclenche la compétence Croissance Écho de l'Ombrelle Ombre d'Âme."
+          },
+          "cooldown": 12,
+          "dew_cost": 0,
+          "dew_grant": 20,
+          "duration": 7,
+          "aoe": true
+        },
+        "special_skill": {
+          "id": "light_dust_after_morning_rain",
+          "names": {
+            "en": "Light Dust After Morning Rain",
+            "cn": "雨后轻尘",
+            "pinyin": "Yǔ Hòu Qīng Chén",
+            "fr": "Poussière Légère Après la Pluie du Matin"
+          },
+          "description": {
+            "en": "Consumes 50 Dew to apply a 6-second healing-over-time effect on yourself and the ally with the lowest HP. In non-Duel gameplay, healing on yourself is increased by 30%. Transforms into Resurrection when allies are fatally wounded.",
+            "fr": "Consomme 50 Rosée pour appliquer un effet de soin-sur-la-durée de 6 secondes sur vous-même et l'allié avec le moins de PV. En gameplay hors-Duel, le soin sur vous-même est augmenté de 30%. Se transforme en Résurrection quand des alliés sont mortellement blessés."
+          },
+          "cooldown": 15,
+          "dew_cost": 50,
+          "duration": 6,
+          "self_heal_bonus": "30% in non-Duel"
+        },
+        "perception_skill": {
+          "id": "resurrection",
+          "names": {
+            "en": "Resurrection",
+            "cn": "复苏",
+            "pinyin": "Fùsū",
+            "fr": "Résurrection"
+          },
+          "description": {
+            "en": "When there's a Fatally Wounded player in the party, use this skill, consuming Dewdrops, to allow them to fight again. HP restored scales with Dew consumed. Has a 30-second revive cooldown.",
+            "fr": "Quand il y a un joueur Mortellement Blessé dans le groupe, utilisez cette compétence, en consommant des Gouttes de Rosée, pour lui permettre de combattre à nouveau. Les PV restaurés augmentent avec la Rosée consommée. Cooldown de résurrection de 30 secondes."
+          },
+          "cooldown": 30,
+          "dew_cost": "variable",
+          "revive": true
+        }
+      },
+      "associated_inner_ways": [
+        "royal_remedy",
+        "restoring_blossom",
+        "mending_loom",
+        "esoteric_revival"
+      ],
+      "recommended_pairs": [
+        "soulshade_umbrella"
+      ],
+      "strengths": {
+        "en": [
+          "Best healing in the game",
+          "Can resurrect allies",
+          "Strong AoE healing",
+          "Good Dew generation"
+        ],
+        "fr": [
+          "Meilleur soin du jeu",
+          "Peut ressusciter les alliés",
+          "Fort soin de zone",
+          "Bonne génération de Rosée"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Very low damage output",
+          "Requires Dew management",
+          "Healing reduced vs first-time bosses"
+        ],
+        "fr": [
+          "Très faible production de dégâts",
+          "Nécessite gestion de la Rosée",
+          "Soin réduit contre les boss en première rencontre"
+        ]
+      }
+    },
+    {
+      "id": "soulshade_umbrella",
+      "names": {
+        "en": "Soulshade Umbrella",
+        "cn": "魂影伞",
+        "pinyin": "Hún Yǐng Sǎn",
+        "fr": "Ombrelle Ombre d'Âme"
+      },
+      "weapon_type": "umbrella",
+      "path": "silkbind",
+      "variant": "deluge",
+      "full_path": {
+        "en": "Silkbind - Deluge",
+        "fr": "Lien de Soie - Déluge"
+      },
+      "role": {
+        "en": "Healer Support / Buff Provider",
+        "fr": "Support Soigneur / Fournisseur de Buffs"
+      },
+      "description": {
+        "en": "A support-oriented umbrella that provides healing, damage buffs, and Dew generation. Works in tandem with Panacea Fan to create a complete healing kit. The umbrella can be deployed to continuously heal allies.",
+        "fr": "Une ombrelle orientée support qui fournit des soins, des buffs de dégâts et de la génération de Rosée. Fonctionne en tandem avec l'Éventail Panacée pour créer un kit de soin complet. L'ombrelle peut être déployée pour soigner continuellement les alliés."
+      },
+      "unlock_method": {
+        "en": "Hollow Vale Sect or Skill Theft: Soulshade Umbrella - Post Station",
+        "fr": "Secte du Val Creux ou Vol de Compétence : Ombrelle Ombre d'Âme - Relais de Poste"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Dew / Dewdrops",
+          "cn": "露珠",
+          "pinyin": "Lùzhū",
+          "fr": "Rosée / Gouttes de Rosée"
+        },
+        "description": {
+          "en": "Shared resource with Panacea Fan. Maximum 100 Points.",
+          "fr": "Ressource partagée avec l'Éventail Panacée. Maximum 100 Points."
+        },
+        "max_value": 100
+      },
+      "skills": {
+        "light_attack": {
+          "id": "umbrella_light",
+          "names": {
+            "en": "Umbrella - Light Attack",
+            "cn": "伞·轻攻击",
+            "pinyin": "Sǎn · Qīng Gōngjī",
+            "fr": "Ombrelle - Attaque Légère"
+          },
+          "description": {
+            "en": "Ranged light attacks that deal minor damage. Can deal damage from a distance.",
+            "fr": "Attaques légères à distance qui infligent des dégâts mineurs. Peut infliger des dégâts à distance."
+          },
+          "ranged": true
+        },
+        "heavy_attack": {
+          "id": "umbrella_heavy",
+          "names": {
+            "en": "Umbrella - Heavy Attack",
+            "cn": "伞·重攻击",
+            "pinyin": "Sǎn · Zhòng Gōngjī",
+            "fr": "Ombrelle - Attaque Lourde"
+          },
+          "description": {
+            "en": "While damage is low, this attack knocks enemies down and extends stun duration on downed foes. Creates longer damage windows for allies in multiplayer.",
+            "fr": "Bien que les dégâts soient faibles, cette attaque met à terre les ennemis et prolonge la durée d'étourdissement sur les ennemis au sol. Crée des fenêtres de dégâts plus longues pour les alliés en multijoueur."
+          },
+          "knockdown": true,
+          "extends_stun": true
+        },
+        "martial_skill": {
+          "id": "floating_grace",
+          "names": {
+            "en": "Floating Grace",
+            "cn": "浮光",
+            "pinyin": "Fú Guāng",
+            "fr": "Grâce Flottante"
+          },
+          "description": {
+            "en": "A quick skill that increases your own damage while also buffing your teammate's damage. Use before deploying umbrella for maximum buff uptime.",
+            "fr": "Une compétence rapide qui augmente vos propres dégâts tout en buffant aussi les dégâts de vos coéquipiers. Utilisez avant de déployer l'ombrelle pour un uptime de buff maximum."
+          },
+          "cooldown": 8,
+          "buff": {
+            "en": "Damage increase for self and allies",
+            "fr": "Augmentation des dégâts pour soi et les alliés"
+          }
+        },
+        "special_skill": {
+          "id": "echoes_of_thousand_plants",
+          "names": {
+            "en": "Echoes of a Thousand Plants",
+            "cn": "千草回响",
+            "pinyin": "Qiān Cǎo Huí Xiǎng",
+            "fr": "Échos de Mille Plantes"
+          },
+          "description": {
+            "en": "Deploy a floating umbrella that heals the lowest-HP ally every second. Continuously generates up to 60 Dew over time and increases healing output by 15%. The healing bond attaches to whoever has the lowest HP. Keep this active as much as possible.",
+            "fr": "Déploie une ombrelle flottante qui soigne l'allié avec le moins de PV chaque seconde. Génère continuellement jusqu'à 60 Rosée au fil du temps et augmente la production de soin de 15%. Le lien de soin s'attache à celui qui a le moins de PV. Gardez ceci actif autant que possible."
+          },
+          "cooldown": 20,
+          "dew_generation": 60,
+          "healing_buff": "15%",
+          "auto_target_lowest_hp": true,
+          "duration": "until recalled"
+        },
+        "perception_skill": {
+          "id": "echoing_grow",
+          "names": {
+            "en": "Echoing Grow",
+            "cn": "回响生长",
+            "pinyin": "Huí Xiǎng Shēngzhǎng",
+            "fr": "Croissance Écho"
+          },
+          "description": {
+            "en": "Triggered by Panacea Fan's max-Dew Cloudburst Healing. Restores 5 Dewdrops and additionally heals 10% of your Max HP for every 100 Dewdrops consumed.",
+            "fr": "Déclenché par le Soin Nuage Éclatant à Rosée max de l'Éventail Panacée. Restaure 5 Gouttes de Rosée et soigne en plus 10% de vos PV Max pour chaque 100 Gouttes de Rosée consommées."
+          },
+          "triggered_by": "cloudburst_healing",
+          "dew_restore": 5,
+          "heal_per_100_dew": "10% Max HP"
+        }
+      },
+      "associated_inner_ways": [
+        "mending_loom",
+        "royal_remedy",
+        "restoring_blossom",
+        "esoteric_revival"
+      ],
+      "recommended_pairs": [
+        "panacea_fan"
+      ],
+      "strengths": {
+        "en": [
+          "Continuous passive healing",
+          "Dew generation",
+          "Team damage buff",
+          "Works automatically"
+        ],
+        "fr": [
+          "Soin passif continu",
+          "Génération de Rosée",
+          "Buff de dégâts d'équipe",
+          "Fonctionne automatiquement"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Very low damage",
+          "Requires Panacea Fan for full effectiveness",
+          "Support-only role"
+        ],
+        "fr": [
+          "Très faibles dégâts",
+          "Nécessite l'Éventail Panacée pour une pleine efficacité",
+          "Rôle de support uniquement"
+        ]
+      }
+    },
+    {
+      "id": "inkwell_fan",
+      "names": {
+        "en": "Inkwell Fan",
+        "cn": "墨池扇",
+        "pinyin": "Mò Chí Shàn",
+        "fr": "Éventail Encrier"
+      },
+      "weapon_type": "fan",
+      "path": "silkbind",
+      "variant": "jade",
+      "full_path": {
+        "en": "Silkbind - Jade",
+        "fr": "Lien de Soie - Jade"
+      },
+      "role": {
+        "en": "Ranged DPS / Aerial Combat",
+        "fr": "DPS à Distance / Combat Aérien"
+      },
+      "description": {
+        "en": "An agile fan focused on launching enemies and aerial combat. Provides ranged DPS with crowd control and airborne attacks. The only pure ranged DPS option that excels at mid-to-long range combat.",
+        "fr": "Un éventail agile axé sur le lancement des ennemis et le combat aérien. Fournit du DPS à distance avec du contrôle de foule et des attaques aériennes. La seule option de DPS à distance pure qui excelle au combat mi-longue portée."
+      },
+      "unlock_method": {
+        "en": "Skill Theft: Inkwell Fan Sanctum in Qinghe Region",
+        "fr": "Vol de Compétence : Sanctuaire de l'Éventail Encrier dans la Région de Qinghe"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Riding the Wind",
+          "cn": "乘风",
+          "pinyin": "Chéng Fēng",
+          "fr": "Chevaucher le Vent"
+        },
+        "description": {
+          "en": "Unique effect of the Inkwell Fan. The next Follow-up Skill used during this time is empowered. Lasts 2 seconds.",
+          "fr": "Effet unique de l'Éventail Encrier. La prochaine Compétence de Suivi utilisée pendant ce temps est renforcée. Dure 2 secondes."
+        },
+        "duration": 2
+      },
+      "skills": {
+        "light_attack": {
+          "id": "inkwell_light",
+          "names": {
+            "en": "Fan - Light Attack",
+            "cn": "扇·轻攻击",
+            "pinyin": "Shàn · Qīng Gōngjī",
+            "fr": "Éventail - Attaque Légère"
+          },
+          "description": {
+            "en": "Ranged projectile attacks that fling ink-like projectiles at enemies.",
+            "fr": "Attaques de projectiles à distance qui lancent des projectiles encre-like sur les ennemis."
+          },
+          "ranged": true
+        },
+        "charged_skill": {
+          "id": "jadewind_shield",
+          "names": {
+            "en": "Jadewind Shield",
+            "cn": "玉风盾",
+            "pinyin": "Yù Fēng Dùn",
+            "fr": "Bouclier Vent de Jade"
+          },
+          "description": {
+            "en": "Create a protective wind barrier that blocks enemy projectiles and movement skills. Also increases your projectile skill damage by 20% (Enhanced Ballistics buff). The control center of the weapon.",
+            "fr": "Crée une barrière de vent protectrice qui bloque les projectiles ennemis et les compétences de mouvement. Augmente aussi vos dégâts de compétence à projectile de 20% (buff Balistique Améliorée). Le centre de contrôle de l'arme."
+          },
+          "cooldown": 15,
+          "buff": {
+            "name": "Enhanced Ballistics",
+            "effect": {
+              "en": "+20% Projectile skill damage",
+              "fr": "+20% dégâts de compétence à projectile"
+            }
+          }
+        },
+        "martial_skill": {
+          "id": "peaks_springless_silence",
+          "names": {
+            "en": "Peak's Springless Silence",
+            "cn": "峰无春寂",
+            "pinyin": "Fēng Wú Chūn Jì",
+            "fr": "Silence Sans Printemps du Pic"
+          },
+          "description": {
+            "en": "A short-range dash that launches or roots enemies, kicking targets into the air. This is the trigger that primes enemies for heavy airborne follow-ups.",
+            "fr": "Un dash courte portée qui lance ou enracine les ennemis, projetant les cibles dans les airs. C'est le déclencheur qui prépare les ennemis pour de lourds suivis aériens."
+          },
+          "cooldown": 8,
+          "launches": true,
+          "combo_starter": true
+        },
+        "special_skill": {
+          "id": "moon_shatter_spring",
+          "names": {
+            "en": "Moon Shatter Spring",
+            "cn": "月碎春",
+            "pinyin": "Yuè Suì Chūn",
+            "fr": "Printemps Lune Brisée"
+          },
+          "description": {
+            "en": "Heavy airborne follow-up that rewards good timing. Deals high damage to airborne enemies. Talents increase Critical Rate against low Qi targets and Critical DMG of this skill.",
+            "fr": "Suivi aérien lourd qui récompense le bon timing. Inflige de hauts dégâts aux ennemis en l'air. Les talents augmentent le Taux Critique contre les cibles à faible Qi et les Dégâts Critiques de cette compétence."
+          },
+          "cooldown": 0,
+          "airborne_bonus": true,
+          "critical_scaling": true
+        }
+      },
+      "associated_inner_ways": [
+        "blossom_barrage",
+        "flying_gourds",
+        "star_reacher",
+        "thunderous_bloom"
+      ],
+      "recommended_pairs": [
+        "vernal_umbrella",
+        "ninefold_umbrella"
+      ],
+      "strengths": {
+        "en": [
+          "Only pure ranged DPS",
+          "Strong aerial combos",
+          "Good crowd control",
+          "Projectile damage buff"
+        ],
+        "fr": [
+          "Seul DPS à distance pur",
+          "Forts combos aériens",
+          "Bon contrôle de foule",
+          "Buff de dégâts de projectile"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Squishy",
+          "Requires positioning",
+          "Less effective vs large bosses that can't be launched"
+        ],
+        "fr": [
+          "Fragile",
+          "Nécessite du positionnement",
+          "Moins efficace contre les gros boss qui ne peuvent pas être lancés"
+        ]
+      }
+    },
+    {
+      "id": "vernal_umbrella",
+      "names": {
+        "en": "Vernal Umbrella",
+        "cn": "春雨伞",
+        "pinyin": "Chūn Yǔ Sǎn",
+        "fr": "Ombrelle Printanière"
+      },
+      "weapon_type": "umbrella",
+      "path": "silkbind",
+      "variant": "jade",
+      "full_path": {
+        "en": "Silkbind - Jade",
+        "fr": "Lien de Soie - Jade"
+      },
+      "role": {
+        "en": "Ranged DPS / Control",
+        "fr": "DPS à Distance / Contrôle"
+      },
+      "description": {
+        "en": "A ranged playstyle umbrella capable of sustained ranged DPS. Has control abilities allowing for burst combos with airborne attacks. Pairs excellently with Inkwell Fan for a full ranged DPS kit.",
+        "fr": "Une ombrelle de style à distance capable de DPS à distance soutenu. A des capacités de contrôle permettant des combos burst avec des attaques aériennes. S'associe excellemment avec l'Éventail Encrier pour un kit DPS à distance complet."
+      },
+      "unlock_method": {
+        "en": "Skill Theft or Story progression",
+        "fr": "Vol de Compétence ou progression de l'histoire"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Blossom",
+          "cn": "花",
+          "pinyin": "Huā",
+          "fr": "Floraison"
+        },
+        "description": {
+          "en": "Vernal attacks fill a visible Blossom gauge. When charged, the tilde skill throws the umbrella into the air for continuous damage.",
+          "fr": "Les attaques Printanières remplissent une jauge de Floraison visible. Une fois chargée, la compétence tilde lance l'ombrelle en l'air pour des dégâts continus."
+        }
+      },
+      "skills": {
+        "light_attack": {
+          "id": "vernal_light",
+          "names": {
+            "en": "Umbrella - Light Attack",
+            "cn": "伞·轻攻击",
+            "pinyin": "Sǎn · Qīng Gōngjī",
+            "fr": "Ombrelle - Attaque Légère"
+          },
+          "description": {
+            "en": "Ranged light attacks that build Blossom gauge.",
+            "fr": "Attaques légères à distance qui construisent la jauge de Floraison."
+          },
+          "ranged": true,
+          "builds_resource": true
+        },
+        "charged_skill": {
+          "id": "spring_away",
+          "names": {
+            "en": "Spring Away",
+            "cn": "春去",
+            "pinyin": "Chūn Qù",
+            "fr": "Printemps S'en Va"
+          },
+          "description": {
+            "en": "Sustained charged light attack that forms your main single-target damage. Hold to pour damage into buff windows.",
+            "fr": "Attaque légère chargée soutenue qui forme vos principaux dégâts mono-cible. Maintenez pour déverser des dégâts dans les fenêtres de buff."
+          },
+          "sustained_damage": true,
+          "main_dps_skill": true
+        },
+        "martial_skill": {
+          "id": "spring_sorrow",
+          "names": {
+            "en": "Spring Sorrow",
+            "cn": "春愁",
+            "pinyin": "Chūn Chóu",
+            "fr": "Chagrin Printanier"
+          },
+          "description": {
+            "en": "Very long-range projectile that can stun trash mobs and mark the target. With Blossom Barrage Inner Way, enemies hit take 10% extra damage from all umbrella skills. Can hold up to 2 stacks with Blossom Barrage.",
+            "fr": "Projectile à très longue portée qui peut étourdir les mobs faibles et marquer la cible. Avec la Voie Intérieure Barrage de Fleurs, les ennemis touchés subissent 10% de dégâts supplémentaires de toutes les compétences d'ombrelle. Peut contenir jusqu'à 2 charges avec Barrage de Fleurs."
+          },
+          "cooldown": 10,
+          "stacks": 2,
+          "stun": true,
+          "mark_target": true,
+          "damage_amp": "10% with Blossom Barrage"
+        },
+        "special_skill": {
+          "id": "unfading_flower",
+          "names": {
+            "en": "Unfading Flower",
+            "cn": "不凋花",
+            "pinyin": "Bù Diāo Huā",
+            "fr": "Fleur Éternelle"
+          },
+          "description": {
+            "en": "When Blossom is charged, throw the umbrella into the air where it spins, dealing continuous damage to the nearest target. You can swap back to the fan and continue DPS while the umbrella ticks in the background.",
+            "fr": "Quand la Floraison est chargée, lance l'ombrelle en l'air où elle tourne, infligeant des dégâts continus à la cible la plus proche. Vous pouvez repasser à l'éventail et continuer le DPS pendant que l'ombrelle tick en arrière-plan."
+          },
+          "requires_blossom": true,
+          "continuous_damage": true,
+          "allows_weapon_swap": true
+        }
+      },
+      "associated_inner_ways": [
+        "blossom_barrage",
+        "thunderous_bloom",
+        "flying_gourds",
+        "star_reacher"
+      ],
+      "recommended_pairs": [
+        "inkwell_fan"
+      ],
+      "strengths": {
+        "en": [
+          "Strong sustained ranged DPS",
+          "Good stun/control",
+          "Damage amplification",
+          "Autonomous damage with Unfading Flower"
+        ],
+        "fr": [
+          "Fort DPS à distance soutenu",
+          "Bon étourdissement/contrôle",
+          "Amplification des dégâts",
+          "Dégâts autonomes avec Fleur Éternelle"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Requires Blossom management",
+          "Falls off against large bosses",
+          "Needs Inkwell Fan for full kit"
+        ],
+        "fr": [
+          "Nécessite gestion de la Floraison",
+          "Moins efficace contre les gros boss",
+          "Nécessite l'Éventail Encrier pour le kit complet"
+        ]
+      }
+    },
+    {
+      "id": "infernal_twinblades",
+      "names": {
+        "en": "Infernal Twinblades",
+        "cn": "焰双刀",
+        "pinyin": "Yàn Shuāng Dāo",
+        "fr": "Lames Jumelles Infernales"
+      },
+      "weapon_type": "dual_blades",
+      "path": "bamboocut",
+      "variant": "wind",
+      "full_path": {
+        "en": "Bamboocut - Wind",
+        "fr": "Coupe-Bambou - Vent"
+      },
+      "role": {
+        "en": "High DPS / Combo Specialist",
+        "fr": "Haut DPS / Spécialiste Combo"
+      },
+      "description": {
+        "en": "Fast dual blades focused on rapid combo attacks. Designed to deliver high DPS through rapid attack speed while prioritizing Critical Hits. Features the Flamelash burst mode for massive damage windows.",
+        "fr": "Lames doubles rapides axées sur les attaques combo rapides. Conçu pour délivrer un DPS élevé grâce à une vitesse d'attaque rapide tout en priorisant les Coups Critiques. Propose le mode burst Fouet de Flamme pour des fenêtres de dégâts massifs."
+      },
+      "unlock_method": {
+        "en": "Skill Theft: Infernal Twins Sanctum in Qinghe Region or Mystery of Five Tones quest",
+        "fr": "Vol de Compétence : Sanctuaire des Jumelles Infernales dans la Région de Qinghe ou quête Mystère des Cinq Tons"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Blazing Wrath / Karmic Flame",
+          "cn": "业火",
+          "pinyin": "Yè Huǒ",
+          "fr": "Courroux Ardent / Flamme Karmique"
+        },
+        "description": {
+          "en": "Unique martial art resource exclusive to Infernal Twinblades. Hitting enemies accumulates Blazing Wrath. When full, activate Flamelash for massive burst damage, lifesteal, increased crit chance and damage.",
+          "fr": "Ressource d'art martial unique exclusive aux Lames Jumelles Infernales. Toucher des ennemis accumule le Courroux Ardent. Une fois plein, activez Fouet de Flamme pour des dégâts burst massifs, vol de vie, augmentation du taux et des dégâts critiques."
+        }
+      },
+      "skills": {
+        "light_attack": {
+          "id": "twinblades_light",
+          "names": {
+            "en": "Twinblades - Light Combo",
+            "cn": "双刀·轻攻击",
+            "pinyin": "Shuāng Dāo · Qīng Gōngjī",
+            "fr": "Lames Jumelles - Combo Léger"
+          },
+          "description": {
+            "en": "Extremely fast 5-hit combo. Main source of damage and Blazing Wrath generation. Light attacks inflict Sin debuff.",
+            "fr": "Combo 5 coups extrêmement rapide. Source principale de dégâts et de génération de Courroux Ardent. Les attaques légères infligent le debuff Péché."
+          },
+          "hits": 5,
+          "endurance_cost": 0,
+          "builds_resource": true,
+          "applies_debuff": "Sin"
+        },
+        "martial_skill": {
+          "id": "addled_mind",
+          "names": {
+            "en": "Addled Mind",
+            "cn": "迷心",
+            "pinyin": "Mí Xīn",
+            "fr": "Esprit Embrouillé"
+          },
+          "description": {
+            "en": "Perform a triple dash attack that deals damage and stays locked onto the target. Builds Karmic Flame and can be used for repositioning.",
+            "fr": "Effectue une attaque de triple dash qui inflige des dégâts et reste verrouillé sur la cible. Construit la Flamme Karmique et peut être utilisé pour le repositionnement."
+          },
+          "cooldown": 0,
+          "endurance_cost": 15,
+          "dashes": 3,
+          "builds_resource": true
+        },
+        "special_skill": {
+          "id": "calamitys_greed",
+          "names": {
+            "en": "Calamity's Greed",
+            "cn": "祸贪",
+            "pinyin": "Huò Tān",
+            "fr": "Avidité de la Calamité"
+          },
+          "description": {
+            "en": "Cast a spinning blade attack. Press again when the returning blade visibly glows to trigger two strong slashes and enter the Enlightened state, which reduces your main martial skill cooldown by several seconds.",
+            "fr": "Lance une attaque de lame tournoyante. Appuyez à nouveau quand la lame de retour brille visiblement pour déclencher deux fortes entailles et entrer dans l'état Éclairé, qui réduit le cooldown de votre compétence martiale principale de plusieurs secondes."
+          },
+          "cooldown": 8,
+          "two_part_skill": true,
+          "buff": {
+            "name": "Enlightened",
+            "effect": {
+              "en": "Reduces martial skill cooldown",
+              "fr": "Réduit le cooldown de la compétence martiale"
+            }
+          }
+        },
+        "charged_skill": {
+          "id": "flamelash",
+          "names": {
+            "en": "Flamelash",
+            "cn": "焰鞭",
+            "pinyin": "Yàn Biān",
+            "fr": "Fouet de Flamme"
+          },
+          "description": {
+            "en": "When Blazing Wrath is full, activate Flamelash to enter a powerful burst state. Grants lifesteal, higher crit chance, and higher crit damage. During Flamelash, spam Light Attacks for maximum DPS. Immune to all but Crowd Control when hit.",
+            "fr": "Quand le Courroux Ardent est plein, activez Fouet de Flamme pour entrer dans un état de burst puissant. Accorde du vol de vie, un taux critique plus élevé et des dégâts critiques plus élevés. Pendant Fouet de Flamme, spammez les Attaques Légères pour un DPS maximum. Immunisé à tout sauf au Contrôle de Foule quand touché."
+          },
+          "requires_full_resource": true,
+          "grants": [
+            "Lifesteal",
+            "Increased Crit Rate",
+            "Increased Crit Damage"
+          ],
+          "cc_immunity": "partial"
+        }
+      },
+      "associated_inner_ways": [
+        "echoes_of_oblivion",
+        "breaking_point",
+        "riptide_reflex",
+        "vendetta"
+      ],
+      "recommended_pairs": [
+        "mortal_rope_dart"
+      ],
+      "strengths": {
+        "en": [
+          "Highest sustained DPS in game",
+          "Strong self-healing during Flamelash",
+          "High mobility",
+          "Fast attack speed"
+        ],
+        "fr": [
+          "Plus haut DPS soutenu du jeu",
+          "Fort auto-soin pendant Fouet de Flamme",
+          "Haute mobilité",
+          "Vitesse d'attaque rapide"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Squishy outside Flamelash",
+          "Requires maintaining Blazing Wrath",
+          "High APM playstyle"
+        ],
+        "fr": [
+          "Fragile hors Fouet de Flamme",
+          "Nécessite de maintenir le Courroux Ardent",
+          "Style de jeu à haut APM"
+        ]
+      }
+    },
+    {
+      "id": "mortal_rope_dart",
+      "names": {
+        "en": "Mortal Rope Dart",
+        "cn": "夺命绳镖",
+        "pinyin": "Duó Mìng Shéng Biāo",
+        "fr": "Fléchette à Corde Mortelle"
+      },
+      "weapon_type": "rope_dart",
+      "path": "bamboocut",
+      "variant": "wind",
+      "full_path": {
+        "en": "Bamboocut - Wind",
+        "fr": "Coupe-Bambou - Vent"
+      },
+      "role": {
+        "en": "Ranged DPS / Utility",
+        "fr": "DPS à Distance / Utilitaire"
+      },
+      "description": {
+        "en": "A ranged weapon for pulling enemies and maintaining distance. Offers extreme mobility and rapid consecutive attacks with multiple ways to close gaps quickly. Has control tools and the unique Rodent Rampage summon mechanic.",
+        "fr": "Une arme à distance pour attirer les ennemis et maintenir la distance. Offre une mobilité extrême et des attaques consécutives rapides avec plusieurs façons de combler les écarts rapidement. A des outils de contrôle et la mécanique unique d'invocation Rage des Rongeurs."
+      },
+      "unlock_method": {
+        "en": "Skill Theft: Art of Skill Theft quest in Kaifeng Region",
+        "fr": "Vol de Compétence : quête Art du Vol de Compétence dans la Région de Kaifeng"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Token of Gratitude",
+          "cn": "感恩令",
+          "pinyin": "Gǎn'ēn Lìng",
+          "fr": "Jeton de Gratitude"
+        },
+        "description": {
+          "en": "Resource used to summon rats. Every Token spent summons a rat to make a coordinated attack when you use Light Attacks.",
+          "fr": "Ressource utilisée pour invoquer des rats. Chaque Jeton dépensé invoque un rat pour effectuer une attaque coordonnée quand vous utilisez des Attaques Légères."
+        }
+      },
+      "skills": {
+        "light_attack": {
+          "id": "rope_dart_light",
+          "names": {
+            "en": "Rope Dart - Light Combo",
+            "cn": "绳镖·轻攻击",
+            "pinyin": "Shéng Biāo · Qīng Gōngjī",
+            "fr": "Fléchette à Corde - Combo Léger"
+          },
+          "description": {
+            "en": "Swing the Rope Dart in up to four consecutive attacks. Mid-range attacks.",
+            "fr": "Fait tournoyer la Fléchette à Corde en jusqu'à quatre attaques consécutives. Attaques à mi-portée."
+          },
+          "hits": 4,
+          "ranged": true
+        },
+        "charged_skill": {
+          "id": "rodents_resilience",
+          "names": {
+            "en": "Rodent's Resilience",
+            "cn": "鼠韧",
+            "pinyin": "Shǔ Rèn",
+            "fr": "Résilience du Rongeur"
+          },
+          "description": {
+            "en": "Charge to gain CC resistance and recover a small amount of HP. When used in Charging Stance, throw the rope dart with great force to knock down the enemy hit. Also grants Special Skill Enhancement that boosts your next Rodent Rampage.",
+            "fr": "Chargez pour obtenir une résistance au CC et récupérer une petite quantité de PV. Utilisé en Posture de Charge, lance la fléchette à corde avec grande force pour mettre à terre l'ennemi touché. Accorde aussi une Amélioration de Compétence Spéciale qui booste votre prochaine Rage des Rongeurs."
+          },
+          "grants_cc_resistance": true,
+          "heals": true,
+          "knockdown_on_full_charge": true,
+          "buff": "Special Skill Enhancement"
+        },
+        "martial_skill": {
+          "id": "bladebound_thread",
+          "names": {
+            "en": "Bladebound Thread",
+            "cn": "缚刃索",
+            "pinyin": "Fù Rèn Suǒ",
+            "fr": "Fil Lié à la Lame"
+          },
+          "description": {
+            "en": "Throw the rope dart forward. If it hits a boss, you will be pulled toward the target; otherwise, you will pull the target and rope dart back to you. Press again within 2.5s to unleash a combo kick that knocks the target down. Targets hit receive a Vendetta Token, making your Might Rat deal 50% increased damage.",
+            "fr": "Lance la fléchette à corde vers l'avant. Si elle touche un boss, vous serez attiré vers la cible ; sinon, vous attirerez la cible et la fléchette vers vous. Appuyez à nouveau dans les 2.5s pour déclencher un combo de coups de pied qui met la cible à terre. Les cibles touchées reçoivent un Jeton Vendetta, faisant que votre Rat Puissant inflige 50% de dégâts en plus."
+          },
+          "cooldown": 0,
+          "endurance_cost": 15,
+          "pull_mechanic": true,
+          "follow_up_window": 2.5,
+          "knockdown": true,
+          "applies_vendetta": true
+        },
+        "special_skill": {
+          "id": "rodent_rampage",
+          "names": {
+            "en": "Rodent Rampage",
+            "cn": "鼠啸",
+            "pinyin": "Shǔ Xiào",
+            "fr": "Rage des Rongeurs"
+          },
+          "description": {
+            "en": "Summon the Might Rat. Every Token of Gratitude spent summons a rat to make a coordinated attack when you cast a Light Attack. This effect lasts 10s and remains in effect even when switching weapons. Rats deal 50% more damage to targets with Vendetta Token.",
+            "fr": "Invoque le Rat Puissant. Chaque Jeton de Gratitude dépensé invoque un rat pour effectuer une attaque coordonnée quand vous lancez une Attaque Légère. Cet effet dure 10s et reste actif même en changeant d'arme. Les rats infligent 50% de dégâts en plus aux cibles avec un Jeton Vendetta."
+          },
+          "cooldown": 12,
+          "duration": 10,
+          "persists_on_weapon_swap": true,
+          "vendetta_bonus": "50% increased damage"
+        }
+      },
+      "associated_inner_ways": [
+        "vendetta",
+        "riptide_reflex",
+        "echoes_of_oblivion",
+        "breaking_point"
+      ],
+      "recommended_pairs": [
+        "infernal_twinblades"
+      ],
+      "strengths": {
+        "en": [
+          "Excellent synergy with Infernal Twinblades",
+          "Rat summons deal passive damage",
+          "Good crowd control",
+          "Pull mechanics"
+        ],
+        "fr": [
+          "Excellente synergie avec les Lames Jumelles Infernales",
+          "Les invocations de rats infligent des dégâts passifs",
+          "Bon contrôle de foule",
+          "Mécaniques d'attraction"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Lower standalone DPS",
+          "Utility-focused",
+          "Rats require setup"
+        ],
+        "fr": [
+          "DPS standalone plus faible",
+          "Axé sur l'utilitaire",
+          "Les rats nécessitent une préparation"
+        ]
+      }
+    },
+    {
+      "id": "thundercry_blade",
+      "names": {
+        "en": "Thundercry Blade",
+        "cn": "雷鸣刀",
+        "pinyin": "Léi Míng Dāo",
+        "fr": "Lame Cri de Tonnerre"
+      },
+      "weapon_type": "mo_blade",
+      "path": "stonesplit",
+      "variant": "might",
+      "full_path": {
+        "en": "Stonesplit - Might",
+        "fr": "Fend-Pierre - Puissance"
+      },
+      "role": {
+        "en": "Tank / Shield Generator",
+        "fr": "Tank / Générateur de Bouclier"
+      },
+      "description": {
+        "en": "A heavy blade providing shields and damage reduction. The main tank weapon in the game, designed for absorbing damage with HP-based shields, locking down groups of enemies, and converting charged attacks into real damage. Trades mobility for control and survivability.",
+        "fr": "Une lame lourde offrant boucliers et réduction de dégâts. L'arme de tank principale du jeu, conçue pour absorber les dégâts avec des boucliers basés sur les PV, verrouiller des groupes d'ennemis et convertir les attaques chargées en vrais dégâts. Échange la mobilité contre le contrôle et la survie."
+      },
+      "unlock_method": {
+        "en": "Skill Theft: Well of Heaven Martial Camp in Kaifeng or Mystery of Five Tones quest",
+        "fr": "Vol de Compétence : Camp Martial du Puits du Ciel à Kaifeng ou quête Mystère des Cinq Tons"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Fighting Spirit / Battle Will",
+          "cn": "战意",
+          "pinyin": "Zhàn Yì",
+          "fr": "Esprit de Combat / Volonté de Bataille"
+        },
+        "description": {
+          "en": "Unique martial art resource for Thundercry Blade and Stormbreaker Spear. Gained by blocking or through natural regeneration over time. Consumed when using certain skills.",
+          "fr": "Ressource d'art martial unique pour la Lame Cri de Tonnerre et la Lance Brise-Tempête. Gagnée en bloquant ou par régénération naturelle au fil du temps. Consommée lors de l'utilisation de certaines compétences."
+        }
+      },
+      "skills": {
+        "light_attack": {
+          "id": "mo_blade_light",
+          "names": {
+            "en": "Mo Blade - Light Combo",
+            "cn": "刀·轻攻击",
+            "pinyin": "Dāo · Qīng Gōngjī",
+            "fr": "Lame Mo - Combo Léger"
+          },
+          "description": {
+            "en": "Perform light attacks with the Mo Blade. Slower but higher damage per hit.",
+            "fr": "Effectue des attaques légères avec la Lame Mo. Plus lentes mais plus de dégâts par coup."
+          }
+        },
+        "charged_skill": {
+          "id": "galecloud_cleave",
+          "names": {
+            "en": "Galecloud Cleave",
+            "cn": "疾云劈",
+            "pinyin": "Jí Yún Pī",
+            "fr": "Fendoir Nuage-Bourrasque"
+          },
+          "description": {
+            "en": "Charge up to three levels and unleash a powerful cleaving attack. Level 3 charges deal massive damage. Can be followed by Avalanche for even more damage.",
+            "fr": "Chargez jusqu'à trois niveaux et déclenchez une puissante attaque de fendoir. Les charges niveau 3 infligent des dégâts massifs. Peut être suivi par Avalanche pour encore plus de dégâts."
+          },
+          "charge_levels": 3,
+          "follow_up": "Avalanche"
+        },
+        "martial_skill": {
+          "id": "predators_shield",
+          "names": {
+            "en": "Predator's Shield",
+            "cn": "掠盾",
+            "pinyin": "Lüè Dùn",
+            "fr": "Bouclier du Prédateur"
+          },
+          "description": {
+            "en": "Grants a shield equal to 25% of your max HP for 8s and increases Fighting Spirit by 2 bars. If you have Drumbeat buff from Stormbreaker Spear, it will be consumed to trigger your Perception Skill and gain Breakthrough buff.",
+            "fr": "Accorde un bouclier égal à 25% de vos PV max pendant 8s et augmente l'Esprit de Combat de 2 barres. Si vous avez le buff Roulement de Tambour de la Lance Brise-Tempête, il sera consommé pour déclencher votre Compétence de Perception et obtenir le buff Percée."
+          },
+          "cooldown": 12,
+          "shield": "25% Max HP",
+          "duration": 8,
+          "fighting_spirit_gain": 2,
+          "drumbeat_interaction": true
+        },
+        "special_skill": {
+          "id": "sunrush_gale",
+          "names": {
+            "en": "Sunrush Gale",
+            "cn": "日冲疾",
+            "pinyin": "Rì Chōng Jí",
+            "fr": "Bourrasque Soleil Filant"
+          },
+          "description": {
+            "en": "Consumes 2 bars of Fighting Spirit to drive the Mo Blade into the ground, generating a vortex that pulls in nearby enemies (ineffective against bosses). Great for grouping mobs for AoE damage.",
+            "fr": "Consomme 2 barres d'Esprit de Combat pour planter la Lame Mo dans le sol, générant un vortex qui attire les ennemis proches (inefficace contre les boss). Excellent pour regrouper les mobs pour des dégâts de zone."
+          },
+          "cooldown": 15,
+          "fighting_spirit_cost": 2,
+          "pull_mechanic": true,
+          "ineffective_vs_bosses": true
+        },
+        "perception_skill": {
+          "id": "shifting_heaven",
+          "names": {
+            "en": "Shifting Heaven / Heaven's Shift",
+            "cn": "天换",
+            "pinyin": "Tiān Huàn",
+            "fr": "Changement Céleste"
+          },
+          "description": {
+            "en": "Successfully defending with Thundercry Blade activates its special counterattack. Press Perception Skill or Heavy Attack to unleash a first-stage Charged Heavy Attack without charging. Triggers once every 10 seconds. Also grants Breakthrough buff.",
+            "fr": "Défendre avec succès avec la Lame Cri de Tonnerre active sa contre-attaque spéciale. Appuyez sur Compétence de Perception ou Attaque Lourde pour déclencher une Attaque Lourde Chargée de premier niveau sans charger. Se déclenche une fois toutes les 10 secondes. Accorde aussi le buff Percée."
+          },
+          "cooldown": 10,
+          "requires_successful_block": true,
+          "buff": {
+            "name": "Breakthrough",
+            "effect": {
+              "en": "Increases charged skill damage by 30% and removes Endurance cost for 12s",
+              "fr": "Augmente les dégâts de compétence chargée de 30% et retire le coût d'Endurance pendant 12s"
+            }
+          }
+        }
+      },
+      "associated_inner_ways": [
+        "art_of_resistance",
+        "exquisite_scenery",
+        "trapped_beast",
+        "rock_solid"
+      ],
+      "recommended_pairs": [
+        "stormbreaker_spear"
+      ],
+      "strengths": {
+        "en": [
+          "Best tank weapon",
+          "Strong shields",
+          "Crowd control with pulls",
+          "Counter-attack mechanics",
+          "High survivability"
+        ],
+        "fr": [
+          "Meilleure arme de tank",
+          "Forts boucliers",
+          "Contrôle de foule avec attractions",
+          "Mécaniques de contre-attaque",
+          "Haute survie"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Low mobility",
+          "Lower DPS than dedicated damage weapons",
+          "Requires fighting spirit management"
+        ],
+        "fr": [
+          "Faible mobilité",
+          "DPS plus faible que les armes de dégâts dédiées",
+          "Nécessite gestion de l'esprit de combat"
+        ]
+      }
+    },
+    {
+      "id": "stormbreaker_spear",
+      "names": {
+        "en": "Stormbreaker Spear",
+        "cn": "破云枪",
+        "pinyin": "Pò Yún Qiāng",
+        "fr": "Lance Brise-Tempête"
+      },
+      "weapon_type": "spear",
+      "path": "stonesplit",
+      "variant": "might",
+      "full_path": {
+        "en": "Stonesplit - Might",
+        "fr": "Fend-Pierre - Puissance"
+      },
+      "role": {
+        "en": "Tank Support / Debuffer",
+        "fr": "Support Tank / Debuffeur"
+      },
+      "description": {
+        "en": "A supportive spear that enhances Thundercry Blade's effects. Equipped with shields, damage reduction, and interruption resistance for strong survivability. Can serve as the team's damage sponge via taunt abilities and apply debuffs to enemies.",
+        "fr": "Une lance de soutien qui améliore les effets de la Lame Cri de Tonnerre. Équipée de boucliers, réduction de dégâts et résistance à l'interruption pour une forte survie. Peut servir d'éponge à dégâts de l'équipe via les capacités de provocation et appliquer des debuffs aux ennemis."
+      },
+      "unlock_method": {
+        "en": "Received via in-game mail at level 3",
+        "fr": "Reçu par courrier en jeu au niveau 3"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Fighting Spirit / Battle Will",
+          "cn": "战意",
+          "pinyin": "Zhàn Yì",
+          "fr": "Esprit de Combat / Volonté de Bataille"
+        },
+        "description": {
+          "en": "Shared resource with Thundercry Blade. Gained by blocking, consumed for skills.",
+          "fr": "Ressource partagée avec la Lame Cri de Tonnerre. Gagnée en bloquant, consommée pour les compétences."
+        }
+      },
+      "skills": {
+        "light_attack": {
+          "id": "stormbreaker_light",
+          "names": {
+            "en": "Spear - Light Combo",
+            "cn": "枪·轻攻击",
+            "pinyin": "Qiāng · Qīng Gōngjī",
+            "fr": "Lance - Combo Léger"
+          },
+          "description": {
+            "en": "Perform up to four light attacks with a Spear. Good reach thanks to spear length.",
+            "fr": "Effectue jusqu'à quatre attaques légères avec une lance. Bonne portée grâce à la longueur de la lance."
+          },
+          "hits": 4
+        },
+        "heavy_attack": {
+          "id": "stormbreaker_heavy",
+          "names": {
+            "en": "Spear - Heavy Combo",
+            "cn": "枪·重攻击",
+            "pinyin": "Qiāng · Zhòng Gōngjī",
+            "fr": "Lance - Combo Lourd"
+          },
+          "description": {
+            "en": "Perform up to three heavy attacks with stagger and increased Qi damage.",
+            "fr": "Effectue jusqu'à trois attaques lourdes avec chancellement et dégâts de Qi augmentés."
+          },
+          "hits": 3,
+          "stagger": true
+        },
+        "charged_skill": {
+          "id": "fury_spear",
+          "names": {
+            "en": "Fury Spear",
+            "cn": "狂枪",
+            "pinyin": "Kuáng Qiāng",
+            "fr": "Lance Furieuse"
+          },
+          "description": {
+            "en": "Unleash a flurry of stabs upon release. The final hit grants the Drumbeat buff, increasing all charged skill damage by 15% for 6 seconds. Drumbeat can trigger Thundercry Blade's Perception Skill.",
+            "fr": "Déclenche une rafale d'estocs à la libération. Le dernier coup accorde le buff Roulement de Tambour, augmentant tous les dégâts de compétence chargée de 15% pendant 6 secondes. Roulement de Tambour peut déclencher la Compétence de Perception de la Lame Cri de Tonnerre."
+          },
+          "buff": {
+            "name": "Drumbeat",
+            "effect": {
+              "en": "+15% Charged Skill damage for 6s",
+              "fr": "+15% dégâts de Compétence Chargée pendant 6s"
+            },
+            "duration": 6,
+            "triggers_thundercry_perception": true
+          }
+        },
+        "martial_skill": {
+          "id": "storm_roar",
+          "names": {
+            "en": "Storm Roar",
+            "cn": "风啸",
+            "pinyin": "Fēng Xiào",
+            "fr": "Rugissement de Tempête"
+          },
+          "description": {
+            "en": "Taunt enemies to draw aggro. Provides damage reduction for 16 seconds: 20% in solo play, 40% against multiplayer bosses. Essential for tank gameplay.",
+            "fr": "Provoque les ennemis pour attirer l'aggro. Fournit une réduction de dégâts pendant 16 secondes : 20% en solo, 40% contre les boss multijoueur. Essentiel pour le gameplay de tank."
+          },
+          "cooldown": 20,
+          "taunt": true,
+          "damage_reduction": {
+            "solo": "20%",
+            "multiplayer": "40%"
+          },
+          "duration": 16
+        },
+        "special_skill": {
+          "id": "thunder_shock",
+          "names": {
+            "en": "Thunder Shock",
+            "cn": "雷震",
+            "pinyin": "Léi Zhèn",
+            "fr": "Choc de Tonnerre"
+          },
+          "description": {
+            "en": "Consumes 2 bars of Fighting Spirit. Launches a spinning kick followed by a flipping spear slam, knocking the target down and applying Vulnerable for 8 seconds. Vulnerable increases HP and Qi damage taken by 8% from all sources, plus additional 8% from Stonesplit weapons.",
+            "fr": "Consomme 2 barres d'Esprit de Combat. Lance un coup de pied tournoyant suivi d'un slam de lance retourné, mettant la cible à terre et appliquant Vulnérable pendant 8 secondes. Vulnérable augmente les dégâts de PV et Qi reçus de 8% de toutes sources, plus 8% supplémentaires des armes Fend-Pierre."
+          },
+          "cooldown": 0,
+          "fighting_spirit_cost": 2,
+          "knockdown": true,
+          "debuff": {
+            "name": "Vulnerable",
+            "effect": {
+              "en": "+8% HP and Qi damage taken (+8% from Stonesplit)",
+              "fr": "+8% dégâts de PV et Qi reçus (+8% de Fend-Pierre)"
+            },
+            "duration": 8
+          }
+        }
+      },
+      "associated_inner_ways": [
+        "rock_solid",
+        "art_of_resistance",
+        "exquisite_scenery",
+        "trapped_beast"
+      ],
+      "recommended_pairs": [
+        "thundercry_blade"
+      ],
+      "strengths": {
+        "en": [
+          "Essential taunt for tanking",
+          "Strong damage reduction",
+          "Debuff application",
+          "Drumbeat synergy with Thundercry"
+        ],
+        "fr": [
+          "Provocation essentielle pour tanker",
+          "Forte réduction de dégâts",
+          "Application de debuff",
+          "Synergie Roulement de Tambour avec Cri de Tonnerre"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Lower damage output",
+          "Designed as support weapon",
+          "Fighting Spirit dependent"
+        ],
+        "fr": [
+          "Production de dégâts plus faible",
+          "Conçu comme arme de support",
+          "Dépendant de l'Esprit de Combat"
+        ]
+      }
+    },
+    {
+      "id": "ninefold_umbrella",
+      "names": {
+        "en": "Ninefold Umbrella",
+        "cn": "九重伞",
+        "pinyin": "Jiǔ Chóng Sǎn",
+        "fr": "Ombrelle Novenaire"
+      },
+      "weapon_type": "umbrella",
+      "path": "silkbind",
+      "variant": "jade",
+      "full_path": {
+        "en": "Silkbind - Jade",
+        "fr": "Lien de Soie - Jade"
+      },
+      "role": {
+        "en": "Ranged DPS / Support Hybrid",
+        "fr": "DPS à Distance / Hybride Support"
+      },
+      "description": {
+        "en": "An alternative umbrella for the Silkbind - Jade path. Similar to Vernal Umbrella but with slightly different skill interactions. Provides ranged DPS with aerial support capabilities.",
+        "fr": "Une ombrelle alternative pour la voie Lien de Soie - Jade. Similaire à l'Ombrelle Printanière mais avec des interactions de compétences légèrement différentes. Fournit du DPS à distance avec des capacités de support aérien."
+      },
+      "unlock_method": {
+        "en": "Skill Theft Sanctum",
+        "fr": "Sanctuaire de Vol de Compétence"
+      },
+      "special_resource": {
+        "name": {
+          "en": "Blossom",
+          "cn": "花",
+          "pinyin": "Huā",
+          "fr": "Floraison"
+        },
+        "description": {
+          "en": "Same as Vernal Umbrella - builds through attacks for special skill activation.",
+          "fr": "Identique à l'Ombrelle Printanière - se construit par les attaques pour l'activation de compétences spéciales."
+        }
+      },
+      "skills": {
+        "note": {
+          "en": "Skills similar to Vernal Umbrella with minor variations. See Vernal Umbrella for detailed skill descriptions.",
+          "fr": "Compétences similaires à l'Ombrelle Printanière avec des variations mineures. Voir l'Ombrelle Printanière pour des descriptions détaillées."
+        }
+      },
+      "associated_inner_ways": [
+        "blossom_barrage",
+        "thunderous_bloom",
+        "flying_gourds",
+        "star_reacher"
+      ],
+      "recommended_pairs": [
+        "inkwell_fan"
+      ],
+      "strengths": {
+        "en": [
+          "Ranged DPS",
+          "Aerial combat support",
+          "Good synergy with Inkwell Fan"
+        ],
+        "fr": [
+          "DPS à distance",
+          "Support de combat aérien",
+          "Bonne synergie avec l'Éventail Encrier"
+        ]
+      },
+      "weaknesses": {
+        "en": [
+          "Similar to Vernal Umbrella",
+          "Requires positioning"
+        ],
+        "fr": [
+          "Similaire à l'Ombrelle Printanière",
+          "Nécessite du positionnement"
+        ]
+      }
+    }
+  ]
+}

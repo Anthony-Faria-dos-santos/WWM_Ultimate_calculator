@@ -1,0 +1,1145 @@
+{
+  "metadata": {
+    "version": "3.0.0",
+    "total_count": 40,
+    "last_updated": "2026-01-29",
+    "sources": [
+      "Game data",
+      "Boarhat.gg",
+      "GameKee",
+      "Community research"
+    ],
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "categories": [
+      "offensive",
+      "support",
+      "utility",
+      "traversal"
+    ]
+  },
+  "mystic_arts": [
+    {
+      "id": "lions_roar",
+      "names": {
+        "en": "Lion's Roar",
+        "cn": "狮吼正声",
+        "pinyin": "Shī Hǒu Zhèng Shēng",
+        "fr": "Rugissement du Lion"
+      },
+      "category": "offensive",
+      "type": "aoe_damage",
+      "vitality_cost": 20,
+      "cooldown": 12,
+      "description": {
+        "en": "Unleash a powerful roar that deals AoE damage and staggers nearby enemies. Effective for crowd control.",
+        "fr": "Déclenche un rugissement puissant qui inflige des dégâts de zone et fait chanceler les ennemis proches. Efficace pour le contrôle de foule."
+      },
+      "effects": {
+        "en": [
+          "AoE damage",
+          "Stagger enemies",
+          "Interrupt attacks"
+        ],
+        "fr": [
+          "Dégâts de zone",
+          "Fait chanceler les ennemis",
+          "Interrompt les attaques"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Act 1",
+        "fr": "Progression de l'histoire - Acte 1"
+      },
+      "priority": "high",
+      "upgradeable": true
+    },
+    {
+      "id": "heavenly_snatch",
+      "names": {
+        "en": "Heavenly Snatch",
+        "cn": "天罡抓",
+        "pinyin": "Tiān Gāng Zhuā",
+        "fr": "Saisie Céleste"
+      },
+      "category": "offensive",
+      "type": "grab",
+      "vitality_cost": 15,
+      "cooldown": 8,
+      "description": {
+        "en": "Grab an enemy and throw them, dealing damage and interrupting their actions. Can be used to reposition enemies.",
+        "fr": "Attrape un ennemi et le projette, infligeant des dégâts et interrompant ses actions. Peut être utilisé pour repositionner les ennemis."
+      },
+      "effects": {
+        "en": [
+          "Grab and throw enemy",
+          "Interrupt attacks",
+          "Reposition targets"
+        ],
+        "fr": [
+          "Attrape et projette l'ennemi",
+          "Interrompt les attaques",
+          "Repositionne les cibles"
+        ]
+      },
+      "unlock_method": {
+        "en": "Skill Theft from elite enemy",
+        "fr": "Vol de compétence sur un ennemi d'élite"
+      },
+      "priority": "high",
+      "upgradeable": true
+    },
+    {
+      "id": "dragon_fire",
+      "names": {
+        "en": "Dragon Fire",
+        "cn": "神龙吐火",
+        "pinyin": "Shén Lóng Tǔ Huǒ",
+        "fr": "Souffle du Dragon"
+      },
+      "category": "offensive",
+      "type": "ranged_damage",
+      "vitality_cost": 25,
+      "cooldown": 15,
+      "description": {
+        "en": "Project a stream of fire that deals continuous damage and applies Burn status to enemies. High damage over time potential.",
+        "fr": "Projette un jet de flammes qui inflige des dégâts continus et applique le statut Brûlure aux ennemis. Fort potentiel de dégâts sur la durée."
+      },
+      "effects": {
+        "en": [
+          "Fire projectile",
+          "Burn damage over time",
+          "Ignite status"
+        ],
+        "fr": [
+          "Projectile de feu",
+          "Dégâts de brûlure sur la durée",
+          "Statut Embrasement"
+        ]
+      },
+      "unlock_method": {
+        "en": "Hidden chest in Flaming Mountains",
+        "fr": "Coffre caché dans les Montagnes Ardentes"
+      },
+      "priority": "high",
+      "upgradeable": true
+    },
+    {
+      "id": "touch_of_death",
+      "names": {
+        "en": "Touch of Death",
+        "cn": "摸骨手",
+        "pinyin": "Mō Gǔ Shǒu",
+        "fr": "Toucher de la Mort"
+      },
+      "category": "offensive",
+      "type": "assassination",
+      "vitality_cost": 30,
+      "cooldown": 20,
+      "description": {
+        "en": "A deadly assassination technique that instantly kills enemies below a certain HP threshold. Required for stealth gameplay.",
+        "fr": "Une technique d'assassinat mortelle qui tue instantanément les ennemis sous un certain seuil de PV. Requise pour le gameplay furtif."
+      },
+      "effects": {
+        "en": [
+          "Instant kill on low HP enemies",
+          "Stealth execution",
+          "Required for certain areas"
+        ],
+        "fr": [
+          "Mort instantanée sur ennemis à faibles PV",
+          "Exécution furtive",
+          "Requise pour certaines zones"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Main quest",
+        "fr": "Progression de l'histoire - Quête principale"
+      },
+      "priority": "essential",
+      "upgradeable": true
+    },
+    {
+      "id": "palm_strike",
+      "names": {
+        "en": "Iron Sand Palm",
+        "cn": "铁砂掌",
+        "pinyin": "Tiě Shā Zhǎng",
+        "fr": "Paume de Sable de Fer"
+      },
+      "category": "offensive",
+      "type": "melee_damage",
+      "vitality_cost": 15,
+      "cooldown": 6,
+      "description": {
+        "en": "A powerful palm strike that deals high single-target damage and knocks enemies back. Fast execution.",
+        "fr": "Une frappe de paume puissante qui inflige de gros dégâts mono-cible et repousse les ennemis. Exécution rapide."
+      },
+      "effects": {
+        "en": [
+          "High single-target damage",
+          "Knockback",
+          "Fast animation"
+        ],
+        "fr": [
+          "Dégâts mono-cible élevés",
+          "Repousse",
+          "Animation rapide"
+        ]
+      },
+      "unlock_method": {
+        "en": "Sect training - Shaolin path",
+        "fr": "Entraînement de secte - Voie Shaolin"
+      },
+      "priority": "medium",
+      "upgradeable": true
+    },
+    {
+      "id": "thousand_needles",
+      "names": {
+        "en": "Thousand Needles",
+        "cn": "千针万刺",
+        "pinyin": "Qiān Zhēn Wàn Cì",
+        "fr": "Mille Aiguilles"
+      },
+      "category": "offensive",
+      "type": "ranged_damage",
+      "vitality_cost": 20,
+      "cooldown": 10,
+      "description": {
+        "en": "Fire multiple hidden needles that deal damage and apply poison to all targets hit. Excellent for multi-target scenarios.",
+        "fr": "Tire plusieurs aiguilles cachées qui infligent des dégâts et appliquent le poison à toutes les cibles touchées. Excellent pour les scénarios multi-cibles."
+      },
+      "effects": {
+        "en": [
+          "Multiple projectiles",
+          "Poison application",
+          "Multi-target damage"
+        ],
+        "fr": [
+          "Projectiles multiples",
+          "Application de poison",
+          "Dégâts multi-cibles"
+        ]
+      },
+      "unlock_method": {
+        "en": "Hidden area - Tangmen Sect",
+        "fr": "Zone cachée - Secte Tangmen"
+      },
+      "priority": "medium",
+      "upgradeable": true
+    },
+    {
+      "id": "flying_sword",
+      "names": {
+        "en": "Flying Sword",
+        "cn": "御剑术",
+        "pinyin": "Yù Jiàn Shù",
+        "fr": "Épée Volante"
+      },
+      "category": "offensive",
+      "type": "ranged_damage",
+      "vitality_cost": 25,
+      "cooldown": 12,
+      "description": {
+        "en": "Control a flying sword to strike enemies from range. The sword hits multiple times before returning.",
+        "fr": "Contrôle une épée volante pour frapper les ennemis à distance. L'épée touche plusieurs fois avant de revenir."
+      },
+      "effects": {
+        "en": [
+          "Ranged sword attack",
+          "Multiple hits",
+          "Homing capability"
+        ],
+        "fr": [
+          "Attaque d'épée à distance",
+          "Coups multiples",
+          "Capacité de suivi"
+        ]
+      },
+      "unlock_method": {
+        "en": "Skill Theft Sanctum - Elite drop",
+        "fr": "Sanctuaire de Vol de Compétence - Drop d'élite"
+      },
+      "priority": "high",
+      "upgradeable": true
+    },
+    {
+      "id": "shadowless_kick",
+      "names": {
+        "en": "Shadowless Kick",
+        "cn": "无影脚",
+        "pinyin": "Wú Yǐng Jiǎo",
+        "fr": "Coup de Pied Sans Ombre"
+      },
+      "category": "offensive",
+      "type": "melee_damage",
+      "vitality_cost": 15,
+      "cooldown": 8,
+      "description": {
+        "en": "Execute a rapid series of kicks so fast they appear shadowless. Staggers enemies and deals consistent damage.",
+        "fr": "Exécute une série rapide de coups de pied si rapide qu'ils semblent sans ombre. Fait chanceler les ennemis et inflige des dégâts constants."
+      },
+      "effects": {
+        "en": [
+          "Fast kick combo",
+          "Stagger",
+          "Consistent DPS"
+        ],
+        "fr": [
+          "Combo de coups de pied rapide",
+          "Chancellement",
+          "DPS constant"
+        ]
+      },
+      "unlock_method": {
+        "en": "Sect progression - Southern Fist",
+        "fr": "Progression de secte - Poing du Sud"
+      },
+      "priority": "medium",
+      "upgradeable": true
+    },
+    {
+      "id": "buddha_palm",
+      "names": {
+        "en": "Buddha's Palm",
+        "cn": "如来神掌",
+        "pinyin": "Rúlái Shén Zhǎng",
+        "fr": "Paume de Bouddha"
+      },
+      "category": "offensive",
+      "type": "ultimate_damage",
+      "vitality_cost": 50,
+      "cooldown": 60,
+      "description": {
+        "en": "Summon a massive palm from the heavens that crushes all enemies in a wide area. Ultimate skill with devastating power.",
+        "fr": "Invoque une paume massive depuis les cieux qui écrase tous les ennemis dans une large zone. Compétence ultime à la puissance dévastatrice."
+      },
+      "effects": {
+        "en": [
+          "Massive AoE damage",
+          "Knockdown",
+          "Devastation"
+        ],
+        "fr": [
+          "Dégâts de zone massifs",
+          "Mise à terre",
+          "Dévastation"
+        ]
+      },
+      "unlock_method": {
+        "en": "Rare drop or hidden quest - Shaolin Temple",
+        "fr": "Drop rare ou quête cachée - Temple Shaolin"
+      },
+      "priority": "low",
+      "upgradeable": true
+    },
+    {
+      "id": "viper_strike",
+      "names": {
+        "en": "Viper Strike",
+        "cn": "毒蛇噬咬",
+        "pinyin": "Dú Shé Shì Yǎo",
+        "fr": "Morsure de Vipère"
+      },
+      "category": "offensive",
+      "type": "poison_damage",
+      "vitality_cost": 18,
+      "cooldown": 10,
+      "description": {
+        "en": "Strike with the speed and venom of a viper, applying a stacking poison debuff that deals damage over time.",
+        "fr": "Frappe avec la vitesse et le venin d'une vipère, appliquant un debuff de poison cumulable qui inflige des dégâts sur la durée."
+      },
+      "effects": {
+        "en": [
+          "Poison damage",
+          "Stacking debuff",
+          "DoT"
+        ],
+        "fr": [
+          "Dégâts de poison",
+          "Debuff cumulable",
+          "Dégâts sur la durée"
+        ]
+      },
+      "unlock_method": {
+        "en": "Nine Mortal Ways sect quest",
+        "fr": "Quête de la secte des Neuf Voies Mortelles"
+      },
+      "priority": "medium",
+      "upgradeable": true
+    },
+    {
+      "id": "crescent_moon_slash",
+      "names": {
+        "en": "Crescent Moon Slash",
+        "cn": "月牙斩",
+        "pinyin": "Yuè Yá Zhǎn",
+        "fr": "Entaille du Croissant de Lune"
+      },
+      "category": "offensive",
+      "type": "melee_damage",
+      "vitality_cost": 20,
+      "cooldown": 10,
+      "description": {
+        "en": "Perform a wide arc slash that mimics the shape of a crescent moon. Applies Bleed to all enemies hit.",
+        "fr": "Effectue une entaille en arc large qui imite la forme d'un croissant de lune. Applique Saignement à tous les ennemis touchés."
+      },
+      "effects": {
+        "en": [
+          "Wide arc attack",
+          "Bleed application",
+          "Multi-target"
+        ],
+        "fr": [
+          "Attaque en arc large",
+          "Application de saignement",
+          "Multi-cibles"
+        ]
+      },
+      "unlock_method": {
+        "en": "Exploration - Mountain caves",
+        "fr": "Exploration - Grottes de montagne"
+      },
+      "priority": "medium",
+      "upgradeable": true
+    },
+    {
+      "id": "ghost_bind",
+      "names": {
+        "en": "Ghost Bind",
+        "cn": "百鬼打穴手",
+        "pinyin": "Bǎi Guǐ Dǎ Xué Shǒu",
+        "fr": "Entrave Fantôme"
+      },
+      "category": "offensive",
+      "type": "control",
+      "vitality_cost": 22,
+      "cooldown": 15,
+      "description": {
+        "en": "Strike pressure points to immobilize the enemy. Stored damage is released when the effect ends.",
+        "fr": "Frappe les points de pression pour immobiliser l'ennemi. Les dégâts stockés sont libérés quand l'effet se termine."
+      },
+      "effects": {
+        "en": [
+          "Immobilize enemy",
+          "Store damage",
+          "Delayed burst"
+        ],
+        "fr": [
+          "Immobilise l'ennemi",
+          "Stocke les dégâts",
+          "Explosion retardée"
+        ]
+      },
+      "unlock_method": {
+        "en": "Hidden technique - Ghost Valley",
+        "fr": "Technique cachée - Vallée des Fantômes"
+      },
+      "priority": "high",
+      "upgradeable": true
+    },
+    {
+      "id": "drunken_poet",
+      "names": {
+        "en": "Drunken Poet",
+        "cn": "太白醉月",
+        "pinyin": "Tài Bái Zuì Yuè",
+        "fr": "Poète Ivre"
+      },
+      "category": "offensive",
+      "type": "buff_damage",
+      "vitality_cost": 20,
+      "cooldown": 18,
+      "description": {
+        "en": "Enter a drunken stance that grants damage reduction and enhances Tenacity. Combos with Dragon Fire for explosion.",
+        "fr": "Entre dans une posture ivre qui accorde une réduction de dégâts et améliore la Ténacité. Se combine avec Souffle du Dragon pour une explosion."
+      },
+      "effects": {
+        "en": [
+          "Damage reduction",
+          "Tenacity enhancement",
+          "Combo synergy with Dragon Fire"
+        ],
+        "fr": [
+          "Réduction de dégâts",
+          "Amélioration de la Ténacité",
+          "Synergie de combo avec Souffle du Dragon"
+        ]
+      },
+      "unlock_method": {
+        "en": "Wine Immortal questline",
+        "fr": "Quête de l'Immortel du Vin"
+      },
+      "priority": "high",
+      "upgradeable": true
+    },
+    {
+      "id": "soaring_spin",
+      "names": {
+        "en": "Soaring Spin",
+        "cn": "骑龙回马",
+        "pinyin": "Qí Lóng Huí Mǎ",
+        "fr": "Vrille Ascendante"
+      },
+      "category": "offensive",
+      "type": "mobility_damage",
+      "vitality_cost": 18,
+      "cooldown": 12,
+      "description": {
+        "en": "A spinning dash attack that covers distance while dealing damage. Can be animation cancelled for combos.",
+        "fr": "Une attaque de dash tournoyante qui couvre de la distance tout en infligeant des dégâts. Peut être annulée pour des combos."
+      },
+      "effects": {
+        "en": [
+          "Dash attack",
+          "Spinning damage",
+          "Animation cancel"
+        ],
+        "fr": [
+          "Attaque de dash",
+          "Dégâts tournoyants",
+          "Annulation d'animation"
+        ]
+      },
+      "unlock_method": {
+        "en": "Combat training - Advanced",
+        "fr": "Entraînement de combat - Avancé"
+      },
+      "priority": "high",
+      "upgradeable": true
+    },
+    {
+      "id": "guardian_palm",
+      "names": {
+        "en": "Guardian Palm",
+        "cn": "韦陀正法",
+        "pinyin": "Wéi Tuó Zhèng Fǎ",
+        "fr": "Paume du Gardien"
+      },
+      "category": "offensive",
+      "type": "aerial_damage",
+      "vitality_cost": 25,
+      "cooldown": 14,
+      "description": {
+        "en": "A powerful downward palm strike from the air. Enhanced when cast at 5m+ height with increased AoE.",
+        "fr": "Une puissante frappe de paume descendante depuis les airs. Améliorée quand lancée à 5m+ de hauteur avec une zone d'effet augmentée."
+      },
+      "effects": {
+        "en": [
+          "Aerial attack",
+          "Ground pound",
+          "Height-based enhancement"
+        ],
+        "fr": [
+          "Attaque aérienne",
+          "Coup au sol",
+          "Amélioration basée sur la hauteur"
+        ]
+      },
+      "unlock_method": {
+        "en": "Temple of the Guardian quest",
+        "fr": "Quête du Temple du Gardien"
+      },
+      "priority": "medium",
+      "upgradeable": true
+    },
+    {
+      "id": "ghostly_steps",
+      "names": {
+        "en": "Ghostly Steps",
+        "cn": "鬼步",
+        "pinyin": "Guǐ Bù",
+        "fr": "Pas Fantomatiques"
+      },
+      "category": "offensive",
+      "type": "stealth_mobility",
+      "vitality_cost": 15,
+      "cooldown": 20,
+      "description": {
+        "en": "Enter a ghostly state that increases movement speed and grants temporary invisibility. Reduced Endurance cost.",
+        "fr": "Entre dans un état fantomatique qui augmente la vitesse de déplacement et accorde l'invisibilité temporaire. Coût d'Endurance réduit."
+      },
+      "effects": {
+        "en": [
+          "Temporary invisibility",
+          "Movement speed boost",
+          "Endurance reduction"
+        ],
+        "fr": [
+          "Invisibilité temporaire",
+          "Boost de vitesse de déplacement",
+          "Réduction d'Endurance"
+        ]
+      },
+      "unlock_method": {
+        "en": "Shadow sect training",
+        "fr": "Entraînement de la secte de l'Ombre"
+      },
+      "priority": "medium",
+      "upgradeable": true
+    },
+    {
+      "id": "flaming_meteor",
+      "names": {
+        "en": "Flaming Meteor",
+        "cn": "火流星",
+        "pinyin": "Huǒ Liú Xīng",
+        "fr": "Météore Enflammé"
+      },
+      "category": "offensive",
+      "type": "ranged_aoe",
+      "vitality_cost": 28,
+      "cooldown": 16,
+      "description": {
+        "en": "Hurl a flaming projectile that explodes on impact, dealing massive AoE fire damage. Damage reduction while casting.",
+        "fr": "Lance un projectile enflammé qui explose à l'impact, infligeant des dégâts de feu massifs en zone. Réduction de dégâts pendant l'incantation."
+      },
+      "effects": {
+        "en": [
+          "Ranged AoE",
+          "Fire explosion",
+          "Casting protection"
+        ],
+        "fr": [
+          "Zone à distance",
+          "Explosion de feu",
+          "Protection pendant l'incantation"
+        ]
+      },
+      "unlock_method": {
+        "en": "Fire sect advancement",
+        "fr": "Avancement de la secte du Feu"
+      },
+      "priority": "high",
+      "upgradeable": true
+    },
+    {
+      "id": "golden_bell",
+      "names": {
+        "en": "Golden Bell Shield",
+        "cn": "金钟罩",
+        "pinyin": "Jīn Zhōng Zhào",
+        "fr": "Bouclier de la Cloche Dorée"
+      },
+      "category": "support",
+      "type": "defense",
+      "vitality_cost": 25,
+      "cooldown": 30,
+      "description": {
+        "en": "Activate the legendary Golden Bell technique, granting temporary invulnerability and reflecting a portion of damage received.",
+        "fr": "Active la technique légendaire de la Cloche Dorée, accordant l'invulnérabilité temporaire et reflétant une partie des dégâts reçus."
+      },
+      "effects": {
+        "en": [
+          "Temporary invulnerability",
+          "Damage reflection",
+          "Super armor"
+        ],
+        "fr": [
+          "Invulnérabilité temporaire",
+          "Réflexion de dégâts",
+          "Super armure"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Shaolin chapter",
+        "fr": "Progression de l'histoire - Chapitre Shaolin"
+      },
+      "priority": "high",
+      "upgradeable": true
+    },
+    {
+      "id": "iron_shirt",
+      "names": {
+        "en": "Iron Shirt",
+        "cn": "铁布衫",
+        "pinyin": "Tiě Bù Shān",
+        "fr": "Chemise de Fer"
+      },
+      "category": "support",
+      "type": "defense",
+      "vitality_cost": 20,
+      "cooldown": 25,
+      "description": {
+        "en": "Harden your body like iron, significantly reducing damage taken and granting stagger resistance for a duration.",
+        "fr": "Durcit votre corps comme le fer, réduisant significativement les dégâts reçus et accordant une résistance au chancellement pour une durée."
+      },
+      "effects": {
+        "en": [
+          "Damage reduction",
+          "Stagger resistance",
+          "Defensive buff"
+        ],
+        "fr": [
+          "Réduction de dégâts",
+          "Résistance au chancellement",
+          "Buff défensif"
+        ]
+      },
+      "unlock_method": {
+        "en": "Sect training - Defensive arts",
+        "fr": "Entraînement de secte - Arts défensifs"
+      },
+      "priority": "medium",
+      "upgradeable": true
+    },
+    {
+      "id": "healing_qi",
+      "names": {
+        "en": "Healing Qi",
+        "cn": "疗伤气功",
+        "pinyin": "Liáo Shāng Qì Gōng",
+        "fr": "Qi Guérisseur"
+      },
+      "category": "support",
+      "type": "heal",
+      "vitality_cost": 30,
+      "cooldown": 45,
+      "description": {
+        "en": "Channel internal qi to heal yourself and remove negative status effects. Essential for sustain in combat.",
+        "fr": "Canalise le qi interne pour vous soigner et retirer les effets de statut négatifs. Essentiel pour la sustain en combat."
+      },
+      "effects": {
+        "en": [
+          "Self heal",
+          "Remove debuffs",
+          "HP restoration"
+        ],
+        "fr": [
+          "Auto-soin",
+          "Retire les debuffs",
+          "Restauration de PV"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Tutorial",
+        "fr": "Progression de l'histoire - Tutoriel"
+      },
+      "priority": "essential",
+      "upgradeable": true
+    },
+    {
+      "id": "qi_shield",
+      "names": {
+        "en": "Qi Shield",
+        "cn": "气盾",
+        "pinyin": "Qì Dùn",
+        "fr": "Bouclier de Qi"
+      },
+      "category": "support",
+      "type": "shield",
+      "vitality_cost": 20,
+      "cooldown": 20,
+      "description": {
+        "en": "Create a protective shield of qi that absorbs incoming damage. Shield strength scales with max HP.",
+        "fr": "Crée un bouclier protecteur de qi qui absorbe les dégâts entrants. La force du bouclier augmente avec les PV max."
+      },
+      "effects": {
+        "en": [
+          "Damage absorption",
+          "HP-based scaling",
+          "Temporary protection"
+        ],
+        "fr": [
+          "Absorption de dégâts",
+          "Augmentation basée sur les PV",
+          "Protection temporaire"
+        ]
+      },
+      "unlock_method": {
+        "en": "Qi cultivation training",
+        "fr": "Entraînement de cultivation du Qi"
+      },
+      "priority": "high",
+      "upgradeable": true
+    },
+    {
+      "id": "cloud_step",
+      "names": {
+        "en": "Cloud Step",
+        "cn": "凌云步",
+        "pinyin": "Líng Yún Bù",
+        "fr": "Pas des Nuages"
+      },
+      "category": "utility",
+      "type": "movement",
+      "vitality_cost": 10,
+      "cooldown": 3,
+      "description": {
+        "en": "A swift qinggong technique that allows rapid directional movement with invincibility frames during the animation.",
+        "fr": "Une technique de qinggong rapide qui permet un mouvement directionnel rapide avec des frames d'invincibilité pendant l'animation."
+      },
+      "effects": {
+        "en": [
+          "Quick dash",
+          "I-frames during animation",
+          "Directional control"
+        ],
+        "fr": [
+          "Dash rapide",
+          "Frames d'invincibilité pendant l'animation",
+          "Contrôle directionnel"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Introduction",
+        "fr": "Progression de l'histoire - Introduction"
+      },
+      "priority": "essential",
+      "upgradeable": false
+    },
+    {
+      "id": "wall_run",
+      "names": {
+        "en": "Wall Run",
+        "cn": "飞檐走壁",
+        "pinyin": "Fēi Yán Zǒu Bì",
+        "fr": "Course Murale"
+      },
+      "category": "traversal",
+      "type": "traversal",
+      "vitality_cost": 5,
+      "cooldown": 0,
+      "description": {
+        "en": "Run along vertical surfaces using qinggong. Essential for accessing many hidden areas and shortcuts.",
+        "fr": "Court le long des surfaces verticales en utilisant le qinggong. Essentiel pour accéder à de nombreuses zones cachées et raccourcis."
+      },
+      "effects": {
+        "en": [
+          "Run on walls",
+          "Access hidden areas",
+          "Vertical traversal"
+        ],
+        "fr": [
+          "Court sur les murs",
+          "Accès aux zones cachées",
+          "Traversée verticale"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Act 1",
+        "fr": "Progression de l'histoire - Acte 1"
+      },
+      "priority": "essential",
+      "upgradeable": false
+    },
+    {
+      "id": "water_walk",
+      "names": {
+        "en": "Water Walk",
+        "cn": "踏水而行",
+        "pinyin": "Tà Shuǐ Ér Xíng",
+        "fr": "Marche sur l'Eau"
+      },
+      "category": "traversal",
+      "type": "traversal",
+      "vitality_cost": 5,
+      "cooldown": 0,
+      "description": {
+        "en": "Walk on water surfaces using advanced qinggong techniques. Consumes Endurance while active.",
+        "fr": "Marche sur les surfaces d'eau en utilisant des techniques avancées de qinggong. Consomme de l'Endurance tant qu'actif."
+      },
+      "effects": {
+        "en": [
+          "Walk on water surfaces",
+          "Endurance consumption",
+          "Exploration access"
+        ],
+        "fr": [
+          "Marche sur les surfaces d'eau",
+          "Consommation d'Endurance",
+          "Accès d'exploration"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Water chapter",
+        "fr": "Progression de l'histoire - Chapitre de l'eau"
+      },
+      "priority": "essential",
+      "upgradeable": false
+    },
+    {
+      "id": "glide",
+      "names": {
+        "en": "Glide",
+        "cn": "御风飞行",
+        "pinyin": "Yù Fēng Fēi Xíng",
+        "fr": "Plané"
+      },
+      "category": "traversal",
+      "type": "traversal",
+      "vitality_cost": 0,
+      "cooldown": 0,
+      "description": {
+        "en": "Glide through the air using internal qi to slow your descent. Essential for exploring the open world.",
+        "fr": "Plane dans les airs en utilisant le qi interne pour ralentir votre descente. Essentiel pour explorer le monde ouvert."
+      },
+      "effects": {
+        "en": [
+          "Slow fall and glide",
+          "Air control",
+          "Long distance travel"
+        ],
+        "fr": [
+          "Chute lente et plané",
+          "Contrôle aérien",
+          "Voyage longue distance"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Introduction",
+        "fr": "Progression de l'histoire - Introduction"
+      },
+      "priority": "essential",
+      "upgradeable": false
+    },
+    {
+      "id": "grapple_hook",
+      "names": {
+        "en": "Grapple Hook",
+        "cn": "钩索",
+        "pinyin": "Gōu Suǒ",
+        "fr": "Grappin"
+      },
+      "category": "traversal",
+      "type": "traversal",
+      "vitality_cost": 5,
+      "cooldown": 2,
+      "description": {
+        "en": "Use a grappling hook to quickly travel to marked grapple points. Essential for vertical exploration.",
+        "fr": "Utilise un grappin pour voyager rapidement vers les points de grappin marqués. Essentiel pour l'exploration verticale."
+      },
+      "effects": {
+        "en": [
+          "Grapple to marked points",
+          "Quick traversal",
+          "Vertical mobility"
+        ],
+        "fr": [
+          "Grappin vers les points marqués",
+          "Traversée rapide",
+          "Mobilité verticale"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Tutorial",
+        "fr": "Progression de l'histoire - Tutoriel"
+      },
+      "priority": "essential",
+      "upgradeable": false
+    },
+    {
+      "id": "skywalk_dash",
+      "names": {
+        "en": "Skywalk Dash",
+        "cn": "御空疾行",
+        "pinyin": "Yù Kōng Jí Xíng",
+        "fr": "Dash Céleste"
+      },
+      "category": "traversal",
+      "type": "air_movement",
+      "vitality_cost": 10,
+      "cooldown": 0,
+      "description": {
+        "en": "Dash through the air while jumping. Consumes Endurance but allows rapid aerial movement.",
+        "fr": "Dash dans les airs pendant un saut. Consomme de l'Endurance mais permet un mouvement aérien rapide."
+      },
+      "effects": {
+        "en": [
+          "Air dash",
+          "Endurance cost",
+          "Extended jumps"
+        ],
+        "fr": [
+          "Dash aérien",
+          "Coût d'Endurance",
+          "Sauts prolongés"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Movement tutorial",
+        "fr": "Progression de l'histoire - Tutoriel de mouvement"
+      },
+      "priority": "essential",
+      "upgradeable": false
+    },
+    {
+      "id": "disguise",
+      "names": {
+        "en": "Disguise",
+        "cn": "易容术",
+        "pinyin": "Yì Róng Shù",
+        "fr": "Déguisement"
+      },
+      "category": "utility",
+      "type": "stealth",
+      "vitality_cost": 0,
+      "cooldown": 0,
+      "description": {
+        "en": "Change your appearance to infiltrate restricted areas or blend in with NPCs. Required for many quests.",
+        "fr": "Change votre apparence pour infiltrer les zones restreintes ou se fondre parmi les PNJ. Requis pour de nombreuses quêtes."
+      },
+      "effects": {
+        "en": [
+          "Change appearance",
+          "Infiltration",
+          "Quest requirement"
+        ],
+        "fr": [
+          "Change l'apparence",
+          "Infiltration",
+          "Requis pour quêtes"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Spy chapter",
+        "fr": "Progression de l'histoire - Chapitre espion"
+      },
+      "priority": "essential",
+      "upgradeable": false
+    },
+    {
+      "id": "eagle_vision",
+      "names": {
+        "en": "Eagle Vision",
+        "cn": "鹰眼",
+        "pinyin": "Yīng Yǎn",
+        "fr": "Vision d'Aigle"
+      },
+      "category": "utility",
+      "type": "detection",
+      "vitality_cost": 5,
+      "cooldown": 5,
+      "description": {
+        "en": "Activate enhanced perception to highlight interactable objects, enemies, and hidden items in the environment.",
+        "fr": "Active une perception améliorée pour mettre en évidence les objets interactifs, les ennemis et les objets cachés dans l'environnement."
+      },
+      "effects": {
+        "en": [
+          "Highlight interactables",
+          "See through walls",
+          "Detect hidden items"
+        ],
+        "fr": [
+          "Met en évidence les interactifs",
+          "Voit à travers les murs",
+          "Détecte les objets cachés"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Investigation tutorial",
+        "fr": "Progression de l'histoire - Tutoriel d'investigation"
+      },
+      "priority": "high",
+      "upgradeable": false
+    },
+    {
+      "id": "meditation",
+      "names": {
+        "en": "Meditation",
+        "cn": "打坐",
+        "pinyin": "Dǎ Zuò",
+        "fr": "Méditation"
+      },
+      "category": "utility",
+      "type": "recovery",
+      "vitality_cost": 0,
+      "cooldown": 0,
+      "description": {
+        "en": "Enter a meditative state to quickly recover HP and Vitality. Cannot be used in combat.",
+        "fr": "Entre dans un état méditatif pour récupérer rapidement PV et Vitalité. Ne peut pas être utilisé en combat."
+      },
+      "effects": {
+        "en": [
+          "HP recovery",
+          "Vitality recovery",
+          "Out of combat only"
+        ],
+        "fr": [
+          "Récupération de PV",
+          "Récupération de Vitalité",
+          "Hors combat uniquement"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Introduction",
+        "fr": "Progression de l'histoire - Introduction"
+      },
+      "priority": "essential",
+      "upgradeable": false
+    },
+    {
+      "id": "fishing",
+      "names": {
+        "en": "Fishing",
+        "cn": "钓鱼",
+        "pinyin": "Diào Yú",
+        "fr": "Pêche"
+      },
+      "category": "utility",
+      "type": "life_skill",
+      "vitality_cost": 0,
+      "cooldown": 0,
+      "description": {
+        "en": "Fish at designated fishing spots to obtain fish and rare materials. Relaxing activity with useful rewards.",
+        "fr": "Pêche aux points de pêche désignés pour obtenir des poissons et des matériaux rares. Activité relaxante avec des récompenses utiles."
+      },
+      "effects": {
+        "en": [
+          "Catch fish",
+          "Obtain materials",
+          "Cooking ingredients"
+        ],
+        "fr": [
+          "Attrape des poissons",
+          "Obtient des matériaux",
+          "Ingrédients de cuisine"
+        ]
+      },
+      "unlock_method": {
+        "en": "Fishing spot discovery",
+        "fr": "Découverte d'un point de pêche"
+      },
+      "priority": "low",
+      "upgradeable": false
+    },
+    {
+      "id": "archery",
+      "names": {
+        "en": "Archery",
+        "cn": "弓箭术",
+        "pinyin": "Gōng Jiàn Shù",
+        "fr": "Tir à l'Arc"
+      },
+      "category": "offensive",
+      "type": "ranged",
+      "vitality_cost": 0,
+      "cooldown": 0,
+      "description": {
+        "en": "Use a bow to attack enemies from range. Can hit weak points for critical damage.",
+        "fr": "Utilise un arc pour attaquer les ennemis à distance. Peut toucher les points faibles pour des dégâts critiques."
+      },
+      "effects": {
+        "en": [
+          "Ranged attacks",
+          "Weak point targeting",
+          "Silent engagement"
+        ],
+        "fr": [
+          "Attaques à distance",
+          "Ciblage des points faibles",
+          "Engagement silencieux"
+        ]
+      },
+      "unlock_method": {
+        "en": "Story progression - Combat tutorial",
+        "fr": "Progression de l'histoire - Tutoriel de combat"
+      },
+      "priority": "high",
+      "upgradeable": false
+    }
+  ]
+}

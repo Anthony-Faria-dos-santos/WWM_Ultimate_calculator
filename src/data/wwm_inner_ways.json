@@ -1,0 +1,1799 @@
+{
+  "metadata": {
+    "version": "3.0.0",
+    "total_count": 37,
+    "completion_rate": "100%",
+    "data_version": "v1.2",
+    "last_updated": "2026-01-29",
+    "sources": [
+      "Boarhat.gg",
+      "GameKee",
+      "GamerSky",
+      "Fextralife Wiki",
+      "ThaCousin Calculator"
+    ],
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "tier_structure": {
+      "max_tier": 6,
+      "max_rank_per_tier": 9,
+      "tier_names_cn": [
+        "一重",
+        "二重",
+        "三重",
+        "四重",
+        "五重",
+        "六重"
+      ]
+    }
+  },
+  "inner_ways": [
+    {
+      "id": "morale_chant",
+      "names": {
+        "en": "Morale Chant",
+        "cn": "易水歌",
+        "pinyin": "Yì Shuǐ Gē",
+        "fr": "Chant du Moral"
+      },
+      "rarity": "legendary",
+      "path": "general",
+      "types": [
+        "Attack",
+        "Buff",
+        "Stacking"
+      ],
+      "base_effect": {
+        "en": "80% chance to gain one stack of Yi River when attacking or healing. Yi River: Increases Physical Damage and healing by 1% for 8 seconds, stacking up to 5 times.",
+        "fr": "80% de chance d'obtenir une charge de Yi River en attaquant ou soignant. Yi River : Augmente les dégâts physiques et les soins de 1% pendant 8 secondes, cumulable jusqu'à 5 fois."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Each stack of Yi River increases Physical Penetration by 2",
+          "fr": "Chaque charge de Yi River augmente la Pénétration Physique de 2"
+        },
+        "T2": {
+          "en": "Increases Physical Attack Based on Solo Mode Level",
+          "fr": "Augmente l'Attaque Physique selon le niveau du Mode Solo"
+        },
+        "T3": {
+          "en": "When the target is controlled, doubles Yi River's effect",
+          "fr": "Quand la cible est contrôlée, double l'effet de Yi River"
+        },
+        "T4": {
+          "en": "Increases the chance to apply Yi River to 100% and its duration to 12 seconds",
+          "fr": "Augmente la chance d'appliquer Yi River à 100% et sa durée à 12 secondes"
+        },
+        "T5": {
+          "en": "Increases Direct Critical Rate by 4.6%",
+          "fr": "Augmente le Taux de Critique Direct de 4.6%"
+        },
+        "T6": {
+          "en": "At max stacks, Yi River additionally attacks or heals the target once",
+          "fr": "Au maximum de charges, Yi River attaque ou soigne la cible une fois de plus"
+        }
+      },
+      "source": "Bought at Trader for 5000 Echo Jade",
+      "associated_weapon": null
+    },
+    {
+      "id": "fivefold_bleed",
+      "names": {
+        "en": "Fivefold Bleed",
+        "cn": "泣血婆娑",
+        "pinyin": "Qì Xuè Pó Suō",
+        "fr": "Saignement Quintuple"
+      },
+      "rarity": "legendary",
+      "path": "general",
+      "types": [
+        "Attack",
+        "Damage",
+        "Stacking"
+      ],
+      "base_effect": {
+        "en": "Dealing damage has a 10% chance to apply one stack of Weeping Blood for 5 seconds. At 5 stacks, Weeping Blood will be removed and deal piercing damage once.",
+        "fr": "Infliger des dégâts a 10% de chance d'appliquer une charge de Sang Pleurant pendant 5 secondes. À 5 charges, Sang Pleurant est retiré et inflige des dégâts perçants."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases the piercing damage by 100%",
+          "fr": "Augmente les dégâts perçants de 100%"
+        },
+        "T2": {
+          "en": "Increases Max Physical Attack based on Solo Mode level",
+          "fr": "Augmente l'Attaque Physique Max selon le niveau du Mode Solo"
+        },
+        "T3": {
+          "en": "If Weeping Blood fails to reach 5 stacks before expiry, 20% chance to deal piercing damage",
+          "fr": "Si Sang Pleurant n'atteint pas 5 charges avant expiration, 20% de chance d'infliger des dégâts perçants"
+        },
+        "T4": {
+          "en": "Increases the chance to apply Weeping Blood to 15%",
+          "fr": "Augmente la chance d'appliquer Sang Pleurant à 15%"
+        },
+        "T5": {
+          "en": "Increases Critical DMG Bonus by 3.5%",
+          "fr": "Augmente le Bonus de Dégâts Critiques de 3.5%"
+        },
+        "T6": {
+          "en": "After dealing piercing damage, retains 1-2 stacks",
+          "fr": "Après les dégâts perçants, conserve 1-2 charges"
+        }
+      },
+      "source": "Complete A Faltering Flame quest",
+      "associated_weapon": null
+    },
+    {
+      "id": "envigorated_warrior",
+      "names": {
+        "en": "Envigorated Warrior",
+        "cn": "生龙活虎",
+        "pinyin": "Shēng Lóng Huó Hǔ",
+        "fr": "Guerrier Revigoré"
+      },
+      "rarity": "legendary",
+      "path": "general",
+      "types": [
+        "Attack",
+        "Buff",
+        "Damage Boost"
+      ],
+      "base_effect": {
+        "en": "Increases all damage and healing done by 5%. This effect is disabled for 5 seconds after being hit.",
+        "fr": "Augmente tous les dégâts et soins de 5%. Cet effet est désactivé pendant 5 secondes après avoir été touché."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Heartbound: Now increases all damage taken by 3%",
+          "fr": "Lié au Foyer : Augmente maintenant tous les dégâts reçus de 3%"
+        },
+        "T2": {
+          "en": "Increases Min Physical Attack based on Solo Mode Level",
+          "fr": "Augmente l'Attaque Physique Min selon le niveau du Mode Solo"
+        },
+        "T3": {
+          "en": "The Heartbound effect is disabled for 5 seconds after hitting any attack",
+          "fr": "L'effet Lié au Foyer est désactivé pendant 5 secondes après avoir touché une attaque"
+        },
+        "T4": {
+          "en": "Now increases all damage and healing by 8%",
+          "fr": "Augmente maintenant tous les dégâts et soins de 8%"
+        },
+        "T5": {
+          "en": "Increases Physical Penetration by 5.1",
+          "fr": "Augmente la Pénétration Physique de 5.1"
+        },
+        "T6": {
+          "en": "While active, landing an attack applies a mark to the target",
+          "fr": "Lorsqu'actif, toucher applique une marque à la cible"
+        }
+      },
+      "source": "Defeat Qianye in Still Shore questline",
+      "associated_weapon": null
+    },
+    {
+      "id": "divine_roulette",
+      "names": {
+        "en": "Divine Roulette",
+        "cn": "长生无相",
+        "pinyin": "Cháng Shēng Wú Xiàng",
+        "fr": "Roulette Divine"
+      },
+      "rarity": "legendary",
+      "path": "general",
+      "types": [
+        "Counter",
+        "Buff",
+        "Damage Boost"
+      ],
+      "base_effect": {
+        "en": "Upon a successful deflection, gain one of three buffs. Immortal Guidance: +10% damage. Immortal Heart: Guaranteed Critical. Immortal Spirit: Guaranteed Affinity.",
+        "fr": "Après une parade réussie, obtient un des trois buffs. Guide Immortel : +10% dégâts. Cœur Immortel : Critique garanti. Esprit Immortel : Affinité garantie."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Each successful deflection restores 5 bonus Qi",
+          "fr": "Chaque parade réussie restaure 5 Qi bonus"
+        },
+        "T2": {
+          "en": "Increases Max Physical Attack based on Solo Mode level",
+          "fr": "Augmente l'Attaque Physique Max selon le niveau du Mode Solo"
+        },
+        "T3": {
+          "en": "After a successful deflection, reduces next damage taken by 10%",
+          "fr": "Après une parade réussie, réduit les prochains dégâts reçus de 10%"
+        },
+        "T4": {
+          "en": "Reduces the cooldown by 20%",
+          "fr": "Réduit le temps de recharge de 20%"
+        },
+        "T5": {
+          "en": "Increases Physical Penetration by 5.1",
+          "fr": "Augmente la Pénétration Physique de 5.1"
+        },
+        "T6": {
+          "en": "10% chance to gain two bonuses at once",
+          "fr": "10% de chance d'obtenir deux bonus en même temps"
+        }
+      },
+      "source": "Defeat Void King in Gleaming Abyss",
+      "associated_weapon": null
+    },
+    {
+      "id": "bitter_seasons",
+      "names": {
+        "en": "Bitter Seasons",
+        "cn": "苦四时",
+        "pinyin": "Kǔ Sì Shí",
+        "fr": "Saisons Amères"
+      },
+      "rarity": "legendary",
+      "path": "general",
+      "types": [
+        "Attack",
+        "Debuff",
+        "Stacking"
+      ],
+      "base_effect": {
+        "en": "When dealing damage, 10% chance to apply Poison for 5 seconds, reducing Physical Defense by 0.6% for 10 seconds, stacking up to 5 times.",
+        "fr": "Infliger des dégâts a 10% de chance d'appliquer Poison pendant 5 secondes, réduisant la Défense Physique de 0.6% pendant 10 secondes, cumulable jusqu'à 5 fois."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases Physical Defense reduction to 1.2%",
+          "fr": "Augmente la réduction de Défense Physique à 1.2%"
+        },
+        "T2": {
+          "en": "Increases Precision Rate based on Solo Mode Level",
+          "fr": "Augmente le Taux de Précision selon le niveau du Mode Solo"
+        },
+        "T3": {
+          "en": "When attacked, 10% chance to apply Poison to attacker",
+          "fr": "Quand attaqué, 10% de chance d'appliquer Poison à l'attaquant"
+        },
+        "T4": {
+          "en": "Increases chance to apply Poison to 15%",
+          "fr": "Augmente la chance d'appliquer Poison à 15%"
+        },
+        "T5": {
+          "en": "Increases Physical DMG Bonus by 2.5%",
+          "fr": "Augmente le Bonus de Dégâts Physiques de 2.5%"
+        },
+        "T6": {
+          "en": "At 5 stacks, also reduces Physical Resistance by 10",
+          "fr": "À 5 charges, réduit aussi la Résistance Physique de 10"
+        }
+      },
+      "source": "Treasure chest after defeating Void King",
+      "associated_weapon": null
+    },
+    {
+      "id": "seasonal_edge",
+      "names": {
+        "en": "Seasonal Edge",
+        "cn": "四时无常",
+        "pinyin": "Sì Shí Wú Cháng",
+        "fr": "Tranchant Saisonnier"
+      },
+      "rarity": "legendary",
+      "path": "general",
+      "types": [
+        "Attack",
+        "Buff",
+        "Damage Boost"
+      ],
+      "base_effect": {
+        "en": "After casting a Dual-Weapon Skill, gain one of four offensive bonuses: Critical Rate +8%, Affinity Rate +4%, Physical Damage +8%, or All Attribute Attack +8%.",
+        "fr": "Après avoir lancé une Compétence Double Arme, obtient un des quatre bonus offensifs : Taux Critique +8%, Taux d'Affinité +4%, Dégâts Physiques +8%, ou Attaque Tous Attributs +8%."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases duration to 12 seconds",
+          "fr": "Augmente la durée à 12 secondes"
+        },
+        "T2": {
+          "en": "Increases Physical Attack based on Solo Mode Level",
+          "fr": "Augmente l'Attaque Physique selon le niveau du Mode Solo"
+        },
+        "T3": {
+          "en": "20% chance to gain two bonuses",
+          "fr": "20% de chance d'obtenir deux bonus"
+        },
+        "T4": {
+          "en": "Reduces cooldown by 5 seconds",
+          "fr": "Réduit le temps de recharge de 5 secondes"
+        },
+        "T5": {
+          "en": "Physical Damage Bonus +2.8%",
+          "fr": "Bonus de Dégâts Physiques +2.8%"
+        },
+        "T6": {
+          "en": "15% chance for three bonuses, 5% for all four",
+          "fr": "15% de chance pour trois bonus, 5% pour les quatre"
+        }
+      },
+      "source": "Buy from NPC Cao Sheng for 5000 Echo Jade",
+      "associated_weapon": null
+    },
+    {
+      "id": "shadow_assault",
+      "names": {
+        "en": "Shadow Assault",
+        "cn": "山月无影",
+        "pinyin": "Shān Yuè Wú Yǐng",
+        "fr": "Assaut de l'Ombre"
+      },
+      "rarity": "epic",
+      "path": "general",
+      "types": [
+        "Attack",
+        "Mystic Arts",
+        "Damage Boost"
+      ],
+      "base_effect": {
+        "en": "Increases Touch of Death's ambush range by 1.5m and damage by 10%. Restores HP equal to 5% of damage dealt.",
+        "fr": "Augmente la portée d'embuscade de Toucher de Mort de 1.5m et les dégâts de 10%. Restaure des PV égaux à 5% des dégâts infligés."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases HP restored to 10%",
+          "fr": "Augmente les PV restaurés à 10%"
+        },
+        "T2": {
+          "en": "Increases Min Physical Attack",
+          "fr": "Augmente l'Attaque Physique Min"
+        },
+        "T3": {
+          "en": "High chance to obtain loot after ambush",
+          "fr": "Haute chance d'obtenir du butin après embuscade"
+        },
+        "T4": {
+          "en": "Increases max range to 2.5m",
+          "fr": "Augmente la portée max à 2.5m"
+        },
+        "T5": {
+          "en": "Increases Physical DMG Bonus by 2.2%",
+          "fr": "Augmente le Bonus de Dégâts Physiques de 2.2%"
+        },
+        "T6": {
+          "en": "After ambush, immediately enter stealth",
+          "fr": "Après embuscade, entre immédiatement en furtivité"
+        }
+      },
+      "source": "Submit Oddities to Qi Sheng",
+      "associated_weapon": null
+    },
+    {
+      "id": "fury_harvest",
+      "names": {
+        "en": "Fury Harvest",
+        "cn": "抗造大法",
+        "pinyin": "Kàng Zào Dà Fǎ",
+        "fr": "Récolte de Furie"
+      },
+      "rarity": "epic",
+      "path": "general",
+      "types": [
+        "Support",
+        "Mystic Arts",
+        "Recover"
+      ],
+      "base_effect": {
+        "en": "Certain recovery actions have a 50% chance to grant 1 bonus Vitality.",
+        "fr": "Certaines actions de récupération ont 50% de chance d'accorder 1 Vitalité bonus."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Guaranteed bonus from defeating enemies, assassinations, Perfect Dodges",
+          "fr": "Bonus garanti en éliminant des ennemis, assassinats, Esquives Parfaites"
+        },
+        "T2": {
+          "en": "Increases Physical Defense",
+          "fr": "Augmente la Défense Physique"
+        },
+        "T3": {
+          "en": "10% chance from attacking and taking damage",
+          "fr": "10% de chance en attaquant et subissant des dégâts"
+        },
+        "T4": {
+          "en": "Guaranteed bonus from deflecting attacks",
+          "fr": "Bonus garanti en parant des attaques"
+        },
+        "T5": {
+          "en": "Increases Physical Resistance by 5.1",
+          "fr": "Augmente la Résistance Physique de 5.1"
+        },
+        "T6": {
+          "en": "30% of Vitality consumed within 5 seconds refunded",
+          "fr": "30% de la Vitalité consommée dans les 5 secondes est remboursée"
+        }
+      },
+      "source": "Defeat Ye Wanshan for the first time",
+      "associated_weapon": null
+    },
+    {
+      "id": "evasive_charge",
+      "names": {
+        "en": "Evasive Charge",
+        "cn": "归燕经",
+        "pinyin": "Guī Yàn Jīng",
+        "fr": "Charge Évasive"
+      },
+      "rarity": "epic",
+      "path": "general",
+      "types": [
+        "Cost Reduction",
+        "Recover"
+      ],
+      "base_effect": {
+        "en": "After a Perfect Dodge, 50% chance to refund 100% of Endurance consumed.",
+        "fr": "Après une Esquive Parfaite, 50% de chance de rembourser 100% de l'Endurance consommée."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases chance to 70%",
+          "fr": "Augmente la chance à 70%"
+        },
+        "T2": {
+          "en": "Increases Precision Rate",
+          "fr": "Augmente le Taux de Précision"
+        },
+        "T3": {
+          "en": "Reduces Endurance cost and damage taken during dodging by 20%",
+          "fr": "Réduit le coût d'Endurance et les dégâts subis pendant l'esquive de 20%"
+        },
+        "T4": {
+          "en": "Restores 0.5% Max HP after Perfect Dodge",
+          "fr": "Restaure 0.5% des PV Max après Esquive Parfaite"
+        },
+        "T5": {
+          "en": "Increases Physical DMG Reduction by 2.5%",
+          "fr": "Augmente la Réduction de Dégâts Physiques de 2.5%"
+        },
+        "T6": {
+          "en": "Increases invincibility duration by 20%",
+          "fr": "Augmente la durée d'invincibilité de 20%"
+        }
+      },
+      "source": "Eavesdrop on Nine Mortal Ways Disciples in Kaifeng",
+      "associated_weapon": null
+    },
+    {
+      "id": "evening_snow",
+      "names": {
+        "en": "Evening Snow",
+        "cn": "晚雪间",
+        "pinyin": "Wǎn Xuě Jiān",
+        "fr": "Neige du Soir"
+      },
+      "rarity": "epic",
+      "path": "general",
+      "types": [
+        "Support",
+        "Recover"
+      ],
+      "base_effect": {
+        "en": "Within 12 seconds of combat, if HP falls below 60%, gain Snow Vision for 4 seconds, restoring 2% HP + 600 per second. Cooldown 300 seconds.",
+        "fr": "Dans les 12 secondes de combat, si les PV tombent sous 60%, obtient Vision de Neige pendant 4 secondes, restaurant 2% PV + 600 par seconde. Recharge 300 secondes."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases HP restored to 3% + 600",
+          "fr": "Augmente les PV restaurés à 3% + 600"
+        },
+        "T2": {
+          "en": "Increases Max HP",
+          "fr": "Augmente les PV Max"
+        },
+        "T3": {
+          "en": "While active, restores HP equal to 10% of damage dealt",
+          "fr": "Pendant l'effet, restaure des PV égaux à 10% des dégâts infligés"
+        },
+        "T4": {
+          "en": "Reduces cooldown to 150 seconds",
+          "fr": "Réduit le temps de recharge à 150 secondes"
+        },
+        "T5": {
+          "en": "Increases Physical Resistance by 4.5",
+          "fr": "Augmente la Résistance Physique de 4.5"
+        },
+        "T6": {
+          "en": "Next 2 skills guaranteed Critical",
+          "fr": "Les 2 prochaines compétences sont des Critiques garantis"
+        }
+      },
+      "source": "Collect 10 pages in 2 separate chests in Qinghe",
+      "associated_weapon": null
+    },
+    {
+      "id": "steadfast_stance",
+      "names": {
+        "en": "Steadfast Stance",
+        "cn": "铁身决",
+        "pinyin": "Tiě Shēn Jué",
+        "fr": "Posture Inébranlable"
+      },
+      "rarity": "rare",
+      "path": "general",
+      "types": [
+        "Defense",
+        "Control Resistance"
+      ],
+      "base_effect": {
+        "en": "Less likely to suffer stagger effects when attacked. Invalid against bosses or players.",
+        "fr": "Moins susceptible de subir des effets de chancellement quand attaqué. Invalide contre les boss ou joueurs."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Higher resistance when more enemies nearby",
+          "fr": "Résistance plus élevée quand plus d'ennemis à proximité"
+        },
+        "T2": {
+          "en": "Increases Physical Defense",
+          "fr": "Augmente la Défense Physique"
+        },
+        "T3": {
+          "en": "10% chance to increase Physical Defense by 2%",
+          "fr": "10% de chance d'augmenter la Défense Physique de 2%"
+        },
+        "T4": {
+          "en": "Stun resistance also works against bosses",
+          "fr": "La résistance à l'étourdissement fonctionne aussi contre les boss"
+        },
+        "T5": {
+          "en": "Increases Physical Resistance by 4.5",
+          "fr": "Augmente la Résistance Physique de 4.5"
+        },
+        "T6": {
+          "en": "20% chance to gain Fiery Heart counterattack",
+          "fr": "20% de chance d'obtenir Cœur Ardent (contre-attaque)"
+        }
+      },
+      "source": "Decipher in General's Shrine underground",
+      "associated_weapon": null
+    },
+    {
+      "id": "vital_leech",
+      "names": {
+        "en": "Vital Leech",
+        "cn": "征人归",
+        "pinyin": "Zhēng Rén Guī",
+        "fr": "Sangsue Vitale"
+      },
+      "rarity": "epic",
+      "path": "general",
+      "types": [
+        "Pursuit",
+        "Recover"
+      ],
+      "base_effect": {
+        "en": "Casting an Exhaustion Execution Skill restores HP equal to 8% of damage dealt.",
+        "fr": "Lancer une Compétence d'Exécution d'Épuisement restaure des PV égaux à 8% des dégâts infligés."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases HP restored to 12%",
+          "fr": "Augmente les PV restaurés à 12%"
+        },
+        "T2": {
+          "en": "Increases Max HP",
+          "fr": "Augmente les PV Max"
+        },
+        "T3": {
+          "en": "Restores extra 10 Qi",
+          "fr": "Restaure 10 Qi supplémentaires"
+        },
+        "T4": {
+          "en": "Increases damage by 5%",
+          "fr": "Augmente les dégâts de 5%"
+        },
+        "T5": {
+          "en": "Increases Physical DMG Reduction by 2.5%",
+          "fr": "Augmente la Réduction de Dégâts Physiques de 2.5%"
+        },
+        "T6": {
+          "en": "Attacks against Exhausted targets restore 30% HP",
+          "fr": "Les attaques contre les cibles Épuisées restaurent 30% des PV"
+        }
+      },
+      "source": "Defend Little Seventeen",
+      "associated_weapon": null
+    },
+    {
+      "id": "wind_beneath_wings",
+      "names": {
+        "en": "Wind Beneath Wings",
+        "cn": "御风之翼",
+        "pinyin": "Yù Fēng Zhī Yì",
+        "fr": "Vent Sous les Ailes"
+      },
+      "rarity": "epic",
+      "path": "general",
+      "types": [
+        "Support",
+        "Mystic Arts",
+        "Recover"
+      ],
+      "base_effect": {
+        "en": "Reduces Skywalk Dash Endurance cost by 10%. After landing, +30% Movement Speed for 3 seconds. Restores 1% Max HP + 1000 after defeating enemies.",
+        "fr": "Réduit le coût d'Endurance de Marche Céleste de 10%. Après l'atterrissage, +30% Vitesse de Déplacement pendant 3 secondes. Restaure 1% PV Max + 1000 après avoir éliminé des ennemis."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases Endurance cost reduction to 40%",
+          "fr": "Augmente la réduction de coût d'Endurance à 40%"
+        },
+        "T2": {
+          "en": "Increases Max HP",
+          "fr": "Augmente les PV Max"
+        },
+        "T3": {
+          "en": "Increases dash speed by 30%",
+          "fr": "Augmente la vitesse de dash de 30%"
+        },
+        "T4": {
+          "en": "Increases HP restored to 2400",
+          "fr": "Augmente les PV restaurés à 2400"
+        },
+        "T5": {
+          "en": "Increases Physical DMG Reduction by 2.2%",
+          "fr": "Augmente la Réduction de Dégâts Physiques de 2.2%"
+        },
+        "T6": {
+          "en": "Reduces Endurance cost by 30% for 3 seconds after dash",
+          "fr": "Réduit le coût d'Endurance de 30% pendant 3 secondes après le dash"
+        }
+      },
+      "source": "Clear Northern Vow Ruins + Tiger Fort outpost",
+      "associated_weapon": null
+    },
+    {
+      "id": "battle_anthem",
+      "names": {
+        "en": "Battle Anthem",
+        "cn": "威猛歌",
+        "pinyin": "Wēi Měng Gē",
+        "fr": "Hymne de Bataille"
+      },
+      "rarity": "epic",
+      "path": "bellstrike_splendor",
+      "types": [
+        "Attack",
+        "Damage Boost"
+      ],
+      "base_effect": {
+        "en": "Increases Charged Skills' damage against all bosses by 10%.",
+        "fr": "Augmente les dégâts des Compétences Chargées contre tous les boss de 10%."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases damage against all enemies by 10%",
+          "fr": "Augmente les dégâts contre tous les ennemis de 10%"
+        },
+        "T2": {
+          "en": "Increases Affinity Rate",
+          "fr": "Augmente le Taux d'Affinité"
+        },
+        "T3": {
+          "en": "On Critical/Affinity, reduces target Endurance or restores 10",
+          "fr": "Sur Critique/Affinité, réduit l'Endurance de la cible ou restaure 10"
+        },
+        "T4": {
+          "en": "Increases damage by 15%, increases Endurance cost by 10%",
+          "fr": "Augmente les dégâts de 15%, augmente le coût d'Endurance de 10%"
+        },
+        "T5": {
+          "en": "Increases Affinity DMG Bonus by 5.2%",
+          "fr": "Augmente le Bonus de Dégâts d'Affinité de 5.2%"
+        },
+        "T6": {
+          "en": "Damage increases by 1% per 10 Endurance difference, up to 10%",
+          "fr": "Les dégâts augmentent de 1% par 10 points de différence d'Endurance, jusqu'à 10%"
+        }
+      },
+      "source": "Complete first pass of Buddha's Stronghold",
+      "associated_weapon": "nameless_sword"
+    },
+    {
+      "id": "mountains_might",
+      "names": {
+        "en": "Mountain's Might",
+        "cn": "千山法",
+        "pinyin": "Qiān Shān Fǎ",
+        "fr": "Puissance de la Montagne"
+      },
+      "rarity": "epic",
+      "path": "bellstrike_splendor",
+      "types": [
+        "Support",
+        "Martial Arts",
+        "Cost Reduction"
+      ],
+      "base_effect": {
+        "en": "Nameless Spear's Qiankun's Lock grants Endless Gale effect, increasing Endurance cost reduction to 20% for 5 seconds.",
+        "fr": "La Lance Sans Nom avec Verrou Qiankun accorde l'effet Rafale Sans Fin, augmentant la réduction du coût d'Endurance à 20% pendant 5 secondes."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases Long Wind duration to 7 seconds",
+          "fr": "Augmente la durée de Vent Long à 7 secondes"
+        },
+        "T2": {
+          "en": "Increases Bellstrike Attack",
+          "fr": "Augmente l'Attaque Frappe de Cloche"
+        },
+        "T3": {
+          "en": "Hitting with Root and Silence reduces cooldown by 2 seconds",
+          "fr": "Toucher avec Racine et Silence réduit le temps de recharge de 2 secondes"
+        },
+        "T4": {
+          "en": "Reduces Endurance cost by 30% total",
+          "fr": "Réduit le coût d'Endurance de 30% au total"
+        },
+        "T5": {
+          "en": "Increases Bellstrike Penetration by 6",
+          "fr": "Augmente la Pénétration Frappe de Cloche de 6"
+        },
+        "T6": {
+          "en": "Applies Moving Mountain mark, hitting restores 3 Endurance",
+          "fr": "Applique la marque Montagne Mouvante, toucher restaure 3 Endurance"
+        }
+      },
+      "source": "Collect 5 treasure chests in Qinghe",
+      "associated_weapon": "nameless_spear"
+    },
+    {
+      "id": "sword_morph",
+      "names": {
+        "en": "Sword Morph",
+        "cn": "无名心法",
+        "pinyin": "Wú Míng Xīn Fǎ",
+        "fr": "Métamorphose de l'Épée"
+      },
+      "rarity": "legendary",
+      "path": "bellstrike_splendor",
+      "types": [
+        "Attack",
+        "Martial Arts",
+        "Damage Boost"
+      ],
+      "base_effect": {
+        "en": "When Nameless Sword's Vagrant Sword is charged with Qi shield, unleashes multiple sword energy attacks at 2nd charging stage.",
+        "fr": "Quand l'Épée Sans Nom est chargée avec bouclier de Qi, libère plusieurs attaques d'énergie d'épée au 2ème niveau de charge."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Can charge without Qi shield when not in combat",
+          "fr": "Peut charger sans bouclier de Qi hors combat"
+        },
+        "T2": {
+          "en": "Increases Max Physical Attack",
+          "fr": "Augmente l'Attaque Physique Max"
+        },
+        "T3": {
+          "en": "Hitting increases sword energy damage by 3%",
+          "fr": "Toucher augmente les dégâts d'énergie d'épée de 3%"
+        },
+        "T4": {
+          "en": "Within 5 seconds, charge again to continue",
+          "fr": "Dans les 5 secondes, charger à nouveau pour continuer"
+        },
+        "T5": {
+          "en": "Increases Direct Affinity Rate by 2.3%",
+          "fr": "Augmente le Taux d'Affinité Direct de 2.3%"
+        },
+        "T6": {
+          "en": "Gain Energy Surge for one more attack without charging",
+          "fr": "Obtient Surge d'Énergie pour une attaque supplémentaire sans charger"
+        }
+      },
+      "source": "Day 3 of A Warrior's Journey",
+      "associated_weapon": "nameless_sword"
+    },
+    {
+      "id": "wildfire_spark",
+      "names": {
+        "en": "Wildfire Spark",
+        "cn": "燎原星火",
+        "pinyin": "Liáo Yuán Xīng Huǒ",
+        "fr": "Étincelle de Feu de Prairie"
+      },
+      "rarity": "rare",
+      "path": "bellstrike_splendor",
+      "types": [
+        "Support",
+        "Recover"
+      ],
+      "base_effect": {
+        "en": "Refunds 3.5% of Endurance consumed.",
+        "fr": "Rembourse 3.5% de l'Endurance consommée."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases to 5%",
+          "fr": "Augmente à 5%"
+        },
+        "T2": {
+          "en": "Increases Physical Attack",
+          "fr": "Augmente l'Attaque Physique"
+        },
+        "T3": {
+          "en": "Refunds 10 Endurance after consuming 50",
+          "fr": "Rembourse 10 Endurance après en avoir consommé 50"
+        },
+        "T4": {
+          "en": "Increases to 7%",
+          "fr": "Augmente à 7%"
+        },
+        "T5": {
+          "en": "Increases Physical DMG Bonus by 2.5%",
+          "fr": "Augmente le Bonus de Dégâts Physiques de 2.5%"
+        },
+        "T6": {
+          "en": "Gain Spark stack when Endurance changes by 10+",
+          "fr": "Obtient une charge d'Étincelle quand l'Endurance change de 10+"
+        }
+      },
+      "source": "Complete Encounter quest, part 1 of 3",
+      "associated_weapon": "nameless_sword"
+    },
+    {
+      "id": "adaptive_steel",
+      "names": {
+        "en": "Adaptive Steel",
+        "cn": "移经易武",
+        "pinyin": "Yí Jīng Yì Wǔ",
+        "fr": "Acier Adaptatif"
+      },
+      "rarity": "legendary",
+      "path": "bellstrike_umbra",
+      "types": [
+        "Attack",
+        "Support",
+        "Buff"
+      ],
+      "base_effect": {
+        "en": "Gain Martial Skill effect based on weapon. Sword: 10% Bleed chance. Spear: Ignore 12.5% Defense. Dual Blades: +25% damage after Perfect Dodge. Mo Blade: +20% Critical DMG on Charged Skills.",
+        "fr": "Obtient un effet de Compétence Martiale selon l'arme. Épée : 10% chance Saignement. Lance : Ignore 12.5% Défense. Doubles Lames : +25% dégâts après Esquive Parfaite. Mo Blade : +20% Dégâts Critiques sur Compétences Chargées."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Weapon Switch Skill +30% damage, cooldown 12s",
+          "fr": "Compétence Changement d'Arme +30% dégâts, recharge 12s"
+        },
+        "T2": {
+          "en": "Increases Max Bellstrike Attack",
+          "fr": "Augmente l'Attaque Frappe de Cloche Max"
+        },
+        "T3": {
+          "en": "After Weapon Switch, +20% Movement Speed, -20% target speed",
+          "fr": "Après Changement d'Arme, +20% Vitesse de Déplacement, -20% vitesse de la cible"
+        },
+        "T4": {
+          "en": "Dual-Weapon Skill restores 10 Endurance",
+          "fr": "Compétence Double Arme restaure 10 Endurance"
+        },
+        "T5": {
+          "en": "Increases Bellstrike DMG Bonus by 3%",
+          "fr": "Augmente le Bonus de Dégâts Frappe de Cloche de 3%"
+        },
+        "T6": {
+          "en": "Previous Weapon Mastery remains for 10 seconds",
+          "fr": "La Maîtrise d'Arme précédente reste active pendant 10 secondes"
+        }
+      },
+      "source": "Exchange Oddities with Qi Sheng",
+      "associated_weapon": "strategic_sword"
+    },
+    {
+      "id": "insightful_strike",
+      "names": {
+        "en": "Insightful Strike",
+        "cn": "凝神章",
+        "pinyin": "Níng Shén Zhāng",
+        "fr": "Frappe Perspicace"
+      },
+      "rarity": "epic",
+      "path": "bellstrike_umbra",
+      "types": [
+        "Attack",
+        "Damage Boost",
+        "Dmg Reduction"
+      ],
+      "base_effect": {
+        "en": "Dealing Affinity DMG generates Focus. When full, enter Concentration for 10 seconds: +10% Affinity DMG, 5% chance to reduce damage taken by 40%.",
+        "fr": "Infliger des Dégâts d'Affinité génère de la Concentration. Une fois pleine, entre en état de Concentration pendant 10 secondes : +10% Dégâts d'Affinité, 5% de chance de réduire les dégâts reçus de 40%."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Recover HP equal to 1.5% of damage dealt",
+          "fr": "Récupère des PV égaux à 1.5% des dégâts infligés"
+        },
+        "T2": {
+          "en": "Increases Max HP",
+          "fr": "Augmente les PV Max"
+        },
+        "T3": {
+          "en": "Increases Affinity Rate by 3%",
+          "fr": "Augmente le Taux d'Affinité de 3%"
+        },
+        "T4": {
+          "en": "Focus accumulates 50% faster",
+          "fr": "La Concentration s'accumule 50% plus vite"
+        },
+        "T5": {
+          "en": "Increases Bellstrike Penetration by 6",
+          "fr": "Augmente la Pénétration Frappe de Cloche de 6"
+        },
+        "T6": {
+          "en": "Concentration increases DoT by 20%",
+          "fr": "La Concentration augmente les DoT de 20%"
+        }
+      },
+      "source": "Defeat Feng Jisheng in archery",
+      "associated_weapon": "strategic_sword"
+    },
+    {
+      "id": "sword_horizon",
+      "names": {
+        "en": "Sword Horizon",
+        "cn": "剑气纵横",
+        "pinyin": "Jiàn Qì Zòng Héng",
+        "fr": "Horizon de l'Épée"
+      },
+      "rarity": "legendary",
+      "path": "bellstrike_umbra",
+      "types": [
+        "Attack",
+        "Martial Arts",
+        "Pursuit"
+      ],
+      "base_effect": {
+        "en": "After Strategic Sword's Martial Arts/Special/Charged Skill, press at perfect timing to cast Crisscrossing Swords. If target has 5 Bleed stacks, remove all and deal high Bleed damage.",
+        "fr": "Après la Compétence Martiale/Spéciale/Chargée de l'Épée Stratégique, appuyer au bon moment lance Lames Entrecroisées. Si la cible a 5 charges de Saignement, les retire et inflige de gros dégâts de Saignement."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Casting Crosswind Blade restores 8 Endurance",
+          "fr": "Lancer Lame du Vent Croisé restaure 8 Endurance"
+        },
+        "T2": {
+          "en": "Increases Max Physical Attack",
+          "fr": "Augmente l'Attaque Physique Max"
+        },
+        "T3": {
+          "en": "High Bleed damage accumulates Crosswind Blade Spirit for guaranteed Affinity",
+          "fr": "Les gros dégâts de Saignement accumulent l'Esprit Lame du Vent pour Affinité garantie"
+        },
+        "T4": {
+          "en": "With Spirit active, +15% high bleed damage",
+          "fr": "Avec l'Esprit actif, +15% dégâts de Saignement élevés"
+        },
+        "T5": {
+          "en": "Increases Physical Penetration by 5.6",
+          "fr": "Augmente la Pénétration Physique de 5.6"
+        },
+        "T6": {
+          "en": "Retain 1-2 Bleed stacks after high bleed damage",
+          "fr": "Conserve 1-2 charges de Saignement après les gros dégâts"
+        }
+      },
+      "source": "Buy Unknown Old Books from Ni Laoshan in Ghostlight Market",
+      "associated_weapon": "strategic_sword"
+    },
+    {
+      "id": "wolfchasers_art",
+      "names": {
+        "en": "Wolfchaser's Art",
+        "cn": "逐狼心经",
+        "pinyin": "Zhú Láng Xīn Jīng",
+        "fr": "Art du Chasseur de Loups"
+      },
+      "rarity": "epic",
+      "path": "bellstrike_umbra",
+      "types": [
+        "Martial Arts",
+        "Buff"
+      ],
+      "base_effect": {
+        "en": "Reduces Heavenquaker Spear's combo requirement for Sorrow buff from 5/10 to 4/8. Each hit on boss with your Bleed has 20-100% chance to increase combo by 1.",
+        "fr": "Réduit le combo requis de la Lance Céleste pour le buff Chagrin de 5/10 à 4/8. Chaque coup sur un boss avec votre Saignement a 20-100% de chance d'augmenter le combo de 1."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases buff duration to 15 seconds",
+          "fr": "Augmente la durée du buff à 15 secondes"
+        },
+        "T2": {
+          "en": "Increases Affinity Rate",
+          "fr": "Augmente le Taux d'Affinité"
+        },
+        "T3": {
+          "en": "Increases damage by 10%, gain 60% DMG Reduction while casting",
+          "fr": "Augmente les dégâts de 10%, obtient 60% Réduction de Dégâts pendant le lancement"
+        },
+        "T4": {
+          "en": "At combo 12, gain Raging Waves: +25% damage",
+          "fr": "À 12 combos, obtient Vagues Déchaînées : +25% dégâts"
+        },
+        "T5": {
+          "en": "Increases Affinity DMG Bonus by 5.2%",
+          "fr": "Augmente le Bonus de Dégâts d'Affinité de 5.2%"
+        },
+        "T6": {
+          "en": "5+ combo hits apply Wine Blessing: +5% damage taken",
+          "fr": "5+ coups de combo appliquent Bénédiction du Vin : +5% dégâts subis"
+        }
+      },
+      "source": "Treasure chest in cave with Dragon Key near Wildmane Ranch",
+      "associated_weapon": "heavenquaker_spear"
+    },
+    {
+      "id": "esoteric_revival",
+      "names": {
+        "en": "Esoteric Revival",
+        "cn": "极乐",
+        "pinyin": "Jí Lè",
+        "fr": "Renaissance Ésotérique"
+      },
+      "rarity": "epic",
+      "path": "silkbind_deluge",
+      "types": [
+        "Support",
+        "Buff",
+        "Recover"
+      ],
+      "base_effect": {
+        "en": "Increases Panacea Fan's Resurrection healing by 50% on revived target.",
+        "fr": "Augmente les soins de Résurrection de l'Éventail Panacée de 50% sur la cible ressuscitée."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases Golden Dawn Revival healing by 75%",
+          "fr": "Augmente les soins de Réveil de l'Aube Dorée de 75%"
+        },
+        "T2": {
+          "en": "Increases Critical Rate",
+          "fr": "Augmente le Taux Critique"
+        },
+        "T3": {
+          "en": "Reduces damage taken by revived target by 30%",
+          "fr": "Réduit les dégâts subis par la cible ressuscitée de 30%"
+        },
+        "T4": {
+          "en": "Grants healing-over-time effect",
+          "fr": "Accorde un effet de soin continu"
+        },
+        "T5": {
+          "en": "Increases Critical Healing Bonus by 4%",
+          "fr": "Augmente le Bonus de Soin Critique de 4%"
+        },
+        "T6": {
+          "en": "Shares 30% of damage taken over 8 seconds",
+          "fr": "Partage 30% des dégâts subis pendant 8 secondes"
+        }
+      },
+      "source": "Defeat outdoor boss Sleepy Daoist",
+      "associated_weapon": "panacea_fan"
+    },
+    {
+      "id": "mending_loom",
+      "names": {
+        "en": "Mending Loom",
+        "cn": "杏花不见",
+        "pinyin": "Xìng Huā Bù Jiàn",
+        "fr": "Métier Réparateur"
+      },
+      "rarity": "epic",
+      "path": "silkbind_deluge",
+      "types": [
+        "Support",
+        "Buff",
+        "Recover"
+      ],
+      "base_effect": {
+        "en": "Soulshade Umbrella's Echoing Grow restores 5 Dew and heals 10% Max HP for every 100 Dew consumed.",
+        "fr": "L'Ombrelle Ombréâme avec Croissance Résonnante restaure 5 Rosée et soigne 10% des PV Max pour chaque 100 Rosée consommée."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Reduces Herbal Resonance cooldown to 1 second",
+          "fr": "Réduit le temps de recharge de Résonance Herbale à 1 seconde"
+        },
+        "T2": {
+          "en": "Increases Physical Attack",
+          "fr": "Augmente l'Attaque Physique"
+        },
+        "T3": {
+          "en": "Heals 10% Max HP after consuming 50 Dew",
+          "fr": "Soigne 10% des PV Max après avoir consommé 50 Rosée"
+        },
+        "T4": {
+          "en": "Increases range by 50%",
+          "fr": "Augmente la portée de 50%"
+        },
+        "T5": {
+          "en": "Increases Physical Healing Bonus by 2.5%",
+          "fr": "Augmente le Bonus de Soin Physique de 2.5%"
+        },
+        "T6": {
+          "en": "Heals both yourself and lowest HP ally",
+          "fr": "Soigne vous-même et l'allié avec le moins de PV"
+        }
+      },
+      "source": "Defeat Zhang-E in Ever-Normal Granary quest",
+      "associated_weapon": "soulshade_umbrella"
+    },
+    {
+      "id": "restoring_blossom",
+      "names": {
+        "en": "Restoring Blossom",
+        "cn": "指玄篇注",
+        "pinyin": "Zhǐ Xuán Piān Zhù",
+        "fr": "Floraison Restauratrice"
+      },
+      "rarity": "epic",
+      "path": "silkbind_deluge",
+      "types": [
+        "Support",
+        "Buff",
+        "Stacking"
+      ],
+      "base_effect": {
+        "en": "Dealing Critical healing applies one stack of Nurturing for 3 seconds, increasing healing received by 2%, stacking up to 3 times.",
+        "fr": "Infliger un Soin Critique applique une charge de Nutrition pendant 3 secondes, augmentant les soins reçus de 2%, cumulable jusqu'à 3 fois."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases duration to 6 seconds",
+          "fr": "Augmente la durée à 6 secondes"
+        },
+        "T2": {
+          "en": "Increases Max HP",
+          "fr": "Augmente les PV Max"
+        },
+        "T3": {
+          "en": "Applies Heart Focus to yourself: +2% healing for 6 seconds",
+          "fr": "Applique Concentration du Cœur sur vous-même : +2% soins pendant 6 secondes"
+        },
+        "T4": {
+          "en": "Both stack up to 6 times",
+          "fr": "Les deux effets se cumulent jusqu'à 6 fois"
+        },
+        "T5": {
+          "en": "Increases Critical Healing Bonus by 4%",
+          "fr": "Augmente le Bonus de Soin Critique de 4%"
+        },
+        "T6": {
+          "en": "Healing target below 30% HP adds 2 stacks",
+          "fr": "Soigner une cible sous 30% PV ajoute 2 charges"
+        }
+      },
+      "source": "Defeat outdoor boss Sleepy Daoist",
+      "associated_weapon": "panacea_fan"
+    },
+    {
+      "id": "royal_remedy",
+      "names": {
+        "en": "Royal Remedy",
+        "cn": "君臣药",
+        "pinyin": "Jūn Chén Yào",
+        "fr": "Remède Royal"
+      },
+      "rarity": "epic",
+      "path": "silkbind_deluge",
+      "types": [
+        "Support",
+        "Martial Arts",
+        "Recovery"
+      ],
+      "base_effect": {
+        "en": "Increases Panacea Fan's Cloudburst Healing water clone healing by 10%. Gain 1 Dewdrop when receiving healing over time.",
+        "fr": "Augmente les soins du clone d'eau de Soin Nuageux de l'Éventail Panacée de 10%. Obtient 1 Goutte de Rosée en recevant des soins continus."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Restores 2 bonus Dewdrops from your Water Entity",
+          "fr": "Restaure 2 Gouttes de Rosée bonus depuis votre Entité d'Eau"
+        },
+        "T2": {
+          "en": "Increases Critical Rate",
+          "fr": "Augmente le Taux Critique"
+        },
+        "T3": {
+          "en": "Boundless Clouds applies 6-second HoT",
+          "fr": "Nuages Sans Limites applique un soin continu de 6 secondes"
+        },
+        "T4": {
+          "en": "Boundless Clouds requires 50 Dewdrops",
+          "fr": "Nuages Sans Limites nécessite 50 Gouttes de Rosée"
+        },
+        "T5": {
+          "en": "Increases Direct Critical Rate by 4.6%",
+          "fr": "Augmente le Taux de Critique Direct de 4.6%"
+        },
+        "T6": {
+          "en": "On defeat, summons Revival Water Spirit",
+          "fr": "À la défaite, invoque un Esprit d'Eau de Résurrection"
+        }
+      },
+      "source": "Treasure chest in cave with Dragon Key",
+      "associated_weapon": "panacea_fan"
+    },
+    {
+      "id": "blossom_barrage",
+      "names": {
+        "en": "Blossom Barrage",
+        "cn": "花上月令",
+        "pinyin": "Huā Shàng Yuè Lìng",
+        "fr": "Barrage de Fleurs"
+      },
+      "rarity": "legendary",
+      "path": "silkbind_jade",
+      "types": [
+        "Attack",
+        "Martial Arts",
+        "Damage Boost"
+      ],
+      "base_effect": {
+        "en": "Ninefold Umbrella's Spring Sorrow holds 2 stacks. Hitting applies Combo: +10% Ballistic Skill damage for 8 seconds.",
+        "fr": "La Chagrin du Printemps de l'Ombrelle Neuf-Plis stocke 2 charges. Toucher applique Combo : +10% dégâts des Compétences Balistiques pendant 8 secondes."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases Combo damage bonus to 20%",
+          "fr": "Augmente le bonus de dégâts Combo à 20%"
+        },
+        "T2": {
+          "en": "Increases Critical Rate",
+          "fr": "Augmente le Taux Critique"
+        },
+        "T3": {
+          "en": "Increases Cast Away Spring's Grief casting speed by 30%",
+          "fr": "Augmente la vitesse de lancement de Laissez Partir le Chagrin du Printemps de 30%"
+        },
+        "T4": {
+          "en": "Increases Combo duration to 12 seconds",
+          "fr": "Augmente la durée de Combo à 12 secondes"
+        },
+        "T5": {
+          "en": "Increases Critical Damage Bonus by 4.4%",
+          "fr": "Augmente le Bonus de Dégâts Critiques de 4.4%"
+        },
+        "T6": {
+          "en": "Spring Sorrow stores 3 charges, reduces cooldown by 5s",
+          "fr": "Chagrin du Printemps stocke 3 charges, réduit le temps de recharge de 5s"
+        }
+      },
+      "source": "Complete Kaifeng Volume 2: Shadows in Bloom",
+      "associated_weapon": "ninefold_umbrella"
+    },
+    {
+      "id": "flying_gourds",
+      "names": {
+        "en": "Flying Gourds",
+        "cn": "葫芦飞飞",
+        "pinyin": "Hú Lu Fēi Fēi",
+        "fr": "Gourdes Volantes"
+      },
+      "rarity": "epic",
+      "path": "silkbind_jade",
+      "types": [
+        "Martial Arts",
+        "Support"
+      ],
+      "base_effect": {
+        "en": "Grants 2 charges to Inkwell Fan's Peak's Springless Silence, but increases cooldown by 3 seconds.",
+        "fr": "Accorde 2 charges au Silence du Pic Sans Ressort de l'Éventail Encrier, mais augmente le temps de recharge de 3 secondes."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Returning via Water Entity reduces cooldown by 3s, +20% Movement Speed",
+          "fr": "Revenir via Entité d'Eau réduit le temps de recharge de 3s, +20% Vitesse de Déplacement"
+        },
+        "T2": {
+          "en": "Increases Precision Rate",
+          "fr": "Augmente le Taux de Précision"
+        },
+        "T3": {
+          "en": "If hit but not airborne, +30% damage on next skill",
+          "fr": "Si touché mais pas envoyé en l'air, +30% dégâts sur la prochaine compétence"
+        },
+        "T4": {
+          "en": "After returning, +50% Fleeting Gale speed",
+          "fr": "Après le retour, +50% vitesse de Rafale Furtive"
+        },
+        "T5": {
+          "en": "Increases Silkbind Penetration by 6",
+          "fr": "Augmente la Pénétration Lienfil de 6"
+        },
+        "T6": {
+          "en": "When airborne hit, reduces cooldown by 2s and resets Moon Shatter Spring",
+          "fr": "Quand un coup aérien touche, réduit le temps de recharge de 2s et réinitialise Brisure de Lune Printanière"
+        }
+      },
+      "source": "Treasure chest in cave with Dragon Key",
+      "associated_weapon": "inkwell_fan"
+    },
+    {
+      "id": "star_reacher",
+      "names": {
+        "en": "Star Reacher",
+        "cn": "纵地摘星",
+        "pinyin": "Zòng Dì Zhāi Xīng",
+        "fr": "Attrapeur d'Étoiles"
+      },
+      "rarity": "epic",
+      "path": "silkbind_jade",
+      "types": [
+        "Attack",
+        "Pursuit",
+        "Buff"
+      ],
+      "base_effect": {
+        "en": "Gain 10% Physical Attack bonus for 8 seconds after knocking enemy airborne.",
+        "fr": "Obtient 10% de bonus d'Attaque Physique pendant 8 secondes après avoir envoyé un ennemi en l'air."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases to 15%",
+          "fr": "Augmente à 15%"
+        },
+        "T2": {
+          "en": "Increases Physical Attack",
+          "fr": "Augmente l'Attaque Physique"
+        },
+        "T3": {
+          "en": "If target Exhausted or <20% Qi, gain 10% bonus",
+          "fr": "Si la cible est Épuisée ou <20% Qi, obtient 10% bonus"
+        },
+        "T4": {
+          "en": "Increases duration to 12 seconds",
+          "fr": "Augmente la durée à 12 secondes"
+        },
+        "T5": {
+          "en": "Increases Physical Penetration by 5.1",
+          "fr": "Augmente la Pénétration Physique de 5.1"
+        },
+        "T6": {
+          "en": "After damaging airborne target, restore 10% HP",
+          "fr": "Après avoir touché une cible en l'air, restaure 10% des PV"
+        }
+      },
+      "source": "Defeat outdoor boss Snake Doctor",
+      "associated_weapon": "inkwell_fan"
+    },
+    {
+      "id": "thunderous_bloom",
+      "names": {
+        "en": "Thunderous Bloom",
+        "cn": "春雷篇",
+        "pinyin": "Chūn Léi Piān",
+        "fr": "Floraison Tonnante"
+      },
+      "rarity": "epic",
+      "path": "silkbind_jade",
+      "types": [
+        "Damage Boost",
+        "Buff"
+      ],
+      "base_effect": {
+        "en": "Moving 15m within 3 seconds grants Spring Thunder: Next 3 Heavy Attacks gain 15% DMG Bonus for 12 seconds. Cooldown 15 seconds.",
+        "fr": "Se déplacer de 15m en 3 secondes accorde Tonnerre Printanier : Les 3 prochaines Attaques Lourdes obtiennent 15% de Bonus de Dégâts pendant 12 secondes. Recharge 15 secondes."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Reduces distance to 12m",
+          "fr": "Réduit la distance à 12m"
+        },
+        "T2": {
+          "en": "Increases Physical Attack",
+          "fr": "Augmente l'Attaque Physique"
+        },
+        "T3": {
+          "en": "Also +15% Qi DMG Bonus",
+          "fr": "Aussi +15% Bonus de Dégâts de Qi"
+        },
+        "T4": {
+          "en": "Increases to 5 attacks",
+          "fr": "Augmente à 5 attaques"
+        },
+        "T5": {
+          "en": "Increases Physical DMG Bonus by 2.5%",
+          "fr": "Augmente le Bonus de Dégâts Physiques de 2.5%"
+        },
+        "T6": {
+          "en": "Hitting Exhausted target restores one stack",
+          "fr": "Toucher une cible Épuisée restaure une charge"
+        }
+      },
+      "source": "Clear Mercyheart Monastery",
+      "associated_weapon": "inkwell_fan"
+    },
+    {
+      "id": "echoes_of_oblivion",
+      "names": {
+        "en": "Echoes of Oblivion",
+        "cn": "忘川绝响",
+        "pinyin": "Wàng Chuān Jué Xiǎng",
+        "fr": "Échos de l'Oubli"
+      },
+      "rarity": "legendary",
+      "path": "bamboocut_wind",
+      "types": [
+        "Pursuit",
+        "Martial Arts",
+        "Debuff"
+      ],
+      "base_effect": {
+        "en": "Infernal Twinblades' Light Attacks apply Sin normally and Karma under Flamelash. Attacking targets with both ignores 10% Physical Defense and 10% Bamboocut Resistance.",
+        "fr": "Les Attaques Légères des Lames Jumelles Infernales appliquent Péché normalement et Karma sous Fouet de Flamme. Attaquer les cibles avec les deux effets ignore 10% de Défense Physique et 10% de Résistance Coupe-Bambou."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Gain Samsara and +5% HP damage when attacking targets with both effects",
+          "fr": "Obtient Samsara et +5% dégâts PV en attaquant les cibles avec les deux effets"
+        },
+        "T2": {
+          "en": "Increases Precision Rate",
+          "fr": "Augmente le Taux de Précision"
+        },
+        "T3": {
+          "en": "Gain Samsara on Perfect Dodge",
+          "fr": "Obtient Samsara sur Esquive Parfaite"
+        },
+        "T4": {
+          "en": "While Samsara present, dealing damage grants 1 Karmic Flame",
+          "fr": "Avec Samsara présent, infliger des dégâts accorde 1 Flamme Karmique"
+        },
+        "T5": {
+          "en": "Increases Critical DMG Bonus by 4.4%",
+          "fr": "Augmente le Bonus de Dégâts Critiques de 4.4%"
+        },
+        "T6": {
+          "en": "Heruka's Pyre makes all Light Attacks apply both effects simultaneously",
+          "fr": "Le Bûcher d'Heruka fait que toutes les Attaques Légères appliquent les deux effets simultanément"
+        }
+      },
+      "source": "Complete defense of Blissful Retreat",
+      "associated_weapon": "infernal_twinblades"
+    },
+    {
+      "id": "breaking_point",
+      "names": {
+        "en": "Breaking Point",
+        "cn": "断石之构",
+        "pinyin": "Duàn Shí Zhī Gòu",
+        "fr": "Point de Rupture"
+      },
+      "rarity": "epic",
+      "path": "bamboocut_wind",
+      "types": [
+        "Pursuit",
+        "Buff",
+        "Stacking"
+      ],
+      "base_effect": {
+        "en": "Hitting Exhausted enemies with Critical Hit applies Disintegration for 3 seconds, stacking up to 3 times. Each stack grants 10 Physical Penetration and +5% Critical DMG Bonus.",
+        "fr": "Toucher des ennemis Épuisés avec un Coup Critique applique Désintégration pendant 3 secondes, cumulable jusqu'à 3 fois. Chaque charge accorde 10 Pénétration Physique et +5% Bonus de Dégâts Critiques."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases duration to 5 seconds",
+          "fr": "Augmente la durée à 5 secondes"
+        },
+        "T2": {
+          "en": "Increases Critical Rate",
+          "fr": "Augmente le Taux Critique"
+        },
+        "T3": {
+          "en": "Hitting Exhausted enemy grants one stack",
+          "fr": "Toucher un ennemi Épuisé accorde une charge"
+        },
+        "T4": {
+          "en": "Increases max stacks to 5",
+          "fr": "Augmente le maximum de charges à 5"
+        },
+        "T5": {
+          "en": "Increases Direct Critical Rate by 4.1%",
+          "fr": "Augmente le Taux de Critique Direct de 4.1%"
+        },
+        "T6": {
+          "en": "Perfect Dodge grants 5 stacks",
+          "fr": "L'Esquive Parfaite accorde 5 charges"
+        }
+      },
+      "source": "Defeat field boss Yi Dao",
+      "associated_weapon": "infernal_twinblades"
+    },
+    {
+      "id": "riptide_reflex",
+      "names": {
+        "en": "Riptide Reflex",
+        "cn": "所恨年年",
+        "pinyin": "Suǒ Hèn Nián Nián",
+        "fr": "Réflexe du Courant"
+      },
+      "rarity": "epic",
+      "path": "bamboocut_wind",
+      "types": [
+        "Control",
+        "Buff"
+      ],
+      "base_effect": {
+        "en": "Hitting enemy with Control Skill reduces current Martial Arts Skill cooldown by 1 second. Cooldown 10 seconds.",
+        "fr": "Toucher un ennemi avec une Compétence de Contrôle réduit le temps de recharge de la Compétence Martiale actuelle de 1 seconde. Recharge 10 secondes."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Reduces cooldown by 2 seconds",
+          "fr": "Réduit le temps de recharge de 2 secondes"
+        },
+        "T2": {
+          "en": "Increases Minimum Physical Attack",
+          "fr": "Augmente l'Attaque Physique Min"
+        },
+        "T3": {
+          "en": "Martial Arts Skills deal 10% Qi damage to controlled targets",
+          "fr": "Les Compétences Martiales infligent 10% de dégâts de Qi aux cibles contrôlées"
+        },
+        "T4": {
+          "en": "Reduces cooldown by 5 seconds",
+          "fr": "Réduit le temps de recharge de 5 secondes"
+        },
+        "T5": {
+          "en": "Increases Physical Penetration by 5.1",
+          "fr": "Augmente la Pénétration Physique de 5.1"
+        },
+        "T6": {
+          "en": "Hitting controlled target grants Bone Grinding: +10% Martial Arts damage",
+          "fr": "Toucher une cible contrôlée accorde Broyage d'Os : +10% dégâts des Compétences Martiales"
+        }
+      },
+      "source": "Eavesdrop on two NPCs in Kaifeng",
+      "associated_weapon": "mortal_rope_dart"
+    },
+    {
+      "id": "vendetta",
+      "names": {
+        "en": "Vendetta",
+        "cn": "复仇",
+        "pinyin": "Fù Chóu",
+        "fr": "Vendetta"
+      },
+      "rarity": "epic",
+      "path": "bamboocut_wind",
+      "types": [
+        "Martial Arts",
+        "Buff",
+        "Recover"
+      ],
+      "base_effect": {
+        "en": "Bladebound Thread's Vendetta Token lasts 5 seconds longer and restores 20 Token of Gratitudes.",
+        "fr": "Le Jeton de Vengeance du Fil Lieur de Lames dure 5 secondes de plus et restaure 20 Jetons de Gratitude."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Token recovers 30% faster",
+          "fr": "Le Jeton se récupère 30% plus vite"
+        },
+        "T2": {
+          "en": "Increases Min Bamboocut Attack",
+          "fr": "Augmente l'Attaque Coupe-Bambou Min"
+        },
+        "T3": {
+          "en": "Applies Rodent Hunt for 15 seconds, dealing 30% of damage dealt",
+          "fr": "Applique Chasse aux Rongeurs pendant 15 secondes, infligeant 30% des dégâts infligés"
+        },
+        "T4": {
+          "en": "Increases Rat Qi damage by 20%",
+          "fr": "Augmente les dégâts de Qi des Rats de 20%"
+        },
+        "T5": {
+          "en": "Increases Bamboocut Penetration by 6",
+          "fr": "Augmente la Pénétration Coupe-Bambou de 6"
+        },
+        "T6": {
+          "en": "Rodents on Vendetta Mark deal +50% damage, -50% healing",
+          "fr": "Les Rongeurs sur Marque de Vengeance infligent +50% dégâts, -50% soins"
+        }
+      },
+      "source": "Quest in North Imperial Garden during Shen and You hour",
+      "associated_weapon": "mortal_rope_dart"
+    },
+    {
+      "id": "art_of_resistance",
+      "names": {
+        "en": "Art of Resistance",
+        "cn": "持其不攻",
+        "pinyin": "Chí Qí Bù Gōng",
+        "fr": "Art de la Résistance"
+      },
+      "rarity": "epic",
+      "path": "stonesplit_might",
+      "types": [
+        "Defense",
+        "Buff"
+      ],
+      "base_effect": {
+        "en": "Increases HP shield duration and bonus effects by 4 seconds.",
+        "fr": "Augmente la durée du bouclier de PV et les effets bonus de 4 secondes."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases HP absorbed by 10%",
+          "fr": "Augmente les PV absorbés de 10%"
+        },
+        "T2": {
+          "en": "Increases Critical Rate",
+          "fr": "Augmente le Taux Critique"
+        },
+        "T3": {
+          "en": "While shielded, +2% damage and healing",
+          "fr": "Avec bouclier, +2% dégâts et soins"
+        },
+        "T4": {
+          "en": "Increases duration to 6 seconds total",
+          "fr": "Augmente la durée à 6 secondes au total"
+        },
+        "T5": {
+          "en": "Increases Critical Damage Bonus by 4%",
+          "fr": "Augmente le Bonus de Dégâts Critiques de 4%"
+        },
+        "T6": {
+          "en": "If shield not broken, recover 5% of remaining HP",
+          "fr": "Si le bouclier n'est pas brisé, récupère 5% des PV restants"
+        }
+      },
+      "source": "Complete Initiation: Well of Heaven Elder Task",
+      "associated_weapon": "thundercry_blade"
+    },
+    {
+      "id": "exquisite_scenery",
+      "names": {
+        "en": "Exquisite Scenery",
+        "cn": "山河绝韵",
+        "pinyin": "Shān Hé Jué Yùn",
+        "fr": "Paysage Exquis"
+      },
+      "rarity": "legendary",
+      "path": "stonesplit_might",
+      "types": [
+        "Defense",
+        "Martial Arts",
+        "Counter"
+      ],
+      "base_effect": {
+        "en": "Successfully defending with Thundercry Blade activates special counterattack. Press Perception/Heavy Attack to unleash first stage Charged Heavy without charging. Cooldown 10 seconds.",
+        "fr": "Réussir une défense avec la Lame du Cri du Tonnerre active sa contre-attaque spéciale. Appuyer sur Compétence de Perception/Attaque Lourde pour lancer une Attaque Lourde Chargée de premier niveau sans charger. Recharge 10 secondes."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "20% chance to restore 1 bonus Battle Will",
+          "fr": "20% de chance de restaurer 1 barre de Volonté de Combat bonus"
+        },
+        "T2": {
+          "en": "Increases Max HP",
+          "fr": "Augmente les PV Max"
+        },
+        "T3": {
+          "en": "Increases Charged Heavy power from first to third stage",
+          "fr": "Augmente la puissance de l'Attaque Lourde Chargée du premier au troisième niveau"
+        },
+        "T4": {
+          "en": "Reduces trigger interval to 5 seconds",
+          "fr": "Réduit l'intervalle de déclenchement à 5 secondes"
+        },
+        "T5": {
+          "en": "Increases Physical Damage Reduction by 2.8%",
+          "fr": "Augmente la Réduction de Dégâts Physiques de 2.8%"
+        },
+        "T6": {
+          "en": "Consume Battle Will to increase damage by 25-50%",
+          "fr": "Consommer de la Volonté de Combat pour augmenter les dégâts de 25-50%"
+        }
+      },
+      "source": "Defeat outdoor boss Shadow Puppet - Curtain Rise",
+      "associated_weapon": "thundercry_blade"
+    },
+    {
+      "id": "rock_solid",
+      "names": {
+        "en": "Rock Solid",
+        "cn": "磐石诀",
+        "pinyin": "Pán Shí Jué",
+        "fr": "Solide comme le Roc"
+      },
+      "rarity": "epic",
+      "path": "stonesplit_might",
+      "types": [
+        "Defense",
+        "Martial Arts",
+        "DMG Reduction"
+      ],
+      "base_effect": {
+        "en": "Increases Stormbreaker Spear's Roar of Storm DMG Reduction by 20% after taunting boss, 5% per non-boss (up to 20%). While active, reduces own damage by 10%.",
+        "fr": "Augmente la Réduction de Dégâts du Rugissement de Tempête de la Lance Brise-Tempête de 20% après avoir provoqué un boss, 5% par non-boss (jusqu'à 20%). Pendant l'effet, réduit vos propres dégâts de 10%."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Reduces cooldown to 16s",
+          "fr": "Réduit le temps de recharge à 16s"
+        },
+        "T2": {
+          "en": "Increases Stonesplit Attack",
+          "fr": "Augmente l'Attaque Pierre Fendue"
+        },
+        "T3": {
+          "en": "+5% damage against taunted targets",
+          "fr": "+5% dégâts contre les cibles provoquées"
+        },
+        "T4": {
+          "en": "Increases DMG Reduction to 25% vs bosses",
+          "fr": "Augmente la Réduction de Dégâts à 25% contre les boss"
+        },
+        "T5": {
+          "en": "Increases Stonesplit Penetration by 6",
+          "fr": "Augmente la Pénétration Pierre Fendue de 6"
+        },
+        "T6": {
+          "en": "Each Battle Will spent restores 0.2% HP",
+          "fr": "Chaque Volonté de Combat dépensée restaure 0.2% des PV"
+        }
+      },
+      "source": "Defeat Dao Lord in Act 2 Quest: Accident",
+      "associated_weapon": "stormbreaker_spear"
+    },
+    {
+      "id": "trapped_beast",
+      "names": {
+        "en": "Trapped Beast",
+        "cn": "困兽心经",
+        "pinyin": "Kùn Shòu Xīn Jīng",
+        "fr": "Bête Piégée"
+      },
+      "rarity": "epic",
+      "path": "stonesplit_might",
+      "types": [
+        "Defense",
+        "Buff",
+        "Recover"
+      ],
+      "base_effect": {
+        "en": "Taking damage below 30% HP triggers Cornered Beast: shield absorbing 30% Max HP for 4 seconds. Cooldown 300 seconds.",
+        "fr": "Subir des dégâts sous 30% des PV déclenche Bête Acculée : bouclier absorbant 30% des PV Max pendant 4 secondes. Recharge 300 secondes."
+      },
+      "tier_bonuses": {
+        "T1": {
+          "en": "Increases shield to 40% Max HP",
+          "fr": "Augmente le bouclier à 40% des PV Max"
+        },
+        "T2": {
+          "en": "Increases Max HP",
+          "fr": "Augmente les PV Max"
+        },
+        "T3": {
+          "en": "While shielded, increases healing and medicine effect",
+          "fr": "Avec le bouclier, augmente les soins reçus et l'effet des médicaments"
+        },
+        "T4": {
+          "en": "Reduces cooldown to 180 seconds",
+          "fr": "Réduit le temps de recharge à 180 secondes"
+        },
+        "T5": {
+          "en": "Increases Physical Resistance by 5.1",
+          "fr": "Augmente la Résistance Physique de 5.1"
+        },
+        "T6": {
+          "en": "If shield destroyed early, reduces cooldown by 120 seconds",
+          "fr": "Si le bouclier est détruit tôt, réduit le temps de recharge de 120 secondes"
+        }
+      },
+      "source": "March of the Deaf quest in Ghostlight Market",
+      "associated_weapon": "thundercry_blade"
+    }
+  ]
+}

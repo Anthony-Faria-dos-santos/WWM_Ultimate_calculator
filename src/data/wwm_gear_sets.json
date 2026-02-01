@@ -1,0 +1,998 @@
+{
+  "meta": {
+    "version": "2.0.0",
+    "lastUpdate": "2026-01-31",
+    "source": "Where Winds Meet - Official Game Data",
+    "notes": "Sets extraits des données officielles du jeu"
+  },
+  "slotStructure": {
+    "offensive": {
+      "description": "Offensive Sets (Weapons & Accessories)",
+      "descriptionFR": "Sets Offensifs (Armes & Accessoires)",
+      "totalPieces": 4,
+      "bonusThresholds": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "id": "weapon_main",
+          "nameFR": "Arme Principale",
+          "nameEN": "Main Weapon"
+        },
+        {
+          "id": "weapon_offhand",
+          "nameFR": "Arme Secondaire",
+          "nameEN": "Off-hand Weapon"
+        },
+        {
+          "id": "disc",
+          "nameFR": "Disque",
+          "nameEN": "Disc"
+        },
+        {
+          "id": "pendant",
+          "nameFR": "Pendentif",
+          "nameEN": "Pendant"
+        }
+      ]
+    },
+    "defensive": {
+      "description": "Sets Défensifs (Armure)",
+      "descriptionFR": "Sets Défensifs (Armure)",
+      "totalPieces": 4,
+      "bonusThresholds": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "id": "helmet",
+          "nameFR": "Casque",
+          "nameEN": "Helm"
+        },
+        {
+          "id": "chest",
+          "nameFR": "Plastron",
+          "nameEN": "Body Armor"
+        },
+        {
+          "id": "bracers",
+          "nameFR": "Brassards",
+          "nameEN": "Bracers"
+        },
+        {
+          "id": "greaves",
+          "nameFR": "Jambières",
+          "nameEN": "Greaves"
+        }
+      ]
+    }
+  },
+  "offensiveSets": {
+    "jadeware": {
+      "setId": "jadeware",
+      "setName": "Jadeware",
+      "setNameFR": "Jade",
+      "setNameCN": "玉器",
+      "type": "offensive",
+      "slots": [
+        "weapon_main",
+        "weapon_offhand",
+        "disc",
+        "pendant"
+      ],
+      "recommendedFor": [
+        "Nameless Sword",
+        "Nameless Spear"
+      ],
+      "playstyle": "Scaling Affinity",
+      "bonus2pc": {
+        "effectEN": "+1 Max Physical Attack",
+        "effectFR": "+1 Attaque Physique Max",
+        "stats": {
+          "maxPhysicalAttack": {
+            "value": 1,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "baseAttackMax"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "+10% Affinity DMG, affinity hits increase Affinity DMG by 5% (stack ×2)",
+        "effectFR": "+10% Dégâts Affinité, les coups d'affinité augmentent les Dégâts Affinité de 5% (stack ×2)",
+        "stats": {
+          "affinityDamageBonus": {
+            "value": 0.1,
+            "type": "percent"
+          },
+          "affinityDamageBonusPerStack": {
+            "value": 0.05,
+            "type": "percent"
+          }
+        },
+        "stacking": {
+          "maxStacks": 2,
+          "trigger": "affinity_hit",
+          "duration": null
+        },
+        "categories": [
+          "affinityDamageBonus",
+          "buff"
+        ]
+      }
+    },
+    "hawking": {
+      "setId": "hawking",
+      "setName": "Hawking",
+      "setNameFR": "Fauconnerie",
+      "setNameCN": "鹰击",
+      "type": "offensive",
+      "slots": [
+        "weapon_main",
+        "weapon_offhand",
+        "disc",
+        "pendant"
+      ],
+      "recommendedFor": [
+        "Strategic Sword",
+        "Heavenquake Spear"
+      ],
+      "playstyle": "Aggressive builds",
+      "bonus2pc": {
+        "effectEN": "+1 Min Physical Attack",
+        "effectFR": "+1 Attaque Physique Min",
+        "stats": {
+          "minPhysicalAttack": {
+            "value": 1,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "baseAttackMin"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "Affinity hits increase Physical Attack by 15 for 10s (stack ×10)",
+        "effectFR": "Les coups d'affinité augmentent l'Attaque Physique de 15 pendant 10s (stack ×10)",
+        "stats": {
+          "physicalAttackPerStack": {
+            "value": 15,
+            "type": "flat"
+          }
+        },
+        "stacking": {
+          "maxStacks": 10,
+          "trigger": "affinity_hit",
+          "duration": 10
+        },
+        "categories": [
+          "physicalDamageBonus",
+          "buff"
+        ]
+      }
+    },
+    "rainwhisper": {
+      "setId": "rainwhisper",
+      "setName": "Rainwhisper",
+      "setNameFR": "Murmure de Pluie",
+      "setNameCN": "雨语",
+      "type": "offensive",
+      "slots": [
+        "weapon_main",
+        "weapon_offhand",
+        "disc",
+        "pendant"
+      ],
+      "recommendedFor": [
+        "Thundercry Blade",
+        "Stormbreaker Spear"
+      ],
+      "playstyle": "Tank/Sustain",
+      "bonus2pc": {
+        "effectEN": "+40 Max HP",
+        "effectFR": "+40 PV Max",
+        "stats": {
+          "maxHp": {
+            "value": 40,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "health"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "+10% Crit DMG and heal received, +25% if shield active",
+        "effectFR": "+10% Dégâts Crit et soins reçus, +25% si bouclier actif",
+        "stats": {
+          "criticalDamageBonus": {
+            "value": 0.1,
+            "type": "percent"
+          },
+          "healingReceived": {
+            "value": 0.1,
+            "type": "percent"
+          },
+          "criticalDamageBonusWithShield": {
+            "value": 0.25,
+            "type": "percent"
+          },
+          "healingReceivedWithShield": {
+            "value": 0.25,
+            "type": "percent"
+          }
+        },
+        "conditional": {
+          "condition": "shield_active",
+          "bonusMultiplier": 2.5
+        },
+        "categories": [
+          "criticalDamageBonus",
+          "healing",
+          "conditional"
+        ]
+      }
+    },
+    "veil_of_the_willow": {
+      "setId": "veil_of_the_willow",
+      "setName": "Veil of the Willow",
+      "setNameFR": "Voile du Saule",
+      "setNameCN": "柳影",
+      "type": "offensive",
+      "slots": [
+        "weapon_main",
+        "weapon_offhand",
+        "disc",
+        "pendant"
+      ],
+      "recommendedFor": [
+        "Inkwell Fan",
+        "Vernal Umbrella"
+      ],
+      "playstyle": "Combo-focused",
+      "bonus2pc": {
+        "effectEN": "+0.1% Precision Rate",
+        "effectFR": "+0.1% Taux de Précision",
+        "stats": {
+          "precisionRate": {
+            "value": 0.001,
+            "type": "percent"
+          }
+        },
+        "categories": [
+          "precisionRate"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "Light→Heavy combo: +12% DMG 10s, Heavy→Light: +24% DMG 10s",
+        "effectFR": "Combo Léger→Lourd: +12% Dégâts 10s, Lourd→Léger: +24% Dégâts 10s",
+        "stats": {
+          "lightToHeavyDamageBonus": {
+            "value": 0.12,
+            "type": "percent"
+          },
+          "heavyToLightDamageBonus": {
+            "value": 0.24,
+            "type": "percent"
+          }
+        },
+        "conditional": {
+          "trigger": "combo_sequence",
+          "duration": 10
+        },
+        "categories": [
+          "physicalDamageBonus",
+          "combo",
+          "conditional"
+        ]
+      }
+    },
+    "shallowcall": {
+      "setId": "shallowcall",
+      "setName": "Shallowcall",
+      "setNameFR": "Appel des Profondeurs",
+      "setNameCN": "浅唤",
+      "type": "offensive",
+      "slots": [
+        "weapon_main",
+        "weapon_offhand",
+        "disc",
+        "pendant"
+      ],
+      "recommendedFor": [
+        "Infernal Twinblades",
+        "Rope Dart"
+      ],
+      "playstyle": "Light Attack focused",
+      "bonus2pc": {
+        "effectEN": "+1 Physical Attack",
+        "effectFR": "+1 Attaque Physique",
+        "stats": {
+          "physicalAttack": {
+            "value": 1,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "baseAttack"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "+15% Light Attack DMG against enemies",
+        "effectFR": "+15% Dégâts Attaque Légère contre les ennemis",
+        "stats": {
+          "lightAttackDamageBonus": {
+            "value": 0.15,
+            "type": "percent"
+          }
+        },
+        "categories": [
+          "physicalDamageBonus",
+          "lightAttack"
+        ]
+      }
+    },
+    "ivorybloom": {
+      "setId": "ivorybloom",
+      "setName": "Ivorybloom",
+      "setNameFR": "Floraison d'Ivoire",
+      "setNameCN": "象牙花",
+      "type": "offensive",
+      "slots": [
+        "weapon_main",
+        "weapon_offhand",
+        "disc",
+        "pendant"
+      ],
+      "recommendedFor": [
+        "Panacea Fan",
+        "Soulshade Umbrella"
+      ],
+      "playstyle": "Healer",
+      "bonus2pc": {
+        "effectEN": "+0.1% Critical Rate",
+        "effectFR": "+0.1% Taux Critique",
+        "stats": {
+          "criticalRate": {
+            "value": 0.001,
+            "type": "percent"
+          }
+        },
+        "categories": [
+          "criticalRate"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "At Max HP: +5% Crit chance, +15% Crit DMG/healing",
+        "effectFR": "À PV Max: +5% chance Crit, +15% Dégâts Crit/soins",
+        "stats": {
+          "criticalRateAtMaxHp": {
+            "value": 0.05,
+            "type": "percent"
+          },
+          "criticalDamageBonusAtMaxHp": {
+            "value": 0.15,
+            "type": "percent"
+          },
+          "criticalHealBonusAtMaxHp": {
+            "value": 0.15,
+            "type": "percent"
+          }
+        },
+        "conditional": {
+          "condition": "max_hp",
+          "threshold": 1.0
+        },
+        "categories": [
+          "criticalRate",
+          "criticalDamageBonus",
+          "healing",
+          "conditional"
+        ]
+      }
+    },
+    "swift_gale": {
+      "setId": "swift_gale",
+      "setName": "Swift Gale",
+      "setNameFR": "Bourrasque Rapide",
+      "setNameCN": "疾风",
+      "type": "offensive",
+      "slots": [
+        "weapon_main",
+        "weapon_offhand",
+        "disc",
+        "pendant"
+      ],
+      "recommendedFor": [
+        "Aerial builds"
+      ],
+      "playstyle": "Airborne combat",
+      "bonus2pc": {
+        "effectEN": "+1 Max Physical Attack",
+        "effectFR": "+1 Attaque Physique Max",
+        "stats": {
+          "maxPhysicalAttack": {
+            "value": 1,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "baseAttackMax"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "+10% Airborne Heavy Attack, knockdown (once per 10s)",
+        "effectFR": "+10% Attaque Lourde Aérienne, knockdown (1 fois/10s)",
+        "stats": {
+          "airborneHeavyAttackBonus": {
+            "value": 0.1,
+            "type": "percent"
+          }
+        },
+        "special": {
+          "effect": "knockdown",
+          "cooldown": 10
+        },
+        "categories": [
+          "physicalDamageBonus",
+          "airborne",
+          "cc"
+        ]
+      }
+    },
+    "swaying_heights": {
+      "setId": "swaying_heights",
+      "setName": "Swaying Heights",
+      "setNameFR": "Hauteurs Oscillantes",
+      "setNameCN": "摇曳",
+      "type": "offensive",
+      "slots": [
+        "weapon_main",
+        "weapon_offhand",
+        "disc",
+        "pendant"
+      ],
+      "recommendedFor": [
+        "Burst early fight"
+      ],
+      "playstyle": "Execute/Burst",
+      "bonus2pc": {
+        "effectEN": "+1 Min Physical Attack",
+        "effectFR": "+1 Attaque Physique Min",
+        "stats": {
+          "minPhysicalAttack": {
+            "value": 1,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "baseAttackMin"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "+5% DMG vs >50% HP enemies, +1% per 5% HP additional (max +10%)",
+        "effectFR": "+5% Dégâts vs ennemis >50% PV, +1% par 5% PV additionnel (max +10%)",
+        "stats": {
+          "damageVsHighHpBase": {
+            "value": 0.05,
+            "type": "percent"
+          },
+          "damagePerHpThreshold": {
+            "value": 0.01,
+            "type": "percent"
+          },
+          "hpThresholdInterval": 0.05,
+          "maxBonusDamage": {
+            "value": 0.1,
+            "type": "percent"
+          }
+        },
+        "conditional": {
+          "condition": "enemy_hp_above",
+          "threshold": 0.5,
+          "scaling": true
+        },
+        "categories": [
+          "physicalDamageBonus",
+          "execute",
+          "conditional"
+        ]
+      }
+    }
+  },
+  "defensiveSets": {
+    "formbend": {
+      "setId": "formbend",
+      "setName": "Formbend",
+      "setNameFR": "Forme Pliée",
+      "setNameCN": "曲形",
+      "type": "defensive",
+      "slots": [
+        "helmet",
+        "chest",
+        "bracers",
+        "greaves"
+      ],
+      "recommendedFor": [
+        "Nameless Sword"
+      ],
+      "playstyle": "Shield Daunting Strike",
+      "bonus2pc": {
+        "effectEN": "+13 Physical Defense",
+        "effectFR": "+13 Défense Physique",
+        "stats": {
+          "physicalDefense": {
+            "value": 13,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "defense"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "Shield duration +2s, 20% DMG reduction if >85% Qi or Qi shield active",
+        "effectFR": "Durée du bouclier +2s, 20% réduction dégâts si >85% Qi ou bouclier Qi actif",
+        "stats": {
+          "shieldDurationBonus": {
+            "value": 2,
+            "type": "flat_seconds"
+          },
+          "damageReductionWithQi": {
+            "value": 0.2,
+            "type": "percent"
+          }
+        },
+        "conditional": {
+          "conditions": [
+            "qi_above_85",
+            "qi_shield_active"
+          ],
+          "operator": "OR"
+        },
+        "categories": [
+          "damageReduction",
+          "shield",
+          "conditional"
+        ]
+      }
+    },
+    "eaglerise": {
+      "setId": "eaglerise",
+      "setName": "Eaglerise",
+      "setNameFR": "Essor de l'Aigle",
+      "setNameCN": "鹰起",
+      "type": "defensive",
+      "slots": [
+        "helmet",
+        "chest",
+        "bracers",
+        "greaves"
+      ],
+      "recommendedFor": [
+        "Strategic Sword",
+        "Heavenquake Spear"
+      ],
+      "playstyle": "DoT/Sustain",
+      "bonus2pc": {
+        "effectEN": "+1 Physical Defense",
+        "effectFR": "+1 Défense Physique",
+        "stats": {
+          "physicalDefense": {
+            "value": 1,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "defense"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "DoT/heal grants Eaglerise stack (-1.2% DMG ×5, shield 90% at max)",
+        "effectFR": "DoT/soin accorde stack Eaglerise (-1.2% Dégâts ×5, bouclier 90% au max)",
+        "stats": {
+          "damageReductionPerStack": {
+            "value": 0.012,
+            "type": "percent"
+          },
+          "shieldAtMaxStacks": {
+            "value": 0.9,
+            "type": "percent"
+          }
+        },
+        "stacking": {
+          "maxStacks": 5,
+          "trigger": "dot_or_heal",
+          "duration": null
+        },
+        "categories": [
+          "damageReduction",
+          "shield",
+          "buff"
+        ]
+      }
+    },
+    "moonflare": {
+      "setId": "moonflare",
+      "setName": "Moonflare",
+      "setNameFR": "Éclat Lunaire",
+      "setNameCN": "月华",
+      "type": "defensive",
+      "slots": [
+        "helmet",
+        "chest",
+        "bracers",
+        "greaves"
+      ],
+      "recommendedFor": [
+        "Thundercry Blade",
+        "Stormbreaker Spear"
+      ],
+      "playstyle": "Tank",
+      "bonus2pc": {
+        "effectEN": "+40 Max HP",
+        "effectFR": "+40 PV Max",
+        "stats": {
+          "maxHp": {
+            "value": 40,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "health"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "30% chance to shield 10% Max HP when attacking in defense",
+        "effectFR": "30% chance d'obtenir bouclier 10% PV Max en attaquant en défense",
+        "stats": {
+          "shieldChance": {
+            "value": 0.3,
+            "type": "percent"
+          },
+          "shieldAmount": {
+            "value": 0.1,
+            "type": "percent_max_hp"
+          }
+        },
+        "conditional": {
+          "condition": "attacking_while_defending",
+          "procChance": 0.3
+        },
+        "categories": [
+          "shield",
+          "defense",
+          "proc"
+        ]
+      }
+    },
+    "beyond_the_chill": {
+      "setId": "beyond_the_chill",
+      "setName": "Beyond the Chill",
+      "setNameFR": "Au-delà du Froid",
+      "setNameCN": "寒外",
+      "type": "defensive",
+      "slots": [
+        "helmet",
+        "chest",
+        "bracers",
+        "greaves"
+      ],
+      "recommendedFor": [
+        "Inkwell Fan",
+        "Vernal Umbrella"
+      ],
+      "playstyle": "Skilled players",
+      "bonus2pc": {
+        "effectEN": "+40 Max HP",
+        "effectFR": "+40 PV Max",
+        "stats": {
+          "maxHp": {
+            "value": 40,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "health"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "After 10s without damage: -40% DMG taken for 2s",
+        "effectFR": "Après 10s sans dégât: -40% Dégâts reçus pendant 2s",
+        "stats": {
+          "damageReduction": {
+            "value": 0.4,
+            "type": "percent"
+          }
+        },
+        "conditional": {
+          "condition": "no_damage_taken",
+          "chargeTime": 10,
+          "duration": 2
+        },
+        "categories": [
+          "damageReduction",
+          "conditional"
+        ]
+      }
+    },
+    "whirlsnow": {
+      "setId": "whirlsnow",
+      "setName": "Whirlsnow",
+      "setNameFR": "Tourbillon de Neige",
+      "setNameCN": "雪旋",
+      "type": "defensive",
+      "slots": [
+        "helmet",
+        "chest",
+        "bracers",
+        "greaves"
+      ],
+      "recommendedFor": [
+        "Panacea Fan",
+        "Soulshade Umbrella"
+      ],
+      "playstyle": "Healer",
+      "bonus2pc": {
+        "effectEN": "+1 Physical Defense",
+        "effectFR": "+1 Défense Physique",
+        "stats": {
+          "physicalDefense": {
+            "value": 1,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "defense"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "If >40% Max HP lost or <20% HP: next heal +25% Max HP (once per 60s)",
+        "effectFR": "Si >40% PV Max perdu ou <20% PV: prochain soin +25% PV Max (1×/60s)",
+        "stats": {
+          "emergencyHealBonus": {
+            "value": 0.25,
+            "type": "percent_max_hp"
+          }
+        },
+        "conditional": {
+          "conditions": [
+            "hp_lost_above_40",
+            "hp_below_20"
+          ],
+          "operator": "OR",
+          "cooldown": 60
+        },
+        "categories": [
+          "healing",
+          "emergency",
+          "conditional"
+        ]
+      }
+    },
+    "calmwaters": {
+      "setId": "calmwaters",
+      "setName": "Calmwaters",
+      "setNameFR": "Eaux Calmes",
+      "setNameCN": "静水",
+      "type": "defensive",
+      "slots": [
+        "helmet",
+        "chest",
+        "bracers",
+        "greaves"
+      ],
+      "recommendedFor": [
+        "Infernal Twinblades",
+        "Rope Dart"
+      ],
+      "playstyle": "Dodge-focused",
+      "bonus2pc": {
+        "effectEN": "+13 Physical Defense",
+        "effectFR": "+13 Défense Physique",
+        "stats": {
+          "physicalDefense": {
+            "value": 13,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "defense"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "Perfect Dodge: 50% chance to restore 3% Max HP + 10 Endurance",
+        "effectFR": "Esquive Parfaite: 50% chance de restaurer 3% PV Max + 10 Endurance",
+        "stats": {
+          "perfectDodgeHealChance": {
+            "value": 0.5,
+            "type": "percent"
+          },
+          "perfectDodgeHealAmount": {
+            "value": 0.03,
+            "type": "percent_max_hp"
+          },
+          "perfectDodgeEnduranceRestore": {
+            "value": 10,
+            "type": "flat"
+          }
+        },
+        "conditional": {
+          "condition": "perfect_dodge",
+          "procChance": 0.5
+        },
+        "categories": [
+          "healing",
+          "endurance",
+          "dodge",
+          "proc"
+        ]
+      }
+    },
+    "agile_steps": {
+      "setId": "agile_steps",
+      "setName": "Agile Steps",
+      "setNameFR": "Pas Agiles",
+      "setNameCN": "轻步",
+      "type": "defensive",
+      "slots": [
+        "helmet",
+        "chest",
+        "bracers",
+        "greaves"
+      ],
+      "recommendedFor": [
+        "Defensive builds"
+      ],
+      "playstyle": "Deflection-focused",
+      "bonus2pc": {
+        "effectEN": "+40 Max HP",
+        "effectFR": "+40 PV Max",
+        "stats": {
+          "maxHp": {
+            "value": 40,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "health"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "Successful deflection: -20% DMG taken for 2s (stack ×3)",
+        "effectFR": "Déflection réussie: -20% Dégâts reçus pendant 2s (stack ×3)",
+        "stats": {
+          "damageReductionPerStack": {
+            "value": 0.2,
+            "type": "percent"
+          }
+        },
+        "stacking": {
+          "maxStacks": 3,
+          "trigger": "successful_deflection",
+          "duration": 2
+        },
+        "categories": [
+          "damageReduction",
+          "deflection",
+          "buff"
+        ]
+      }
+    },
+    "flawless_defense": {
+      "setId": "flawless_defense",
+      "setName": "Flawless Defense",
+      "setNameFR": "Défense Parfaite",
+      "setNameCN": "无瑕",
+      "type": "defensive",
+      "slots": [
+        "helmet",
+        "chest",
+        "bracers",
+        "greaves"
+      ],
+      "recommendedFor": [
+        "Low HP survival"
+      ],
+      "playstyle": "Last stand",
+      "bonus2pc": {
+        "effectEN": "+1 Physical Defense",
+        "effectFR": "+1 Défense Physique",
+        "stats": {
+          "physicalDefense": {
+            "value": 1,
+            "type": "flat"
+          }
+        },
+        "categories": [
+          "defense"
+        ]
+      },
+      "bonus4pc": {
+        "effectEN": "-5% DMG taken, -1% additional per 10% HP lost below 60% (max 5 stacks)",
+        "effectFR": "-5% Dégâts reçus, -1% additionnel par 10% PV perdu sous 60% (max 5 stacks)",
+        "stats": {
+          "baseDamageReduction": {
+            "value": 0.05,
+            "type": "percent"
+          },
+          "damageReductionPerHpLost": {
+            "value": 0.01,
+            "type": "percent"
+          },
+          "hpThreshold": 0.6,
+          "hpInterval": 0.1,
+          "maxStacks": 5
+        },
+        "conditional": {
+          "condition": "hp_below_threshold",
+          "threshold": 0.6,
+          "scaling": true
+        },
+        "categories": [
+          "damageReduction",
+          "lowHp",
+          "conditional"
+        ]
+      }
+    }
+  },
+  "statMapping": {
+    "physicalDefense": {
+      "category": "defense",
+      "formulaKey": "Defense"
+    },
+    "maxHp": {
+      "category": "health",
+      "formulaKey": "HP"
+    },
+    "minPhysicalAttack": {
+      "category": "baseAttack",
+      "formulaKey": "Atk_Min"
+    },
+    "maxPhysicalAttack": {
+      "category": "baseAttack",
+      "formulaKey": "Atk_Max"
+    },
+    "physicalAttack": {
+      "category": "baseAttack",
+      "formulaKey": "Atk_Panel"
+    },
+    "criticalRate": {
+      "category": "rates",
+      "formulaKey": "p_crit"
+    },
+    "criticalDamageBonus": {
+      "category": "rates",
+      "formulaKey": "Bonus_Crit"
+    },
+    "affinityDamageBonus": {
+      "category": "rates",
+      "formulaKey": "Bonus_Aff"
+    },
+    "precisionRate": {
+      "category": "rates",
+      "formulaKey": "p_prec"
+    },
+    "damageReduction": {
+      "category": "defense",
+      "formulaKey": "Réduction"
+    },
+    "healingEffectiveness": {
+      "category": "healing",
+      "formulaKey": "Bonus_Heal"
+    }
+  },
+  "usage": {
+    "howToApplyBonuses": "\n1. Compter le nombre de pièces équipées par set\n2. Pour chaque set:\n   - Si count >= 4: appliquer bonus 4-set (inclut généralement bonus 2-set)\n   - Sinon si count >= 2: appliquer bonus 2-set uniquement\n3. Les bonus conditionnels nécessitent vérification en temps réel\n4. Les stacks doivent être trackés séparément\n",
+    "formulaIntegration": {
+      "flatStats": "Ajouter directement aux stats de base avant calculs",
+      "percentStats": "Multiplier avec les stats correspondantes",
+      "conditionalStats": "Vérifier la condition avant application",
+      "stackingStats": "Multiplier par nombre de stacks actifs"
+    }
+  }
+}
