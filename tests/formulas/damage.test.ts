@@ -15,8 +15,8 @@ import {
   calcBonusMultiplier,
   calcExpectedValue,
   calcSimpleEVMultiplier,
-} from '../src/lib/formulas/damage';
-import type { Buff, BonusCategory } from '../src/lib/types';
+} from '@/lib/formulas/damage';
+import type { Buff } from '@/lib/types';
 
 // ============================================
 // DEFENSE REDUCTION TESTS

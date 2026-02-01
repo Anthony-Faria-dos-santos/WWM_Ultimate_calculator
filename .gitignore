@@ -1,15 +1,22 @@
 # Dependencies
 node_modules/
-.pnp
-.pnp.js
+.pnpm-store/
 
-# Build
+# Build output
+.next/
+out/
 dist/
 build/
 
+# Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
 # IDE
-.vscode/
 .idea/
+.vscode/
 *.swp
 *.swo
 
@@ -17,14 +24,24 @@ build/
 .DS_Store
 Thumbs.db
 
-# Env
-.env
-.env.local
-.env.*.local
-
 # Logs
 *.log
 npm-debug.log*
+pnpm-debug.log*
 
 # Testing
 coverage/
+.nyc_output/
+
+# TypeScript
+*.tsbuildinfo
+
+# Prisma
+prisma/migrations/
+
+# Vercel
+.vercel/
+
+# Temporary
+*.tmp
+*.temp

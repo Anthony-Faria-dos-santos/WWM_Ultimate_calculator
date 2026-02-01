@@ -14,7 +14,6 @@ import {
   Skill,
   Buff,
   DamageResult,
-  DamageBreakdown,
   HitType,
   HIT_MULTIPLIERS,
   FORMULA_CONSTANTS,

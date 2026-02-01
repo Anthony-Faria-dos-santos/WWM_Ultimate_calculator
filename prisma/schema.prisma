@@ -1,0 +1,167 @@
+// ===========================================
+// WWM Ultimate Calculator - Prisma Schema
+// ===========================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ========== AUTHENTICATION ==========
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String?
+  emailVerified DateTime?
+  image         String?
+  
+  // Subscription
+  tier                     SubscriptionTier @default(FREE)
+  stripeCustomerId         String?          @unique
+  stripeSubscriptionId     String?
+  stripePriceId            String?
+  stripeCurrentPeriodEnd   DateTime?
+  
+  // RGPD Compliance
+  consentMarketing Boolean   @default(false)
+  consentAnalytics Boolean   @default(true)
+  dataExportedAt   DateTime?
+  deletionRequestedAt DateTime?
+  
+  // Relations
+  accounts      Account[]
+  sessions      Session[]
+  builds        Build[]
+  aiUsage       AIUsage[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  @@index([email])
+  @@index([stripeCustomerId])
+}
+
+enum SubscriptionTier {
+  FREE
+  PREMIUM
+  PREMIUM_PLUS
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  
+  @@unique([identifier, token])
+}
+
+// ========== CALCULATOR ==========
+
+model Build {
+  id          String   @id @default(cuid())
+  userId      String
+  name        String   @db.VarChar(100)
+  description String?  @db.VarChar(500)
+  isPublic    Boolean  @default(false)
+  
+  // Character Configuration
+  level       Int      @default(100)
+  weaponId    String   @db.VarChar(50)
+  innerWayId  String?  @db.VarChar(50)
+  
+  // Stats Snapshot (JSON)
+  stats       Json     // CharacterStats
+  target      Json?    // TargetStats
+  buffs       Json?    // string[] - BuffIds
+  equipment   Json?    // Equipment configuration
+  
+  // Calculated Results
+  results     Json?    // DamageResult
+  
+  // Social Features
+  views       Int      @default(0)
+  likes       Int      @default(0)
+  
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([userId])
+  @@index([isPublic, likes])
+  @@index([weaponId])
+  @@index([createdAt])
+}
+
+// ========== AI USAGE TRACKING ==========
+
+model AIUsage {
+  id        String    @id @default(cuid())
+  userId    String
+  feature   AIFeature
+  tokens    Int
+  cost      Float     @default(0)
+  metadata  Json?     // Additional context
+  
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+  
+  @@index([userId, createdAt])
+  @@index([feature])
+}
+
+enum AIFeature {
+  COACHING
+  AUTOFILL
+}
+
+// ========== RATE LIMITING (optional, if not using Redis) ==========
+
+model RateLimit {
+  id         String   @id @default(cuid())
+  identifier String   // IP or userId
+  endpoint   String
+  count      Int      @default(1)
+  windowStart DateTime @default(now())
+  
+  @@unique([identifier, endpoint])
+  @@index([windowStart])
+}
