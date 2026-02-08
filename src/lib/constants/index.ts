@@ -22,22 +22,32 @@
 // ============================================================================
 /**
  * Export all game constants including:
+ * - SERVER_CONFIGS: Multi-server configurations (Global OW12, CN OW15)
+ * - ACTIVE_SERVER_KEY: Current active server configuration key
+ * - ACTIVE_SERVER: Current active server configuration
  * - STAT_LIMITS: Maximum and minimum values for character stats
  * - CALCULATION_CONSTANTS: Core values used in damage formulas
  * - DAMAGE_MULTIPLIERS: Multipliers for different combat outcomes
  * - DEFAULT_LEVEL_80_STATS: Reference stats for Level 80 characters
+ * - DEFAULT_LEVEL_85_STATS: Reference stats for Level 85 characters (Global OW12)
  * - DPS_CONFIG: Configuration for DPS calculations
  */
 export {
+  SERVER_CONFIGS,
+  ACTIVE_SERVER_KEY,
+  ACTIVE_SERVER,
   STAT_LIMITS,
   CALCULATION_CONSTANTS,
   DAMAGE_MULTIPLIERS,
   DEFAULT_LEVEL_80_STATS,
+  DEFAULT_LEVEL_85_STATS,
   DPS_CONFIG,
+  type ServerConfigKey,
   type StatLimits,
   type CalculationConstants,
   type DamageMultipliers,
   type DefaultLevel80Stats,
+  type DefaultLevel85Stats,
   type DpsConfig,
 } from './GAME_CONSTANTS';
 

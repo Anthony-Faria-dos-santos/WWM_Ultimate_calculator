@@ -1,19 +1,76 @@
 /**
  * WWM Ultimate Calculator - Game Constants
  * 
- * Centralizes all game constants for Where Winds Meet calculations at Level 80 PVE.
+ * Centralizes all game constants for Where Winds Meet calculations.
  * These constants are used across all calculators for damage, defense, rates, and DPS calculations.
  * 
+ * Supports multiple server versions:
+ * - Global OW12 (Level max 85)
+ * - CN OW15 (Level max 100)
+ * 
  * All values are based on:
- * - Level 80 PVE content
  * - Community-validated formulas from wherewindsmeetcalculator.com
  * - Chinese theorycrafters (Bilibili 理论武学)
  * 
  * Reference: .dev/docs/Back/phases/WWM-Formules-Reference-v1.3.md
  * 
  * @module constants/GAME_CONSTANTS
- * @version 1.0.0
+ * @version 1.1.0
  */
+
+// ============================================================================
+// SERVER CONFIGURATIONS
+// ============================================================================
+/**
+ * Configurations des différentes versions serveur de WWM.
+ * 
+ * @remarks
+ * - GLOBAL_OW12 : Version Global actuelle (level max 85)
+ * - CN_OW15 : Version Chinoise (level max 100)
+ * 
+ * Le serveur actif détermine les constantes de jeu utilisées.
+ */
+export const SERVER_CONFIGS = {
+  /**
+   * Version Global - OW12
+   * Level maximum : 85
+   */
+  GLOBAL_OW12: {
+    MAX_LEVEL: 85,
+    VERSION_NAME: 'OW12',
+    REGION: 'Global',
+  },
+  
+  /**
+   * Version Chinoise - OW15
+   * Level maximum : 100
+   */
+  CN_OW15: {
+    MAX_LEVEL: 100,
+    VERSION_NAME: 'OW15',
+    REGION: 'CN',
+  },
+} as const;
+
+/**
+ * Type pour les clés de configuration serveur.
+ */
+export type ServerConfigKey = keyof typeof SERVER_CONFIGS;
+
+/**
+ * Configuration serveur active.
+ * 
+ * @remarks
+ * Par défaut : GLOBAL_OW12
+ * Peut être changé via variable d'environnement NEXT_PUBLIC_SERVER_CONFIG
+ */
+export const ACTIVE_SERVER_KEY: ServerConfigKey = 
+  (process.env.NEXT_PUBLIC_SERVER_CONFIG as ServerConfigKey) ?? 'GLOBAL_OW12';
+
+/**
+ * Configuration serveur active résolue.
+ */
+export const ACTIVE_SERVER = SERVER_CONFIGS[ACTIVE_SERVER_KEY];
 
 // ============================================================================
 // STAT LIMITS
@@ -27,9 +84,9 @@
 export const STAT_LIMITS = {
   /**
    * Maximum character level in the game.
-   * Current endgame cap is level 80.
+   * Dépend du serveur actif (Global OW12: 85, CN OW15: 100).
    */
-  MAX_LEVEL: 80,
+  MAX_LEVEL: ACTIVE_SERVER.MAX_LEVEL,
 
   /**
    * Maximum attack value before overflow.
@@ -392,6 +449,126 @@ export const DEFAULT_LEVEL_80_STATS = {
 } as const;
 
 // ============================================================================
+// DEFAULT LEVEL 85 STATS (Global OW12)
+// ============================================================================
+/**
+ * Statistiques de référence pour un personnage niveau 85 (Global OW12).
+ * 
+ * Ces valeurs représentent les statistiques typiques d'un personnage bien équipé
+ * au niveau 85 sur la version Global OW12.
+ * 
+ * Utilisé pour :
+ * - Valeurs par défaut du calculateur (serveur Global)
+ * - Tests unitaires niveau 85
+ * - Validation des builds niveau 85
+ * 
+ * @remarks
+ * Basé sur un personnage PVE build équilibré niveau 85 avec :
+ * - Équipement gold qualité élevée
+ * - Voies intérieures niveau 8-10
+ * - Arts mystiques niveau 5-7
+ * - Optimisation stats équilibrée (crit/précision/affinité)
+ * 
+ * Note : Les stats réelles varient significativement selon :
+ * - Classe/type d'arme (Épée vs Arc vs Lance)
+ * - Type de build (Physique vs Élémentaire vs Hybride)
+ * - Optimisation ciblée (DPS burst vs DPS soutenu)
+ * 
+ * Référence : Données communautaires serveurs Global OW12
+ */
+export const DEFAULT_LEVEL_85_STATS = {
+  /**
+   * Niveau du personnage.
+   */
+  level: 85,
+
+  /**
+   * Attaque physique de base.
+   * Level 85 Global : ~20% supérieure au level 80.
+   */
+  attack: 3200,
+
+  /**
+   * Attaque physique minimale (variance).
+   */
+  attackMin: 2900,
+
+  /**
+   * Attaque physique maximale (variance).
+   */
+  attackMax: 3500,
+
+  /**
+   * Attaque élémentaire.
+   * Environ 50% de l'attaque physique pour un build équilibré.
+   */
+  elementalAttack: 1600,
+
+  /**
+   * Défense physique.
+   * Protège contre les dégâts physiques.
+   */
+  defense: 1900,
+
+  /**
+   * Résistance élémentaire.
+   * Protège contre les dégâts élémentaires.
+   */
+  resistance: 350,
+
+  /**
+   * Statistique de critique (valeur brute).
+   * Converti en taux via formule hyperbolique.
+   * Typiquement ~70-75% de taux de critique au level 85.
+   */
+  critical: 3500,
+
+  /**
+   * Statistique de précision (valeur brute).
+   * Converti en taux via formule hyperbolique.
+   * Typiquement ~90-95% de chance de toucher au level 85.
+   */
+  precision: 7000,
+
+  /**
+   * Taux d'affinité (décimal 0-1).
+   * Stat directe, pas de formule de conversion.
+   * 40% est un bon équilibre pour un build niveau 85.
+   */
+  affinityRate: 0.40,
+
+  /**
+   * Pénétration d'armure.
+   * Réduit la défense de la cible avant calcul.
+   */
+  armorPenetration: 900,
+
+  /**
+   * Pénétration élémentaire.
+   * Réduit la résistance de la cible avant calcul.
+   */
+  elementalPenetration: 500,
+
+  /**
+   * Bouclier Qi (en décimal 0-1).
+   * 20% de réduction linéaire des dégâts physiques reçus.
+   */
+  shield: 0.20,
+
+  /**
+   * Esquive/Parade.
+   * Réduit la précision des attaquants.
+   */
+  evasion: 400,
+
+  /**
+   * Résistance aux critiques (PVP principalement).
+   * Réduit le taux de critique des attaquants.
+   */
+  criticalResistance: 600,
+} as const;
+
+// ============================================================================
 // DPS CONFIGURATION
 // ============================================================================
 /**
@@ -471,10 +648,15 @@ export const DPS_CONFIG = {
  * 
  * @example
  * // Type of STAT_LIMITS is readonly with specific number literals
- * type MaxLevel = typeof STAT_LIMITS.MAX_LEVEL; // 80 (literal)
+ * type MaxLevel = typeof STAT_LIMITS.MAX_LEVEL; // 85 or 100 (depends on active server)
+ * 
+ * @example
+ * // Access active server configuration
+ * const currentMaxLevel = ACTIVE_SERVER.MAX_LEVEL; // 85 (Global OW12 by default)
  */
 export type StatLimits = typeof STAT_LIMITS;
 export type CalculationConstants = typeof CALCULATION_CONSTANTS;
 export type DamageMultipliers = typeof DAMAGE_MULTIPLIERS;
 export type DefaultLevel80Stats = typeof DEFAULT_LEVEL_80_STATS;
+export type DefaultLevel85Stats = typeof DEFAULT_LEVEL_85_STATS;
 export type DpsConfig = typeof DPS_CONFIG;
