@@ -39,9 +39,10 @@ export { BaseStatsCalculator, type ActiveBuff } from './BaseStatsCalculator';
 /**
  * Physical and Elemental damage pool calculators:
  * - PhysicalPoolCalculator: Calculate physical damage with shield and defense reductions
- * - ElementalPoolCalculator: (Coming in Phase 1.3.2)
+ * - ElementalPoolCalculator: Calculate elemental damage with resistance reduction
  */
 export { PhysicalPoolCalculator } from './PhysicalPoolCalculator';
+export { ElementalPoolCalculator } from './ElementalPoolCalculator';
 
 // ============================================================================
 // Future Exports (Phase 1.3+)
