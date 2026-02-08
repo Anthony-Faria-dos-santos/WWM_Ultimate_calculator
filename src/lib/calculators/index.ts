@@ -45,8 +45,16 @@ export { PhysicalPoolCalculator } from './PhysicalPoolCalculator';
 export { ElementalPoolCalculator } from './ElementalPoolCalculator';
 
 // ============================================================================
-// Future Exports (Phase 1.3+)
+// Rates Calculators
 // ============================================================================
-// export * from './rates';
+/**
+ * Combat rates calculators:
+ * - CombatRatesCalculator: Calculate precision, critical, and affinity rates
+ */
+export { CombatRatesCalculator } from './CombatRatesCalculator';
+
+// ============================================================================
+// Future Exports (Phase 1.4+)
+// ============================================================================
 // export * from './combat';
 // export * from './dps';
