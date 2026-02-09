@@ -51,10 +51,13 @@ export { ElementalPoolCalculator } from './ElementalPoolCalculator';
  * Combat rates calculators:
  * - CombatRatesCalculator: Calculate precision, critical, and affinity rates
  * - PrecisionCalculator: Specialized precision/hit chance calculator
+ * - CriticalCalculator: Specialized critical hit rate calculator
  */
 export { CombatRatesCalculator } from './CombatRatesCalculator';
 export { PrecisionCalculator } from './PrecisionCalculator';
 export type { PrecisionResult, PrecisionCalculationOptions } from './PrecisionCalculator';
+export { CriticalCalculator } from './CriticalCalculator';
+export type { CriticalResult, CriticalCalculationOptions } from './CriticalCalculator';
 
 // ============================================================================
 // Future Exports (Phase 1.4+)
