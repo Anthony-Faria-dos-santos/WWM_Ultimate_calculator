@@ -6,17 +6,17 @@
  * 
  * This module exports:
  * - BaseStatsCalculator: Calculate final character stats with equipment and buffs
- * - (Future) Pool calculators: Physical and Elemental damage pools
- * - (Future) Rate calculators: Precision, Critical, Affinity rates
- * - (Future) Combat calculators: Damage, Heal, Bonus multipliers
+ * - Pool calculators: Physical and Elemental damage pools
+ * - Rate calculators: Precision, Critical, Affinity rates
+ * - Combat calculators: DamageOutcomeCalculator (orchestrator)
  * - (Future) DPS calculators: Rotation DPS, Expected Value, Graduation Rate
  * 
  * Usage:
  * ```typescript
- * import { BaseStatsCalculator } from '@/lib/calculators';
+ * import { DamageOutcomeCalculator } from '@/lib/calculators';
  * 
- * const calculator = new BaseStatsCalculator();
- * const stats = calculator.calculateFinalStats(character);
+ * const calculator = new DamageOutcomeCalculator();
+ * const result = calculator.calculateDamage(attacker, skill, target);
  * ```
  * 
  * @module calculators
@@ -63,7 +63,16 @@ export { AffinityCalculator } from './AffinityCalculator';
 export type { AffinityResult } from './AffinityCalculator';
 
 // ============================================================================
+// Combat Calculators
+// ============================================================================
+/**
+ * Combat damage calculators:
+ * - DamageOutcomeCalculator: Main orchestrator for complete damage calculations
+ *   Combines all specialized calculators to produce final damage results
+ */
+export { DamageOutcomeCalculator } from './DamageOutcomeCalculator';
+
+// ============================================================================
 // Future Exports (Phase 1.4+)
 // ============================================================================
-// export * from './combat';
 // export * from './dps';
