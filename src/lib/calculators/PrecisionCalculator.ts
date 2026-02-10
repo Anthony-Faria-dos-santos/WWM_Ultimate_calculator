@@ -5,16 +5,23 @@
  * Determines if an attack will successfully hit its target based on
  * attacker's precision stat and target's evasion (parry).
  * 
- * Formula: Hit Rate = 95% × (1.42 × Precision / (Precision + Parry + 150))
+ * Formula v1.3+: Hit Rate = 95% × (1.43 × Precision / (Precision + Parry + 150))
+ * 
+ * HISTORICAL VERSIONS:
+ * - v1.0 to v1.2: 1.42 multiplier
+ * - v1.3+: 1.43 multiplier (current)
  * 
  * Key characteristics:
  * - Base cap: 95% maximum hit chance (always 5% miss chance)
- * - Uses hyperbolic scaling with 1.42 multiplier
+ * - Uses hyperbolic scaling with 1.43 multiplier (v1.3+)
  * - Parry adds to denominator to reduce hit chance
  * - Base constant of 150 ensures smooth scaling
  * 
  * The 95% cap means that even with maximum precision, attacks can miss.
  * This is a core game design decision to maintain tactical uncertainty.
+ * 
+ * @version 1.3+ — Formula uses 1.43 multiplier (changed from 1.42)
+ * @verified Source: Bahamut forum guide v1.3.1, @逆水寒
  * 
  * @see WWM-Formules-Reference-v1.3.md Section 6.2 (Precision)
  * 
@@ -104,14 +111,20 @@ export interface PrecisionCalculationOptions {
  * Calcule la probabilité qu'une attaque réussisse à toucher sa cible
  * en fonction de la précision de l'attaquant et de l'esquive de la cible.
  * 
- * La formule utilisée est :
- * Hit Rate = 95% × (1.42 × Precision / (Precision + Parry + 150))
+ * La formule utilisée est (v1.3+) :
+ * Hit Rate = 95% × (1.43 × Precision / (Precision + Parry + 150))
+ * 
+ * HISTORICAL VERSIONS:
+ * - v1.0 to v1.2: 1.42 multiplier
+ * - v1.3+: 1.43 multiplier (current)
  * 
  * Caractéristiques importantes :
  * - Cap maximum : 95% (toujours 5% de chance de rater)
  * - Scaling hyperbolique (rendements décroissants)
  * - Esquive cible réduit la chance de toucher
  * - Constante 150 assure une base stable
+ * 
+ * @version 1.3+ — Formula uses 1.43 multiplier (changed from 1.42)
  * 
  * @remarks
  * Toutes les méthodes sont pures (pas de side effects).
@@ -284,36 +297,42 @@ export class PrecisionCalculator {
    * @returns Précision requise pour atteindre 95% de hit rate
    * 
    * @remarks
-   * Formule inversée : 
-   * 95% = 0.95 × (1.42 × P / (P + Parry + 150))
-   * Résolution : P ≈ (Parry + 150) × 22.43
+   * Formule inversée (v1.3+):
+   * 95% = 0.95 × (1.43 × P / (P + Parry + 150))
+   * Résolution : P ≈ (Parry + 150) × 22.09
+   * 
+   * HISTORICAL VERSIONS:
+   * - v1.0 to v1.2: P ≈ (Parry + 150) × 22.43 (using 1.42)
+   * - v1.3+: P ≈ (Parry + 150) × 22.09 (using 1.43, current)
+   * 
+   * @version 1.3+ — Uses 1.43 multiplier (changed from 1.42)
    * 
    * @example
    * ```typescript
    * const calculator = new PrecisionCalculator();
    * 
-   * // Précision requise pour cap contre boss PVE
+   * // Précision requise pour cap contre boss PVE (v1.3+)
    * const requiredPrecision = calculator.getPrecisionRequiredForCap(300);
    * console.log(`Précision requise : ${requiredPrecision.toFixed(0)}`);
-   * // Résultat : ~10,093 précision
+   * // Résultat : ~9,940 précision (slightly lower than v1.2)
    * 
-   * // Précision requise pour cap en PVP
+   * // Précision requise pour cap en PVP (v1.3+)
    * const pvpRequired = calculator.getPrecisionRequiredForCap(3000);
    * console.log(`Précision requise PVP : ${pvpRequired.toFixed(0)}`);
-   * // Résultat : ~70,657 précision (difficile à atteindre !)
+   * // Résultat : ~69,605 précision (difficile à atteindre !)
    * ```
    */
   public getPrecisionRequiredForCap(targetParry: number = 0): number {
-    // Formule inversée pour résoudre P où hitRate = 0.95
-    // 0.95 = 0.95 × (1.42 × P / (P + Parry + 150))
-    // 1 = 1.42 × P / (P + Parry + 150)
-    // P + Parry + 150 = 1.42 × P
-    // Parry + 150 = 1.42P - P
-    // Parry + 150 = 0.42P
-    // P = (Parry + 150) / 0.42
+    // Formule inversée pour résoudre P où hitRate = 0.95 (v1.3+ formula)
+    // 0.95 = 0.95 × (1.43 × P / (P + Parry + 150))
+    // 1 = 1.43 × P / (P + Parry + 150)
+    // P + Parry + 150 = 1.43 × P
+    // Parry + 150 = 1.43P - P
+    // Parry + 150 = 0.43P
+    // P = (Parry + 150) / 0.43
     
     const PRECISION_CONSTANT = 150;
-    const PRECISION_MULTIPLIER = 1.42;
+    const PRECISION_MULTIPLIER = 1.43; // v1.3+
     
     const totalParry = targetParry + PRECISION_CONSTANT;
     const requiredPrecision = totalParry / (PRECISION_MULTIPLIER - 1);

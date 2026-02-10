@@ -212,15 +212,17 @@ export const CALCULATION_CONSTANTS = {
   /**
    * Precision constant for hyperbolic rate formula.
    * 
-   * Used in: Precision Rate = 95% × (1.42 × Precision / (Precision + Parry + 150))
+   * Used in: Precision Rate = 95% × (1.43 × Precision / (Precision + Parry + 150))
    * 
    * The base 150 constant is added to the parry value to establish a minimum
    * denominator, ensuring precision scaling is smooth even at low values.
    * 
+   * @version 1.3+ — Formula uses 1.43 multiplier (changed from 1.42)
+   * 
    * @example
-   * // Calculate precision rate
+   * // Calculate precision rate (v1.3+ formula)
    * const totalParry = parry + CALCULATION_CONSTANTS.PRECISION_CONSTANT;
-   * const rate = 1.42 * (precision / (precision + totalParry));
+   * const rate = 1.43 * (precision / (precision + totalParry));
    * const hitChance = Math.min(rate, 0.95); // Cap at 95%
    * 
    * Reference: WWM-Formules-Reference-v1.3.md section 2.2, 6.2
@@ -230,15 +232,23 @@ export const CALCULATION_CONSTANTS = {
   /**
    * Precision divider constant (alternate formula variant).
    * 
-   * In some formula variations, precision uses a fixed 3640 divider:
-   * Alternative: Precision Rate = Precision / (Precision + 3640)
+   * HISTORICAL VERSIONS:
+   * - v1.0 to v1.2: 3640
+   * - v1.3+: 3678 (current)
+   * 
+   * In some formula variations, precision uses a fixed divider:
+   * Alternative: Precision Rate = Precision / (Precision + 3678)
    * 
    * Note: Current implementation uses the parry-based formula (150 constant).
-   * This 3640 constant is kept for reference and potential PVP adjustments.
+   * This 3678 constant is kept for reference and potential PVP adjustments.
    * 
-   * Reference: WWM-Formules-Reference-v1.3.md section 2.1
+   * @version 1.3+ — Changed from 3640 to 3678 in patch v1.3
+   * @verified Source: Bahamut forum guide v1.3.1, @逆水寒
+   * @note The impact is minor: < 0.5% difference on final precision rate
+   * 
+   * Reference: WWM-Formules-Reference-v1.3.md section 2.1, 6.2
    */
-  PRECISION_DIVIDER: 3640,
+  PRECISION_DIVIDER: 3678,
 
   /**
    * Base precision rate before scaling.
@@ -255,14 +265,21 @@ export const CALCULATION_CONSTANTS = {
   /**
    * Precision multiplier coefficient.
    * 
-   * The 1.42 multiplier in precision formula allows reaching the 95% cap
+   * HISTORICAL VERSIONS:
+   * - v1.0 to v1.2: 1.42
+   * - v1.3+: 1.43 (current)
+   * 
+   * The 1.43 multiplier in precision formula allows reaching the 95% cap
    * with realistic precision values.
    * 
-   * Formula: Rate = 95% × (1.42 × Precision / (Precision + Parry + 150))
+   * Formula v1.3+: Rate = 95% × (1.43 × Precision / (Precision + Parry + 150))
+   * 
+   * @version 1.3+ — Changed from 1.42 to 1.43 in patch v1.3
+   * @verified Source: Bahamut forum guide v1.3.1, @逆水寒
    * 
    * Reference: WWM-Formules-Reference-v1.3.md section 6.2
    */
-  PRECISION_MULTIPLIER: 1.42,
+  PRECISION_MULTIPLIER: 1.43,
 
   /**
    * Critical rate multiplier coefficient.
@@ -336,20 +353,27 @@ export const DAMAGE_MULTIPLIERS = {
    * Critical + Affinity combined multiplier.
    * 
    * When both critical and affinity proc on the same hit,
-   * multipliers are multiplicative (not additive).
+   * the damage bonuses are ADDITIVE (not multiplicative).
    * 
-   * Base Combined = 1.5 × 1.35 = 2.025 (202.5% damage)
+   * Base Combined = 1 + 0.5 (crit bonus) + 0.35 (affinity bonus) = 1.85 (185% damage)
    * 
-   * Note: This is the base value. Additional bonuses are applied separately
-   * and then multiplied together.
+   * Formula: Dégâts = Dégâts Bruts × (1 + Bonus Crit + Bonus Affinité)
+   * 
+   * Note: This is the base value. Additional bonuses from gear/talents
+   * are added to the total bonus before applying the multiplier.
    * 
    * @example
-   * // Critical (1.5 + 0.5 bonus) × Affinity (1.35 + 0.2 bonus)
-   * // = 2.0 × 1.55 = 3.1 (310% damage)
+   * // Critical (+50%) + Affinity (+35%) = +85% total
+   * // Multiplier = 1 + 0.5 + 0.35 = 1.85 (185% damage)
    * 
-   * Reference: WWM-Formules-Reference-v1.3.md section 8.1
+   * @example
+   * // With additional bonuses
+   * // Critical (+50% + 30% bonus) + Affinity (+35% + 20% bonus)
+   * // = 1 + 0.80 + 0.55 = 2.35 (235% damage)
+   * 
+   * Reference: doc/Formules_Degats_FR_WWM.xlsx sections 2-3
    */
-  CRITICAL_AFFINITY: 1.8,
+  CRITICAL_AFFINITY: 1.85,
 
   /**
    * Abrasion (擦伤/Graze) damage multiplier.

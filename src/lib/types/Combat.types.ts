@@ -57,7 +57,7 @@ export enum CombatOutcome {
 
   /**
    * Attaque avec affinité (触发亲和)
-   * - Dégâts = Base Damage × Affinity Multiplier (×1.2 base) × Bonus
+   * - Dégâts = Base Damage × Affinity Multiplier (×1.35 base, +35%) × Bonus
    * - Probabilité = Hit × (1 - Crit) × Affinity
    * 
    * @example Avec 80% hit, 40% crit, 25% aff → 12% de Affinity
@@ -66,10 +66,13 @@ export enum CombatOutcome {
 
   /**
    * Attaque critique + affinité (les deux déclenchés)
-   * - Dégâts = Base Damage × Crit Mult × Affinity Mult × Bonus
+   * - Dégâts = Base Damage × (1 + Bonus_Crit + Bonus_Affinity) × Bonus
+   * - Les bonus s'additionnent : 1 + 0.5 + 0.35 = 1.85 (185% dégâts)
    * - Probabilité = Hit × Crit × Affinity
    * 
-   * @example Avec 80% hit, 40% crit, 25% aff → 8% de CritAff
+   * @remarks Les bonus crit et affinity sont ADDITIFS, pas multiplicatifs.
+   * 
+   * @example Avec 80% hit, 40% crit, 25% aff → 8% de CritAff (×1.85 dégâts)
    */
   CriticalAffinity = 'critical_affinity',
 
@@ -190,9 +193,11 @@ export interface Target {
    * Parade (esquive partielle)
    * 
    * Réduit la précision de l'attaquant.
-   * Formule précision : 95% × (1.42 × Precision / (Precision + Parry + 150))
+   * Formule précision v1.3+ : 95% × (1.43 × Precision / (Precision + Parry + 150))
    * 
    * Plus la parade est élevée, plus il est difficile de toucher.
+   * 
+   * @version 1.3+ — Formula uses 1.43 multiplier (changed from 1.42)
    * 
    * @example 300
    * @default 0
@@ -381,9 +386,11 @@ export interface CombatRates {
   /**
    * Taux de précision (chance de toucher) (0-0.95)
    * 
-   * Formule : Precision Rate = 95% × (1.42 × Precision / (Precision + Parry + 150))
+   * Formule v1.3+ : Precision Rate = 95% × (1.43 × Precision / (Precision + Parry + 150))
    * 
    * Cap maximum : 95% (impossible d'avoir 100% de précision)
+   * 
+   * @version 1.3+ — Formula uses 1.43 multiplier (changed from 1.42)
    * 
    * @example 0.85 → 85% de chance de toucher
    */
@@ -646,9 +653,13 @@ export interface DamageCalculation {
    * Dégâts finaux (résultat final du calcul)
    * 
    * Formule complète :
-   * Final Damage = Base Damage × Crit Mult × Affinity Mult × Bonus Mult
+   * Final Damage = Base Damage × (1 + Bonus_Crit + Bonus_Affinity) × Bonus_Mult
    * 
-   * @example 3039.34
+   * Les bonus critiques et d'affinité s'additionnent (pas de multiplication).
+   * 
+   * @example 
+   * Base: 1000, Crit (+50%), Affinity (+35%), Bonus (×1.2)
+   * Final = 1000 × (1 + 0.5 + 0.35) × 1.2 = 1000 × 1.85 × 1.2 = 2220
    */
   readonly finalDamage: number;
 

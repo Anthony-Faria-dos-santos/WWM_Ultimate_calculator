@@ -137,7 +137,7 @@ export class CombatRatesCalculator {
     target: Readonly<Target>
   ): CombatRates {
     // 1. Calculer taux de précision (hit chance)
-    // Formule : 95% × (1.42 × Precision / (Precision + Parry + 150))
+    // Formule v1.3+ : 95% × (1.43 × Precision / (Precision + Parry + 150))
     const precisionRate = calculatePrecisionRate(
       character.precision || 0,
       target.parry || 0
