@@ -1,19 +1,76 @@
 /**
  * WWM Ultimate Calculator - Game Constants
  * 
- * Centralizes all game constants for Where Winds Meet calculations at Level 80 PVE.
+ * Centralizes all game constants for Where Winds Meet calculations.
  * These constants are used across all calculators for damage, defense, rates, and DPS calculations.
  * 
+ * Supports multiple server versions:
+ * - Global OW12 (Level max 85)
+ * - CN OW15 (Level max 100)
+ * 
  * All values are based on:
- * - Level 80 PVE content
  * - Community-validated formulas from wherewindsmeetcalculator.com
  * - Chinese theorycrafters (Bilibili 理论武学)
  * 
  * Reference: .dev/docs/Back/phases/WWM-Formules-Reference-v1.3.md
  * 
  * @module constants/GAME_CONSTANTS
- * @version 1.0.0
+ * @version 1.1.0
  */
+
+// ============================================================================
+// SERVER CONFIGURATIONS
+// ============================================================================
+/**
+ * Configurations des différentes versions serveur de WWM.
+ * 
+ * @remarks
+ * - GLOBAL_OW12 : Version Global actuelle (level max 85)
+ * - CN_OW15 : Version Chinoise (level max 100)
+ * 
+ * Le serveur actif détermine les constantes de jeu utilisées.
+ */
+export const SERVER_CONFIGS = {
+  /**
+   * Version Global - OW12
+   * Level maximum : 85
+   */
+  GLOBAL_OW12: {
+    MAX_LEVEL: 85,
+    VERSION_NAME: 'OW12',
+    REGION: 'Global',
+  },
+  
+  /**
+   * Version Chinoise - OW15
+   * Level maximum : 100
+   */
+  CN_OW15: {
+    MAX_LEVEL: 100,
+    VERSION_NAME: 'OW15',
+    REGION: 'CN',
+  },
+} as const;
+
+/**
+ * Type pour les clés de configuration serveur.
+ */
+export type ServerConfigKey = keyof typeof SERVER_CONFIGS;
+
+/**
+ * Configuration serveur active.
+ * 
+ * @remarks
+ * Par défaut : GLOBAL_OW12
+ * Peut être changé via variable d'environnement NEXT_PUBLIC_SERVER_CONFIG
+ */
+export const ACTIVE_SERVER_KEY: ServerConfigKey = 
+  (process.env.NEXT_PUBLIC_SERVER_CONFIG as ServerConfigKey) ?? 'GLOBAL_OW12';
+
+/**
+ * Configuration serveur active résolue.
+ */
+export const ACTIVE_SERVER = SERVER_CONFIGS[ACTIVE_SERVER_KEY];
 
 // ============================================================================
 // STAT LIMITS
@@ -27,9 +84,9 @@
 export const STAT_LIMITS = {
   /**
    * Maximum character level in the game.
-   * Current endgame cap is level 80.
+   * Dépend du serveur actif (Global OW12: 85, CN OW15: 100).
    */
-  MAX_LEVEL: 80,
+  MAX_LEVEL: ACTIVE_SERVER.MAX_LEVEL,
 
   /**
    * Maximum attack value before overflow.
@@ -155,15 +212,17 @@ export const CALCULATION_CONSTANTS = {
   /**
    * Precision constant for hyperbolic rate formula.
    * 
-   * Used in: Precision Rate = 95% × (1.42 × Precision / (Precision + Parry + 150))
+   * Used in: Precision Rate = 95% × (1.43 × Precision / (Precision + Parry + 150))
    * 
    * The base 150 constant is added to the parry value to establish a minimum
    * denominator, ensuring precision scaling is smooth even at low values.
    * 
+   * @version 1.3+ — Formula uses 1.43 multiplier (changed from 1.42)
+   * 
    * @example
-   * // Calculate precision rate
+   * // Calculate precision rate (v1.3+ formula)
    * const totalParry = parry + CALCULATION_CONSTANTS.PRECISION_CONSTANT;
-   * const rate = 1.42 * (precision / (precision + totalParry));
+   * const rate = 1.43 * (precision / (precision + totalParry));
    * const hitChance = Math.min(rate, 0.95); // Cap at 95%
    * 
    * Reference: WWM-Formules-Reference-v1.3.md section 2.2, 6.2
@@ -173,15 +232,23 @@ export const CALCULATION_CONSTANTS = {
   /**
    * Precision divider constant (alternate formula variant).
    * 
-   * In some formula variations, precision uses a fixed 3640 divider:
-   * Alternative: Precision Rate = Precision / (Precision + 3640)
+   * HISTORICAL VERSIONS:
+   * - v1.0 to v1.2: 3640
+   * - v1.3+: 3678 (current)
+   * 
+   * In some formula variations, precision uses a fixed divider:
+   * Alternative: Precision Rate = Precision / (Precision + 3678)
    * 
    * Note: Current implementation uses the parry-based formula (150 constant).
-   * This 3640 constant is kept for reference and potential PVP adjustments.
+   * This 3678 constant is kept for reference and potential PVP adjustments.
    * 
-   * Reference: WWM-Formules-Reference-v1.3.md section 2.1
+   * @version 1.3+ — Changed from 3640 to 3678 in patch v1.3
+   * @verified Source: Bahamut forum guide v1.3.1, @逆水寒
+   * @note The impact is minor: < 0.5% difference on final precision rate
+   * 
+   * Reference: WWM-Formules-Reference-v1.3.md section 2.1, 6.2
    */
-  PRECISION_DIVIDER: 3640,
+  PRECISION_DIVIDER: 3678,
 
   /**
    * Base precision rate before scaling.
@@ -198,14 +265,21 @@ export const CALCULATION_CONSTANTS = {
   /**
    * Precision multiplier coefficient.
    * 
-   * The 1.42 multiplier in precision formula allows reaching the 95% cap
+   * HISTORICAL VERSIONS:
+   * - v1.0 to v1.2: 1.42
+   * - v1.3+: 1.43 (current)
+   * 
+   * The 1.43 multiplier in precision formula allows reaching the 95% cap
    * with realistic precision values.
    * 
-   * Formula: Rate = 95% × (1.42 × Precision / (Precision + Parry + 150))
+   * Formula v1.3+: Rate = 95% × (1.43 × Precision / (Precision + Parry + 150))
+   * 
+   * @version 1.3+ — Changed from 1.42 to 1.43 in patch v1.3
+   * @verified Source: Bahamut forum guide v1.3.1, @逆水寒
    * 
    * Reference: WWM-Formules-Reference-v1.3.md section 6.2
    */
-  PRECISION_MULTIPLIER: 1.42,
+  PRECISION_MULTIPLIER: 1.43,
 
   /**
    * Critical rate multiplier coefficient.
@@ -279,20 +353,27 @@ export const DAMAGE_MULTIPLIERS = {
    * Critical + Affinity combined multiplier.
    * 
    * When both critical and affinity proc on the same hit,
-   * multipliers are multiplicative (not additive).
+   * the damage bonuses are ADDITIVE (not multiplicative).
    * 
-   * Base Combined = 1.5 × 1.35 = 2.025 (202.5% damage)
+   * Base Combined = 1 + 0.5 (crit bonus) + 0.35 (affinity bonus) = 1.85 (185% damage)
    * 
-   * Note: This is the base value. Additional bonuses are applied separately
-   * and then multiplied together.
+   * Formula: Dégâts = Dégâts Bruts × (1 + Bonus Crit + Bonus Affinité)
+   * 
+   * Note: This is the base value. Additional bonuses from gear/talents
+   * are added to the total bonus before applying the multiplier.
    * 
    * @example
-   * // Critical (1.5 + 0.5 bonus) × Affinity (1.35 + 0.2 bonus)
-   * // = 2.0 × 1.55 = 3.1 (310% damage)
+   * // Critical (+50%) + Affinity (+35%) = +85% total
+   * // Multiplier = 1 + 0.5 + 0.35 = 1.85 (185% damage)
    * 
-   * Reference: WWM-Formules-Reference-v1.3.md section 8.1
+   * @example
+   * // With additional bonuses
+   * // Critical (+50% + 30% bonus) + Affinity (+35% + 20% bonus)
+   * // = 1 + 0.80 + 0.55 = 2.35 (235% damage)
+   * 
+   * Reference: doc/Formules_Degats_FR_WWM.xlsx sections 2-3
    */
-  CRITICAL_AFFINITY: 1.8,
+  CRITICAL_AFFINITY: 1.85,
 
   /**
    * Abrasion (擦伤/Graze) damage multiplier.
@@ -392,6 +473,126 @@ export const DEFAULT_LEVEL_80_STATS = {
 } as const;
 
 // ============================================================================
+// DEFAULT LEVEL 85 STATS (Global OW12)
+// ============================================================================
+/**
+ * Statistiques de référence pour un personnage niveau 85 (Global OW12).
+ * 
+ * Ces valeurs représentent les statistiques typiques d'un personnage bien équipé
+ * au niveau 85 sur la version Global OW12.
+ * 
+ * Utilisé pour :
+ * - Valeurs par défaut du calculateur (serveur Global)
+ * - Tests unitaires niveau 85
+ * - Validation des builds niveau 85
+ * 
+ * @remarks
+ * Basé sur un personnage PVE build équilibré niveau 85 avec :
+ * - Équipement gold qualité élevée
+ * - Voies intérieures niveau 8-10
+ * - Arts mystiques niveau 5-7
+ * - Optimisation stats équilibrée (crit/précision/affinité)
+ * 
+ * Note : Les stats réelles varient significativement selon :
+ * - Classe/type d'arme (Épée vs Arc vs Lance)
+ * - Type de build (Physique vs Élémentaire vs Hybride)
+ * - Optimisation ciblée (DPS burst vs DPS soutenu)
+ * 
+ * Référence : Données communautaires serveurs Global OW12
+ */
+export const DEFAULT_LEVEL_85_STATS = {
+  /**
+   * Niveau du personnage.
+   */
+  level: 85,
+
+  /**
+   * Attaque physique de base.
+   * Level 85 Global : ~20% supérieure au level 80.
+   */
+  attack: 3200,
+
+  /**
+   * Attaque physique minimale (variance).
+   */
+  attackMin: 2900,
+
+  /**
+   * Attaque physique maximale (variance).
+   */
+  attackMax: 3500,
+
+  /**
+   * Attaque élémentaire.
+   * Environ 50% de l'attaque physique pour un build équilibré.
+   */
+  elementalAttack: 1600,
+
+  /**
+   * Défense physique.
+   * Protège contre les dégâts physiques.
+   */
+  defense: 1900,
+
+  /**
+   * Résistance élémentaire.
+   * Protège contre les dégâts élémentaires.
+   */
+  resistance: 350,
+
+  /**
+   * Statistique de critique (valeur brute).
+   * Converti en taux via formule hyperbolique.
+   * Typiquement ~70-75% de taux de critique au level 85.
+   */
+  critical: 3500,
+
+  /**
+   * Statistique de précision (valeur brute).
+   * Converti en taux via formule hyperbolique.
+   * Typiquement ~90-95% de chance de toucher au level 85.
+   */
+  precision: 7000,
+
+  /**
+   * Taux d'affinité (décimal 0-1).
+   * Stat directe, pas de formule de conversion.
+   * 40% est un bon équilibre pour un build niveau 85.
+   */
+  affinityRate: 0.40,
+
+  /**
+   * Pénétration d'armure.
+   * Réduit la défense de la cible avant calcul.
+   */
+  armorPenetration: 900,
+
+  /**
+   * Pénétration élémentaire.
+   * Réduit la résistance de la cible avant calcul.
+   */
+  elementalPenetration: 500,
+
+  /**
+   * Bouclier Qi (en décimal 0-1).
+   * 20% de réduction linéaire des dégâts physiques reçus.
+   */
+  shield: 0.20,
+
+  /**
+   * Esquive/Parade.
+   * Réduit la précision des attaquants.
+   */
+  evasion: 400,
+
+  /**
+   * Résistance aux critiques (PVP principalement).
+   * Réduit le taux de critique des attaquants.
+   */
+  criticalResistance: 600,
+} as const;
+
+// ============================================================================
 // DPS CONFIGURATION
 // ============================================================================
 /**
@@ -471,10 +672,15 @@ export const DPS_CONFIG = {
  * 
  * @example
  * // Type of STAT_LIMITS is readonly with specific number literals
- * type MaxLevel = typeof STAT_LIMITS.MAX_LEVEL; // 80 (literal)
+ * type MaxLevel = typeof STAT_LIMITS.MAX_LEVEL; // 85 or 100 (depends on active server)
+ * 
+ * @example
+ * // Access active server configuration
+ * const currentMaxLevel = ACTIVE_SERVER.MAX_LEVEL; // 85 (Global OW12 by default)
  */
 export type StatLimits = typeof STAT_LIMITS;
 export type CalculationConstants = typeof CALCULATION_CONSTANTS;
 export type DamageMultipliers = typeof DAMAGE_MULTIPLIERS;
 export type DefaultLevel80Stats = typeof DEFAULT_LEVEL_80_STATS;
+export type DefaultLevel85Stats = typeof DEFAULT_LEVEL_85_STATS;
 export type DpsConfig = typeof DPS_CONFIG;

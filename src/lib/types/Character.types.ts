@@ -112,8 +112,10 @@ export interface CharacterBaseStats {
   /**
    * Précision (Toucher)
    * Valeur brute utilisée pour calculer la chance de toucher
-   * Formule: 95% × (1.42 × Precision / (Precision + Parry + 150))
+   * Formule v1.3+: 95% × (1.43 × Precision / (Precision + Parry + 150))
    * Cap maximum: 95%
+   * 
+   * @version 1.3+ — Formula uses 1.43 multiplier (changed from 1.42)
    * 
    * @example 500
    */

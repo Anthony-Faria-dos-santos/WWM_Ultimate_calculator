@@ -168,39 +168,46 @@ export const calculateCriticalRate = (
 /**
  * Calculate precision (hit chance) rate with parry opposition.
  * 
- * Formula: `0.95 × (1.42 × Precision / (Precision + Parry + 150))`
+ * Formula v1.3+: `0.95 × (1.43 × Precision / (Precision + Parry + 150))`
+ * 
+ * HISTORICAL VERSIONS:
+ * - v1.0 to v1.2: 1.42 multiplier
+ * - v1.3+: 1.43 multiplier (current)
  * 
  * Complex formula with multiple components:
  * - Base 95% cap (misses are always possible)
- * - 1.42 multiplier to reach higher hit rates with reasonable precision
+ * - 1.43 multiplier to reach higher hit rates with reasonable precision (v1.3+)
  * - Precision constant (+150) establishes minimum denominator
  * - Parry from target reduces hit chance
  * 
- * Note: This formula differs from some community versions that use 3640 constant.
+ * Note: This formula differs from some community versions that use 3678 constant.
  * We use Parry + 150 based on the official reference document.
+ * 
+ * @version 1.3+ — Formula uses 1.43 multiplier (changed from 1.42)
+ * @verified Source: Bahamut forum guide v1.3.1, @逆水寒
  * 
  * @param precision - Attacker's precision stat (raw value)
  * @param evasion - Target's parry/evasion stat (default: 0)
  * @returns Hit chance rate (0-1.0 range, typically 0.7-0.95)
  * 
  * @example
- * // Typical Level 80 PVE (low parry)
+ * // Typical Level 80 PVE (low parry) - v1.3+ formula
  * const hitRate = calculatePrecisionRate(8000, 300);
  * // totalParry = 300 + 150 = 450
- * // rate = 1.42 × (8000 / (8000 + 450)) = 1.344
- * // capped = Math.min(1.344, 0.95) = 0.95 (95% hit, maxed out)
+ * // rate = 1.43 × (8000 / (8000 + 450)) = 1.353
+ * // capped = Math.min(1.353, 0.95) = 0.95 (95% hit, maxed out)
  * 
  * @example
- * // PVP with high evasion
+ * // PVP with high evasion - v1.3+ formula
  * const hitRate = calculatePrecisionRate(5000, 3000);
  * // totalParry = 3000 + 150 = 3150
- * // rate = 1.42 × (5000 / (5000 + 3150)) = 0.871 (87.1% hit)
+ * // rate = 1.43 × (5000 / (5000 + 3150)) = 0.877 (87.7% hit)
  * 
  * @example
- * // Low precision build
+ * // Low precision build - v1.3+ formula
  * const hitRate = calculatePrecisionRate(2000, 500);
  * // totalParry = 500 + 150 = 650
- * // rate = 1.42 × (2000 / (2000 + 650)) = 1.072 → capped at 0.95
+ * // rate = 1.43 × (2000 / (2000 + 650)) = 1.079 → capped at 0.95
  * 
  * Reference: WWM-Formules-Reference-v1.3.md section 2.2, 6.2
  */
@@ -214,7 +221,7 @@ export const calculatePrecisionRate = (
   // Total parry includes target's evasion + base constant
   const totalParry = evasion + CALCULATION_CONSTANTS.PRECISION_CONSTANT;
   
-  // Apply formula: 1.42 multiplier allows reaching high hit rates
+  // Apply formula: 1.43 multiplier allows reaching high hit rates (v1.3+)
   const rate = CALCULATION_CONSTANTS.PRECISION_MULTIPLIER * 
                (netPrecision / (netPrecision + totalParry));
   
