@@ -63,16 +63,18 @@ export { AffinityCalculator } from './AffinityCalculator';
 export type { AffinityResult } from './AffinityCalculator';
 
 // ============================================================================
-// Combat Calculators
+// Damage Outcome Calculator
 // ============================================================================
 /**
- * Combat damage calculators:
- * - DamageOutcomeCalculator: Main orchestrator for complete damage calculations
- *   Combines all specialized calculators to produce final damage results
+ * DamageOutcomeCalculator: Final damage pipeline orchestrator
+ * Combines all pool and rate calculators to produce complete DamageCalculation results.
+ * Supports deterministic and expected value calculation modes.
  */
 export { DamageOutcomeCalculator } from './DamageOutcomeCalculator';
 
 // ============================================================================
-// Future Exports (Phase 1.4+)
+// Future Exports (Phase 1.5+)
 // ============================================================================
+// export { BonusMultiplierCalculator } from './BonusMultiplierCalculator';
+// export * from './combat';
 // export * from './dps';
