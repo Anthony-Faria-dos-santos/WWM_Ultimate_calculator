@@ -27,6 +27,7 @@ import {
   calculateCriticalRate,
   STAT_LIMITS,
 } from '@/lib/constants';
+import { normalizeCombinedRates } from './normalizeCombinedRates';
 
 /**
  * Calculateur de taux de combat (Précision, Critique, Affinité).
@@ -159,19 +160,10 @@ export class CombatRatesCalculator {
     );
 
     // 4. Normaliser si crit + affinity > 100%
-    const total = critRate + affinityRate;
-    let normalizedCritRate: number;
-    let normalizedAffinityRate: number;
-
-    if (total <= 1.0) {
-      // Pas besoin de normaliser
-      normalizedCritRate = critRate;
-      normalizedAffinityRate = affinityRate;
-    } else {
-      // Normaliser proportionnellement pour ramener le total à 100%
-      normalizedCritRate = (critRate / total) * 1.0;
-      normalizedAffinityRate = (affinityRate / total) * 1.0;
-    }
+    const { normalizedCritRate, normalizedAffinityRate } = normalizeCombinedRates(
+      critRate,
+      affinityRate
+    );
 
     // Retourner tous les taux (bruts et normalisés)
     return {

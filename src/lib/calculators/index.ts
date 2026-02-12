@@ -61,6 +61,8 @@ export { CriticalCalculator } from './CriticalCalculator';
 export type { CriticalResult, CriticalCalculationOptions } from './CriticalCalculator';
 export { AffinityCalculator } from './AffinityCalculator';
 export type { AffinityResult } from './AffinityCalculator';
+export { normalizeCombinedRates } from './normalizeCombinedRates';
+export type { NormalizedRates } from './normalizeCombinedRates';
 
 // ============================================================================
 // Damage Outcome Calculator
