@@ -86,6 +86,17 @@ export { BonusCategory } from './BonusMultiplierCalculator';
 export type { DamageBonus, BonusCategoryBreakdown } from './BonusMultiplierCalculator';
 
 // ============================================================================
+// Heal Calculator (Phase 1.5)
+// ============================================================================
+/**
+ * HealCalculator: Healing calculation with critical support
+ * Supports deterministic and expected value modes.
+ * No precision/affinity checks, uses heal bonus instead of damage multipliers.
+ */
+export { HealCalculator } from './HealCalculator';
+export type { HealCalculation } from './HealCalculator';
+
+// ============================================================================
 // Future Exports (Phase 1.5+)
 // ============================================================================
 // export * from './combat';
