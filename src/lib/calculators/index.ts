@@ -75,29 +75,20 @@ export type { NormalizedRates } from './normalizeCombinedRates';
 export { DamageOutcomeCalculator } from './DamageOutcomeCalculator';
 
 // ============================================================================
-// Bonus Multiplier Calculator (Phase 1.5)
+// Bonus & Heal Calculators
 // ============================================================================
 /**
- * BonusMultiplierCalculator: Damage bonus calculator with Chinese stacking rules
- * Implements 同类相加，异类相乘 (same category adds, different categories multiply)
+ * BonusMultiplierCalculator: Chinese bonus rule (同类相加，异类相乘)
+ * HealCalculator: Healing with crit support (no precision/affinity)
  */
-export { BonusMultiplierCalculator } from './BonusMultiplierCalculator';
-export { BonusCategory } from './BonusMultiplierCalculator';
-export type { DamageBonus, BonusCategoryBreakdown } from './BonusMultiplierCalculator';
-
-// ============================================================================
-// Heal Calculator (Phase 1.5)
-// ============================================================================
-/**
- * HealCalculator: Healing calculation with critical support
- * Supports deterministic and expected value modes.
- * No precision/affinity checks, uses heal bonus instead of damage multipliers.
- */
+export { BonusMultiplierCalculator, BonusCategory } from './BonusMultiplierCalculator';
+export type { DamageBonus } from './BonusMultiplierCalculator';
 export { HealCalculator } from './HealCalculator';
 export type { HealCalculation } from './HealCalculator';
 
 // ============================================================================
-// Future Exports (Phase 1.5+)
+// Future Exports (Phase 1.6+)
 // ============================================================================
-// export * from './combat';
-// export * from './dps';
+// export { RotationDPSCalculator } from './RotationDPSCalculator';
+// export { ExpectedValueCalculator } from './ExpectedValueCalculator';
+// export { GraduationCalculator } from './GraduationCalculator';
