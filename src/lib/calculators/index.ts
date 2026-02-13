@@ -75,8 +75,20 @@ export type { NormalizedRates } from './normalizeCombinedRates';
 export { DamageOutcomeCalculator } from './DamageOutcomeCalculator';
 
 // ============================================================================
-// Future Exports (Phase 1.5+)
+// Bonus & Heal Calculators
 // ============================================================================
-// export { BonusMultiplierCalculator } from './BonusMultiplierCalculator';
-// export * from './combat';
-// export * from './dps';
+/**
+ * BonusMultiplierCalculator: Chinese bonus rule (同类相加，异类相乘)
+ * HealCalculator: Healing with crit support (no precision/affinity)
+ */
+export { BonusMultiplierCalculator, BonusCategory } from './BonusMultiplierCalculator';
+export type { DamageBonus } from './BonusMultiplierCalculator';
+export { HealCalculator } from './HealCalculator';
+export type { HealCalculation } from './HealCalculator';
+
+// ============================================================================
+// Future Exports (Phase 1.6+)
+// ============================================================================
+// export { RotationDPSCalculator } from './RotationDPSCalculator';
+// export { ExpectedValueCalculator } from './ExpectedValueCalculator';
+// export { GraduationCalculator } from './GraduationCalculator';

@@ -37,6 +37,8 @@ import {
   PhysicalPoolCalculator,
   ElementalPoolCalculator,
   CombatRatesCalculator,
+  BonusMultiplierCalculator,
+  type DamageBonus,
 } from '@/lib/calculators';
 
 import { DAMAGE_MULTIPLIERS, STAT_LIMITS } from '@/lib/constants';
@@ -86,6 +88,11 @@ export class DamageOutcomeCalculator {
   private readonly combatRatesCalc: CombatRatesCalculator;
 
   /**
+   * Calculateur de multiplicateur de bonus (同类相加，异类相乘)
+   */
+  private readonly bonusCalc: BonusMultiplierCalculator;
+
+  /**
    * Initialise le calculateur avec toutes ses dépendances.
    * 
    * Les calculateurs spécialisés sont instanciés une seule fois
@@ -95,6 +102,7 @@ export class DamageOutcomeCalculator {
     this.physicalPoolCalc = new PhysicalPoolCalculator();
     this.elementalPoolCalc = new ElementalPoolCalculator();
     this.combatRatesCalc = new CombatRatesCalculator();
+    this.bonusCalc = new BonusMultiplierCalculator();
   }
 
   /**
@@ -106,13 +114,14 @@ export class DamageOutcomeCalculator {
    * 3. Calcul des combat rates (précision, critique, affinité)
    * 4. Détermination de l'outcome via rolls aléatoires
    * 5. Application du multiplicateur de l'outcome
-   * 6. Calcul des dégâts finaux (avec bonus multiplicateurs)
+   * 6. Calcul des bonus multiplicateurs (同类相加，异类相乘)
+   * 7. Calcul des dégâts finaux
    * 
    * @param attacker - Statistiques finales du personnage attaquant
    * @param skill - Compétence utilisée (ratios physique/élémentaire)
    * @param target - Cible avec ses défenses et résistances
-   * @param bonusMultipliers - Multiplicateur de bonus pré-calculé (défaut: 1.0)
-   *                           Sera fourni par un futur BonusMultiplierCalculator
+   * @param bonuses - Liste de bonus de dégâts à appliquer (défaut: [])
+   *                  Suit la règle 同类相加，异类相乘 (même catégorie = additionner)
    * @returns Résultat complet du calcul de dégâts
    * 
    * @remarks
@@ -151,20 +160,26 @@ export class DamageOutcomeCalculator {
    *   // ... autres propriétés
    * };
    * 
-   * const result = calculator.calculateDamage(attacker, skill, target);
+   * const bonuses = [
+   *   { category: BonusCategory.DamageIncrease, value: 0.20, source: 'Arme' },
+   *   { category: BonusCategory.SkillDamage, value: 0.15, source: 'Set bonus' },
+   * ];
+   * 
+   * const result = calculator.calculateDamage(attacker, skill, target, bonuses);
    * 
    * console.log(`Outcome : ${result.outcome}`);
    * console.log(`Dégâts bruts : ${result.baseDamage}`);
    * console.log(`Dégâts finaux : ${result.finalDamage}`);
    * console.log(`Multiplicateur crit : ${result.critMultiplier}`);
    * console.log(`Multiplicateur affinité : ${result.affinityMultiplier}`);
+   * console.log(`Multiplicateur bonus : ${result.bonusMultipliers}`);
    * ```
    */
   public calculateDamage(
     attacker: Readonly<CharacterBaseStats>,
     skill: Readonly<Skill>,
     target: Readonly<Target>,
-    bonusMultipliers: number = 1.0
+    bonuses: readonly DamageBonus[] = []
   ): DamageCalculation {
     // 1. Calcul des pools
     const physicalPool = this.physicalPoolCalc.calculatePhysicalPool(
@@ -191,13 +206,16 @@ export class DamageOutcomeCalculator {
     // 5. Calcul du multiplicateur de l'outcome
     const outcomeMultiplier = this.getOutcomeMultiplier(outcome, attacker);
 
-    // 6. Calcul des dégâts finaux
+    // 6. Calcul du multiplicateur de bonus (同类相加，异类相乘)
+    const bonusMultipliers = this.bonusCalc.calculateBonusMultiplier(bonuses);
+
+    // 7. Calcul des dégâts finaux
     const finalDamage = Math.max(
       STAT_LIMITS.MIN_DAMAGE,
       baseDamage * outcomeMultiplier * bonusMultipliers
     );
 
-    // 7. Extraction des multiplicateurs individuels pour le résultat
+    // 8. Extraction des multiplicateurs individuels pour le résultat
     const critMultiplier = this.getCritMultiplier(outcome, attacker);
     const affinityMultiplier = this.getAffinityMultiplier(outcome, attacker);
 
@@ -241,7 +259,8 @@ export class DamageOutcomeCalculator {
    * @param attacker - Statistiques du personnage
    * @param skill - Compétence utilisée
    * @param target - Cible
-   * @param bonusMultipliers - Multiplicateur de bonus (défaut: 1.0)
+   * @param bonuses - Liste de bonus de dégâts à appliquer (défaut: [])
+   *                  Suit la règle 同类相加，异类相乘 (même catégorie = additionner)
    * @returns Résultat avec finalDamage = E[damage] et outcome = Normal
    * 
    * @remarks
@@ -257,16 +276,20 @@ export class DamageOutcomeCalculator {
    * ```typescript
    * const calculator = new DamageOutcomeCalculator();
    * 
-   * // Même setup que l'exemple déterministe
-   * const ev = calculator.calculateExpectedDamage(attacker, skill, target);
+   * const bonuses = [
+   *   { category: BonusCategory.DamageIncrease, value: 0.20, source: 'Arme' },
+   *   { category: BonusCategory.SkillDamage, value: 0.15, source: 'Set bonus' },
+   * ];
+   * 
+   * const ev = calculator.calculateExpectedDamage(attacker, skill, target, bonuses);
    * 
    * console.log(`Dégâts moyens attendus : ${ev.finalDamage}`);
    * console.log(`Taux de précision : ${(ev.combatRates.precisionRate * 100).toFixed(1)}%`);
    * console.log(`Taux de critique : ${(ev.combatRates.normalizedCritRate * 100).toFixed(1)}%`);
    * 
    * // Utiliser pour comparaison de builds
-   * const evBuild1 = calculator.calculateExpectedDamage(build1, skill, target);
-   * const evBuild2 = calculator.calculateExpectedDamage(build2, skill, target);
+   * const evBuild1 = calculator.calculateExpectedDamage(build1, skill, target, bonuses);
+   * const evBuild2 = calculator.calculateExpectedDamage(build2, skill, target, bonuses);
    * 
    * if (evBuild1.finalDamage > evBuild2.finalDamage) {
    *   console.log('Build 1 est meilleur en DPS moyen');
@@ -277,7 +300,7 @@ export class DamageOutcomeCalculator {
     attacker: Readonly<CharacterBaseStats>,
     skill: Readonly<Skill>,
     target: Readonly<Target>,
-    bonusMultipliers: number = 1.0
+    bonuses: readonly DamageBonus[] = []
   ): DamageCalculation {
     // 1. Calcul des pools (identique au mode déterministe)
     const physicalPool = this.physicalPoolCalc.calculatePhysicalPool(
@@ -323,13 +346,16 @@ export class DamageOutcomeCalculator {
       pAff * affDamageMult +
       pCritAff * critAffMult;
 
-    // 8. Dégâts finaux
+    // 8. Calcul du multiplicateur de bonus (同类相加，异类相乘)
+    const bonusMultipliers = this.bonusCalc.calculateBonusMultiplier(bonuses);
+
+    // 9. Dégâts finaux
     const finalDamage = Math.max(
       STAT_LIMITS.MIN_DAMAGE,
       baseDamage * expectedMultiplier * bonusMultipliers
     );
 
-    // 9. Retour du résultat (outcome = Normal par convention en mode EV)
+    // 10. Retour du résultat (outcome = Normal par convention en mode EV)
     return {
       physicalPool,
       elementalPool,
