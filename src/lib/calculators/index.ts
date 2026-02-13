@@ -75,8 +75,18 @@ export type { NormalizedRates } from './normalizeCombinedRates';
 export { DamageOutcomeCalculator } from './DamageOutcomeCalculator';
 
 // ============================================================================
+// Bonus Multiplier Calculator (Phase 1.5)
+// ============================================================================
+/**
+ * BonusMultiplierCalculator: Damage bonus calculator with Chinese stacking rules
+ * Implements 同类相加，异类相乘 (same category adds, different categories multiply)
+ */
+export { BonusMultiplierCalculator } from './BonusMultiplierCalculator';
+export { BonusCategory } from './BonusMultiplierCalculator';
+export type { DamageBonus, BonusCategoryBreakdown } from './BonusMultiplierCalculator';
+
+// ============================================================================
 // Future Exports (Phase 1.5+)
 // ============================================================================
-// export { BonusMultiplierCalculator } from './BonusMultiplierCalculator';
 // export * from './combat';
 // export * from './dps';
