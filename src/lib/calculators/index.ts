@@ -87,8 +87,16 @@ export { HealCalculator } from './HealCalculator';
 export type { HealCalculation } from './HealCalculator';
 
 // ============================================================================
-// Future Exports (Phase 1.6+)
+// DPS Calculators (Phase 1.6+)
 // ============================================================================
-// export { RotationDPSCalculator } from './RotationDPSCalculator';
+/**
+ * RotationDPSCalculator: Simulate skill rotation with cooldown and GCD tracking
+ * Supports deterministic and expected value modes
+ */
+export { RotationDPSCalculator } from './RotationDPSCalculator';
+
+// ============================================================================
+// Future Exports
+// ============================================================================
 // export { ExpectedValueCalculator } from './ExpectedValueCalculator';
 // export { GraduationCalculator } from './GraduationCalculator';
