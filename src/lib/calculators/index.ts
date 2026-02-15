@@ -101,7 +101,8 @@ export { RotationDPSCalculator } from './RotationDPSCalculator';
  */
 export { ExpectedValueCalculator } from './ExpectedValueCalculator';
 
-// ============================================================================
-// Future Exports
-// ============================================================================
-// export { GraduationCalculator } from './GraduationCalculator';
+/**
+ * GraduationCalculator: Compare DPS to reference build
+ * Provides qualitative rating and improvement recommendations
+ */
+export { GraduationCalculator } from './GraduationCalculator';
