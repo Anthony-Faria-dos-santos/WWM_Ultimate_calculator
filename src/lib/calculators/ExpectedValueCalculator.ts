@@ -37,7 +37,6 @@ import type {
   Skill,
   ExpectedValueResult,
   DamageDistribution,
-  CombatRates,
 } from '@/lib/types';
 import { CombatOutcome } from '@/lib/types';
 import { DamageOutcomeCalculator } from './DamageOutcomeCalculator';
