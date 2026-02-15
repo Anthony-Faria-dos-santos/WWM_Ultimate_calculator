@@ -95,8 +95,13 @@ export type { HealCalculation } from './HealCalculator';
  */
 export { RotationDPSCalculator } from './RotationDPSCalculator';
 
+/**
+ * ExpectedValueCalculator: Probabilistic damage analysis
+ * Provides full expected value with distribution, variance, and per-outcome breakdown
+ */
+export { ExpectedValueCalculator } from './ExpectedValueCalculator';
+
 // ============================================================================
 // Future Exports
 // ============================================================================
-// export { ExpectedValueCalculator } from './ExpectedValueCalculator';
 // export { GraduationCalculator } from './GraduationCalculator';
