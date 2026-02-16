@@ -39,7 +39,6 @@ import type {
   DamageDistribution,
 } from '@/lib/types';
 import { CombatOutcome } from '@/lib/types';
-import { DamageOutcomeCalculator } from './DamageOutcomeCalculator';
 import { CombatRatesCalculator } from './CombatRatesCalculator';
 import { PhysicalPoolCalculator } from './PhysicalPoolCalculator';
 import { ElementalPoolCalculator } from './ElementalPoolCalculator';
@@ -92,11 +91,6 @@ import { DAMAGE_MULTIPLIERS, STAT_LIMITS } from '@/lib/constants';
  */
 export class ExpectedValueCalculator {
   /**
-   * Calculateur de dégâts complet (déterministe et expected)
-   */
-  private readonly damageCalc: DamageOutcomeCalculator;
-
-  /**
    * Calculateur de taux de combat (précision, critique, affinité)
    */
   private readonly ratesCalc: CombatRatesCalculator;
@@ -123,7 +117,6 @@ export class ExpectedValueCalculator {
    * et réutilisés pour tous les calculs.
    */
   constructor() {
-    this.damageCalc = new DamageOutcomeCalculator();
     this.ratesCalc = new CombatRatesCalculator();
     this.physicalCalc = new PhysicalPoolCalculator();
     this.elementalCalc = new ElementalPoolCalculator();
