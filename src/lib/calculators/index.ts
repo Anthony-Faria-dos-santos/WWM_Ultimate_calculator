@@ -9,7 +9,7 @@
  * - Pool calculators: Physical and Elemental damage pools
  * - Rate calculators: Precision, Critical, Affinity rates
  * - Combat calculators: DamageOutcomeCalculator (orchestrator)
- * - (Future) DPS calculators: Rotation DPS, Expected Value, Graduation Rate
+ * - DPS calculators: Rotation DPS, Expected Value, Graduation Rate
  * 
  * Usage:
  * ```typescript
@@ -87,22 +87,19 @@ export { HealCalculator } from './HealCalculator';
 export type { HealCalculation } from './HealCalculator';
 
 // ============================================================================
-// DPS Calculators (Phase 1.6+)
+// DPS Calculators
 // ============================================================================
 /**
- * RotationDPSCalculator: Simulate skill rotation with cooldown and GCD tracking
- * Supports deterministic and expected value modes
+ * RotationDPSCalculator: Simulate skill rotation with cooldown tracking
+ * ExpectedValueCalculator: Full probabilistic analysis with distribution
+ * GraduationCalculator: Compare DPS to reference build
  */
 export { RotationDPSCalculator } from './RotationDPSCalculator';
-
-/**
- * ExpectedValueCalculator: Probabilistic damage analysis
- * Provides full expected value with distribution, variance, and per-outcome breakdown
- */
 export { ExpectedValueCalculator } from './ExpectedValueCalculator';
-
-/**
- * GraduationCalculator: Compare DPS to reference build
- * Provides qualitative rating and improvement recommendations
- */
 export { GraduationCalculator } from './GraduationCalculator';
+
+// ============================================================================
+// Future Exports (Phase 1.7+)
+// ============================================================================
+// export { CombatService } from '../services/CombatService';
+// export { ComparisonService } from '../services/ComparisonService';
