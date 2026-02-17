@@ -30,6 +30,10 @@
 export { CombatService } from './CombatService';
 
 // ============================================================================
-// Future Exports (Phase 1.7.2+)
+// ComparisonService
 // ============================================================================
-// export { ComparisonService } from './ComparisonService';
+/**
+ * ComparisonService: Build comparison and marginal gains analysis
+ * Compare two builds, calculate marginal gains per stat, find best stat to optimize.
+ */
+export { ComparisonService, type BuildConfig, type MarginalGainResult } from './ComparisonService';
