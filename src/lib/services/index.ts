@@ -1,39 +1,36 @@
 /**
  * WWM Ultimate Calculator - Services Barrel Export
- * 
+ *
  * Central export file for all service modules.
- * Provides a single entry point for importing services across the application.
- * 
+ * Services are facade classes that orchestrate calculators
+ * and provide a unified API for the application layer.
+ *
  * This module exports:
- * - CombatService: Facade orchestrating all combat calculators
- * - ComparisonService: Service for comparing builds (Phase 1.7.2)
- * 
+ * - CombatService: Unified API for damage, DPS, heal, graduation
+ * - ComparisonService: Build comparison and stat optimization
+ *
  * Usage:
  * ```typescript
- * import { CombatService } from '@/lib/services';
- * 
- * const service = new CombatService();
- * const damage = service.calculateSkillDamage(attacker, skill, target);
+ * import { CombatService, ComparisonService } from '@/lib/services';
+ *
+ * const combat = new CombatService();
+ * const damage = combat.calculateSkillDamage(attacker, skill, target);
+ *
+ * const comparison = new ComparisonService();
+ * const result = comparison.compareTwoBuilds(build1, build2, target);
  * ```
- * 
+ *
  * @module services
  * @version 1.0.0
  */
 
 // ============================================================================
-// CombatService
+// Combat Service
 // ============================================================================
-/**
- * CombatService: Facade orchestrating all combat calculators
- * Provides unified API for damage, DPS, heal, and graduation calculations.
- */
 export { CombatService } from './CombatService';
 
 // ============================================================================
-// ComparisonService
+// Comparison Service
 // ============================================================================
-/**
- * ComparisonService: Build comparison and marginal gains analysis
- * Compare two builds, calculate marginal gains per stat, find best stat to optimize.
- */
-export { ComparisonService, type BuildConfig, type MarginalGainResult } from './ComparisonService';
+export { ComparisonService } from './ComparisonService';
+export type { BuildConfig, MarginalGainResult } from './ComparisonService';

@@ -99,7 +99,6 @@ export { ExpectedValueCalculator } from './ExpectedValueCalculator';
 export { GraduationCalculator } from './GraduationCalculator';
 
 // ============================================================================
-// Future Exports (Phase 1.7+)
+// Future Exports (Phase 1.8+)
 // ============================================================================
-// export { CombatService } from '../services/CombatService';
-// export { ComparisonService } from '../services/ComparisonService';
+// Validation and formatting utilities will be in src/lib/utils/
