@@ -99,6 +99,6 @@ export { ExpectedValueCalculator } from './ExpectedValueCalculator';
 export { GraduationCalculator } from './GraduationCalculator';
 
 // ============================================================================
-// Future Exports (Phase 1.8+)
+// Future Exports (Phase 1.9+)
 // ============================================================================
-// Validation and formatting utilities will be in src/lib/utils/
+// Phase 1.8 (Utils) completed: validation and formatting utilities are in src/lib/utils/
