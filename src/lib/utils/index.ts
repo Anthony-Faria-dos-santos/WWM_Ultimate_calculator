@@ -1,14 +1,9 @@
 /**
- * Utils Barrel Export
- * 
- * Export centralisé de tous les utilitaires WWM Calculator.
- * 
- * @module utils
- * @version 1.0.0
+ * Barrel export des utilitaires.
  */
 
-// Validation utilities
+// Utilitaires de validation
 export * from './validation.utils';
 
-// Formatting utilities
+// Utilitaires de formatage
 export * from './formatting.utils';

@@ -1,55 +1,32 @@
 /**
- * WWM Ultimate Calculator - Core Types
- * 
- * Barrel export file for all type definitions.
- * Provides a single entry point for importing types across the application.
- * 
- * This module centralizes all type exports from:
- * - Character types (stats, equipment, player character)
- * - Skill types (skills, damage types, talents)
- * - Combat types (targets, pools, rates, damage calculations)
- * - DPS types (rotations, expected value, graduation)
- * 
- * Usage:
- * ```typescript
- * import { PlayerCharacter, Skill, DamageCalculation, RotationResult } from '@/lib/types';
- * ```
- * 
- * @module types
- * @version 1.0.0
+ * Barrel export des types.
  */
 
-// ============================================================================
-// Character Types
-// ============================================================================
+// Types personnage
 /**
- * Character-related types including:
+ * Types de personnage :
  * - CharacterBaseStats: Base combat statistics
- * - PlayerCharacter: Complete character with equipment
- * - Equipment: Weapon, armor, and accessories
+ * - PlayerCharacter: Personnage complet avec équipement
+ * - Equipment: Arme, armure et accessoires
  * - WeaponType, MartialArtStyle: Enums for character classification
  */
 export * from './Character.types';
 
-// ============================================================================
-// Skill Types
-// ============================================================================
+// Types compétence
 /**
- * Skill-related types including:
- * - Skill: Complete skill definition with ratios and timings
- * - SkillTalent: Talent modifiers for skills
+ * Types de compétences :
+ * - Skill: Définition complète avec ratios et timings
+ * - SkillTalent: Modificateurs de talents
  * - DamageType: Physical, Elemental, or Hybrid
  * - SkillCategory: Active, Passive, Ultimate, etc.
  * - SkillElement: Fire, Ice, Lightning, Wind, Earth, Poison
  */
 export * from './Skill.types';
 
-// ============================================================================
-// Combat Types
-// ============================================================================
+// Types combat
 /**
- * Combat calculation types including:
- * - Target: Enemy with defensive stats
+ * Types de combat :
+ * - Target: Ennemi avec stats défensives
  * - PhysicalPool, ElementalPool: Damage pools with reduction stages
  * - CombatRates: Precision, Critical, Affinity rates
  * - DamageCalculation: Complete damage calculation result
@@ -58,13 +35,11 @@ export * from './Skill.types';
  */
 export * from './Combat.types';
 
-// ============================================================================
-// DPS Types
-// ============================================================================
+// Types DPS
 /**
- * DPS and rotation types including:
+ * Types DPS et rotation :
  * - RotationResult: Complete rotation simulation result
- * - SkillUsage: Per-skill usage statistics
+ * - SkillUsage : Statistiques d'utilisation par compétence
  * - TimelineEvent: Combat timeline events
  * - ExpectedValueResult: Probabilistic damage calculation
  * - DamageDistribution: Probability distribution across outcomes
