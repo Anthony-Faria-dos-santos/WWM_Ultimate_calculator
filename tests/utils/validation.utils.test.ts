@@ -12,9 +12,8 @@ import {
   isValidTarget,
   clampValue,
   clampRate,
-  type ValidationResult,
 } from '@/lib/utils/validation.utils';
-import type { CharacterBaseStats, PlayerCharacter } from '@/lib/types';
+import type { CharacterBaseStats } from '@/lib/types';
 import type { Skill, DamageType, SkillCategory, SkillElement } from '@/lib/types';
 import type { Target } from '@/lib/types';
 import { WeaponType } from '@/lib/types';
