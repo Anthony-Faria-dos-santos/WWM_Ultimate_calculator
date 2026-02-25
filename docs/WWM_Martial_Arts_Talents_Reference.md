@@ -1,0 +1,1 @@
+# Fichier copié via Claude - voir le document téléchargeable dans le chat
