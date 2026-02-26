@@ -67,22 +67,25 @@ export class PreCombatStatsModifier {
  (b) => b.damageZone === 'BaseStats' && b.isActive && b.value !== 0
  );
 
- for (const talent of baseStatTalents) {
- // Les talents BaseStats sont des flat additions à la stat
- // La stat cible est déduite du talentId/name (convention)
- // Pour l'instant, on les ajoute à 'attack' par défaut
- // TODO: mapper talentId → stat cible via MartialArtTalent.scaling.scalingStat
- const before = mutableStats['attack'] ?? 0;
- mutableStats['attack'] = before + talent.value;
- appliedModifiers.push({
- source: talent.source,
- stat: 'attack',
- valueBefore: before,
- valueAfter: mutableStats['attack'],
- modifier: talent.value,
- isPercentage: false,
- });
- }
+    for (const talent of baseStatTalents) {
+      const stat = talent.targetStat;
+      if (!stat) {
+        console.warn(
+          `[PreCombatStatsModifier] Talent BaseStats "${talent.talentName}" sans targetStat — ignoré`
+        );
+        continue;
+      }
+      const before = mutableStats[stat] ?? 0;
+      mutableStats[stat] = before + talent.value;
+      appliedModifiers.push({
+        source: talent.source,
+        stat,
+        valueBefore: before,
+        valueAfter: mutableStats[stat],
+        modifier: talent.value,
+        isPercentage: false,
+      });
+    }
 
  return {
  finalStats: mutableStats as unknown as ExtendedStats,

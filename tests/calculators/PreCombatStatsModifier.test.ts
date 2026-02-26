@@ -34,6 +34,7 @@ function createTalentBonus(
     isActive: true,
     source: 'Talent: Test',
     isEstimated: false,
+    targetStat: 'attack',
     ...overrides,
   };
 }
