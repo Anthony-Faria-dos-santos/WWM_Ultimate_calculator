@@ -42,6 +42,9 @@ prisma/migrations/
 # Vercel
 .vercel/
 
+# Private Doc
+.dev
+
 # Temporary
 *.tmp
 *.temp

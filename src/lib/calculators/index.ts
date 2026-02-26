@@ -24,8 +24,8 @@ export type { NormalizedRates } from './normalizeCombinedRates';
 export { DamageOutcomeCalculator } from './DamageOutcomeCalculator';
 
 // Bonus multiplicatifs et soins
-export { BonusMultiplierCalculator, BonusCategory } from './BonusMultiplierCalculator';
-export type { DamageBonus } from './BonusMultiplierCalculator';
+export { BonusMultiplierCalculator, DamageZone, BonusCategory } from './BonusMultiplierCalculator';
+export type { DamageBonus, ZoneBreakdown, BonusSubGroup } from './BonusMultiplierCalculator';
 export { HealCalculator } from './HealCalculator';
 export type { HealCalculation } from './HealCalculator';
 

@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { DamageOutcomeCalculator } from '@/lib/calculators/DamageOutcomeCalculator';
 import { CombatOutcome } from '@/lib/types';
-import { BonusCategory, type DamageBonus } from '@/lib/calculators/BonusMultiplierCalculator';
+import { DamageZone, type DamageBonus } from '@/lib/calculators/BonusMultiplierCalculator';
 import { createCharacter, createSkill, TEST_FIXTURES } from '../fixtures';
 
 // standardDPS vs weakEnemy : aucune réduction → baseDamage = attack × physicalRatio
@@ -105,12 +105,12 @@ describe('DamageOutcomeCalculator', () => {
     });
 
     it('should integrate pools, rates, and bonuses correctly', () => {
-      // Arrange — bonus (1.30 × 1.15 = 1.495)
+      // Arrange — Augmentation +30% × Independent +15% = 1.30 × 1.15 = 1.495
       const character = createCharacter();
       const skill = createSkill({ physicalRatio: 1.0 });
       const bonuses: readonly DamageBonus[] = [
-        { category: BonusCategory.DamageIncrease, value: 0.30, source: 'Arme' },
-        { category: BonusCategory.SkillDamage, value: 0.15, source: 'Talent' },
+        { category: DamageZone.Augmentation, value: 0.30, source: 'Buff général' },
+        { category: DamageZone.Independent, value: 0.15, source: 'Condition spéciale' },
       ];
 
       // Act
