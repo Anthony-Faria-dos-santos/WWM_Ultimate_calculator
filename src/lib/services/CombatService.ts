@@ -4,23 +4,61 @@
  */
 
 import type {
- CharacterBaseStats,
- Target,
- Skill,
- DamageCalculation,
- RotationResult,
- ExpectedValueResult,
- GraduationResult,
+  CharacterBaseStats,
+  Target,
+  Skill,
+  DamageCalculation,
+  RotationResult,
+  ExpectedValueResult,
+  GraduationResult,
 } from '@/lib/types';
 import type { HealCalculation } from '@/lib/calculators';
 import type { DamageBonus } from '@/lib/calculators';
+import type { ResolvedTalentBonus, MartialArtWeapon } from '@/lib/types/MartialArts.types';
+import type {
+  EquipmentPiece,
+  EquipmentSetDefinition,
+  ResolvedSetBonus,
+} from '@/lib/types/EquipmentSet.types';
+import type { CombatContext } from '@/lib/types/CombatContext.types';
+import type { ExtendedStats } from '@/lib/calculators/TalentBonusResolver';
+import type { AppliedModifier } from '@/lib/calculators/PreCombatStatsModifier';
+import type { RoutedBonuses } from '@/lib/calculators/BonusZoneRouter';
 import {
- DamageOutcomeCalculator,
- RotationDPSCalculator,
- ExpectedValueCalculator,
- GraduationCalculator,
- HealCalculator,
+  DamageOutcomeCalculator,
+  RotationDPSCalculator,
+  ExpectedValueCalculator,
+  GraduationCalculator,
+  HealCalculator,
+  TalentBonusResolver,
+  SetBonusResolver,
+  PreCombatStatsModifier,
 } from '@/lib/calculators';
+import { BonusZoneRouter } from '@/lib/calculators/BonusZoneRouter';
+
+// ─── Types pipeline complet ────────────────────────────────────────
+
+/** Entrée complète pour le pipeline build → dégâts */
+export interface FullBuildInput {
+  readonly baseStats: ExtendedStats;
+  readonly weapon: MartialArtWeapon;
+  readonly equippedPieces: readonly EquipmentPiece[];
+  readonly setDefinitions: ReadonlyMap<string, EquipmentSetDefinition>;
+  readonly skill: Skill;
+  readonly target: Target;
+  readonly context: CombatContext;
+  readonly additionalBonuses?: readonly DamageBonus[];
+}
+
+/** Résultat enrichi avec breakdown complet du pipeline */
+export interface FullPipelineResult {
+  readonly damage: DamageCalculation;
+  readonly modifiedStats: ExtendedStats;
+  readonly resolvedTalents: readonly ResolvedTalentBonus[];
+  readonly resolvedSets: readonly ResolvedSetBonus[];
+  readonly routedBonuses: RoutedBonuses;
+  readonly appliedModifiers: readonly AppliedModifier[];
+}
 
 /**
  * Service façade orchestrant tous les calculateurs de combat.
@@ -34,19 +72,27 @@ import {
  * Pattern: Chaque méthode publique délègue simplement au calculateur approprié.
  */
 export class CombatService {
- private readonly damageCalc: DamageOutcomeCalculator;
- private readonly rotationCalc: RotationDPSCalculator;
- private readonly evCalc: ExpectedValueCalculator;
- private readonly graduationCalc: GraduationCalculator;
- private readonly healCalc: HealCalculator;
+  private readonly damageCalc: DamageOutcomeCalculator;
+  private readonly rotationCalc: RotationDPSCalculator;
+  private readonly evCalc: ExpectedValueCalculator;
+  private readonly graduationCalc: GraduationCalculator;
+  private readonly healCalc: HealCalculator;
+  private readonly talentResolver: TalentBonusResolver;
+  private readonly setResolver: SetBonusResolver;
+  private readonly preModifier: PreCombatStatsModifier;
+  private readonly bonusRouter: BonusZoneRouter;
 
- constructor() {
- this.damageCalc = new DamageOutcomeCalculator();
- this.rotationCalc = new RotationDPSCalculator();
- this.evCalc = new ExpectedValueCalculator();
- this.graduationCalc = new GraduationCalculator();
- this.healCalc = new HealCalculator();
- }
+  constructor() {
+    this.damageCalc = new DamageOutcomeCalculator();
+    this.rotationCalc = new RotationDPSCalculator();
+    this.evCalc = new ExpectedValueCalculator();
+    this.graduationCalc = new GraduationCalculator();
+    this.healCalc = new HealCalculator();
+    this.talentResolver = new TalentBonusResolver();
+    this.setResolver = new SetBonusResolver();
+    this.preModifier = new PreCombatStatsModifier();
+    this.bonusRouter = new BonusZoneRouter();
+  }
 
  // Dégâts
 
@@ -259,10 +305,129 @@ export class CombatService {
  * @returns GraduationResult avec rating, percentage, et recommendation
  *
  */
- public calculateGraduation(
- yourDPS: number,
- referenceDPS: number
- ): GraduationResult {
- return this.graduationCalc.calculateGraduation(yourDPS, referenceDPS);
- }
+  public calculateGraduation(
+    yourDPS: number,
+    referenceDPS: number
+  ): GraduationResult {
+    return this.graduationCalc.calculateGraduation(yourDPS, referenceDPS);
+  }
+
+  // Pipeline complet (build → dégâts)
+
+  /**
+   * Pipeline complet : base stats + talents + sets → dégâts finaux.
+   * Orchestre tous les resolvers et calculateurs dans le bon ordre :
+   * 1. Résout talents et sets
+   * 2. Route les bonus par zone
+   * 3. Modifie les stats (PreCombatStatsModifier)
+   * 4. Calcule les dégâts avec stats modifiées + bonus de zone
+   *
+   * @param input - Entrée complète du build (stats, arme, sets, skill, cible, contexte)
+   * @returns Résultat enrichi avec breakdown complet du pipeline
+   */
+  public calculateWithFullBuild(input: Readonly<FullBuildInput>): FullPipelineResult {
+    return this.executeFullPipeline(input, 'deterministic');
+  }
+
+  /**
+   * Pipeline complet en mode Expected Value (moyenne pondérée des outcomes).
+   * Identique à calculateWithFullBuild, mais utilise calculateExpectedDamage.
+   *
+   * @param input - Entrée complète du build
+   * @returns Résultat enrichi (dégâts en mode expected)
+   */
+  public calculateExpectedWithFullBuild(input: Readonly<FullBuildInput>): FullPipelineResult {
+    return this.executeFullPipeline(input, 'expected');
+  }
+
+  /**
+   * Exécution interne du pipeline complet.
+   * Factorise la logique commune entre mode déterministe et expected.
+   */
+  private executeFullPipeline(
+    input: Readonly<FullBuildInput>,
+    mode: 'deterministic' | 'expected'
+  ): FullPipelineResult {
+    // 1. Résolution des talents et sets
+    const resolvedTalents = this.talentResolver.resolveWeaponTalents(
+      input.weapon,
+      input.baseStats,
+      input.context
+    );
+    const resolvedSets = this.setResolver.resolveEquippedSets(
+      input.equippedPieces,
+      input.setDefinitions,
+      input.context
+    );
+
+    // 2. Routage des bonus par zone
+    const routedBonuses = this.bonusRouter.routeBonuses(resolvedTalents, resolvedSets);
+
+    // 3. Modification pré-combat via PreCombatStatsModifier (BaseStats talents + sets stats)
+    const { finalStats, appliedModifiers } = this.preModifier.applyModifications(
+      input.baseStats,
+      resolvedTalents,
+      resolvedSets
+    );
+
+    // 4. Appliquer les statModifications du router (CritDamage, Precision, etc.)
+    const mutableStats = { ...finalStats } as Record<string, number>;
+    const extraModifiers: AppliedModifier[] = [];
+
+    for (const mod of routedBonuses.statModifications) {
+      // Éviter les doublons avec BaseStats déjà gérés par PreCombatStatsModifier
+      if (this.isBaseStatFromTalent(mod, resolvedTalents)) {
+        continue;
+      }
+      const before = mutableStats[mod.stat] ?? 0;
+      const delta = mod.isPercentage ? before * mod.value : mod.value;
+      mutableStats[mod.stat] = before + delta;
+      extraModifiers.push({
+        source: mod.source,
+        stat: mod.stat,
+        valueBefore: before,
+        valueAfter: mutableStats[mod.stat],
+        modifier: mod.value,
+        isPercentage: mod.isPercentage,
+      });
+    }
+
+    const modifiedStats = mutableStats as unknown as ExtendedStats;
+
+    // 5. Fusionner les bonus de dégâts (routés + additionnels)
+    const allDamageBonuses: readonly DamageBonus[] = input.additionalBonuses
+      ? [...routedBonuses.damageBonuses, ...input.additionalBonuses]
+      : routedBonuses.damageBonuses;
+
+    // 6. Calcul des dégâts avec stats modifiées
+    const damage = mode === 'expected'
+      ? this.damageCalc.calculateExpectedDamage(modifiedStats, input.skill, input.target, allDamageBonuses)
+      : this.damageCalc.calculateDamage(modifiedStats, input.skill, input.target, allDamageBonuses);
+
+    return {
+      damage,
+      modifiedStats,
+      resolvedTalents,
+      resolvedSets,
+      routedBonuses,
+      appliedModifiers: [...appliedModifiers, ...extraModifiers],
+    };
+  }
+
+  /**
+   * Vérifie si une StatModification provient d'un talent BaseStats
+   * déjà traité par PreCombatStatsModifier (évite les doublons).
+   */
+  private isBaseStatFromTalent(
+    mod: Readonly<{ stat: string; source: string }>,
+    talents: readonly ResolvedTalentBonus[]
+  ): boolean {
+    return talents.some(
+      (t) =>
+        t.damageZone === 'BaseStats' &&
+        t.isActive &&
+        t.targetStat === mod.stat &&
+        t.source === mod.source
+    );
+  }
 }
