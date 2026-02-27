@@ -16,6 +16,9 @@ export interface ModifiedStatsResult {
  readonly appliedModifiers: readonly AppliedModifier[];
 }
 
+/**
+ * Détail d'un modificateur appliqué (pour breakdown UI).
+ */
 export interface AppliedModifier {
  readonly source: string;
  readonly stat: string;

@@ -58,8 +58,13 @@ export class TalentBonusResolver {
  }
 
  /**
- * Résout un talent individuel.
- */
+  * Résout un talent individuel en bonus concret.
+  *
+  * @param talent - Talent à résoudre
+  * @param stats - Stats étendues du personnage
+  * @param context - État de combat actuel
+  * @returns Bonus résolu avec valeur, zone et état d'activation
+  */
  public resolveSingleTalent(
  talent: Readonly<MartialArtTalent>,
  stats: Readonly<ExtendedStats>,
