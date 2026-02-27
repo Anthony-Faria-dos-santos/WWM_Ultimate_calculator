@@ -47,3 +47,12 @@ export * from './Combat.types';
  * - BuildComparison: Detailed comparison between two builds
  */
 export * from './DPS.types';
+
+// Types de contexte de combat (conditions dynamiques talents/sets)
+export * from './CombatContext.types';
+
+// Types d'arts martiaux (armes, talents, résolution)
+export * from './MartialArts.types';
+
+// Types d'équipement et sets (slots, pièces, bonus par palier)
+export * from './EquipmentSet.types';
