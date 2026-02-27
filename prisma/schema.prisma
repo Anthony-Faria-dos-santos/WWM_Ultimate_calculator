@@ -101,14 +101,16 @@ model Build {
   isPublic    Boolean  @default(false)
   
   // Character Configuration
-  level       Int      @default(100)
+  level       Int      @default(85)
   weaponId    String   @db.VarChar(50)
   innerWayId  String?  @db.VarChar(50)
+  objective   String   @default("pve")
   
   // Stats Snapshot (JSON)
   stats       Json     // CharacterStats
   target      Json?    // TargetStats
   buffs       Json?    // string[] - BuffIds
+  rotation    Json?    // Rotation Builder (Phase 5)
   equipment   Json?    // Equipment configuration
   
   // Calculated Results
@@ -117,6 +119,7 @@ model Build {
   // Social Features
   views       Int      @default(0)
   likes       Int      @default(0)
+  shareSlug   String?  @unique
   
   // Relations
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
