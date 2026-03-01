@@ -56,3 +56,6 @@ export * from './MartialArts.types';
 
 // Types d'équipement et sets (slots, pièces, bonus par palier)
 export * from './EquipmentSet.types';
+
+// Types API (contrat frontend ↔ backend)
+export * from './API.types';
