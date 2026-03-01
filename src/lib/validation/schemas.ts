@@ -5,7 +5,7 @@
  * (Character.types, Combat.types, Skill.types, EquipmentSet.types, etc.).
  */
 
-import { z } from 'zod';
+import * as z from 'zod';
 
 // ─── Stats personnage (CharacterBaseStats) ─────────────────────────
 
