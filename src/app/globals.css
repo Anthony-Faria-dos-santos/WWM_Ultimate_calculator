@@ -2,19 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
-}
+/*
+ * Design System — WWM Ultimate Calculator
+ * Thème wuxia cinématique : fond sombre, accents dorés/jade
+ * Mode sombre uniquement (pas de thème clair)
+ */
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 10, 10, 10;
+    /* --- Fonds --- */
+    --bg-primary: 210 30% 5%;        /* #0A0E14 */
+    --bg-secondary: 210 25% 10%;     /* #111820 */
+    --bg-tertiary: 213 22% 15%;      /* #1A2230 */
+    --bg-elevated: 210 25% 17%;      /* #1E2A3A */
+
+    /* --- shadcn/ui semantic mapping → wuxia --- */
+    --background: 210 30% 5%;
+    --foreground: 210 20% 93%;
+
+    --card: 210 25% 10%;
+    --card-foreground: 210 20% 93%;
+
+    --popover: 210 25% 10%;
+    --popover-foreground: 210 20% 93%;
+
+    --primary: 40 55% 48%;           /* or doré #D4A853 */
+    --primary-foreground: 210 30% 5%;
+
+    --secondary: 213 22% 15%;
+    --secondary-foreground: 210 20% 93%;
+
+    --muted: 213 22% 15%;
+    --muted-foreground: 210 15% 53%;  /* #8899AA */
+
+    --accent: 176 55% 55%;           /* jade #4ECDC4 */
+    --accent-foreground: 210 30% 5%;
+
+    --destructive: 4 74% 57%;        /* crimson #E74C3C */
+    --destructive-foreground: 210 20% 93%;
+
+    --border: 213 20% 22%;           /* #2A3544 */
+    --input: 213 22% 15%;
+    --ring: 40 55% 48%;              /* focus = or doré */
+    --radius: 0.5rem;
+
+    /* --- Accents fonctionnels (custom) --- */
+    --accent-gold: 40 55% 48%;
+    --accent-jade: 176 55% 55%;
+    --accent-crimson: 4 74% 57%;
+    --accent-emerald: 145 63% 49%;
+    --accent-amber: 36 90% 51%;
+    --accent-purple: 283 39% 53%;
+    --accent-blue: 204 70% 53%;
+
+    /* --- Texte --- */
+    --text-primary: 210 20% 93%;     /* #E8ECF0 */
+    --text-secondary: 210 15% 53%;   /* #8899AA */
+    --text-muted: 210 15% 35%;       /* #556677 */
+
+    /* --- Charts (Recharts) --- */
+    --chart-1: 40 55% 48%;           /* or */
+    --chart-2: 176 55% 55%;          /* jade */
+    --chart-3: 4 74% 57%;            /* crimson */
+    --chart-4: 145 63% 49%;          /* emerald */
+    --chart-5: 283 39% 53%;          /* purple */
+
+    /* --- Types de coups --- */
+    --hit-normal: 0 0% 100%;
+    --hit-critical: 51 100% 50%;
+    --hit-affinity: 33 100% 50%;
+    --hit-graze: 0 0% 53%;
+    --hit-miss: 0 0% 27%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* --- Animations wuxia --- */
+@layer utilities {
+  /* Flash stat : vert pour gain, rouge pour perte */
+  @keyframes flash-green {
+    0% { color: hsl(var(--accent-emerald)); text-shadow: 0 0 8px hsl(var(--accent-emerald) / 0.5); }
+    100% { color: hsl(var(--text-primary)); text-shadow: none; }
+  }
+  @keyframes flash-red {
+    0% { color: hsl(var(--accent-crimson)); text-shadow: 0 0 8px hsl(var(--accent-crimson) / 0.5); }
+    100% { color: hsl(var(--text-primary)); text-shadow: none; }
+  }
+  .animate-flash-green { animation: flash-green 1s ease-out; }
+  .animate-flash-red { animation: flash-red 1s ease-out; }
+
+  /* Brume wuxia — overlay atmosphérique */
+  .fog-overlay {
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      hsl(var(--bg-primary) / 0) 40%,
+      hsl(var(--bg-primary) / 0.8) 100%
+    );
+  }
+
+  /* Lueur dorée au hover (cards) */
+  .card-glow:hover {
+    box-shadow: 0 0 20px hsl(var(--accent-gold) / 0.1);
+  }
+
+  /* Séparateur doré */
+  .gold-separator {
+    border-bottom: 1px solid hsl(var(--accent-gold) / 0.3);
+  }
+
+  /* Scrollbar sombre */
+  .scrollbar-wuxia::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-wuxia::-webkit-scrollbar-track {
+    background: hsl(var(--bg-secondary));
+  }
+  .scrollbar-wuxia::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  .scrollbar-wuxia::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent-gold) / 0.5);
+  }
 }
