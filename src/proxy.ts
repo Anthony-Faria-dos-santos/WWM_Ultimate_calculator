@@ -1,9 +1,9 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
 /**
- * Middleware de sécurité — headers HTTP sur routes API et dashboard.
+ * Proxy de sécurité — headers HTTP sur routes API et dashboard.
  */
-export function middleware(_request: NextRequest) {
+export function proxy(_request: NextRequest) {
   const response = NextResponse.next();
 
   response.headers.set('X-Content-Type-Options', 'nosniff');
