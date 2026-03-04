@@ -212,7 +212,7 @@ Le `SimulationService` complète ce pipeline avec une simulation Monte Carlo (N 
 
 ## Journal de développement
 
-Ce journal retrace les décisions techniques prises au fil des phases. Chaque entrée correspond à un problème rencontré, une décision d'architecture ou un enseignement notable.
+Ce journal retrace les décisions techniques prises au fil des phases.
 
 ### Phase 1 — Core Backend
 
