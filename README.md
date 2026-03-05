@@ -1,3 +1,11 @@
+> [!IMPORTANT]
+> **This project is open source and community-driven**, licensed under the [GNU General Public License v3.0](./LICENSE).
+> All contributions — code, formulas, data, and bug reports — remain the collective property of their authors under the terms of the GPL v3.
+> Any fork or derivative work **must remain open source** under the same license. Commercial use or proprietary appropriation of this codebase is strictly prohibited.
+>
+> **Contributing?** Please read the [Contributing Guide](./CONTRIBUTING.md), follow the [Code of Conduct](./CODE_OF_CONDUCT.md), and report security issues privately via our [Security Policy](./SECURITY.md).
+> Only serious, well-documented contributions and bug reports are accepted. Low-effort issues or PRs will be closed without further notice.
+
 <div align="center">
 
 # WWM Ultimate Calculator
@@ -8,7 +16,7 @@ Développé pour la guilde **MoonKnights** — Serveur Global OW12
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Vitest](https://img.shields.io/badge/Tests-324%20pass-6E9F18?style=flat-square&logo=vitest)](https://vitest.dev/)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0)
 
 </div>
 
