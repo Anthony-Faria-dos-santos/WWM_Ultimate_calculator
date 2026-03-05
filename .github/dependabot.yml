@@ -1,26 +1,9 @@
 version: 2
 updates:
-  # npm / pnpm dependencies
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-      timezone: "Europe/Paris"
-    open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
-      - "automated"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-    ignore:
-      # ignore major version bumps (breaking changes)
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
+  # npm / pnpm dependencies are managed by Renovate Bot
+  # See renovate.json for configuration
 
-  # GitHub Actions
+  # GitHub Actions — kept under Dependabot for security alerts
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
