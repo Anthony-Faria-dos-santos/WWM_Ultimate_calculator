@@ -1,7 +1,7 @@
 > [!IMPORTANT]
-> **This project is open source and community-driven**, licensed under the [GNU General Public License v3.0](./LICENSE).
-> All contributions — code, formulas, data, and bug reports — remain the collective property of their authors under the terms of the GPL v3.
-> Any fork or derivative work **must remain open source** under the same license. Commercial use or proprietary appropriation of this codebase is strictly prohibited.
+> **This project is source-available and community-driven**, licensed under the [Business Source License 1.1](./LICENSE).
+> All contributions — code, formulas, data, and bug reports — remain the collective property of their authors under the terms of the BSL 1.1.
+> **Non-commercial use is free and open.** Commercial use or proprietary appropriation of this codebase requires a commercial license from the author.strictly prohibited.
 >
 > **Contributing?** Please read the [Contributing Guide](./CONTRIBUTING.md), follow the [Code of Conduct](./CODE_OF_CONDUCT.md), and report security issues privately via our [Security Policy](./SECURITY.md).
 > Only serious, well-documented contributions and bug reports are accepted. Low-effort issues or PRs will be closed without further notice.
@@ -20,7 +20,7 @@ Développé pour la guilde **MoonKnights** — Serveur Global OW12
 [![Prisma](https://img.shields.io/badge/Prisma-7-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Vitest](https://img.shields.io/badge/Tests-412%20pass-6E9F18?style=flat-square&logo=vitest)](https://vitest.dev/)
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: BSL 1.1](https://img.shields.io/badge/License-BSL_1.1-orange?style=flat-square)](https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/blob/main/LICENSE)
 [![pnpm](https://img.shields.io/badge/pnpm-10.30-F69220?style=flat-square&logo=pnpm)](https://pnpm.io/)
 
 </div>
