@@ -14,7 +14,8 @@
     "db:studio": "prisma studio",
     "test": "vitest",
     "type-check": "tsc --noEmit",
-    "test:coverage": "vitest --coverage --run"
+    "test:coverage": "vitest --coverage --run",
+    "validate:translations": "python3 scripts/validate-translations.py"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",
