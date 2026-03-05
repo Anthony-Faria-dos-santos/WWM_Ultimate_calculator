@@ -167,4 +167,5 @@ pnpm dev
 
 ## Licence
 
-[MIT](LICENSE)
+This project is licensed under the [GNU General Public License v3.0](./LICENSE).
+Copyright © 2026 Anthony Faria Dos Santos — all forks and derivative works must remain open source under the same terms.
