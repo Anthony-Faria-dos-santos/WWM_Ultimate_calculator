@@ -376,6 +376,7 @@ pnpm dev
 | `pnpm type-check` | Vérification TypeScript (tsc --noEmit) |
 | `pnpm test` | Tests Vitest (watch mode) |
 | `pnpm test:coverage` | Tests avec rapport de couverture (v8) |
+| `pnpm validate:translations` | Vérifie que seuls les champs traduction sont modifiés |
 | `pnpm db:generate` | Génération du client Prisma |
 | `pnpm db:migrate` | Appliquer les migrations Prisma |
 | `pnpm db:seed` | Seed données de test |
@@ -428,6 +429,8 @@ wwm-ultimate-calculator/
 ├── docs/
 │   └── contributing/
 │       └── TRANSLATION_GUIDE.md # Guide pour les traducteurs
+├── scripts/
+│   └── validate-translations.py # Validation des contributions i18n
 ├── .env.example
 ├── vitest.config.ts
 ├── tailwind.config.ts
