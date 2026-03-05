@@ -11,7 +11,15 @@ jobs:
     name: Build & Test
     runs-on: ubuntu-latest
 
+    env:
+      DATABASE_URL: "postgresql://ci:ci@localhost:5432/ci_db"
+      NEXTAUTH_SECRET: "ci-secret-for-testing-only-32-chars-min"
+      NEXTAUTH_URL: "http://localhost:3000"
+      NEXT_PUBLIC_APP_URL: "http://localhost:3000"
+      SKIP_ENV_VALIDATION: "true"
+
     strategy:
+      fail-fast: false
       matrix:
         node-version: [20.x, 22.x]
 
@@ -21,8 +29,6 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
 
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -34,13 +40,16 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run lint
-        run: pnpm lint || true
+        run: pnpm lint
+        continue-on-error: true
 
       - name: Run type check
-        run: pnpm type-check || true
+        run: pnpm type-check
+        continue-on-error: true
 
       - name: Run tests
-        run: pnpm test || true
+        run: pnpm test --run
 
       - name: Build
-        run: pnpm build || true
+        run: pnpm build
+        continue-on-error: true
