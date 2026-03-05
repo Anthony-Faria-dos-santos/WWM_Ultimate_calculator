@@ -58,8 +58,13 @@ export class TalentBonusResolver {
  }
 
  /**
- * Résout un talent individuel.
- */
+  * Résout un talent individuel en bonus concret.
+  *
+  * @param talent - Talent à résoudre
+  * @param stats - Stats étendues du personnage
+  * @param context - État de combat actuel
+  * @returns Bonus résolu avec valeur, zone et état d'activation
+  */
  public resolveSingleTalent(
  talent: Readonly<MartialArtTalent>,
  stats: Readonly<ExtendedStats>,
@@ -84,15 +89,19 @@ export class TalentBonusResolver {
  value = 0;
  }
 
- return {
- talentId: talent.id,
- talentName: talent.nameFR || talent.name,
- damageZone: talent.damageZone,
- value: isActive ? value : 0,
- isActive,
- source: `Talent: ${talent.nameFR || talent.name}`,
- isEstimated,
- };
+    // Résolution de la stat cible pour les talents BaseStats
+    const targetStat = this.resolveTargetStat(talent);
+
+    return {
+      talentId: talent.id,
+      talentName: talent.nameFR || talent.name,
+      damageZone: talent.damageZone,
+      value: isActive ? value : 0,
+      isActive,
+      source: `Talent: ${talent.nameFR || talent.name}`,
+      isEstimated,
+      targetStat,
+    };
  }
 
  /**
@@ -156,10 +165,32 @@ export class TalentBonusResolver {
  }
  }
 
- /**
- * Récupère la valeur d'une stat depuis les ExtendedStats.
- */
- private getStatValue(
+  /**
+   * Détermine la stat cible d'un talent BaseStats.
+   * Déduite du flatBonus.stat ou du scaling.scalingStat.
+   *
+   * @param talent - Talent à analyser
+   * @returns Clé de stat cible, ou null si non-BaseStats
+   */
+  private resolveTargetStat(
+    talent: Readonly<MartialArtTalent>
+  ): string | null {
+    if (talent.damageZone !== 'BaseStats') {
+      return null;
+    }
+    if (talent.flatBonus) {
+      return talent.flatBonus.stat;
+    }
+    if (talent.scaling) {
+      return talent.scaling.scalingStat;
+    }
+    return null;
+  }
+
+  /**
+   * Récupère la valeur d'une stat depuis les ExtendedStats.
+   */
+  private getStatValue(
  stat: TalentScalingStat,
  stats: Readonly<ExtendedStats>
  ): number {

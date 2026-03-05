@@ -183,4 +183,6 @@ export interface ResolvedTalentBonus {
  readonly source: string;
  /** Données incomplètes ? (warning pour l'UI) */
  readonly isEstimated: boolean;
+ /** Stat cible pour les bonus de type BaseStats (clé de CharacterBaseStats/ExtendedStats) */
+ readonly targetStat: string | null;
 }

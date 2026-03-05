@@ -38,3 +38,7 @@ export { GraduationCalculator } from './GraduationCalculator';
 export { TalentBonusResolver } from './TalentBonusResolver';
 export { SetBonusResolver } from './SetBonusResolver';
 export { PreCombatStatsModifier } from './PreCombatStatsModifier';
+
+// Routeur de bonus par zone
+export { BonusZoneRouter } from './BonusZoneRouter';
+export type { StatModification, RoutedBonuses } from './BonusZoneRouter';

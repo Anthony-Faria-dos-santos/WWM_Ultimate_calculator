@@ -139,7 +139,7 @@ Le `SimulationService` complète ce pipeline avec une simulation Monte Carlo (N 
 
 ### Phase 2
 
-**Façade mince.** `CombatService` ne contient aucune logique de calcul propre. Il orchestre les 17 calculateurs via `calculateWithFullBuild()`.
+**Orchestrateur.** `CombatService` ne contient aucune logique de calcul propre. Il orchestre les 17 calculateurs via `calculateWithFullBuild()`.
 
 **BonusZoneRouter.** Dispatch chaque bonus talent/set vers la bonne destination : `PreCombatStatsModifier` pour les stats, `BonusMultiplierCalculator` pour les zones. Les stat modifiers de sets ne passent pas par le router.
 
