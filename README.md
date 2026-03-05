@@ -5,7 +5,7 @@
 >
 > **Contributing?** Please read the [Contributing Guide](./CONTRIBUTING.md), follow the [Code of Conduct](./CODE_OF_CONDUCT.md), and report security issues privately via our [Security Policy](./SECURITY.md).
 > Only serious, well-documented contributions and bug reports are accepted. Low-effort issues or PRs will be closed without further notice.
-
+---
 <div align="center">
 
 # WWM Ultimate Calculator
@@ -52,7 +52,7 @@ Where Winds Meet est un MMORPG d'arts martiaux (wuxia) dont le système de comba
 
 Aucun outil existant ne couvrait l'ensemble de ces mécaniques de manière fiable. Les calculatrices communautaires se limitaient souvent à un calcul mono-hit ou ignoraient l'interaction entre les zones de dégâts.
 
-Ce projet vise à construire un calculateur complet et vérifiable, capable de simuler des rotations entières et de comparer des builds entre eux. Il sert deux objectifs : fournir un outil utile à la guilde MoonKnights, et démontrer une démarche de développement structurée dans le cadre d'une recherche d'alternance.
+Ce projet vise à construire un calculateur complet et vérifiable, capable de simuler des rotations entières et de comparer des builds entre eux. Il sert deux objectifs : fournir un outil utile pour la guilde MoonKnights, et démontrer une démarche de développement structurée et professionnelle dans un contexte ouvert aux contributions.
 
 ---
 
