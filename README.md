@@ -255,6 +255,14 @@ Ce journal retrace les décisions techniques prises au fil des phases.
 
 **Hooks React Query.** `useCalculate` (mutations 6 endpoints), `useBuilds` (queries CRUD avec pagination). Découplage logique serveur / state local.
 
+### Sécurisation du repository
+
+**Migration de licence GPL v3 → BSL 1.1.** Pour protéger le projet contre une appropriation commerciale par des tiers tout en conservant l'accès libre pour un usage non-commercial, la licence a été changée de GPLv3 en Business Source License 1.1. Les contributions existantes et futures restent sous BSL 1.1.
+
+**Outillage de sécurité mis en place.** Trois outils complémentaires couvrent les vecteurs de risque principaux : **Dependabot** surveille les GitHub Actions pour les CVE sur les workflows CI ; **Renovate Bot** gère les mises à jour des dépendances npm/pnpm (PR automatiques, groupées par écosystème, avec fenêtre de fusion configurable) ; **GitGuardian** scanne chaque commit pour détecter les secrets exposés accidentellement. La branche `main` est protégée (revue obligatoire).
+
+**Workflows GitHub Actions.** Deux workflows ont été ajoutés : `codeql.yml` (analyse statique de sécurité du code TypeScript, déclenchement sur push/PR + scan hebdomadaire) et `ci.yml` (build et tests sur Node 20.x et 22.x, exécuté à chaque PR pour prévenir les régressions).
+
 
 ---
 
