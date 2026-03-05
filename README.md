@@ -2,7 +2,7 @@
 
 # WWM Ultimate Calculator
 
-**Calculateur de dégâts complet pour [Where Winds Meet](https://wherewindsmeet.com/)**
+**Calculateur de dégâts complet pour [Where Winds Meet](https://www.wherewindsmeetgame.com/)**
 
 Développé pour la guilde **MoonKnights** — Serveur Global OW12
 
