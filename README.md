@@ -1,7 +1,7 @@
 > [!IMPORTANT]
 > **This project is source-available and community-driven**, licensed under the [Business Source License 1.1](./LICENSE).
 > All contributions — code, formulas, data, and bug reports — remain the collective property of their authors under the terms of the BSL 1.1.
-> **Non-commercial use is free and open.** Commercial use or proprietary appropriation of this codebase requires a commercial license from the author.strictly prohibited.
+> **Non-commercial use is free and open.** Commercial use or proprietary appropriation of this codebase requires a commercial license from the author; otherwise it is strictly prohibited.
 >
 > **Contributing?** Please read the [Contributing Guide](./CONTRIBUTING.md), follow the [Code of Conduct](./CODE_OF_CONDUCT.md), and report security issues privately via our [Security Policy](./SECURITY.md).
 > Only serious, well-documented contributions and bug reports are accepted. Low-effort issues or PRs will be closed without further notice.
