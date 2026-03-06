@@ -1,7 +1,7 @@
 > [!IMPORTANT]
 > **This project is source-available and community-driven**, licensed under the [Business Source License 1.1](./LICENSE).
 > All contributions — code, formulas, data, and bug reports — remain the collective property of their authors under the terms of the BSL 1.1.
-> **Non-commercial use is free and open.** Commercial use or proprietary appropriation of this codebase requires a commercial license from the author.strictly prohibited.
+> **Non-commercial use is free and open.** Commercial use or proprietary appropriation of this codebase requires a commercial license from the author; otherwise it is strictly prohibited.
 >
 > **Contributing?** Please read the [Contributing Guide](./CONTRIBUTING.md), follow the [Code of Conduct](./CODE_OF_CONDUCT.md), and report security issues privately via our [Security Policy](./SECURITY.md).
 > Only serious, well-documented contributions and bug reports are accepted. Low-effort issues or PRs will be closed without further notice.
@@ -262,6 +262,14 @@ Ce journal retrace les décisions techniques prises au fil des phases.
 **Outillage de sécurité mis en place.** Trois outils complémentaires couvrent les vecteurs de risque principaux : **Dependabot** surveille les GitHub Actions pour les CVE sur les workflows CI ; **Renovate Bot** gère les mises à jour des dépendances npm/pnpm (PR automatiques, groupées par écosystème, avec fenêtre de fusion configurable) ; **GitGuardian** scanne chaque commit pour détecter les secrets exposés accidentellement. La branche `main` est protégée (revue obligatoire).
 
 **Workflows GitHub Actions.** Deux workflows ont été ajoutés : `codeql.yml` (analyse statique de sécurité du code TypeScript, déclenchement sur push/PR + scan hebdomadaire) et `ci.yml` (build et tests sur Node 20.x et 22.x, exécuté à chaque PR pour prévenir les régressions).
+
+**Fichiers de configuration de l'automatisation :**
+
+| Fichier | Outil | Rôle |
+|---|---|---|
+| `.github/dependabot.yml` | Dependabot | Surveille les GitHub Actions pour les vulnérabilités (CVE). Les dépendances npm/pnpm sont gérées par Renovate. |
+| `renovate.json` | Renovate Bot | Gère les mises à jour npm/pnpm uniquement (GitHub Actions délégué à Dependabot). PRs groupées, planning hebdomadaire (lundi avant 9h), labels automatiques. |
+| `.github/workflows/ci.yml` | GitHub Actions | Pipeline CI : lint, type-check, tests et build sur Node 20.x et 22.x. Déclenché sur chaque push/PR vers `main`. |
 
 
 ---
@@ -531,5 +539,5 @@ Les issues labellisées `good first issue` et `help wanted` sont un bon point d'
 
 ## Licence
 
-This project is licensed under the [GNU General Public License v3.0](./LICENSE).
-Copyright © 2026 Anthony Faria Dos Santos — all forks and derivative works must remain open source under the same terms.
+This project is licensed under the [Business Source License 1.1](./LICENSE).
+Copyright © 2026 Anthony Faria Dos Santos — all forks and derivative works must remain source-available and distributed under the same Business Source License 1.1 terms.
