@@ -1,20 +1,19 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "$comment": "Renovate manages npm/pnpm updates only. GitHub Actions updates are handled by Dependabot (see .github/dependabot.yml) for CVE tracking. This avoids duplicate PRs on workflow files.",
-  "extends": [
-    "config:recommended"
-  ],
-  "enabledManagers": ["npm"],
-  "schedule": ["before 9am on monday"],
-  "timezone": "Europe/Paris",
-  "labels": ["dependencies"],
-  "packageRules": [
-    {
-      "description": "Group all npm/pnpm non-major updates to reduce PR noise",
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "npm dependencies (non-major)",
-      "automerge": false
-    }
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+          "config:recommended"
+    ],
+    "enabledManagers": ["npm"],
+    "schedule": ["before 9am on monday"],
+    "timezone": "Europe/Paris",
+    "labels": ["dependencies"],
+    "packageRules": [
+          {
+                  "description": "Group all npm/pnpm non-major updates to reduce PR noise",
+                  "matchManagers": ["npm"],
+                  "matchUpdateTypes": ["minor", "patch"],
+                  "groupName": "npm dependencies (non-major)",
+                  "automerge": false
+          }
+    ]
 }
