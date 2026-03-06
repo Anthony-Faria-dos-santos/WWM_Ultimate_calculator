@@ -263,6 +263,14 @@ Ce journal retrace les décisions techniques prises au fil des phases.
 
 **Workflows GitHub Actions.** Deux workflows ont été ajoutés : `codeql.yml` (analyse statique de sécurité du code TypeScript, déclenchement sur push/PR + scan hebdomadaire) et `ci.yml` (build et tests sur Node 20.x et 22.x, exécuté à chaque PR pour prévenir les régressions).
 
+**Fichiers de configuration de l'automatisation :**
+
+| Fichier | Outil | Rôle |
+|---|---|---|
+| `.github/dependabot.yml` | Dependabot | Surveille les GitHub Actions pour les vulnérabilités (CVE). Les dépendances npm/pnpm sont gérées par Renovate. |
+| `renovate.json` | Renovate Bot | Gère les mises à jour npm/pnpm uniquement (GitHub Actions délégué à Dependabot). PRs groupées, planning hebdomadaire (lundi avant 9h), labels automatiques. |
+| `.github/workflows/ci.yml` | GitHub Actions | Pipeline CI : lint, type-check, tests et build sur Node 20.x et 22.x. Déclenché sur chaque push/PR vers `main`. |
+
 
 ---
 
