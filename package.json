@@ -61,7 +61,7 @@
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "5.1.4",
-    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/coverage-v8": "^4.0.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^10.0.0",
     "eslint-config-next": "^16.1.6",
@@ -73,7 +73,7 @@
     "tsx": "^4.19.3",
     "typescript": "^5.7.3",
     "vite": "7.3.1",
-    "vitest": "^3.0.4"
+    "vitest": "^4.0.0"
   },
   "packageManager": "pnpm@10.30.3+sha512.c961d1e0a2d8e354ecaa5166b822516668b7f44cb5bd95122d590dd81922f606f5473b6d23ec4a5be05e7fcd18e8488d47d978bbe981872f1145d06e9a740017",
   "engines": {
