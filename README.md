@@ -531,5 +531,5 @@ Les issues labellisées `good first issue` et `help wanted` sont un bon point d'
 
 ## Licence
 
-This project is licensed under the [GNU General Public License v3.0](./LICENSE).
+This project is licensed under the [Business Source License 1.1](./LICENSE).
 Copyright © 2026 Anthony Faria Dos Santos — all forks and derivative works must remain open source under the same terms.
