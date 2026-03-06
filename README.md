@@ -268,7 +268,7 @@ Ce journal retrace les décisions techniques prises au fil des phases.
 | Fichier | Outil | Rôle |
 |---|---|---|
 | `.github/dependabot.yml` | Dependabot | Surveille les GitHub Actions pour les vulnérabilités (CVE). Les dépendances npm/pnpm sont gérées par Renovate. |
-| `renovate.json` | Renovate Bot | Gère les mises à jour npm/pnpm : PRs groupées par écosystème, planning hebdomadaire (lundi avant 9h), labels automatiques. |
+| `renovate.json` | Renovate Bot | Gère les mises à jour npm/pnpm uniquement (GitHub Actions délégué à Dependabot). PRs groupées, planning hebdomadaire (lundi avant 9h), labels automatiques. |
 | `.github/workflows/ci.yml` | GitHub Actions | Pipeline CI : lint, type-check, tests et build sur Node 20.x et 22.x. Déclenché sur chaque push/PR vers `main`. |
 
 
@@ -541,3 +541,4 @@ Les issues labellisées `good first issue` et `help wanted` sont un bon point d'
 
 This project is licensed under the [Business Source License 1.1](./LICENSE).
 Copyright © 2026 Anthony Faria Dos Santos — all forks and derivative works must remain open source under the same terms.
+
