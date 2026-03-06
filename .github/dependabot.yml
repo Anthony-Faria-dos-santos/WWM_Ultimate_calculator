@@ -1,7 +1,11 @@
 version: 2
 updates:
-  # npm / pnpm dependencies are managed by Renovate Bot
-  # See renovate.json for configuration
+  # Dependency update strategy:
+  #   - npm/pnpm packages → managed by Renovate Bot (see renovate.json)
+  #     Renovate groups non-major updates, applies a weekly schedule, and
+  #     labels PRs automatically, reducing noise compared to Dependabot.
+  #   - GitHub Actions → managed by Dependabot (below) for security alerts
+  #     on workflow dependencies (CVE tracking for actions/checkout, etc.).
 
   # GitHub Actions — kept under Dependabot for security alerts
   - package-ecosystem: "github-actions"
