@@ -12,7 +12,7 @@
 /* ═══════════════════════════════════════════════════
    ROOT & RESET
    ═══════════════════════════════════════════════════ */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}h
 :root{
   --gold:#d4a554;--gold-light:#e8c882;--gold-dark:#a67c3d;
   --crimson:#8b2232;--crimson-light:#c4344d;
@@ -20,7 +20,7 @@
   --mist:rgba(180,200,220,0.06);
   --text-primary:rgba(235,230,220,0.92);--text-secondary:rgba(200,195,185,0.6);
   --font-display:'Cinzel Decorative',serif;
-  --font-body:'Cormorant Garamond',serif;
+  --font-body:'Cormorant Garamond',serif;h
   --font-cn:'Noto Serif SC',serif;
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
@@ -322,7 +322,7 @@ section{position:relative;z-index:5}
 .mock-dps-ring .bg{stroke:rgba(212,165,84,.1);stroke-width:8}
 .mock-dps-ring .progress{
   stroke:url(#mockGrad);stroke-width:8;
-  stroke-dasharray:377;stroke-dashoffset:100;
+  stroke-dasharray:377;stroke-dashoffset:377;
   transition:stroke-dashoffset 2s ease-out;
 }
 .mock-dps-center{
@@ -486,7 +486,7 @@ footer .footer-links a:hover{color:var(--gold)}
       <li><a href="#tech">Stack</a></li>
       <li><a href="#weapons">Weapons</a></li>
     </ul>
-    <a href="https://github.com/" target="_blank" class="nav-cta">GitHub ↗</a>
+    <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator" target="_blank" rel="noopener noreferrer" class="nav-cta">GitHub ↗</a>
   </div>
 </nav>
 
@@ -702,7 +702,7 @@ footer .footer-links a:hover{color:var(--gold)}
       <div class="tech-item reveal"><div class="tech-icon">⚡</div><div class="tech-name">Next.js</div><div class="tech-ver">v16 App Router</div></div>
       <div class="tech-item reveal"><div class="tech-icon">⚛️</div><div class="tech-name">React</div><div class="tech-ver">v19 + RSC</div></div>
       <div class="tech-item reveal"><div class="tech-icon">🔷</div><div class="tech-name">TypeScript</div><div class="tech-ver">Strict Mode</div></div>
-      <div class="tech-item reveal"><div class="tech-icon">🎨</div><div class="tech-name">Tailwind</div><div class="tech-ver">v4 + shadcn/ui</div></div>
+      <div class="tech-item reveal"><div class="tech-icon">🎨</div><div class="tech-name">Tailwind</div><div class="tech-ver">v3 + tailwind-merge</div></div>
       <div class="tech-item reveal"><div class="tech-icon">🗄️</div><div class="tech-name">Supabase</div><div class="tech-ver">Auth + DB</div></div>
       <div class="tech-item reveal"><div class="tech-icon">📐</div><div class="tech-name">Zod</div><div class="tech-ver">Schema Validation</div></div>
       <div class="tech-item reveal"><div class="tech-icon">🧪</div><div class="tech-name">Vitest</div><div class="tech-ver">Unit + E2E</div></div>
@@ -716,7 +716,7 @@ footer .footer-links a:hover{color:var(--gold)}
         <div class="stat-label">Weapon Types</div>
       </div>
       <div class="stat-block">
-        <div class="stat-number" data-target="40">0</div>
+        <div class="stat-number" data-target="40" data-suffix="+">0</div>
         <div class="stat-label">Martial Arts</div>
       </div>
       <div class="stat-block">
@@ -724,7 +724,7 @@ footer .footer-links a:hover{color:var(--gold)}
         <div class="stat-label">Languages</div>
       </div>
       <div class="stat-block">
-        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-number" data-target="100" data-suffix="%">0</div>
         <div class="stat-label">% Free & Open</div>
       </div>
     </div>
@@ -743,11 +743,11 @@ footer .footer-links a:hover{color:var(--gold)}
         this calculator is your path to martial perfection.
       </p>
       <div class="hero-actions">
-        <a href="https://github.com/" target="_blank" class="btn btn-primary">
+        <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.723-1.333-1.723-1.089-.731.083-.716.083-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56C20.565 21.917 24 17.495 24 12.292 24 5.78 18.627.5 12 .5z"/></svg>
           View on GitHub
         </a>
-        <a href="#" class="btn btn-ghost">
+        <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator#readme" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Docs
         </a>
@@ -760,10 +760,10 @@ footer .footer-links a:hover{color:var(--gold)}
 <footer>
   <div class="footer-brand">逆水寒 · 武学</div>
   <div class="footer-links">
-    <a href="#">GitHub</a>
-    <a href="#">Discord</a>
-    <a href="#">Wiki</a>
-    <a href="#">Changelog</a>
+    <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="#" aria-disabled="true">Discord</a>
+    <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/wiki" target="_blank" rel="noopener noreferrer">Wiki</a>
+    <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/releases" target="_blank" rel="noopener noreferrer">Changelog</a>
   </div>
   <p>WWM Ultimate Calculator — Open Source Project by AIAA Agency</p>
   <p style="margin-top:.5rem;font-size:.7rem;color:rgba(200,195,185,.3)">
@@ -843,7 +843,7 @@ const obs=new IntersectionObserver((entries)=>{
           const timer=setInterval(()=>{
             current+=step;
             if(current>=target){current=target;clearInterval(timer)}
-            el.textContent=current+(target===100?'%':'+');
+            el.textContent=current+(el.dataset.suffix||'');
           },30);
         });
       }
