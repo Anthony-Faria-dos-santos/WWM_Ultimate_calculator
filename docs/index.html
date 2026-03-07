@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WWM Ultimate Calculator — Where Winds Meet Theory Crafter</title>
+<meta name="description" content="Professional DPS calculator and theory crafting tool for Where Winds Meet. Optimize your martial arts build with data-driven insights.">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   ROOT & RESET
+   ═══════════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#d4a554;--gold-light:#e8c882;--gold-dark:#a67c3d;
+  --crimson:#8b2232;--crimson-light:#c4344d;
+  --ink:#0a0a0f;--ink-light:#14141f;--ink-mid:#1a1a2e;
+  --mist:rgba(180,200,220,0.06);
+  --text-primary:rgba(235,230,220,0.92);--text-secondary:rgba(200,195,185,0.6);
+  --font-display:'Cinzel Decorative',serif;
+  --font-body:'Cormorant Garamond',serif;
+  --font-cn:'Noto Serif SC',serif;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  background:var(--ink);color:var(--text-primary);
+  font-family:var(--font-body);font-size:18px;line-height:1.7;
+  overflow-x:hidden;
+}
+a{color:var(--gold);text-decoration:none;transition:color .3s}
+a:hover{color:var(--gold-light)}
+::selection{background:var(--gold-dark);color:#fff}
+
+/* ═══════════════════════════════════════════════════
+   GLOBAL CANVAS — PARTICLE SYSTEM
+   ═══════════════════════════════════════════════════ */
+#particles-canvas{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:0;opacity:.5;
+}
+
+/* ═══════════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════════ */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+/* ═══════════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1rem 2rem;
+  background:linear-gradient(180deg,rgba(10,10,15,.95) 0%,rgba(10,10,15,0) 100%);
+  backdrop-filter:blur(12px);
+  transition:all .4s;
+}
+.nav.scrolled{
+  background:rgba(10,10,15,.92);
+  border-bottom:1px solid rgba(212,165,84,.1);
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{display:flex;align-items:center;gap:.75rem}
+.nav-logo{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  border-radius:50%;display:grid;place-items:center;
+  font-family:var(--font-cn);font-size:16px;color:var(--ink);font-weight:700;
+}
+.nav-title{
+  font-family:var(--font-display);font-size:.85rem;
+  letter-spacing:2px;color:var(--gold);text-transform:uppercase;
+}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-family:var(--font-body);font-size:.95rem;font-weight:600;
+  color:var(--text-secondary);letter-spacing:1px;
+  position:relative;padding:.25rem 0;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:0;height:1px;background:var(--gold);transition:width .3s;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  font-family:var(--font-display);font-size:.7rem;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:.6rem 1.5rem;
+  border:1px solid var(--gold-dark);color:var(--gold);
+  background:transparent;cursor:pointer;transition:all .3s;
+}
+.nav-cta:hover{background:var(--gold);color:var(--ink)}
+
+/* ═══════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212,165,84,.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 80% 20%, rgba(139,34,50,.05) 0%, transparent 60%),
+    var(--ink);
+}
+/* Ink wash mountain silhouettes */
+.hero-mountains{
+  position:absolute;bottom:0;left:0;right:0;height:45vh;
+  z-index:1;opacity:.15;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400'%3E%3Cpath d='M0 400 L0 280 Q120 180 240 220 Q360 120 480 200 Q540 100 680 160 Q780 60 900 140 Q1000 80 1100 180 Q1200 100 1300 160 Q1380 120 1440 180 L1440 400Z' fill='%231a1a2e'/%3E%3Cpath d='M0 400 L0 320 Q200 240 400 300 Q500 200 700 280 Q850 180 1000 260 Q1150 200 1300 280 Q1400 240 1440 260 L1440 400Z' fill='%2314141f'/%3E%3C/svg%3E") center bottom / cover no-repeat;
+}
+/* Floating mist */
+.hero-mist{
+  position:absolute;bottom:0;left:-10%;right:-10%;height:30vh;z-index:2;
+  background:linear-gradient(0deg, var(--ink) 0%, transparent 100%);
+}
+.hero-content{
+  position:relative;z-index:10;text-align:center;
+  max-width:900px;padding:2rem;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.4rem 1.2rem;margin-bottom:2rem;
+  border:1px solid rgba(212,165,84,.2);
+  background:rgba(212,165,84,.05);
+  font-size:.75rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);
+  animation:fadeInUp .8s ease-out;
+}
+.hero-badge .dot{
+  width:6px;height:6px;border-radius:50%;background:var(--gold);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-chinese{
+  font-family:var(--font-cn);font-size:clamp(1rem,2vw,1.4rem);
+  color:var(--text-secondary);letter-spacing:8px;
+  margin-bottom:1rem;
+  animation:fadeInUp .8s ease-out .2s both;
+}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.2rem,5vw,4.5rem);
+  line-height:1.1;letter-spacing:3px;
+  color:var(--text-primary);
+  animation:fadeInUp .8s ease-out .4s both;
+}
+.hero h1 .accent{
+  display:block;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-desc{
+  font-size:clamp(1rem,1.5vw,1.25rem);font-weight:300;
+  color:var(--text-secondary);max-width:600px;margin:1.5rem auto 2.5rem;
+  line-height:1.8;
+  animation:fadeInUp .8s ease-out .6s both;
+}
+.hero-actions{
+  display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;
+  animation:fadeInUp .8s ease-out .8s both;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 2.2rem;font-family:var(--font-display);
+  font-size:.7rem;letter-spacing:2px;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all .35s;position:relative;
+  overflow:hidden;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:var(--ink);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(212,165,84,.3)}
+.btn-ghost{
+  background:transparent;border:1px solid rgba(212,165,84,.3);
+  color:var(--gold);
+}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(212,165,84,.08)}
+
+/* Scroll indicator */
+.scroll-hint{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  z-index:10;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  color:var(--text-secondary);font-size:.7rem;letter-spacing:3px;
+  text-transform:uppercase;
+  animation:fadeInUp 1s ease-out 1.2s both;
+}
+.scroll-line{
+  width:1px;height:40px;background:linear-gradient(180deg,var(--gold),transparent);
+  animation:scrollPulse 2s infinite;
+}
+@keyframes scrollPulse{0%{opacity:1;height:40px}50%{opacity:.3;height:20px}100%{opacity:1;height:40px}}
+
+/* ═══════════════════════════════════════════════════
+   SECTION BASE
+   ═══════════════════════════════════════════════════ */
+section{position:relative;z-index:5}
+.section-inner{max-width:1100px;margin:0 auto;padding:6rem 2rem}
+.section-label{
+  font-family:var(--font-display);font-size:.65rem;
+  letter-spacing:4px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:.75rem;
+}
+.section-title{
+  font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.8rem);
+  line-height:1.2;color:var(--text-primary);margin-bottom:1rem;
+}
+.section-desc{
+  font-size:1.1rem;font-weight:300;color:var(--text-secondary);
+  max-width:600px;line-height:1.8;
+}
+/* Decorative divider */
+.divider{
+  width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,165,84,.2),transparent);
+}
+
+/* ═══════════════════════════════════════════════════
+   FEATURES SECTION
+   ═══════════════════════════════════════════════════ */
+.features-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem;margin-top:3rem;
+}
+.feature-card{
+  position:relative;padding:2rem;
+  background:linear-gradient(145deg,rgba(26,26,46,.6),rgba(20,20,31,.4));
+  border:1px solid rgba(212,165,84,.08);
+  transition:all .4s;overflow:hidden;
+}
+.feature-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.feature-card:hover{
+  border-color:rgba(212,165,84,.2);
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(0,0,0,.4);
+}
+.feature-card:hover::before{opacity:1}
+.feature-icon{
+  width:48px;height:48px;margin-bottom:1.25rem;
+  display:grid;place-items:center;
+  background:rgba(212,165,84,.08);border:1px solid rgba(212,165,84,.15);
+  font-size:1.3rem;
+}
+.feature-card h3{
+  font-family:var(--font-display);font-size:.85rem;
+  letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);
+  margin-bottom:.75rem;
+}
+.feature-card p{
+  font-size:.95rem;color:var(--text-secondary);line-height:1.7;font-weight:300;
+}
+
+/* ═══════════════════════════════════════════════════
+   SHOWCASE / PREVIEW SECTION
+   ═══════════════════════════════════════════════════ */
+.showcase{
+  background:linear-gradient(180deg,var(--ink) 0%,var(--ink-light) 50%,var(--ink) 100%);
+}
+.showcase-frame{
+  margin-top:3rem;position:relative;
+  border:1px solid rgba(212,165,84,.15);
+  background:var(--ink-mid);overflow:hidden;
+  aspect-ratio:16/9;
+}
+.showcase-frame::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,rgba(212,165,84,.03),transparent 60%);
+  pointer-events:none;
+}
+.showcase-inner{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;
+  background:linear-gradient(180deg,#0c0c14,#0f0f1a);
+  position:relative;overflow:hidden;
+}
+/* Mock UI inside showcase */
+.mock-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.75rem 1.5rem;
+  background:rgba(0,0,0,.4);border-bottom:1px solid rgba(212,165,84,.1);
+}
+.mock-nav-brand{font-family:var(--font-display);font-size:.55rem;color:var(--gold);letter-spacing:2px}
+.mock-tabs{display:flex;gap:1rem}
+.mock-tab{font-size:.55rem;color:var(--text-secondary);letter-spacing:1px;padding:.25rem .5rem}
+.mock-tab.active{color:var(--gold);border-bottom:1px solid var(--gold)}
+.mock-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1.5rem}
+.mock-stats{display:flex;flex-direction:column;gap:.75rem}
+.mock-stat-card{
+  padding:.75rem 1rem;background:rgba(212,165,84,.04);
+  border:1px solid rgba(212,165,84,.08);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.mock-stat-label{font-size:.6rem;color:var(--text-secondary);letter-spacing:1px;text-transform:uppercase}
+.mock-stat-value{font-family:var(--font-display);font-size:1rem;color:var(--gold-light)}
+.mock-stat-change{font-size:.55rem;padding:.15rem .4rem;border-radius:2px}
+.mock-stat-change.up{color:#4ade80;background:rgba(74,222,128,.1)}
+.mock-stat-change.down{color:#f87171;background:rgba(248,113,113,.1)}
+.mock-chart{
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  border:1px solid rgba(212,165,84,.08);background:rgba(0,0,0,.2);padding:1rem;
+}
+.mock-dps-ring{position:relative;width:140px;height:140px}
+.mock-dps-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.mock-dps-ring circle{fill:none;stroke-linecap:round}
+.mock-dps-ring .bg{stroke:rgba(212,165,84,.1);stroke-width:8}
+.mock-dps-ring .progress{
+  stroke:url(#mockGrad);stroke-width:8;
+  stroke-dasharray:377;stroke-dashoffset:100;
+  transition:stroke-dashoffset 2s ease-out;
+}
+.mock-dps-center{
+  position:absolute;inset:0;display:grid;place-items:center;
+  text-align:center;
+}
+.mock-dps-val{font-family:var(--font-display);font-size:1.4rem;color:var(--gold-light)}
+.mock-dps-label{font-size:.5rem;color:var(--text-secondary);letter-spacing:2px;text-transform:uppercase}
+
+/* Badge overlay */
+.showcase-badge{
+  position:absolute;bottom:1.5rem;left:1.5rem;z-index:2;
+  padding:.5rem 1rem;
+  background:rgba(10,10,15,.85);border:1px solid rgba(212,165,84,.2);
+  backdrop-filter:blur(8px);
+  font-family:var(--font-display);font-size:.6rem;
+  letter-spacing:2px;color:var(--gold);text-transform:uppercase;
+}
+
+/* ═══════════════════════════════════════════════════
+   TECH STACK
+   ═══════════════════════════════════════════════════ */
+.tech-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:1rem;margin-top:3rem;
+}
+.tech-item{
+  padding:1.5rem 1rem;text-align:center;
+  background:rgba(26,26,46,.4);border:1px solid rgba(212,165,84,.06);
+  transition:all .3s;
+}
+.tech-item:hover{
+  border-color:rgba(212,165,84,.2);
+  background:rgba(26,26,46,.7);
+}
+.tech-item .tech-icon{font-size:1.8rem;margin-bottom:.5rem}
+.tech-item .tech-name{
+  font-family:var(--font-display);font-size:.6rem;
+  letter-spacing:2px;text-transform:uppercase;color:var(--gold);
+}
+.tech-item .tech-ver{font-size:.75rem;color:var(--text-secondary);margin-top:.25rem}
+
+/* ═══════════════════════════════════════════════════
+   WEAPONS SECTION (horizontal scroll)
+   ═══════════════════════════════════════════════════ */
+.weapons{overflow:hidden}
+.weapons-track{
+  display:flex;gap:2rem;margin-top:3rem;
+  animation:weaponsScroll 30s linear infinite;
+}
+@keyframes weaponsScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.weapon-card{
+  flex:0 0 200px;padding:1.5rem;text-align:center;
+  background:linear-gradient(180deg,rgba(26,26,46,.5),rgba(20,20,31,.3));
+  border:1px solid rgba(212,165,84,.08);
+}
+.weapon-card .weapon-sym{font-size:2rem;margin-bottom:.75rem}
+.weapon-card h4{
+  font-family:var(--font-cn);font-size:.95rem;color:var(--gold-light);
+  margin-bottom:.25rem;
+}
+.weapon-card span{font-size:.7rem;color:var(--text-secondary);letter-spacing:1px}
+
+/* ═══════════════════════════════════════════════════
+   STATS COUNTERS
+   ═══════════════════════════════════════════════════ */
+.stats-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
+  margin-top:3rem;text-align:center;
+}
+.stat-block .stat-number{
+  font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);
+  color:var(--gold-light);line-height:1;
+}
+.stat-block .stat-label{
+  font-size:.7rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-secondary);margin-top:.5rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════════════════ */
+.cta{text-align:center}
+.cta-box{
+  position:relative;padding:4rem 2rem;
+  border:1px solid rgba(212,165,84,.1);
+  background:
+    radial-gradient(ellipse at center, rgba(212,165,84,.04) 0%, transparent 70%),
+    rgba(14,14,22,.6);
+  overflow:hidden;
+}
+.cta-box::before,.cta-box::after{
+  content:'';position:absolute;width:200px;height:200px;
+  border:1px solid rgba(212,165,84,.06);border-radius:50%;
+}
+.cta-box::before{top:-100px;left:-100px}
+.cta-box::after{bottom:-100px;right:-100px}
+.cta h2{
+  font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.5rem);
+  margin-bottom:1rem;
+}
+.cta p{font-size:1.05rem;color:var(--text-secondary);margin-bottom:2rem;max-width:500px;margin-inline:auto}
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════ */
+footer{
+  padding:3rem 2rem;text-align:center;
+  border-top:1px solid rgba(212,165,84,.08);
+}
+footer p{font-size:.8rem;color:var(--text-secondary)}
+footer .footer-links{
+  display:flex;gap:2rem;justify-content:center;margin-bottom:1.5rem;
+}
+footer .footer-links a{
+  font-size:.75rem;letter-spacing:1px;color:var(--text-secondary);
+}
+footer .footer-links a:hover{color:var(--gold)}
+.footer-brand{
+  font-family:var(--font-cn);font-size:1.2rem;color:rgba(212,165,84,.3);
+  letter-spacing:6px;margin-bottom:1rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════ */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s ease-out}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════ */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .mock-body{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+  .features-grid{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- PARTICLES -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-logo">武</div>
+      <span class="nav-title">WWM Calculator</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#preview">Preview</a></li>
+      <li><a href="#tech">Stack</a></li>
+      <li><a href="#weapons">Weapons</a></li>
+    </ul>
+    <a href="https://github.com/" target="_blank" class="nav-cta">GitHub ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-mountains"></div>
+  <div class="hero-mist"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span>Open Source — Theory Crafting Tool</span>
+    </div>
+    <p class="hero-chinese">逆水寒 · 武学计算器</p>
+    <h1>
+      Where Winds Meet
+      <span class="accent">Ultimate Calculator</span>
+    </h1>
+    <p class="hero-desc">
+      Master the art of Wuxia combat through data. Calculate DPS, compare gear, 
+      simulate rotations, and refine your martial arts build with precision.
+    </p>
+    <div class="hero-actions">
+      <a href="#preview" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Launch Calculator
+      </a>
+      <a href="#features" class="btn btn-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Explore Features
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="divider"></div>
+<section id="features">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Core Capabilities</p>
+      <h2 class="section-title">Forge Your Perfect Build</h2>
+      <p class="section-desc">
+        Every stat, every modifier, every rotation — calculated with mathematical precision 
+        rooted in the game's true combat formulas.
+      </p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">⚔️</div>
+        <h3>DPS Simulation</h3>
+        <p>Full rotation-based DPS calculation with critical hit, affinity, and multiplier stacking. 
+           Simulates real combat scenarios with frame-accurate timing.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🛡️</div>
+        <h3>Gear Comparison</h3>
+        <p>Side-by-side armor comparison with live stat deltas. Instantly see how swapping 
+           a single piece affects your entire build's performance.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📊</div>
+        <h3>Stat Breakdown</h3>
+        <p>Deep dive into every modifier: base attack, crit rate, crit damage, affinity, 
+           penetration, and elemental bonuses — all visualized.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🎯</div>
+        <h3>Build Optimizer</h3>
+        <p>Automatic suggestions for stat allocation based on your weapon type, 
+           inner ways, and preferred playstyle. Min-max with confidence.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🌀</div>
+        <h3>Inner Ways & Skills</h3>
+        <p>Full integration of Inner Ways (内功) bonuses and skill trees. 
+           See how each path affects your total output in real-time.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🌏</div>
+        <h3>Multilingual Data</h3>
+        <p>Complete trilingual lexicon — Chinese (CN), English (EN), French (FR) — 
+           so every term matches your game client's language.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<div class="divider"></div>
+<section class="showcase" id="preview">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Interface Preview</p>
+      <h2 class="section-title">Designed for the Jianghu</h2>
+      <p class="section-desc">
+        A UI that honors the game's aesthetic — ink, gold, and the spirit of martial arts, 
+        wrapped in modern glassmorphism.
+      </p>
+    </div>
+    <div class="showcase-frame reveal">
+      <div class="showcase-inner">
+        <div class="mock-nav">
+          <span class="mock-nav-brand">⚔ WWM CALCULATOR</span>
+          <div class="mock-tabs">
+            <span class="mock-tab active">DPS</span>
+            <span class="mock-tab">Gear</span>
+            <span class="mock-tab">Skills</span>
+            <span class="mock-tab">Build</span>
+          </div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-stats">
+            <div class="mock-stat-card">
+              <div>
+                <div class="mock-stat-label">Attack Power</div>
+                <div class="mock-stat-value">12,847</div>
+              </div>
+              <span class="mock-stat-change up">▲ +342</span>
+            </div>
+            <div class="mock-stat-card">
+              <div>
+                <div class="mock-stat-label">Critical Rate</div>
+                <div class="mock-stat-value">47.3%</div>
+              </div>
+              <span class="mock-stat-change up">▲ +2.1%</span>
+            </div>
+            <div class="mock-stat-card">
+              <div>
+                <div class="mock-stat-label">Crit Damage</div>
+                <div class="mock-stat-value">186.5%</div>
+              </div>
+              <span class="mock-stat-change down">▼ -1.2%</span>
+            </div>
+            <div class="mock-stat-card">
+              <div>
+                <div class="mock-stat-label">Penetration</div>
+                <div class="mock-stat-value">2,410</div>
+              </div>
+              <span class="mock-stat-change up">▲ +180</span>
+            </div>
+          </div>
+          <div class="mock-chart">
+            <div class="mock-dps-ring">
+              <svg viewBox="0 0 140 140">
+                <defs>
+                  <linearGradient id="mockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#e8c882"/>
+                    <stop offset="100%" stop-color="#a67c3d"/>
+                  </linearGradient>
+                </defs>
+                <circle class="bg" cx="70" cy="70" r="60"/>
+                <circle class="progress" cx="70" cy="70" r="60"/>
+              </svg>
+              <div class="mock-dps-center">
+                <div class="mock-dps-val">7,138</div>
+                <div class="mock-dps-label">DPS Score</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-badge">✦ Live Preview — v1.0</div>
+    </div>
+  </div>
+</section>
+
+<!-- WEAPONS CAROUSEL -->
+<div class="divider"></div>
+<section class="weapons" id="weapons">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Supported Weapons</p>
+      <h2 class="section-title">Every Blade, Every Style</h2>
+      <p class="section-desc">All weapon types with their unique scaling, combos, and skill interactions.</p>
+    </div>
+    <div class="weapons-track" aria-hidden="true">
+      <div class="weapon-card"><div class="weapon-sym">🗡️</div><h4>剑 · Sword</h4><span>Balanced — Versatile</span></div>
+      <div class="weapon-card"><div class="weapon-sym">⚔️</div><h4>双刀 · Dual Blades</h4><span>Fast — Aggressive</span></div>
+      <div class="weapon-card"><div class="weapon-sym">🔱</div><h4>枪 · Spear</h4><span>Range — Control</span></div>
+      <div class="weapon-card"><div class="weapon-sym">🪭</div><h4>扇 · Fan</h4><span>Mystic — Support</span></div>
+      <div class="weapon-card"><div class="weapon-sym">☂️</div><h4>伞 · Umbrella</h4><span>Defense — Counter</span></div>
+      <div class="weapon-card"><div class="weapon-sym">⛓️</div><h4>绳镖 · Rope Dart</h4><span>Agile — Precision</span></div>
+      <div class="weapon-card"><div class="weapon-sym">🏹</div><h4>弓 · Bow</h4><span>Ranged — Stealth</span></div>
+      <div class="weapon-card"><div class="weapon-sym">🔪</div><h4>陌刀 · Mo Blade</h4><span>Heavy — Devastation</span></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="weapon-card"><div class="weapon-sym">🗡️</div><h4>剑 · Sword</h4><span>Balanced — Versatile</span></div>
+      <div class="weapon-card"><div class="weapon-sym">⚔️</div><h4>双刀 · Dual Blades</h4><span>Fast — Aggressive</span></div>
+      <div class="weapon-card"><div class="weapon-sym">🔱</div><h4>枪 · Spear</h4><span>Range — Control</span></div>
+      <div class="weapon-card"><div class="weapon-sym">🪭</div><h4>扇 · Fan</h4><span>Mystic — Support</span></div>
+      <div class="weapon-card"><div class="weapon-sym">☂️</div><h4>伞 · Umbrella</h4><span>Defense — Counter</span></div>
+      <div class="weapon-card"><div class="weapon-sym">⛓️</div><h4>绳镖 · Rope Dart</h4><span>Agile — Precision</span></div>
+      <div class="weapon-card"><div class="weapon-sym">🏹</div><h4>弓 · Bow</h4><span>Ranged — Stealth</span></div>
+      <div class="weapon-card"><div class="weapon-sym">🔪</div><h4>陌刀 · Mo Blade</h4><span>Heavy — Devastation</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<div class="divider"></div>
+<section id="tech">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Built With</p>
+      <h2 class="section-title">Modern Architecture</h2>
+      <p class="section-desc">Production-grade stack for performance, type safety, and developer experience.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-item reveal"><div class="tech-icon">⚡</div><div class="tech-name">Next.js</div><div class="tech-ver">v16 App Router</div></div>
+      <div class="tech-item reveal"><div class="tech-icon">⚛️</div><div class="tech-name">React</div><div class="tech-ver">v19 + RSC</div></div>
+      <div class="tech-item reveal"><div class="tech-icon">🔷</div><div class="tech-name">TypeScript</div><div class="tech-ver">Strict Mode</div></div>
+      <div class="tech-item reveal"><div class="tech-icon">🎨</div><div class="tech-name">Tailwind</div><div class="tech-ver">v4 + shadcn/ui</div></div>
+      <div class="tech-item reveal"><div class="tech-icon">🗄️</div><div class="tech-name">Supabase</div><div class="tech-ver">Auth + DB</div></div>
+      <div class="tech-item reveal"><div class="tech-icon">📐</div><div class="tech-name">Zod</div><div class="tech-ver">Schema Validation</div></div>
+      <div class="tech-item reveal"><div class="tech-icon">🧪</div><div class="tech-name">Vitest</div><div class="tech-ver">Unit + E2E</div></div>
+      <div class="tech-item reveal"><div class="tech-icon">🚀</div><div class="tech-name">Vercel</div><div class="tech-ver">Edge Deploy</div></div>
+    </div>
+
+    <!-- Stats counters -->
+    <div class="stats-row reveal" style="margin-top:4rem">
+      <div class="stat-block">
+        <div class="stat-number" data-target="8">0</div>
+        <div class="stat-label">Weapon Types</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number" data-target="40">0</div>
+        <div class="stat-label">Martial Arts</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number" data-target="3">0</div>
+        <div class="stat-label">Languages</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-label">% Free & Open</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="divider"></div>
+<section class="cta">
+  <div class="section-inner">
+    <div class="cta-box reveal">
+      <p class="section-label">Join the Jianghu</p>
+      <h2 class="section-title">Ready to Master Your Build?</h2>
+      <p>
+        Whether you're a solo swordsman or a guild strategist, 
+        this calculator is your path to martial perfection.
+      </p>
+      <div class="hero-actions">
+        <a href="https://github.com/" target="_blank" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.723-1.333-1.723-1.089-.731.083-.716.083-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56C20.565 21.917 24 17.495 24 12.292 24 5.78 18.627.5 12 .5z"/></svg>
+          View on GitHub
+        </a>
+        <a href="#" class="btn btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Docs
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">逆水寒 · 武学</div>
+  <div class="footer-links">
+    <a href="#">GitHub</a>
+    <a href="#">Discord</a>
+    <a href="#">Wiki</a>
+    <a href="#">Changelog</a>
+  </div>
+  <p>WWM Ultimate Calculator — Open Source Project by AIAA Agency</p>
+  <p style="margin-top:.5rem;font-size:.7rem;color:rgba(200,195,185,.3)">
+    Not affiliated with NetEase Games or Everstone Studio. Fan-made tool.
+  </p>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   PARTICLE SYSTEM — Cherry blossoms / ink particles
+   ═══════════════════════════════════════════════════ */
+(function(){
+  const c=document.getElementById('particles-canvas');
+  const ctx=c.getContext('2d');
+  let w,h,particles=[];
+  function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}
+  resize();window.addEventListener('resize',resize);
+
+  class Particle{
+    constructor(){this.reset()}
+    reset(){
+      this.x=Math.random()*w;
+      this.y=Math.random()*h-h;
+      this.size=Math.random()*3+1;
+      this.speedY=Math.random()*.3+.1;
+      this.speedX=(Math.random()-.5)*.4;
+      this.opacity=Math.random()*.4+.1;
+      this.wobble=Math.random()*Math.PI*2;
+      this.wobbleSpeed=Math.random()*.02+.005;
+      // Gold or white
+      this.color=Math.random()>.7
+        ?`rgba(212,165,84,${this.opacity})`
+        :`rgba(200,195,185,${this.opacity*.4})`;
+    }
+    update(){
+      this.wobble+=this.wobbleSpeed;
+      this.x+=this.speedX+Math.sin(this.wobble)*.3;
+      this.y+=this.speedY;
+      if(this.y>h+10)this.reset();
+    }
+    draw(){
+      ctx.beginPath();
+      ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+      ctx.fillStyle=this.color;
+      ctx.fill();
+    }
+  }
+  for(let i=0;i<60;i++)particles.push(new Particle());
+  function animate(){
+    ctx.clearRect(0,0,w,h);
+    particles.forEach(p=>{p.update();p.draw()});
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+/* ═══════════════════════════════════════════════════
+   NAV SCROLL
+   ═══════════════════════════════════════════════════ */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>80);
+});
+
+/* ═══════════════════════════════════════════════════
+   REVEAL ON SCROLL (IntersectionObserver)
+   ═══════════════════════════════════════════════════ */
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      // Counter animation
+      if(e.target.querySelector('[data-target]')){
+        e.target.querySelectorAll('[data-target]').forEach(el=>{
+          const target=+el.dataset.target;
+          let current=0;
+          const step=Math.max(1,Math.floor(target/40));
+          const timer=setInterval(()=>{
+            current+=step;
+            if(current>=target){current=target;clearInterval(timer)}
+            el.textContent=current+(target===100?'%':'+');
+          },30);
+        });
+      }
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ═══════════════════════════════════════════════════
+   MOCK DPS RING ANIMATION
+   ═══════════════════════════════════════════════════ */
+const ringObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const prog=e.target.querySelector('.progress');
+      if(prog)prog.style.strokeDashoffset='100';
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('.showcase-frame').forEach(el=>ringObs.observe(el));
+</script>
+</body>
+</html>
