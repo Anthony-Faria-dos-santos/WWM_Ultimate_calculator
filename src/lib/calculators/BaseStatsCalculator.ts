@@ -156,7 +156,7 @@ export class BaseStatsCalculator {
  stats: CharacterBaseStats,
  buffs: readonly ActiveBuff[]
  ): CharacterBaseStats {
- let result: CharacterBaseStats = { ...stats };
+ const result: CharacterBaseStats = { ...stats };
 
  for (const buff of buffs) {
  const currentValue = result[buff.stat];
