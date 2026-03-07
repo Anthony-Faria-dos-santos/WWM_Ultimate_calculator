@@ -40,12 +40,52 @@
 
   "packageRules": [
     {
-      "description": "Bloquer toutes les mises à jour MAJOR (breaking) par défaut",
+      "description": "Bloquer toutes les mises à jour MAJOR (breaking) par défaut — visible dans le dashboard uniquement",
       "matchUpdateTypes": [
         "major"
       ],
       "enabled": false,
       "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Alertes de sécurité MAJEURES : PR créée mais exige approbation + documentation des breaking changes",
+      "isVulnerabilityAlert": true,
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": true,
+      "dependencyDashboardApproval": true,
+      "labels": [
+        "dependencies",
+        "security",
+        "breaking-change"
+      ],
+      "prBodyNotes": [
+        "🔴 **ALERTE SÉCURITÉ — Mise à jour MAJEURE requise**",
+        "",
+        "Cette PR corrige une vulnérabilité mais introduit des **breaking changes**.",
+        "",
+        "**Avant de merger, vérifier :**",
+        "1. Les release notes et le changelog de la nouvelle version",
+        "2. Les breaking changes listés et leur impact sur le code existant",
+        "3. Que les tests passent (CI verte)",
+        "4. Tester manuellement si la dépendance touche au runtime",
+        "",
+        "**Ne PAS merger sans avoir vérifié la compatibilité.**"
+      ]
+    },
+    {
+      "description": "Alertes de sécurité minor/patch : PR créée sans approbation (correctif non-breaking)",
+      "isVulnerabilityAlert": true,
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "enabled": true,
+      "labels": [
+        "dependencies",
+        "security"
+      ]
     },
     {
       "description": "Dépendances de production : groupement des minor/patch avec délai de stabilité",
@@ -115,14 +155,36 @@
       ]
     },
     {
-      "description": "Tailwind CSS : migrations majeures bloquées par défaut (v3→v4, etc.)",
+      "description": "Next.js : verrouillé sur v16.x",
+      "matchPackageNames": [
+        "next"
+      ],
+      "allowedVersions": "^16.0.0",
+      "dependencyDashboardApproval": true,
+      "prBodyNotes": [
+        "⚠️ Migration majeure Next.js détectée.",
+        "Vérifier la compatibilité App Router, RSC, middleware avant de merger."
+      ]
+    },
+    {
+      "description": "React : verrouillé sur v19.x",
+      "matchPackageNames": [
+        "react",
+        "react-dom"
+      ],
+      "allowedVersions": "^19.0.0",
+      "dependencyDashboardApproval": true,
+      "prBodyNotes": [
+        "⚠️ Migration majeure React détectée.",
+        "Vérifier les breaking changes hooks, RSC, et la compatibilité Next.js."
+      ]
+    },
+    {
+      "description": "Tailwind CSS : verrouillé sur v3.x (v4 = refonte architecturale)",
       "matchPackageNames": [
         "tailwindcss"
       ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "enabled": false,
+      "allowedVersions": "^3.0.0",
       "dependencyDashboardApproval": true,
       "prBodyNotes": [
         "⚠️ Migration majeure Tailwind CSS détectée.",
@@ -131,7 +193,54 @@
       ]
     },
     {
-      "description": "Node.js et @types/node : rester sur la LTS ciblée (22.x) et surveiller les majors via le dashboard",
+      "description": "ESLint : verrouillé sur v9.x (v10 = peer deps cassées avec l'écosystème Next.js)",
+      "matchPackageNames": [
+        "eslint"
+      ],
+      "allowedVersions": "^9.0.0",
+      "dependencyDashboardApproval": true,
+      "prBodyNotes": [
+        "⚠️ ESLint 10+ n'est pas supporté par eslint-config-next, eslint-plugin-react.",
+        "Attendre le support officiel avant de migrer."
+      ]
+    },
+    {
+      "description": "Prisma : verrouillé sur v7.x (migrations DB sensibles)",
+      "matchPackageNames": [
+        "prisma",
+        "@prisma/client",
+        "@prisma/adapter-pg"
+      ],
+      "allowedVersions": "^7.0.0",
+      "dependencyDashboardApproval": true,
+      "prBodyNotes": [
+        "⚠️ Migration majeure Prisma détectée.",
+        "Vérifier : compatibilité driver adapter, migrations DB, client API changes."
+      ]
+    },
+    {
+      "description": "TypeScript : verrouillé sur v5.x",
+      "matchPackageNames": [
+        "typescript"
+      ],
+      "allowedVersions": "^5.0.0",
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Vitest : verrouillé sur v3.x (412 tests, migration risquée)",
+      "matchPackageNames": [
+        "vitest",
+        "@vitest/coverage-v8"
+      ],
+      "allowedVersions": "^3.0.0",
+      "dependencyDashboardApproval": true,
+      "prBodyNotes": [
+        "⚠️ Migration majeure Vitest détectée.",
+        "Vérifier que les 412+ tests passent après la mise à jour."
+      ]
+    },
+    {
+      "description": "Node.js et @types/node : rester sur la LTS ciblée (22.x)",
       "matchPackageNames": [
         "node",
         "@types/node"
@@ -140,13 +249,13 @@
       "dependencyDashboardApproval": true,
       "prBodyNotes": [
         "ℹ️ Vérifier la compatibilité Node.js actuelle du projet avant de merger.",
-        "Si mise à jour majeure ou changement de LTS : s’assurer que la stack (CI, hébergeur, runtime) supporte cette version."
+        "Si mise à jour majeure ou changement de LTS : s'assurer que la stack (CI, hébergeur, runtime) supporte cette version."
       ]
     }
   ],
 
   "dependencyDashboardTitle": "🔄 Dependency Updates Dashboard",
-  "dependencyDashboardHeader": "Cette issue liste toutes les mises à jour disponibles. Les mises à jour majeures (breaking changes) nécessitent une approbation manuelle via ce dashboard.",
+  "dependencyDashboardHeader": "Cette issue liste toutes les mises à jour disponibles.\n\n**Règles en vigueur :**\n- ✅ Minor/patch : PR auto (groupées, avec délai de stabilité)\n- 🔒 Majeures : bloquées, visibles ici uniquement\n- 🔴 Vulnérabilités majeures : PR créée mais exige approbation manuelle + vérification des breaking changes\n- 📌 Packages verrouillés : next, react, tailwindcss, eslint, prisma, typescript, vitest, node",
 
   "postUpdateOptions": [
     "pnpmDedupe"
