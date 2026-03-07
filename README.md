@@ -19,7 +19,9 @@ Développé pour la guilde **MoonKnights** — Serveur Global OW12
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Prisma](https://img.shields.io/badge/Prisma-7-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Vitest](https://img.shields.io/badge/Tests-412%20pass-6E9F18?style=flat-square&logo=vitest)](https://vitest.dev/)
+[![ESLint](https://img.shields.io/badge/ESLint-9-4B32C3?style=flat-square&logo=eslint)](https://eslint.org/)
 [![License: BSL 1.1](https://img.shields.io/badge/License-BSL_1.1-orange?style=flat-square)](https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/blob/main/LICENSE)
 [![pnpm](https://img.shields.io/badge/pnpm-10.30-F69220?style=flat-square&logo=pnpm)](https://pnpm.io/)
 
@@ -34,7 +36,8 @@ Développé pour la guilde **MoonKnights** — Serveur Global OW12
 - [Architecture](#architecture)
 - [Modèle de données](#modèle-de-données)
 - [Système de calcul](#système-de-calcul)
-- [Journal de développement](#journal-de-développement)
+- [Journal de developpement](#journal-de-developpement)
+- [Securisation et CI/CD](#securisation-et-cicd)
 - [Progression](#progression)
 - [Installation](#installation)
 - [Scripts](#scripts)
@@ -211,67 +214,29 @@ Le `SimulationService` complète ce pipeline avec une simulation Monte Carlo (N 
 
 ---
 
-## Journal de développement
+## Journal de developpement
 
-Ce journal retrace les décisions techniques prises au fil des phases.
+Le journal complet des decisions techniques, erreurs et decouvertes est tenu dans le wiki :
 
-### Phase 1 — Core Backend
+**[Journal de Dev (wiki)](https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/wiki/Journal-de-Dev)**
 
-**Décision : structure plate pour les calculateurs.** Plutôt que d'organiser par sous-dossier, tout est à plat dans `src/lib/calculators/`. Avec 17 fichiers, la navigation reste gérable et les imports sont directs. Un barrel `index.ts` expose tout.
+Il couvre les choix d'architecture, les bugs rencontres, les erreurs et les lecons tirees depuis le debut du projet.
 
-**Découverte : le modèle 9 zones.** La documentation initiale partait sur 6 catégories de bonus. En croisant les sources CN (NGA forums, calculatrice Excel yoka), le modèle réel s'est avéré être 9 zones multiplicatives distinctes. Cette découverte a entraîné un refactor complet du `BonusMultiplierCalculator` (Phase 1.11) et l'ajout d'un enum `DamageZone`.
+---
 
-**Erreur corrigée : affinité.** La valeur de base était initialement codée à 1.20 (20%). La valeur réelle est **1.35 (35%)**, l'affinité utilise toujours l'ATK Max, et le coup d'affinité est **mutuellement exclusif** avec le critique. Corrections issues de vérifications croisées (NGA, Bilibili, tests in-game communautaires).
+## Securisation et CI/CD
 
-**Compression affinité-prioritaire.** Quand `crit + affinité > 100%`, l'affinité conserve sa valeur pleine et c'est le critique qui est compressé. Implémenté dans `normalizeCombinedRates.ts`.
+Le repository est protege par plusieurs couches complementaires. Le detail complet des politiques, decisions et incidents est documente dans le wiki :
 
-### Phase 2 — Services & DPS
+**[Watchdog (wiki)](https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/wiki/FR-%E2%80%90-Watchdog)**
 
-**Façade mince.** `CombatService` ne contient aucune logique de calcul propre. Il orchestre les 17 calculateurs via `calculateWithFullBuild()`. Chaque calculateur reste testable indépendamment.
+En resume :
 
-**BonusZoneRouter.** Dispatch chaque bonus vers la bonne destination : `PreCombatStatsModifier` pour les stats, `BonusMultiplierCalculator` pour les zones. Les stat modifiers de sets ne passent jamais par le router.
-
-**Ordre PreCombat :** sets flat → sets % → talents BaseStats. Les bonus flat s'appliquent avant les pourcentages, les talents en dernier.
-
-**SimulationService : Monte Carlo.** Simulation N itérations pour valider l'espérance calculée. La moyenne simulée converge vers l'espérance — test de cohérence intégré.
-
-### Phase 3 — Database & API
-
-**Prisma 6 → 7.** Prisma 7 exige un driver adapter (`@prisma/adapter-pg`). Singleton avec cache global dans `src/lib/db/client.ts`.
-
-**Zod 3 → 4.** En Zod 3, `.default("pve").optional()` ne fonctionne pas comme attendu. Zod 4 corrige ce comportement. Import via `import * as z from 'zod'`. 17 schémas migrés.
-
-**Contrat API explicite.** 7 interfaces dans `API.types.ts`, partagées entre backend et frontend.
-
-**Auth JWT + bcrypt.** Trois providers (Google, Discord, Credentials). `user.id` et `user.tier` injectés dans le token JWT.
-
-**88 tests ajoutés.** 56 validation Zod, 6 auth, 14 CRUD builds (mocks), 12 calculate (vrais services). Total : 412 tests, 27 fichiers.
-
-### Phase 4 — Frontend Integration (en cours)
-
-**Design system : mode sombre uniquement.** Fond sombre désaturé (`#0A0E14`), accents dorés (`#D4A853`) et jade (`#4ECDC4`). Tokens HSL dans `globals.css`. Trois polices : Cinzel (titres), Inter (body), JetBrains Mono (stats).
-
-**Stores Zustand.** `useCalculatorStore` (données personnage, résultats, comparaison) et `useUIStore` (sidebar, drawer, onglets mobile). Persistence localStorage via `zustand/persist`.
-
-**Hooks React Query.** `useCalculate` (mutations 6 endpoints), `useBuilds` (queries CRUD avec pagination). Découplage logique serveur / state local.
-
-### Sécurisation du repository
-
-**Migration de licence GPL v3 → BSL 1.1.** Pour protéger le projet contre une appropriation commerciale par des tiers tout en conservant l'accès libre pour un usage non-commercial, la licence a été changée de GPLv3 en Business Source License 1.1. Les contributions existantes et futures restent sous BSL 1.1.
-
-**Outillage de sécurité mis en place.** Trois outils complémentaires couvrent les vecteurs de risque principaux : **Dependabot** surveille les GitHub Actions pour les CVE sur les workflows CI ; **Renovate Bot** gère les mises à jour des dépendances npm/pnpm (PR automatiques, groupées par écosystème, avec fenêtre de fusion configurable) et verrouille les dépendances clés sur leur LTS cible (Node.js 22.x) ; **GitGuardian** scanne chaque commit pour détecter les secrets exposés accidentellement. La branche `main` est protégée (revue obligatoire).
-
-**Stratégie de dépendances.** Mises à jour MAJOR bloquées par défaut et visibles via le Dependency Dashboard. Node.js et `@types/node` verrouillés sur la LTS 22.x (downgrades autorisés pour réaligner le projet). Tailwind CSS v4 bloqué (migration architecturale majeure). Les mises à jour de sécurité sont traitées hors planning normal.
-
-**Workflows GitHub Actions.** Deux workflows ont été ajoutés : `codeql.yml` (analyse statique de sécurité du code TypeScript, déclenchement sur push/PR + scan hebdomadaire) et `ci.yml` (build et tests sur Node 20.x et 22.x, exécuté à chaque PR pour prévenir les régressions).
-
-**Fichiers de configuration de l'automatisation :**
-
-| Fichier | Outil | Rôle |
-|---|---|---|
-| `.github/dependabot.yml` | Dependabot | Surveille les GitHub Actions pour les vulnérabilités (CVE). Les dépendances npm/pnpm sont gérées par Renovate. |
-| `renovate.json` | Renovate Bot | Gère les mises à jour npm/pnpm uniquement (GitHub Actions délégué à Dependabot). PRs groupées, planning hebdomadaire (lundi avant 9h), LTS Node 22.x verrouillée, labels automatiques. |
-| `.github/workflows/ci.yml` | GitHub Actions | Pipeline CI : lint, type-check, tests et build sur Node 20.x et 22.x. Déclenché sur chaque push/PR vers `main`. |
+- **CI/CD :** Deux workflows GitHub Actions. `ci.yml` couvre `dev` et `main` (lint, type-check, tests, build). `release-gate.yml` sert de verrou supplementaire sur les PR `dev` vers `main`.
+- **Dependances :** Renovate gere les packages npm (PR vers `dev`, majeures bloquees, vulnerabilites documentees). Dependabot gere les GitHub Actions.
+- **Verrouillages :** 8 packages critiques verrouilles sur leur majeure actuelle (next, react, tailwindcss, eslint, prisma, typescript, vitest, node).
+- **Securite :** GitGuardian (secrets), CodeQL (analyse statique), `pnpm.overrides` (CVE sur deps transitives).
+- **Branches :** `main` et `dev` protegees (PR obligatoire, CI requise). PR automatiques ciblent `dev`, jamais `main`.
 
 ---
 
@@ -335,7 +300,7 @@ Ce journal retrace les décisions techniques prises au fil des phases.
 - [ ] Performance (code splitting, React Query caching)
 - [ ] SEO (metadata, OG images)
 - [ ] Tests E2E Playwright
-- [ ] CI/CD GitHub Actions
+- [x] CI/CD GitHub Actions
 - [ ] Déploiement Vercel + Railway
 
 > Pour la liste détaillée des tâches ouvertes aux contributions, voir [TODO.md](./TODO.md).
@@ -407,6 +372,7 @@ pnpm dev
 ```
 wwm-ultimate-calculator/
 ├── .github/
+│   ├── workflows/               # CI + Release Gate
 │   └── ISSUE_TEMPLATE/          # Bug report, feature request templates
 ├── prisma/
 │   ├── schema.prisma            # 6 modèles, 17 index
