@@ -259,7 +259,9 @@ Ce journal retrace les décisions techniques prises au fil des phases.
 
 **Migration de licence GPL v3 → BSL 1.1.** Pour protéger le projet contre une appropriation commerciale par des tiers tout en conservant l'accès libre pour un usage non-commercial, la licence a été changée de GPLv3 en Business Source License 1.1. Les contributions existantes et futures restent sous BSL 1.1.
 
-**Outillage de sécurité mis en place.** Trois outils complémentaires couvrent les vecteurs de risque principaux : **Dependabot** surveille les GitHub Actions pour les CVE sur les workflows CI ; **Renovate Bot** gère les mises à jour des dépendances npm/pnpm (PR automatiques, groupées par écosystème, avec fenêtre de fusion configurable) ; **GitGuardian** scanne chaque commit pour détecter les secrets exposés accidentellement. La branche `main` est protégée (revue obligatoire).
+**Outillage de sécurité mis en place.** Trois outils complémentaires couvrent les vecteurs de risque principaux : **Dependabot** surveille les GitHub Actions pour les CVE sur les workflows CI ; **Renovate Bot** gère les mises à jour des dépendances npm/pnpm (PR automatiques, groupées par écosystème, avec fenêtre de fusion configurable) et verrouille les dépendances clés sur leur LTS cible (Node.js 22.x) ; **GitGuardian** scanne chaque commit pour détecter les secrets exposés accidentellement. La branche `main` est protégée (revue obligatoire).
+
+**Stratégie de dépendances.** Mises à jour MAJOR bloquées par défaut et visibles via le Dependency Dashboard. Node.js et `@types/node` verrouillés sur la LTS 22.x (downgrades autorisés pour réaligner le projet). Tailwind CSS v4 bloqué (migration architecturale majeure). Les mises à jour de sécurité sont traitées hors planning normal.
 
 **Workflows GitHub Actions.** Deux workflows ont été ajoutés : `codeql.yml` (analyse statique de sécurité du code TypeScript, déclenchement sur push/PR + scan hebdomadaire) et `ci.yml` (build et tests sur Node 20.x et 22.x, exécuté à chaque PR pour prévenir les régressions).
 
@@ -268,9 +270,8 @@ Ce journal retrace les décisions techniques prises au fil des phases.
 | Fichier | Outil | Rôle |
 |---|---|---|
 | `.github/dependabot.yml` | Dependabot | Surveille les GitHub Actions pour les vulnérabilités (CVE). Les dépendances npm/pnpm sont gérées par Renovate. |
-| `renovate.json` | Renovate Bot | Gère les mises à jour npm/pnpm uniquement (GitHub Actions délégué à Dependabot). PRs groupées, planning hebdomadaire (lundi avant 9h), labels automatiques. |
+| `renovate.json` | Renovate Bot | Gère les mises à jour npm/pnpm uniquement (GitHub Actions délégué à Dependabot). PRs groupées, planning hebdomadaire (lundi avant 9h), LTS Node 22.x verrouillée, labels automatiques. |
 | `.github/workflows/ci.yml` | GitHub Actions | Pipeline CI : lint, type-check, tests et build sur Node 20.x et 22.x. Déclenché sur chaque push/PR vers `main`. |
-
 
 ---
 
@@ -541,3 +542,4 @@ Les issues labellisées `good first issue` et `help wanted` sont un bon point d'
 
 This project is licensed under the [Business Source License 1.1](./LICENSE).
 Copyright © 2026 Anthony Faria Dos Santos — all forks and derivative works must remain source-available and distributed under the same Business Source License 1.1 terms.
+
