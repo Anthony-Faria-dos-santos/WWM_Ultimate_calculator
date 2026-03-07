@@ -1,19 +1,150 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-          "config:recommended"
-    ],
-    "enabledManagers": ["npm"],
-    "schedule": ["before 9am on monday"],
-    "timezone": "Europe/Paris",
-    "labels": ["dependencies"],
-    "packageRules": [
-          {
-                  "description": "Group all npm/pnpm non-major updates to reduce PR noise",
-                  "matchManagers": ["npm"],
-                  "matchUpdateTypes": ["minor", "patch"],
-                  "groupName": "npm dependencies (non-major)",
-                  "automerge": false
-          }
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":timezone(Europe/Paris)"
+  ],
+
+  "enabledManagers": [
+    "npm"
+  ],
+
+  "schedule": [
+    "before 9am on monday"
+  ],
+
+  "labels": [
+    "dependencies"
+  ],
+
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "groupName": null,
+    "schedule": [],
+    "commitMessageSuffix": "[SECURITY]",
+    "labels": [
+      "dependencies",
+      "security"
     ]
+  },
+
+  "packageRules": [
+    {
+      "description": "Bloquer toutes les mises à jour MAJOR (breaking) par défaut",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": false,
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Dépendances de production : groupement des minor/patch avec délai de stabilité",
+      "matchDepTypes": [
+        "dependencies"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "production dependencies (non-major)",
+      "stabilityDays": 3,
+      "automerge": false,
+      "labels": [
+        "dependencies",
+        "production"
+      ]
+    },
+    {
+      "description": "Dépendances de dev : groupement des minor/patch avec délai réduit",
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "dev dependencies (non-major)",
+      "stabilityDays": 1,
+      "automerge": false,
+      "labels": [
+        "dependencies",
+        "dev"
+      ]
+    },
+    {
+      "description": "Types TypeScript : groupement des mises à jour non-majeures",
+      "matchPackagePatterns": [
+        "^@types/"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "typescript types (non-major)",
+      "automerge": false,
+      "labels": [
+        "dependencies",
+        "types"
+      ]
+    },
+    {
+      "description": "Ecosystème ESLint : groupement des mises à jour non-majeures",
+      "matchPackagePatterns": [
+        "^eslint",
+        "^@eslint"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "eslint ecosystem (non-major)",
+      "automerge": false,
+      "labels": [
+        "dependencies",
+        "linting"
+      ]
+    },
+    {
+      "description": "Tailwind CSS : migrations majeures bloquées par défaut (v3→v4, etc.)",
+      "matchPackageNames": [
+        "tailwindcss"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": false,
+      "dependencyDashboardApproval": true,
+      "prBodyNotes": [
+        "⚠️ Migration majeure Tailwind CSS détectée.",
+        "La v4 introduit des changements architecturaux importants.",
+        "Référence : https://tailwindcss.com/docs/upgrade-guide"
+      ]
+    },
+    {
+      "description": "Node.js et @types/node : rester sur la LTS ciblée (22.x) et surveiller les majors via le dashboard",
+      "matchPackageNames": [
+        "node",
+        "@types/node"
+      ],
+      "allowedVersions": "/^22\\./",
+      "dependencyDashboardApproval": true,
+      "prBodyNotes": [
+        "ℹ️ Vérifier la compatibilité Node.js actuelle du projet avant de merger.",
+        "Si mise à jour majeure ou changement de LTS : s’assurer que la stack (CI, hébergeur, runtime) supporte cette version."
+      ]
+    }
+  ],
+
+  "dependencyDashboardTitle": "🔄 Dependency Updates Dashboard",
+  "dependencyDashboardHeader": "Cette issue liste toutes les mises à jour disponibles. Les mises à jour majeures (breaking changes) nécessitent une approbation manuelle via ce dashboard.",
+
+  "postUpdateOptions": [
+    "pnpmDedupe"
+  ]
 }
