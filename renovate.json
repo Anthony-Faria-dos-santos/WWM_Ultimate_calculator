@@ -8,6 +8,10 @@
     ":timezone(Europe/Paris)"
   ],
 
+  "baseBranches": [
+    "dev"
+  ],
+
   "enabledManagers": [
     "npm"
   ],

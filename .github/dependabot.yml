@@ -39,6 +39,7 @@ updates:
   # ----------------------------------------------------------
   - package-ecosystem: "github-actions"
     directory: "/"
+    target-branch: "dev"
 
 
     # Planification : une fois par semaine
