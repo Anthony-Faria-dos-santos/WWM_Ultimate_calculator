@@ -1,22 +1,113 @@
-version: 2
-updates:
-  # Dependency update strategy:
-  #   - npm/pnpm packages → managed by Renovate Bot (see renovate.json)
-  #     Renovate groups non-major updates, applies a weekly schedule, and
-  #     labels PRs automatically, reducing noise compared to Dependabot.
-  #   - GitHub Actions → managed by Dependabot (below) for security alerts
-  #     on workflow dependencies (CVE tracking for actions/checkout, etc.).
+# ============================================================
+#  DEPENDABOT – CONFIG POUR GITHUB ACTIONS UNIQUEMENT
+#
+#  Objectifs :
+#    - Laisser Renovate gérer les dépendances applicatives (npm/pnpm)
+#    - Utiliser Dependabot seulement pour :
+#        * maintenir les GitHub Actions à jour
+#        * appliquer les mises à jour de sécurité sur les Actions
+#    - Éviter tout overlap entre les deux bots
+#
+#  Références :
+#    - Docs GitHub Dependabot version updates :
+#      https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
+#    - Docs GitHub Dependabot security updates :
+#      https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
+#    - Exemple officiel pour GitHub Actions :
+#      https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/keeping-your-actions-up-to-date-with-dependabot
+# ============================================================
 
-  # GitHub Actions — kept under Dependabot for security alerts
+
+version: 2
+
+
+updates:
+  # ----------------------------------------------------------
+  # 1) GitHub Actions – Mises à jour de version régulières
+  #
+  #  - package-ecosystem: "github-actions"
+  #    → Analyse les workflows dans .github/workflows
+  #  - directory: "/"
+  #    → Obligatoire pour GitHub Actions (doc GitHub)
+  #  - schedule:
+  #      interval: "weekly"
+  #      day/time/timezone : quand créer les PR
+  #
+  #  Ici, on garde un rythme hebdo cohérent avec Renovate,
+  #  mais on peut décaler le jour/heure si besoin pour ne
+  #  pas avoir toutes les PR le même matin.
+  # ----------------------------------------------------------
   - package-ecosystem: "github-actions"
     directory: "/"
+
+
+    # Planification : une fois par semaine
     schedule:
       interval: "weekly"
+      # Lundi à 09:00 heure de Paris (cohérent avec Renovate)
       day: "monday"
       time: "09:00"
       timezone: "Europe/Paris"
+
+
+    # Labels appliqués aux PR Dependabot sur les Actions
     labels:
       - "dependencies"
       - "github-actions"
+
+
+    # Préfixe des messages de commit pour clarifier l’intention
     commit-message:
       prefix: "ci"
+      # Exemple de commit :
+      # "ci: bump actions/checkout from v4.1.0 to v4.2.0"
+
+
+    # Optionnel : limiter le nombre de PR ouvertes simultanément
+    # pour éviter le bruit si tu as beaucoup de workflows.
+    # open-pull-requests-limit: 5
+
+
+    # Optionnel : tu peux ignorer certaines actions si tu veux
+    # garder une version précise (self-hosted runner, etc.).
+    # ignore:
+    #   - dependency-name: "actions/checkout"
+    #   - dependency-name: "actions/setup-node"
+
+
+  # ----------------------------------------------------------
+  # 2) (Optionnel) Autres écosystèmes gérés par Dependabot
+  #
+  #  IMPORTANT :
+  #   - Pour éviter les conflits avec Renovate, on NE configure
+  #     PAS ici npm/pnpm, Docker, etc.
+  #   - Si un jour tu veux que Dependabot gère un autre type
+  #     de dépendance, ajoute un bloc séparé et documente bien
+  #     la séparation des rôles.
+  #
+  #  Exemple (commenté) pour npm, à NE PAS ACTIVER tant que
+  #  Renovate gère déjà npm :
+  #
+  #  - package-ecosystem: "npm"
+  #    directory: "/"
+  #    schedule:
+  #      interval: "weekly"
+  #    labels:
+  #      - "npm dependencies"
+  #
+  # ----------------------------------------------------------
+  # 3) Sécurité : Dependabot security updates
+  #
+  #  Les mises à jour de sécurité pour GitHub Actions sont
+  #  principalement configurées dans les settings du repo
+  #  (onglet Settings > Security > Dependabot security updates).
+  #
+  #  Ce fichier n’active pas directement les security updates,
+  #  mais il est compatible avec :
+  #    - Les alertes de sécurité GitHub Actions
+  #    - Les PR auto de patch sur les Actions vulnérables
+  #      lorsque "Dependabot security updates" est activé.
+  #
+  #  Voir :
+  #    https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
+  # ----------------------------------------------------------
