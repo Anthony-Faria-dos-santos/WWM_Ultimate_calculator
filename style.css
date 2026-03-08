@@ -252,19 +252,21 @@ footer p{font-size:.7rem;color:var(--text-muted)}
 .ai-card p{font-size:.85rem;color:var(--text-secondary);line-height:1.65;font-weight:300}
 
 /* ═══════════════════════════════════════════
-   MOONKNIGHT SECTION
+   MOONKNIGHT SECTION — THREE.JS + METALLIC
    ═══════════════════════════════════════════ */
-.moon-section{position:relative;overflow:hidden;padding:6rem 0}
-.moon-scene{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-height:50vh}
-.moon-glow{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(245,240,224,.06) 0%,rgba(232,220,200,.02) 40%,transparent 70%);animation:moonGlowPulse 6s ease-in-out infinite;pointer-events:none}
-@keyframes moonGlowPulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
-.moon-svg{position:relative;z-index:1;filter:drop-shadow(0 0 40px rgba(245,240,224,.12)) drop-shadow(0 0 80px rgba(232,220,200,.06));opacity:0;transform:scale(.85);transition:opacity 1.2s ease-out,transform 1.2s ease-out}
-.moon-section.moon-visible .moon-svg{opacity:1;transform:scale(1)}
-.moon-text{text-align:center;margin-top:2.5rem;position:relative;z-index:1}
-.moon-quote{font-family:var(--font-display);font-size:clamp(1.1rem,2.2vw,1.7rem);color:var(--text-primary);letter-spacing:3px;font-weight:400;opacity:0;transform:translateY(15px);transition:opacity .8s ease-out .4s,transform .8s ease-out .4s}
-.moon-guild{font-family:var(--font-body);font-size:clamp(.8rem,1.2vw,1rem);color:var(--gold-dark);letter-spacing:4px;text-transform:uppercase;margin-top:.8rem;opacity:0;transform:translateY(15px);transition:opacity .8s ease-out .8s,transform .8s ease-out .8s}
+.moon-section{position:relative;overflow:hidden;padding:4rem 0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(30,35,45,.4),var(--ink))}
+.moon-scene{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-height:60vh}
+#moon-canvas-wrap{position:relative;width:320px;height:320px;z-index:1}
+#moon-canvas-wrap canvas{display:block;width:100%!important;height:100%!important}
+.moon-section.moon-visible #moon-canvas-wrap{opacity:1}
+.moon-text{text-align:center;margin-top:1.5rem;position:relative;z-index:2}
+.moon-quote{font-family:var(--font-body);font-size:clamp(1rem,2vw,1.5rem);font-style:italic;font-weight:300;color:rgba(220,215,205,.7);letter-spacing:2px;opacity:0;transform:translateY(12px);transition:opacity 1s ease-out .5s,transform 1s ease-out .5s}
+.moon-guild{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.8rem);font-weight:900;letter-spacing:6px;text-transform:uppercase;margin-top:1rem;line-height:1;opacity:0;transform:translateY(12px);transition:opacity 1s ease-out .9s,transform 1s ease-out .9s;background:linear-gradient(180deg,#f0f0f0 0%,#e0e0e8 15%,#b8bcc8 30%,#f8f8ff 45%,#a8adb8 55%,#d0d4e0 70%,#e8e8f0 85%,#c0c4d0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6)) drop-shadow(0 0 20px rgba(180,190,210,.1))}
+.mk-highlight{background:linear-gradient(180deg,#ffffff 0%,#d8dce8 20%,#b0b8c8 40%,#f0f0ff 50%,#a0a8b8 60%,#c8ccd8 80%,#e0e4f0 100%);-webkit-background-clip:text;background-clip:text}
+.moon-sub{font-family:var(--font-display);font-size:clamp(.6rem,1.2vw,.85rem);color:rgba(180,190,210,.4);letter-spacing:5px;text-transform:uppercase;margin-top:.8rem;opacity:0;transform:translateY(12px);transition:opacity 1s ease-out 1.3s,transform 1s ease-out 1.3s}
 .moon-section.moon-visible .moon-quote,
-.moon-section.moon-visible .moon-guild{opacity:1;transform:translateY(0)}
+.moon-section.moon-visible .moon-guild,
+.moon-section.moon-visible .moon-sub{opacity:1;transform:translateY(0)}
 
 /* Responsive additions */
 @media(max-width:768px){

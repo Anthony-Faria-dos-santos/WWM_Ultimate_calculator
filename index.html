@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&amp;family=Noto+Serif+SC:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&amp;family=Noto+Serif+SC:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body>
 <canvas id="particles"></canvas>
@@ -266,22 +267,11 @@
 <!-- MOONKNIGHT -->
 <section class="moon-section" id="moonknight">
   <div class="moon-scene">
-    <div class="moon-glow"></div>
-    <svg class="moon-svg" viewBox="0 0 200 200" width="160" height="160">
-      <defs>
-        <radialGradient id="moonG" cx="40%" cy="40%"><stop offset="0%" stop-color="#f5f0e0"/><stop offset="50%" stop-color="#e8dcc8"/><stop offset="100%" stop-color="#c4b89a"/></radialGradient>
-        <filter id="moonBlur"><feGaussianBlur stdDeviation="0.8"/></filter>
-      </defs>
-      <circle cx="100" cy="100" r="72" fill="url(#moonG)" filter="url(#moonBlur)"/>
-      <circle cx="75" cy="78" r="12" fill="rgba(180,170,150,.15)"/>
-      <circle cx="115" cy="65" r="8" fill="rgba(180,170,150,.12)"/>
-      <circle cx="95" cy="110" r="15" fill="rgba(180,170,150,.1)"/>
-      <circle cx="125" cy="100" r="6" fill="rgba(180,170,150,.1)"/>
-      <circle cx="80" cy="120" r="5" fill="rgba(180,170,150,.08)"/>
-    </svg>
+    <div id="moon-canvas-wrap"></div>
     <div class="moon-text reveal">
       <p class="moon-quote">Become stronger, become a master.</p>
-      <p class="moon-guild">MoonKnights — WWM Guild Project</p>
+      <p class="moon-guild">Moon<span class="mk-highlight">Knights</span></p>
+      <p class="moon-sub">WWM Guild Project</p>
     </div>
   </div>
 </section>
