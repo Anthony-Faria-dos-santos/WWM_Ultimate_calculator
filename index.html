@@ -88,6 +88,99 @@
 
 <!-- MYSTIC ARTS -->
 <div class="divider"></div>
+
+<!-- MONTE CARLO SIMULATOR -->
+<div class="divider"></div>
+<section class="montecarlo-section" id="montecarlo">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Advanced Simulation</p>
+      <h2 class="section-title">Monte Carlo Rotation Engine</h2>
+      <p class="section-desc">Thousands of simulated combat cycles to find the true expected DPS of your build — not just a formula, but statistical reality.</p>
+    </div>
+    <div class="mc-layout reveal">
+      <div class="mc-timeline-mock">
+        <div class="mc-timeline-header">
+          <span class="mc-tl-label">Rotation Timeline</span>
+          <span class="mc-tl-dur">T = 8.4s</span>
+        </div>
+        <div class="mc-timeline-bar">
+          <div class="mc-skill" style="width:14%;background:rgba(212,165,84,.25)" data-tip="Slash">Slash</div>
+          <div class="mc-skill" style="width:10%;background:rgba(78,205,196,.2)" data-tip="Cloud Step">Cloud</div>
+          <div class="mc-skill" style="width:22%;background:rgba(212,165,84,.35)" data-tip="Celestial">Celestial</div>
+          <div class="mc-skill" style="width:8%;background:rgba(139,34,50,.25)" data-tip="Dodge">Dodge</div>
+          <div class="mc-skill" style="width:18%;background:rgba(212,165,84,.25)" data-tip="Heavy Atk">Heavy</div>
+          <div class="mc-skill" style="width:15%;background:rgba(78,205,196,.2)" data-tip="Lion Roar">Lion</div>
+          <div class="mc-skill" style="width:13%;background:rgba(212,165,84,.35)" data-tip="Finisher">Finish</div>
+        </div>
+        <div class="mc-timeline-legend">
+          <span><i style="background:rgba(212,165,84,.3)"></i> Physical</span>
+          <span><i style="background:rgba(78,205,196,.25)"></i> Mystic Art</span>
+          <span><i style="background:rgba(139,34,50,.25)"></i> Movement</span>
+        </div>
+      </div>
+      <div class="mc-details">
+        <div class="mc-detail-card">
+          <span class="mc-val">10,000</span>
+          <span class="mc-lbl">Simulations per run</span>
+        </div>
+        <div class="mc-detail-card">
+          <span class="mc-val">±2.3%</span>
+          <span class="mc-lbl">Confidence interval</span>
+        </div>
+        <div class="mc-detail-card">
+          <span class="mc-val">Drag &amp; Drop</span>
+          <span class="mc-lbl">Skill palette → Timeline</span>
+        </div>
+        <div class="mc-detail-card">
+          <span class="mc-val">Real-time</span>
+          <span class="mc-lbl">Animation delays + Buffs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI FEATURES -->
+<div class="divider"></div>
+<section class="ai-section" id="ai">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Intelligence Layer</p>
+      <h2 class="section-title">AI-Powered Optimization</h2>
+      <p class="section-desc">Let machine learning guide your progression — from gear upgrades to full build overhauls.</p>
+    </div>
+    <div class="ai-grid reveal">
+      <div class="ai-card">
+        <div class="ai-card-glow"></div>
+        <div class="ai-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--jade)" stroke-width="1.5"><path d="M12 2a4 4 0 014 4v2a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M9 14h6l2 8H7l2-8z"/><circle cx="12" cy="6" r="1" fill="var(--jade)"/><path d="M5 10l-2 2m16-2l2 2M12 16v4"/></svg>
+        </div>
+        <h3>Best-in-Slot Finder</h3>
+        <p>AI analyzes your current stats and suggests the optimal piece for each equipment slot, ranked by marginal DPS gain per slot.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-glow"></div>
+        <div class="ai-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--jade)" stroke-width="1.5"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+        </div>
+        <h3>Stat Priority Advisor</h3>
+        <p>Identifies your build's bottleneck — whether it's crit rate cap, penetration threshold or affinity diminishing returns — and suggests where each point matters most.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-glow"></div>
+        <div class="ai-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--jade)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Rotation Optimizer</h3>
+        <p>Suggests the highest-DPS skill ordering by analyzing animation cancels, buff uptime windows, and cooldown alignment across thousands of Monte Carlo runs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MYSTIC ARTS (scrolled here) -->
+<div class="divider"></div>
 <section class="mystic-section" id="mystic">
   <div class="section-inner" style="padding-bottom:2rem"><div class="reveal"><p class="section-label">40+ Martial Techniques</p><h2 class="section-title">Mystic Arts Library</h2><p class="section-desc">Every Mystic Art integrated with precise damage coefficients and buff tracking.</p></div></div>
   <div class="mystic-track">
@@ -152,20 +245,43 @@
   <div class="section-inner">
     <div class="reveal"><p class="section-label">Built With</p><h2 class="section-title">Modern Architecture</h2><p class="section-desc">Production-grade stack for performance, type safety, and developer experience.</p></div>
     <div class="tech-grid">
-      <div class="tech-item reveal"><div class="tech-icon">⚡</div><div class="tech-name">Next.js</div><div class="tech-ver">v16 App Router</div></div>
-      <div class="tech-item reveal"><div class="tech-icon">⚛️</div><div class="tech-name">React</div><div class="tech-ver">v19 + RSC</div></div>
-      <div class="tech-item reveal"><div class="tech-icon">🔷</div><div class="tech-name">TypeScript</div><div class="tech-ver">Strict Mode</div></div>
-      <div class="tech-item reveal"><div class="tech-icon">🎨</div><div class="tech-name">Tailwind</div><div class="tech-ver">v3 + tailwind-merge</div></div>
-      <div class="tech-item reveal"><div class="tech-icon">🗄️</div><div class="tech-name">Prisma</div><div class="tech-ver">ORM + PostgreSQL</div></div>
-      <div class="tech-item reveal"><div class="tech-icon">📐</div><div class="tech-name">Zod</div><div class="tech-ver">Schema Validation</div></div>
-      <div class="tech-item reveal"><div class="tech-icon">🧪</div><div class="tech-name">Vitest</div><div class="tech-ver">Unit Testing</div></div>
-      <div class="tech-item reveal"><div class="tech-icon">🧭</div><div class="tech-name">Playwright</div><div class="tech-ver">E2E Testing</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 180 180" width="28" height="28"><mask id="nM" style="mask-type:alpha"><circle cx="90" cy="90" r="90" fill="#fff"/></mask><g mask="url(#nM)"><circle cx="90" cy="90" r="90" fill="#000"/><path d="M149.5 171.3L79.1 80.2v66.8h-7.7V33l78.1 109.8a90 90 0 01-13.5 15.3z" fill="url(#nG)"/><circle cx="120.5" cy="49" r="12" fill="url(#nG2)"/></g><defs><linearGradient id="nG" x1="86" y1="72" x2="142" y2="155"><stop stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="nG2" x1="120" y1="37" x2="120" y2="61"><stop stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs></svg></div><div class="tech-name">Next.js</div><div class="tech-ver">v16 App Router</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="-11.5 -10.2 23 20.5" width="28" height="28"><circle r="2.05" fill="#61dafb"/><g stroke="#61dafb" fill="none" stroke-width="1"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg></div><div class="tech-name">React</div><div class="tech-ver">v19 + RSC</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 28 28" width="28" height="28"><path d="M0 14v14h28V0H0v14zm22.7-1.3L17.5 21H15l3.2-5.1-3.5-5.6h2.6l2.2 3.7 2.2-3.7h2.5l-3.5 5.6 3.2 5.1h-2.5l-2.2-3.7zm-10-8.4H15v16.4h-2.3V4.3z" fill="#3178C6"/></svg></div><div class="tech-name">TypeScript</div><div class="tech-ver">Strict Mode</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 54 33" width="28" height="18"><path fill-rule="evenodd" clip-rule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.514-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.514-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" fill="#38BDF8"/></svg></div><div class="tech-name">Tailwind</div><div class="tech-ver">v3 + tailwind-merge</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 159 194" width="22" height="28"><path d="M0 33.3v127.4l69.2 33.1V167l-45.5-21.3V49l45.5 25.5v-28L0 33.3z" fill="#0C344B"/><path d="M89.8 0L20.6 33.3l69.2 33.1 69.1-33.1L89.8 0zm0 80.6L44.3 57.8V104l45.5 25.5V80.6z" fill="#2D3748"/><path d="M89.8 80.6v48.9l45.5-25.5V57.8L89.8 80.6zm69.1-47.3l-69.1 33.1v28l69.1-33.1V33.3z" fill="#5A67D8"/></svg></div><div class="tech-name">Prisma</div><div class="tech-ver">ORM + PostgreSQL</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.088 2.477L24 7.606 12.521 19.482l-5.816-.582L19.088 2.477zm-6.87 7.946l-7.3 7.635L0 17.12 10.746 5.544l1.472 4.88z" fill="#3068B7"/></svg></div><div class="tech-name">Zod</div><div class="tech-ver">Schema Validation</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 165 165" width="26" height="26"><path d="M120.8 55.3a45.5 45.5 0 10-76.6 0L82.5 120l38.3-64.7z" fill="#fcc72b"/><path d="M82.5 120l38.3-64.7a45.5 45.5 0 00-76.6 0L82.5 120z" fill="#729B1B" opacity=".75"/></svg></div><div class="tech-name">Vitest</div><div class="tech-ver">Unit Testing</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 400 400" width="26" height="26"><path d="M190.5 58.5l-95 165h60l35-60 35 60h60l-95-165z" fill="#2EAD33"/><path d="M190.5 283.5l-50 58h100l-50-58z" fill="#E2574C"/><circle cx="285.5" cy="223.5" r="35" fill="#D65348"/></svg></div><div class="tech-name">Playwright</div><div class="tech-ver">E2E Testing</div></div>
     </div>
     <div class="stats-row reveal" style="margin-top:3rem">
       <div class="stat-block"><div class="stat-number" data-target="8" data-suffix="">0</div><div class="stat-label">Weapon Types</div></div>
       <div class="stat-block"><div class="stat-number" data-target="40" data-suffix="+">0</div><div class="stat-label">Martial Arts</div></div>
       <div class="stat-block"><div class="stat-number" data-target="412" data-suffix="">0</div><div class="stat-label">Tests Passing</div></div>
       <div class="stat-block"><div class="stat-number" data-target="100" data-suffix="%">0</div><div class="stat-label">Free &amp; Open</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOONKNIGHT -->
+<section class="moon-section" id="moonknight">
+  <div class="moon-scene">
+    <div class="moon-glow"></div>
+    <svg class="moon-svg" viewBox="0 0 200 200" width="160" height="160">
+      <defs>
+        <radialGradient id="moonG" cx="40%" cy="40%"><stop offset="0%" stop-color="#f5f0e0"/><stop offset="50%" stop-color="#e8dcc8"/><stop offset="100%" stop-color="#c4b89a"/></radialGradient>
+        <filter id="moonBlur"><feGaussianBlur stdDeviation="0.8"/></filter>
+      </defs>
+      <circle cx="100" cy="100" r="72" fill="url(#moonG)" filter="url(#moonBlur)"/>
+      <circle cx="75" cy="78" r="12" fill="rgba(180,170,150,.15)"/>
+      <circle cx="115" cy="65" r="8" fill="rgba(180,170,150,.12)"/>
+      <circle cx="95" cy="110" r="15" fill="rgba(180,170,150,.1)"/>
+      <circle cx="125" cy="100" r="6" fill="rgba(180,170,150,.1)"/>
+      <circle cx="80" cy="120" r="5" fill="rgba(180,170,150,.08)"/>
+    </svg>
+    <div class="moon-text reveal">
+      <p class="moon-quote">Become stronger, become a master.</p>
+      <p class="moon-guild">MoonKnights — WWM Guild Project</p>
     </div>
   </div>
 </section>

@@ -217,3 +217,58 @@ footer p{font-size:.7rem;color:var(--text-muted)}
   .equip-grid{grid-template-columns:repeat(2,1fr)}
   .section-inner{padding:3rem 1rem}
 }
+
+/* ═══════════════════════════════════════════
+   MONTE CARLO SIMULATOR
+   ═══════════════════════════════════════════ */
+.montecarlo-section{background:linear-gradient(180deg,var(--ink),rgba(17,24,32,.4),var(--ink))}
+.mc-layout{display:grid;grid-template-columns:1fr 280px;gap:2rem;margin-top:2.5rem;align-items:start}
+.mc-timeline-mock{background:rgba(17,24,32,.5);border:1px solid rgba(42,53,68,.3);padding:1.2rem;overflow:hidden}
+.mc-timeline-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem}
+.mc-tl-label{font-family:var(--font-display);font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.mc-tl-dur{font-family:var(--font-mono);font-size:.7rem;color:var(--text-muted)}
+.mc-timeline-bar{display:flex;gap:2px;height:42px;border-radius:2px;overflow:hidden}
+.mc-skill{display:flex;align-items:center;justify-content:center;font-size:.45rem;letter-spacing:1px;text-transform:uppercase;color:var(--text-secondary);border:1px solid rgba(255,255,255,.04);transition:all .3s;cursor:default}
+.mc-skill:hover{filter:brightness(1.4);transform:scaleY(1.15)}
+.mc-timeline-legend{display:flex;gap:1rem;margin-top:.6rem}
+.mc-timeline-legend span{display:flex;align-items:center;gap:.3rem;font-size:.5rem;color:var(--text-muted);letter-spacing:1px}
+.mc-timeline-legend i{display:inline-block;width:10px;height:10px;border-radius:1px}
+.mc-details{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.mc-detail-card{padding:1rem;background:rgba(26,34,48,.3);border:1px solid rgba(42,53,68,.2);text-align:center}
+.mc-val{display:block;font-family:var(--font-mono);font-size:1rem;color:var(--gold-light);font-weight:500;margin-bottom:.2rem}
+.mc-lbl{font-size:.55rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+/* ═══════════════════════════════════════════
+   AI FEATURES
+   ═══════════════════════════════════════════ */
+.ai-section{background:linear-gradient(180deg,var(--ink),rgba(14,20,28,.5),var(--ink))}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:2.5rem}
+.ai-card{position:relative;padding:2rem 1.6rem;background:linear-gradient(160deg,rgba(26,34,48,.4),rgba(14,20,28,.2));border:1px solid rgba(78,205,196,.08);transition:all .5s;overflow:hidden}
+.ai-card-glow{position:absolute;top:-40px;right:-40px;width:100px;height:100px;background:radial-gradient(circle,rgba(78,205,196,.08),transparent 70%);transition:opacity .5s;opacity:0}
+.ai-card:hover{border-color:rgba(78,205,196,.2);transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.3),0 0 20px rgba(78,205,196,.04)}
+.ai-card:hover .ai-card-glow{opacity:1}
+.ai-card-icon{margin-bottom:1rem}
+.ai-card h3{font-family:var(--font-display);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--jade);margin-bottom:.5rem}
+.ai-card p{font-size:.85rem;color:var(--text-secondary);line-height:1.65;font-weight:300}
+
+/* ═══════════════════════════════════════════
+   MOONKNIGHT SECTION
+   ═══════════════════════════════════════════ */
+.moon-section{position:relative;overflow:hidden;padding:6rem 0}
+.moon-scene{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-height:50vh}
+.moon-glow{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(245,240,224,.06) 0%,rgba(232,220,200,.02) 40%,transparent 70%);animation:moonGlowPulse 6s ease-in-out infinite;pointer-events:none}
+@keyframes moonGlowPulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.moon-svg{position:relative;z-index:1;filter:drop-shadow(0 0 40px rgba(245,240,224,.12)) drop-shadow(0 0 80px rgba(232,220,200,.06));opacity:0;transform:scale(.85);transition:opacity 1.2s ease-out,transform 1.2s ease-out}
+.moon-section.moon-visible .moon-svg{opacity:1;transform:scale(1)}
+.moon-text{text-align:center;margin-top:2.5rem;position:relative;z-index:1}
+.moon-quote{font-family:var(--font-display);font-size:clamp(1.1rem,2.2vw,1.7rem);color:var(--text-primary);letter-spacing:3px;font-weight:400;opacity:0;transform:translateY(15px);transition:opacity .8s ease-out .4s,transform .8s ease-out .4s}
+.moon-guild{font-family:var(--font-body);font-size:clamp(.8rem,1.2vw,1rem);color:var(--gold-dark);letter-spacing:4px;text-transform:uppercase;margin-top:.8rem;opacity:0;transform:translateY(15px);transition:opacity .8s ease-out .8s,transform .8s ease-out .8s}
+.moon-section.moon-visible .moon-quote,
+.moon-section.moon-visible .moon-guild{opacity:1;transform:translateY(0)}
+
+/* Responsive additions */
+@media(max-width:768px){
+  .mc-layout{grid-template-columns:1fr}
+  .mc-details{grid-template-columns:1fr 1fr}
+  .ai-grid{grid-template-columns:1fr}
+}

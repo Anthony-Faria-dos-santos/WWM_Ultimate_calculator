@@ -96,3 +96,16 @@ if(showcaseEl){
    ═══════════════════════════════════════════ */
 var track=document.querySelector('.mystic-track');
 if(track){track.innerHTML+=track.innerHTML}
+
+
+/* ═══════════════════════════════════════════
+   MOON SECTION — REVEAL ON SCROLL
+   ═══════════════════════════════════════════ */
+var moonSection=document.querySelector('.moon-section');
+if(moonSection){
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting)e.target.classList.add('moon-visible');
+    });
+  },{threshold:.25}).observe(moonSection);
+}
