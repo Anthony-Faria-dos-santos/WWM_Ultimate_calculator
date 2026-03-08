@@ -148,20 +148,23 @@ if(track){track.innerHTML+=track.innerHTML}
   var glowGeo=new THREE.SphereGeometry(1.18,32,32);
   var glowMat=new THREE.ShaderMaterial({
     uniforms:{
-      c:{value:.12},p:{value:3.5},
+      coeff:{value:0.12},
+      power:{value:3.5},
       glowColor:{value:new THREE.Color(0xc8d0e8)},
       viewVector:{value:camera.position}
     },
     vertexShader:[
+      'uniform float coeff;',
+      'uniform float power;',
       'uniform vec3 viewVector;',
       'varying float intensity;',
       'void main(){',
       '  vec3 vNormal=normalize(normalMatrix*normal);',
       '  vec3 vNormel=normalize(normalMatrix*viewVector);',
-      '  intensity=pow(c-dot(vNormal,vNormel),p);',
+      '  intensity=pow(coeff-dot(vNormal,vNormel),power);',
       '  gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);',
       '}'
-    ].join('\n').replace('c-','float(c)-').replace(/c/g,'0.12').replace(/p/g,'3.5'),
+    ].join('\n'),
     fragmentShader:[
       'uniform vec3 glowColor;',
       'varying float intensity;',
@@ -175,12 +178,7 @@ if(track){track.innerHTML+=track.innerHTML}
     transparent:true,
     depthWrite:false
   });
-  /* Simpler glow fallback */
-  var glowMat2=new THREE.MeshBasicMaterial({
-    color:0xc8d0e8,transparent:true,opacity:.04,
-    side:THREE.BackSide
-  });
-  var glow=new THREE.Mesh(glowGeo,glowMat2);
+  var glow=new THREE.Mesh(glowGeo,glowMat);
   scene.add(glow);
   /* Second glow layer */
   var glow2Geo=new THREE.SphereGeometry(1.35,24,24);
