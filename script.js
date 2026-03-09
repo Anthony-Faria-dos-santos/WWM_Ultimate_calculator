@@ -49,6 +49,35 @@ addEventListener('scroll',function(){
 });
 
 /* ═══════════════════════════════════════════
+   BACKGROUND MUSIC — muted autoplay then unmute on first gesture
+   ═══════════════════════════════════════════ */
+(function(){
+  var music=document.getElementById('bgMusic');
+  var btn=document.getElementById('soundBtn');
+  if(!music||!btn)return;
+  music.volume=0.35;
+  /* Start muted — browsers allow muted autoplay */
+  music.muted=true;
+  music.play().catch(function(){});
+  /* Unmute on first user gesture (scroll/click/touch) */
+  function unmute(){
+    music.muted=false;
+    if(music.paused)music.play().catch(function(){});
+    window.removeEventListener('scroll',unmute);
+    window.removeEventListener('click',unmute);
+    window.removeEventListener('touchstart',unmute);
+  }
+  window.addEventListener('scroll',unmute,{passive:true});
+  window.addEventListener('click',unmute);
+  window.addEventListener('touchstart',unmute);
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    if(music.muted||music.paused){music.muted=false;music.play();btn.classList.remove('muted')}
+    else{music.pause();btn.classList.add('muted')}
+  });
+})();
+
+/* ═══════════════════════════════════════════
    REVEAL ON SCROLL
    ═══════════════════════════════════════════ */
 var revealObs=new IntersectionObserver(function(entries){
@@ -299,44 +328,14 @@ if(track){track.innerHTML+=track.innerHTML}
     sparksC.width=vw;sparksC.height=vh;
   });
 
-  /* Deep anvil hammer via Web Audio API */
-  var audioCtx=null,clangPlayed=false;
+  /* Anvil SFX from file — 2 hits at ~0s and ~1s */
+  var anvilSfx=document.getElementById('anvilSfx');
+  var clangPlayed=false;
   function playAnvilHit(){
-    if(clangPlayed)return;clangPlayed=true;
-    if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
-    var t=audioCtx.currentTime;
-    /* Low impact thud */
-    var bufLen=Math.floor(audioCtx.sampleRate*0.35);
-    var buf=audioCtx.createBuffer(1,bufLen,audioCtx.sampleRate);
-    var d=buf.getChannelData(0);
-    for(var i=0;i<bufLen;i++){
-      var env=Math.exp(-i/(bufLen*0.06));
-      d[i]=(Math.random()*2-1)*env*0.8;
-    }
-    var src=audioCtx.createBufferSource();src.buffer=buf;
-    var lp=audioCtx.createBiquadFilter();
-    lp.type='lowpass';lp.frequency.value=800;lp.Q.value=2;
-    var gain=audioCtx.createGain();
-    gain.gain.setValueAtTime(0.6,t);
-    gain.gain.exponentialRampToValueAtTime(0.001,t+0.4);
-    src.connect(lp);lp.connect(gain);gain.connect(audioCtx.destination);
-    src.start(t);src.stop(t+0.4);
-    /* Deep resonant ring */
-    var osc=audioCtx.createOscillator();
-    osc.type='sine';osc.frequency.value=180;
-    var g2=audioCtx.createGain();
-    g2.gain.setValueAtTime(0.25,t);
-    g2.gain.exponentialRampToValueAtTime(0.001,t+0.8);
-    osc.connect(g2);g2.connect(audioCtx.destination);
-    osc.start(t);osc.stop(t+0.8);
-    /* Metallic overtone */
-    var osc2=audioCtx.createOscillator();
-    osc2.type='triangle';osc2.frequency.value=520;
-    var g3=audioCtx.createGain();
-    g3.gain.setValueAtTime(0.08,t);
-    g3.gain.exponentialRampToValueAtTime(0.001,t+0.5);
-    osc2.connect(g3);g3.connect(audioCtx.destination);
-    osc2.start(t);osc2.stop(t+0.5);
+    if(clangPlayed||!anvilSfx)return;clangPlayed=true;
+    anvilSfx.currentTime=0;
+    anvilSfx.volume=0.6;
+    anvilSfx.play().catch(function(){});
   }
 
   /* Incandescent spark particles */
@@ -361,9 +360,8 @@ if(track){track.innerHTML+=track.innerHTML}
     }
   }
   function drawSparks(){
-    if(!sparkActive)return;
     sCtx.clearRect(0,0,vw,vh);
-    var alive=false;
+    if(sparks.length===0){sparkActive=false;return}
     for(var i=sparks.length-1;i>=0;i--){
       var s=sparks[i];
       s.x+=s.vx;s.y+=s.vy;
@@ -371,7 +369,6 @@ if(track){track.innerHTML+=track.innerHTML}
       s.vx*=s.isEmber?0.995:0.98;
       s.age++;
       if(s.age>=s.life){sparks.splice(i,1);continue}
-      alive=true;
       var a=1-s.age/s.life;
       var sz=s.size*(s.isEmber?a:a*a);
       /* Glow */
@@ -383,47 +380,57 @@ if(track){track.innerHTML+=track.innerHTML}
       sCtx.fill();
     }
     sCtx.shadowBlur=0;
-    if(alive)requestAnimationFrame(drawSparks);
+    if(sparks.length>0)requestAnimationFrame(drawSparks);
     else{sparkActive=false;sCtx.clearRect(0,0,vw,vh)}
   }
 
   /* Scroll-driven convergence */
   var converged=false;
-  var convergeThr=0.75;
-  var fadeThr=0.92;
+  var convergeThr=0.50;
+  var fadeThr=0.62;
   function onScroll(){
     var spacerRect=spacer.getBoundingClientRect();
     var spacerH=spacer.offsetHeight;
     var progress=Math.max(0,Math.min(1,-spacerRect.top/spacerH));
     var t=Math.min(1,progress/convergeThr);
     var ease=t<0.5?2*t*t:(1-Math.pow(-2*t+2,2)/2);
-    /* Target: left text right-edge at 50%, right text left-edge at 50% */
-    var centerX=vw/2;
+    /* Target: convergence at 60% viewport width to avoid video text overlap */
+    var meetX=vw*0.6;
     var leftW=left.offsetWidth;
     var rightW=right.offsetWidth;
-    /* Left block: ends with its right edge at centerX (50%) */
-    var targetLeftX=centerX-leftW;
-    /* Right block: starts with its left edge at centerX (50%) */
-    var targetRightX=centerX;
-    /* Animate from off-screen to target */
+    var targetLeftX=meetX-leftW;
+    var targetRightX=meetX;
+    /* Horizontal animation */
     var lx=-leftW-50+(targetLeftX+leftW+50)*ease;
     var rx=vw+(targetRightX-vw)*ease;
-    left.style.transform='translate('+lx+'px,-50%)';
+    /* Vertical: left sits ABOVE line (-100%), right sits BELOW line (0%) */
+    left.style.transform='translate('+lx+'px,-100%)';
     right.style.left=rx+'px';
     right.style.right='auto';
-    right.style.transform='translate(0,-50%)';
+    right.style.transform='translate(0,0%)';
 
-    /* Convergence trigger */
+    /* Convergence trigger — double strike synced with anvil sound */
     if(ease>=0.98&&!converged){
       converged=true;
       left.classList.add('converged');
       right.classList.add('converged');
-      flash.classList.add('active');
-      setTimeout(function(){flash.classList.remove('active')},100);
-      var sparkY=vh*0.62;
-      spawnSparks(centerX,sparkY);
-      drawSparks();
       playAnvilHit();
+      var sparkY=vh*0.72;
+      /* Hit — flash + sparks in same render frame */
+      function strike(x,y){
+        var wasActive=sparkActive;
+        spawnSparks(x,y);
+        requestAnimationFrame(function(){
+          flash.style.opacity='1';
+          if(!wasActive)drawSparks();
+          setTimeout(function(){flash.style.opacity='0'},120);
+        });
+      }
+      strike(meetX,sparkY);
+      /* Hit 2 — 500ms later (synced with 2nd anvil hit) */
+      setTimeout(function(){
+        strike(meetX+Math.random()*30-15,sparkY+Math.random()*16-8);
+      },600);
     }
     if(ease<0.85&&converged){
       converged=false;clangPlayed=false;
@@ -431,18 +438,23 @@ if(track){track.innerHTML+=track.innerHTML}
       right.classList.remove('converged');
     }
 
-    /* Video fade out after convergence — reveal sections behind */
-    if(progress>fadeThr&&videoSection){
-      var fadeP=(progress-fadeThr)/(1-fadeThr);
-      videoSection.style.opacity=Math.max(0,1-fadeP*1.5);
-      if(fadeP>0.7)videoSection.classList.add('faded');
-      else videoSection.classList.remove('faded');
+    /* Video fade — darken overlay to full black, then hide */
+    var introOv=document.querySelector('.intro-overlay');
+    if(progress>fadeThr&&videoSection&&introOv){
+      var fadeP=Math.min(1,(progress-fadeThr)/0.28);
+      var fadeEase=fadeP<0.5?2*fadeP*fadeP:(1-Math.pow(-2*fadeP+2,2)/2);
+      introOv.style.background='rgba(10,10,15,'+(0.3+fadeEase*0.7)+')';
+      left.style.opacity=Math.max(0,1-fadeEase*1.5);
+      right.style.opacity=Math.max(0,1-fadeEase*1.5);
+      if(fadeEase>0.95){videoSection.classList.add('faded');videoSection.style.opacity=0}
+      else{videoSection.classList.remove('faded');videoSection.style.opacity=1}
     }else if(videoSection){
-      videoSection.style.opacity=1;
-      videoSection.classList.remove('faded');
+      videoSection.style.opacity=1;videoSection.classList.remove('faded');
+      if(document.querySelector('.intro-overlay'))document.querySelector('.intro-overlay').style.background='';
+      left.style.opacity=1;right.style.opacity=1;
     }
 
-    /* Hide scroll hint */
+    /* Hide scroll hint early */
     var hint=document.querySelector('.intro-scroll-hint');
     if(hint)hint.style.opacity=Math.max(0,1-progress*5);
   }

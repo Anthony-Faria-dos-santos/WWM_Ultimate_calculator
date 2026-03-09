@@ -15,6 +15,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body>
+<audio id="bgMusic" src="assets/intro2.m4a" autoplay preload="auto"></audio>
+<audio id="anvilSfx" src="assets/anvil.flac" preload="auto"></audio>
 <canvas id="particles"></canvas>
 
 <!-- NAV -->
@@ -27,10 +29,16 @@
     <ul class="nav-links">
       <li><a href="#equipment">Equipment</a></li>
       <li><a href="#features">Features</a></li>
-      <li><a href="#preview">Preview</a></li>
       <li><a href="#mystic">Mystic Arts</a></li>
+      <li><a href="#preview">Preview</a></li>
     </ul>
-    <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator" target="_blank" rel="noopener noreferrer" class="nav-cta">GitHub ↗</a>
+    <div class="nav-right">
+      <button class="sound-btn" id="soundBtn" aria-label="Toggle sound">
+        <svg class="sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+        <svg class="sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      </button>
+      <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator" target="_blank" rel="noopener noreferrer" class="nav-cta">GitHub ↗</a>
+    </div>
   </div>
 </nav>
 
@@ -77,12 +85,12 @@
   <div class="section-inner">
     <div class="reveal"><p class="section-label">Core Capabilities</p><h2 class="section-title">Forge Your Perfect Build</h2><p class="section-desc">Every stat, every modifier, every rotation — calculated with mathematical precision rooted in the game's true combat formulas.</p></div>
     <div class="features-grid">
-      <div class="feature-card reveal"><div class="feature-icon">⚔️</div><h3>DPS Simulation</h3><p>Full rotation-based DPS with critical hit, affinity, and 10 multiplicative damage zones. Frame-accurate timing.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">🔄</div><h3>Gear Comparison</h3><p>Side-by-side comparison with live stat deltas. See how swapping a single piece affects your entire build.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">📊</div><h3>Stat Breakdown</h3><p>Deep dive into every modifier: base attack, crit rate, crit damage, affinity, penetration — all visualized.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">🎯</div><h3>Build Graduation</h3><p>Automatic build rating from E to SSS based on stat efficiency. Know exactly where to improve.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">🌀</div><h3>Inner Ways &amp; Skills</h3><p>Full integration of Inner Ways (内功) bonuses and Mystic Arts. See how each path affects output.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">🌏</div><h3>Trilingual Data</h3><p>Complete lexicon — Chinese, English, French — so every term matches your game client.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M37 73v382h18V73zm418 0l2 382h18l-2-382zM105 160c-14.6 0-27.2 9.7-31.4 23-2.4 6.6-1.5 14.4-.6 18 3.6 14.3 16.6 25 32 25 14.2 0 26.4-9.1 31-21.7C140.6 217 152.8 226 167 226c15.4 0 28.4-10.7 32-25h238.7l-.1-18H198.4c-4.3-13.3-16.8-23-31.4-23-14.2 0-26.4 9.1-31 21.7C131.4 169 119.2 160 105 160zm0 18c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zm62 0c8.4 0 17 6.6 17 15s-8.6 15-17 15-15-6.6-15-15 6.6-15 15-15zm33 45c-15 0-27.8 10.2-31.7 24H73v18h95.3c4 13.8 16.7 24 31.7 24s27.8-10.2 31.7-24h206.3l-.1-18H231.7c-4-13.8-16.7-24-31.7-24zm0 18c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zm83 47c-14.6 0-27.2 9.7-31.4 23H73v18H251c3.6 14.3 16.6 25 32 25 14.2 0 26.4-9.1 31-21.7C318.6 345 330.8 354 345 354s26.4-9.1 31-21.7C380.6 345 392.8 354 407 354c15.4 0 28.4-10.7 32-25 1.3-3.1.6-13.5-.8-18C432 294.4 418.5 288.3 407 288c-14.2 0-26.4 9.1-31 21.7C371.4 297 359.2 288 345 288s-26.4 9.1-31 21.7C309.4 297 297.2 288 283 288zm62 66c-13.9 0-25.9 8.8-30.7 21H73v18h239.6c2.9 15.3 16.4 27 32.4 27s29.6-11.7 32.4-27h61.2l-.1-18H375.7c-4.8-12.2-16.8-21-30.7-21zm-62-48c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zm62 0c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zm62 0c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zm-62 66c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zM25 473v16h462v-16z"/></svg></div><h3>DPS Simulation</h3><p>Full rotation-based DPS with critical hit, affinity, and 10 multiplicative damage zones. Frame-accurate timing.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M254.5 53s-4.8 37.1-49.5 49.5c-44.7 12.4-129.3 0-129.3 0L61.3 115.8l8.2 9.2-1.1 2.9-51.8 137.3L16 266.7v1.7c0 18.9 8.3 34.2 20.3 44 12.1 9.8 27.6 14.3 43 14.3s30.9-4.6 43-14.3c12.1-9.8 20.3-25.1 20.3-44v-1.8l-.7-1.7L87 130.3c24-3 80.9-8.5 115.5 1.5 23 6.7 36.2 20.3 43.4 32L210.8 354.5l21.4 30.3c-17.7 7.8-32.6 24.8-37.6 51.3-56 6.2-95.5 20.7-95.5 37.7h311.9c0-17-39.4-31.5-95.5-37.7-4.9-26.6-19.6-44.1-37.2-51.9l21-29.8L264 162.3c7.5-11.3 20.4-24 42.5-30.5 35-10.2 92.6-4.4 116.2-1.4l-50.9 134.7-.6 1.6v1.7c0 18.9 8.3 34.2 20.3 44 12.1 9.8 27.6 14.3 43 14.3s30.9-4.6 43-14.3c12.1-9.8 20.3-25.1 20.3-44v-1.8l-.7-1.7L441 127.6l-.9-2.3 8.8-8.4-15.6-14.3s-84.6 12.4-129.3 0S254.5 53 254.5 53zM77.5 156.7l44.2 108.4H36.6l41-108.4zm355.2 0l44.2 108.4H391.7l41-108.4z"/></svg></div><h3>Gear Comparison</h3><p>Side-by-side comparison with live stat deltas. See how swapping a single piece affects your entire build.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M23 23v466h466v-18h-40.9V256h-48v215h-31.7V159.3h-48V471h-31.2V320.2h-48V471H207.2V80.4h-48V471H128V192H80v279H41V23H23z"/></svg></div><h3>Stat Breakdown</h3><p>Deep dive into every modifier: base attack, crit rate, crit damage, affinity, penetration — all visualized.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M41 27.7v46h430v-46zm32 64v112.5l62 20.7V91.7zm80 0v139.2l79.3 26.4c-10.4 7.5-17.3 19.7-17.3 33.4 0 21 16.1 38.5 36.5 40.7l-22.3 43.7-58.2 9.3 41.6 41.7-9.1 58.2 52.5-26.7 52.5 26.7-9.1-58.2 41.6-41.7-58.2-9.3-22.3-43.7c20.4-2.2 36.5-19.7 36.5-40.7 0-13.7-6.9-25.9-17.3-33.4l79.3-26.4V91.7h-94v159c-2.9-.6-5.9-1-9-1s-6.1.4-9 1v-159zm224 0v133.2l62-20.7V91.7zm-121 176c12.8 0 23 10.2 23 23s-10.2 23-23 23-23-10.2-23-23 10.2-23 23-23z"/></svg></div><h3>Build Graduation</h3><p>Automatic build rating from E to SSS based on stat efficiency. Know exactly where to improve.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M256 23C127.4 23 23 127.4 23 256s104.4 233 233 233 233-104.4 233-233S384.6 23 256 23zm-6.1 18.1C128 47.8 130.1 256 256 256c125.2 0 127.9 205.9 8.2 214.8-2.7.1-5.4.2-8.2.2-118.8 0-215-96.2-215-215C41 139.2 133.9 44.3 249.9 41.1zM256 103c22.5 0 41 18.5 41 41s-18.5 41-41 41-41-18.5-41-41 18.5-41 41-41zm0 224c-22.5 0-41 18.5-41 41s18.5 41 41 41 41-18.5 41-41-18.5-41-41-41z"/></svg></div><h3>Inner Ways &amp; Skills</h3><p>Full integration of Inner Ways (内功) bonuses and Mystic Arts. See how each path affects output.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M256 23C127.4 23 23 127.4 23 256s104.4 233 233 233 233-104.4 233-233S384.6 23 256 23zm-33.7 20.6C190 66.9 163.6 92.2 143.2 119H90.3C122.9 79.5 169.4 52 222.3 43.6zm67.4 0c52.9 8.3 99.4 35.9 132 75.4h-52.9c-20.4-26.8-46.8-52.2-79.1-75.4zM247 66v53h-25.1c7-17.3 15.4-35 25.1-53zm18 0c9.7 18 18.1 35.7 25.1 53H265V66zM76.9 137h53.5c-9.8 15-17.8 30.4-23.9 46H53.7c5.9-16.3 13.7-31.8 23.2-46zm75.2 0h43.8c-5.4 15.5-9.6 30.8-12.9 46h-57.1c6.7-15.6 15.5-30.9 26.2-46zm62.9 0H247v46h-45.6c3.4-15.2 7.9-30.5 13.5-46zm50 0h32.1c5.6 15.5 10.1 30.8 13.5 46H265v-46zm51.1 0h43.8c10.7 15.1 19.5 30.4 26.2 46H329c-3.3-15.2-7.5-30.5-12.9-46zm65.5 0h53.5c9.5 14.2 17.3 29.7 23.2 46h-52.8c-6.1-15.6-14.1-31-23.9-46zM48.1 201h52.1c-4.6 15.2-7.5 30.6-8.6 46H41.2c.7-15.8 3-31.2 6.9-46zm71 0h60.4c-2.5 15.4-3.9 30.7-4.4 46h-65.5c1.2-15.3 4.4-30.7 9.5-46zM247 201v46h-53.9c.5-15.3 2-30.6 4.7-46H247zm18 0h49.2c2.7 15.4 4.2 30.7 4.7 46H265v-46zm67.5 0H393c5 15.3 8.2 30.7 9.4 46h-65.5c-.5-15.3-1.9-30.6-4.4-46zm79.3 0h52.1c3.9 14.8 6.2 30.2 6.9 46h-50.4c-1.1-15.4-4-30.8-8.6-46zM41.2 265h49.8c.2 15.5 2.2 30.9 6 46H48.1c-3.9-14.8-6.2-30.2-6.9-46zm67.8 0h66.1c.5 15.3 1.9 30.6 4.4 46h-63.9c-4.1-15.2-6.3-30.6-6.6-46zm84.1 0H247v46h-49.2c-2.7-15.4-4.2-30.7-4.7-46zm71.9 0h53.9c-.5 15.3-2 30.6-4.7 46H265v-46zm71.9 0H403c-.3 15.4-2.5 30.8-6.6 46h-63.9c2.5-15.4 3.9-30.7 4.4-46zm84.1 0h49.8c-.7 15.8-3 31.2-6.9 46H415c3.7-15.1 5.7-30.5 6-46zM53.7 329h48.7c5.4 15.7 12.8 31.1 22.1 46H76.9c-9.5-14.2-17.3-29.7-23.2-46zm67.7 0H183c3.3 15.2 7.5 30.5 12.9 46h-50c-10.4-14.9-18.5-30.3-24.5-46zm80 0H247v46h-32.1c-5.6-15.5-10.1-30.8-13.5-46zm63.6 0h45.6c-3.4 15.2-7.9 30.5-13.5 46H265v-46zm64 0h61.6c-6 15.7-14.1 31.1-24.5 46h-50c5.4-15.5 9.6-30.8 12.9-46zm80.6 0h48.7c-5.9 16.3-13.7 31.8-23.2 46h-47.6c9.3-14.9 16.7-30.3 22.1-46zM90.3 393h46.6c20.3 27.1 47.3 52.3 80.9 74.6-51-9.1-95.8-36.3-127.5-74.6zm69.3 0h42.9c7.9 20.4 17.6 41 29 62.1-29.3-18.9-53.2-39.8-71.9-62.1zM247 393v53c-9.7-18-18.1-35.7-25.1-53H247zm18 0h25.1c-7 17.3-15.4 35-25.1 53v-53zm44.5 0h42.9c-18.7 22.3-42.6 43.2-71.9 62.1 11.4-21.1 21.1-41.7 29-62.1zm65.6 0h46.6c-31.7 38.3-76.5 65.5-127.5 74.6 33.6-22.3 60.6-47.5 80.9-74.6z"/></svg></div><h3>Trilingual Data</h3><p>Complete lexicon — Chinese, English, French — so every term matches your game client.</p></div>
     </div>
   </div>
 </section>
@@ -300,7 +308,7 @@
   <div class="footer-brand">逆水寒 · 武学</div>
   <div class="footer-links">
     <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/discussions" target="_blank" rel="noopener noreferrer">Discussions</a>
+    <a href="https://discord.gg/GrKdj7HUUQ" target="_blank" rel="noopener noreferrer">Discord</a>
     <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/wiki" target="_blank" rel="noopener noreferrer">Wiki</a>
     <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/releases" target="_blank" rel="noopener noreferrer">Releases</a>
   </div>
