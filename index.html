@@ -34,25 +34,25 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-img" id="heroImg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-vignette"></div>
-  <div class="hero-fog hero-fog-1"></div>
-  <div class="hero-fog hero-fog-2"></div>
-  <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span><span>Open Source — Theory Crafting Tool</span></div>
-    <p class="hero-cn">逆水寒 · 武学计算器</p>
-    <h1><span class="line1">Where Winds Meet</span><span class="line2">Ultimate Calculator</span></h1>
-    <p class="hero-desc">Master the art of Wuxia combat through data. Calculate DPS, compare gear, simulate rotations, and refine your build with precision.</p>
-    <div class="hero-actions">
-      <a href="#preview" class="btn btn-primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg><span>Launch Calculator</span></a>
-      <a href="#features" class="btn btn-ghost">Explore Features</a>
-    </div>
+<!-- VIDEO INTRO — SCROLL-DRIVEN -->
+<section class="video-intro" id="intro">
+  <video class="intro-video" muted playsinline autoplay loop preload="auto">
+    <source src="assets/intro.webm" type="video/webm">
+  </video>
+  <div class="intro-overlay"></div>
+  <div class="intro-text intro-text-left" id="introLeft">
+    <span class="intro-line1">WWM Ultimate</span>
+    <span class="intro-line2">Calculator</span>
   </div>
-  <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+  <div class="intro-text intro-text-right" id="introRight">
+    <span class="intro-line1">Moon<span class="mk-chrome">Knights</span></span>
+    <span class="intro-line2">Guild Project</span>
+  </div>
+  <canvas id="sparks" class="sparks-canvas"></canvas>
+  <div class="intro-flash" id="introFlash"></div>
+  <div class="scroll-hint intro-scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
+<div class="intro-spacer" id="introSpacer"></div>
 
 <!-- EQUIPMENT SHOWCASE -->
 <div class="divider"></div>
