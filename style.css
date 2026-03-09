@@ -256,7 +256,7 @@ footer p{font-size:.7rem;color:var(--text-muted)}
    ═══════════════════════════════════════════ */
 .moon-section{position:relative;overflow:hidden;padding:4rem 0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(30,35,45,.4),var(--ink))}
 .moon-scene{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-height:60vh}
-#moon-canvas-wrap{position:relative;width:320px;height:320px;z-index:1}
+#moon-canvas-wrap{position:relative;width:320px;height:320px;z-index:1;-webkit-mask-image:radial-gradient(circle,#fff 45%,transparent 72%);mask-image:radial-gradient(circle,#fff 45%,transparent 72%)}
 #moon-canvas-wrap canvas{display:block;width:100%!important;height:100%!important}
 .moon-section.moon-visible #moon-canvas-wrap{opacity:1}
 .moon-text{text-align:center;margin-top:1.5rem;position:relative;z-index:2}
