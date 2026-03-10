@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   PARTICLE SYSTEM — Qi Energy + Ink Dust
+   PARTICLE SYSTEM - Qi Energy + Ink Dust
    ═══════════════════════════════════════════ */
 (function(){
   var c=document.getElementById('particles'),ctx=c.getContext('2d');
@@ -49,14 +49,14 @@ addEventListener('scroll',function(){
 });
 
 /* ═══════════════════════════════════════════
-   BACKGROUND MUSIC — muted autoplay then unmute on first gesture
+   BACKGROUND MUSIC - muted autoplay, unmute on first gesture
    ═══════════════════════════════════════════ */
 (function(){
   var music=document.getElementById('bgMusic');
   var btn=document.getElementById('soundBtn');
   if(!music||!btn)return;
   music.volume=0.35;
-  /* Start muted — browsers allow muted autoplay */
+  /* Start muted - browsers allow muted autoplay */
   music.muted=true;
   music.play().catch(function(){});
   /* Unmute on first user gesture (scroll/click/touch) */
@@ -273,7 +273,6 @@ if(track){track.innerHTML+=track.innerHTML}
     var posArr=pGeo.attributes.position.array;
     for(var i=0;i<pCount;i++){
       var v=pVel[i];
-      var angle=t*v.speed+v.offset;
       var x=posArr[i*3],y=posArr[i*3+1],z=posArr[i*3+2];
       if(v.axis==='y'){
         var cosA=Math.cos(v.speed);var sinA=Math.sin(v.speed);
@@ -420,10 +419,12 @@ if(track){track.innerHTML+=track.innerHTML}
       left.classList.add('converged');
       right.classList.add('converged');
       playAnvilHit();
-      /* Sparks at the center meeting point, at the CSS top position */
-      var topPct=parseFloat(getComputedStyle(left).top)/vh;
-      var sparkX=vw/2;
+      /* Sparks + flash at actual meeting point */
+      var sparkX=left.getBoundingClientRect().right;
       var sparkY=left.getBoundingClientRect().bottom;
+      var flashPctX=(sparkX/vw*100).toFixed(1);
+      var flashPctY=(sparkY/vh*100).toFixed(1);
+      flash.style.background='radial-gradient(circle at '+flashPctX+'% '+flashPctY+'%,rgba(255,200,100,.8),rgba(255,160,60,.4) 18%,transparent 40%)';
       function strike(x,y){
         var wasActive=sparkActive;
         spawnSparks(x,y);
