@@ -207,7 +207,6 @@ footer p{font-size:.7rem;color:rgba(120,135,150,.78)}
   .stats-row{grid-template-columns:repeat(2,1fr);gap:.8rem}
   .features-grid{grid-template-columns:1fr}
   .equip-grid{grid-template-columns:repeat(3,1fr);gap:.8rem}
-  .mc-details{grid-template-columns:1fr 1fr}
   .ai-grid{grid-template-columns:1fr}
   .section-inner{padding:3.5rem 1.5rem}
   .hero-actions{flex-direction:column;align-items:center}
@@ -222,7 +221,6 @@ footer p{font-size:.7rem;color:rgba(120,135,150,.78)}
   .equip-grid{grid-template-columns:repeat(2,1fr)}
   .section-inner{padding:2.5rem 1rem}
   .intro-text-left,.intro-text-right{top:72%}
-  .mc-details{grid-template-columns:1fr 1fr}
   .mc-timeline-bar{height:32px}
   .mc-skill{font-size:.35rem}
   .stats-row{gap:.5rem}
@@ -274,6 +272,8 @@ footer p{font-size:.7rem;color:rgba(120,135,150,.78)}
 .mc-detail-card{padding:1rem;background:rgba(26,34,48,.3);border:1px solid rgba(42,53,68,.2);text-align:center}
 .mc-val{display:block;font-family:var(--font-mono);font-size:1rem;color:var(--gold-light);font-weight:500;margin-bottom:.2rem}
 .mc-lbl{font-size:.55rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+@media(max-width:768px){.mc-details{grid-template-columns:1fr 1fr}}
+@media(max-width:430px){.mc-details{grid-template-columns:1fr 1fr}}
 
 /* ═══════════════════════════════════════════
    AI FEATURES
