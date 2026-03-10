@@ -50,6 +50,8 @@ img{display:block;max-width:100%}
 .sound-btn .sound-off{display:none}
 .sound-btn.muted .sound-on{display:none}
 .sound-btn.muted .sound-off{display:block}
+.lang-toggle{font-family:var(--font-display);font-size:.55rem;letter-spacing:1px;text-transform:uppercase;padding:.3rem .5rem;border:1px solid rgba(212,165,84,.2);color:var(--gold-dark);text-decoration:none;transition:all .3s;line-height:1}
+.lang-toggle:hover{border-color:var(--gold);color:var(--gold)}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.8rem;font-family:var(--font-display);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:all .35s;position:relative;overflow:hidden}

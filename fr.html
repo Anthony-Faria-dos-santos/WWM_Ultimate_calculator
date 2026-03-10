@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<style>html{background:#0a0a0f!important;color-scheme:dark!important}body{background:#0a0a0f!important;min-height:100vh!important}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WWM Ultimate Calculator | Simulateur de Build Where Winds Meet</title>
+<meta name="description" content="Calculateur DPS et outil de theorycraft pour Where Winds Meet. Simulation Monte Carlo, comparaison d'equipement, optimisation de build.">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&amp;family=Noto+Serif+SC:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&amp;family=Noto+Serif+SC:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+</head>
+<body>
+<audio id="bgMusic" src="assets/intro2.m4a" autoplay preload="auto"></audio>
+<audio id="anvilSfx" src="assets/anvil.flac" preload="auto"></audio>
+<canvas id="particles"></canvas>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-logo">武</div>
+      <span class="nav-title">WWM Calculator</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#equipment">Equipement</a></li>
+      <li><a href="#features">Fonctions</a></li>
+      <li><a href="#mystic">Arts Mystiques</a></li>
+      <li><a href="#preview">Apercu</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="index.html" class="lang-toggle" title="English version">EN</a>
+      <button class="sound-btn" id="soundBtn" aria-label="Activer/couper le son">
+        <svg class="sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+        <svg class="sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      </button>
+      <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator" target="_blank" rel="noopener noreferrer" class="nav-cta">GitHub ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- VIDEO INTRO -->
+<section class="video-intro" id="intro">
+  <video class="intro-video" muted playsinline autoplay loop preload="auto">
+    <source src="assets/intro.webm" type="video/webm">
+  </video>
+  <div class="intro-overlay"></div>
+  <div class="intro-text intro-text-left" id="introLeft">
+    <span class="intro-line1">WWM Ultimate</span>
+    <span class="intro-line2">Calculator</span>
+  </div>
+  <div class="intro-text intro-text-right" id="introRight">
+    <span class="intro-line1">Moon<span class="mk-chrome">Knights</span></span>
+    <span class="intro-line2">Projet Guilde</span>
+  </div>
+  <canvas id="sparks" class="sparks-canvas"></canvas>
+  <div class="intro-flash" id="introFlash"></div>
+  <div class="scroll-hint intro-scroll-hint"><span>Defiler</span><div class="scroll-line"></div></div>
+</section>
+<div class="intro-spacer" id="introSpacer"></div>
+
+<!-- EQUIPEMENT -->
+<div class="divider"></div>
+<section class="equip-section" id="equipment">
+  <div class="section-inner">
+    <div class="reveal"><p class="section-label">Forgez Votre Arsenal</p><h2 class="section-title">Systeme d'Equipement</h2><p class="section-desc">Chaque emplacement compte. Comparez les stats, suivez les bonus de set et trouvez l'equipement qui maximise votre potentiel de combat.</p></div>
+    <div class="equip-grid">
+      <div class="equip-card reveal"><img src="assets/equipment/casque.png" alt="Casque" loading="lazy"><span class="equip-name">Casque</span><span class="equip-slot">PV Max · Defense</span></div>
+      <div class="equip-card reveal"><img src="assets/equipment/armure.png" alt="Armure" loading="lazy"><span class="equip-name">Armure</span><span class="equip-slot">Defense · Resistance</span></div>
+      <div class="equip-card reveal"><img src="assets/equipment/brassard.png" alt="Brassards" loading="lazy"><span class="equip-name">Brassards</span><span class="equip-slot">Attaque · Taux Critique</span></div>
+      <div class="equip-card reveal"><img src="assets/equipment/jambiere.png" alt="Jambieres" loading="lazy"><span class="equip-name">Jambieres</span><span class="equip-slot">Defense · PV Max</span></div>
+      <div class="equip-card reveal"><img src="assets/equipment/ring.png" alt="Anneau" loading="lazy"><span class="equip-name">Anneau</span><span class="equip-slot">Degats Crit · Pen</span></div>
+      <div class="equip-card reveal"><img src="assets/equipment/arc_bijou.png" alt="Accessoire" loading="lazy"><span class="equip-name">Accessoire</span><span class="equip-slot">Affinite · Elementaire</span></div>
+      <div class="equip-card reveal"><img src="assets/equipment/arc.png" alt="Arc" loading="lazy"><span class="equip-name">Arc</span><span class="equip-slot">Attaque a Distance</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FONCTIONNALITES -->
+<div class="divider"></div>
+<section id="features">
+  <div class="section-inner">
+    <div class="reveal"><p class="section-label">Fonctionnalites</p><h2 class="section-title">Optimisez Votre Build</h2><p class="section-desc">Chaque stat, chaque modificateur, chaque rotation, calcules avec une precision mathematique basee sur les vraies formules de combat du jeu.</p></div>
+    <div class="features-grid">
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M37 73v382h18V73zm418 0l2 382h18l-2-382zM105 160c-14.6 0-27.2 9.7-31.4 23-2.4 6.6-1.5 14.4-.6 18 3.6 14.3 16.6 25 32 25 14.2 0 26.4-9.1 31-21.7C140.6 217 152.8 226 167 226c15.4 0 28.4-10.7 32-25h238.7l-.1-18H198.4c-4.3-13.3-16.8-23-31.4-23-14.2 0-26.4 9.1-31 21.7C131.4 169 119.2 160 105 160zm0 18c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zm62 0c8.4 0 17 6.6 17 15s-8.6 15-17 15-15-6.6-15-15 6.6-15 15-15zm33 45c-15 0-27.8 10.2-31.7 24H73v18h95.3c4 13.8 16.7 24 31.7 24s27.8-10.2 31.7-24h206.3l-.1-18H231.7c-4-13.8-16.7-24-31.7-24zm0 18c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zm83 47c-14.6 0-27.2 9.7-31.4 23H73v18H251c3.6 14.3 16.6 25 32 25 14.2 0 26.4-9.1 31-21.7C318.6 345 330.8 354 345 354s26.4-9.1 31-21.7C380.6 345 392.8 354 407 354c15.4 0 28.4-10.7 32-25 1.3-3.1.6-13.5-.8-18C432 294.4 418.5 288.3 407 288c-14.2 0-26.4 9.1-31 21.7C371.4 297 359.2 288 345 288s-26.4 9.1-31 21.7C309.4 297 297.2 288 283 288zm62 66c-13.9 0-25.9 8.8-30.7 21H73v18h239.6c2.9 15.3 16.4 27 32.4 27s29.6-11.7 32.4-27h61.2l-.1-18H375.7c-4.8-12.2-16.8-21-30.7-21zm-62-48c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zm62 0c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zm62 0c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zm-62 66c8.4 0 15 6.6 15 15s-6.6 15-15 15-15-6.6-15-15 6.6-15 15-15zM25 473v16h462v-16z"/></svg></div><h3>Simulation DPS</h3><p>DPS complet base sur la rotation avec coups critiques, affinite et 10 zones de degats multiplicatives. Timing au frame pres.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M254.5 53s-4.8 37.1-49.5 49.5c-44.7 12.4-129.3 0-129.3 0L61.3 115.8l8.2 9.2-1.1 2.9-51.8 137.3L16 266.7v1.7c0 18.9 8.3 34.2 20.3 44 12.1 9.8 27.6 14.3 43 14.3s30.9-4.6 43-14.3c12.1-9.8 20.3-25.1 20.3-44v-1.8l-.7-1.7L87 130.3c24-3 80.9-8.5 115.5 1.5 23 6.7 36.2 20.3 43.4 32L210.8 354.5l21.4 30.3c-17.7 7.8-32.6 24.8-37.6 51.3-56 6.2-95.5 20.7-95.5 37.7h311.9c0-17-39.4-31.5-95.5-37.7-4.9-26.6-19.6-44.1-37.2-51.9l21-29.8L264 162.3c7.5-11.3 20.4-24 42.5-30.5 35-10.2 92.6-4.4 116.2-1.4l-50.9 134.7-.6 1.6v1.7c0 18.9 8.3 34.2 20.3 44 12.1 9.8 27.6 14.3 43 14.3s30.9-4.6 43-14.3c12.1-9.8 20.3-25.1 20.3-44v-1.8l-.7-1.7L441 127.6l-.9-2.3 8.8-8.4-15.6-14.3s-84.6 12.4-129.3 0S254.5 53 254.5 53zM77.5 156.7l44.2 108.4H36.6l41-108.4zm355.2 0l44.2 108.4H391.7l41-108.4z"/></svg></div><h3>Comparaison d'Equipement</h3><p>Comparaison cote a cote avec deltas de stats en direct. Voyez l'impact du changement d'une seule piece sur tout votre build.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M23 23v466h466v-18h-40.9V256h-48v215h-31.7V159.3h-48V471h-31.2V320.2h-48V471H207.2V80.4h-48V471H128V192H80v279H41V23H23z"/></svg></div><h3>Detail des Stats</h3><p>Analyse approfondie de chaque modificateur : attaque de base, taux critique, degats critiques, affinite, penetration, le tout visualise.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M41 27.7v46h430v-46zm32 64v112.5l62 20.7V91.7zm80 0v139.2l79.3 26.4c-10.4 7.5-17.3 19.7-17.3 33.4 0 21 16.1 38.5 36.5 40.7l-22.3 43.7-58.2 9.3 41.6 41.7-9.1 58.2 52.5-26.7 52.5 26.7-9.1-58.2 41.6-41.7-58.2-9.3-22.3-43.7c20.4-2.2 36.5-19.7 36.5-40.7 0-13.7-6.9-25.9-17.3-33.4l79.3-26.4V91.7h-94v159c-2.9-.6-5.9-1-9-1s-6.1.4-9 1v-159zm224 0v133.2l62-20.7V91.7zm-121 176c12.8 0 23 10.2 23 23s-10.2 23-23 23-23-10.2-23-23 10.2-23 23-23z"/></svg></div><h3>Notation de Build</h3><p>Notation automatique de E a SSS basee sur l'efficacite des stats. Sachez exactement ou progresser.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M256 23C127.4 23 23 127.4 23 256s104.4 233 233 233 233-104.4 233-233S384.6 23 256 23zm-6.1 18.1C128 47.8 130.1 256 256 256c125.2 0 127.9 205.9 8.2 214.8-2.7.1-5.4.2-8.2.2-118.8 0-215-96.2-215-215C41 139.2 133.9 44.3 249.9 41.1zM256 103c22.5 0 41 18.5 41 41s-18.5 41-41 41-41-18.5-41-41 18.5-41 41-41zm0 224c-22.5 0-41 18.5-41 41s18.5 41 41 41 41-18.5 41-41-18.5-41-41-41z"/></svg></div><h3>Voies Internes &amp; Competences</h3><p>Integration complete des bonus de Voies Internes (内功) et des Arts Mystiques. Mesurez l'impact de chaque voie sur vos degats.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg viewBox="0 0 512 512" width="22" height="22"><path fill="#c9a35b" d="M256 23C127.4 23 23 127.4 23 256s104.4 233 233 233 233-104.4 233-233S384.6 23 256 23zm-33.7 20.6C190 66.9 163.6 92.2 143.2 119H90.3C122.9 79.5 169.4 52 222.3 43.6zm67.4 0c52.9 8.3 99.4 35.9 132 75.4h-52.9c-20.4-26.8-46.8-52.2-79.1-75.4zM247 66v53h-25.1c7-17.3 15.4-35 25.1-53zm18 0c9.7 18 18.1 35.7 25.1 53H265V66zM76.9 137h53.5c-9.8 15-17.8 30.4-23.9 46H53.7c5.9-16.3 13.7-31.8 23.2-46zm75.2 0h43.8c-5.4 15.5-9.6 30.8-12.9 46h-57.1c6.7-15.6 15.5-30.9 26.2-46zm62.9 0H247v46h-45.6c3.4-15.2 7.9-30.5 13.5-46zm50 0h32.1c5.6 15.5 10.1 30.8 13.5 46H265v-46zm51.1 0h43.8c10.7 15.1 19.5 30.4 26.2 46H329c-3.3-15.2-7.5-30.5-12.9-46zm65.5 0h53.5c9.5 14.2 17.3 29.7 23.2 46h-52.8c-6.1-15.6-14.1-31-23.9-46zM48.1 201h52.1c-4.6 15.2-7.5 30.6-8.6 46H41.2c.7-15.8 3-31.2 6.9-46zm71 0h60.4c-2.5 15.4-3.9 30.7-4.4 46h-65.5c1.2-15.3 4.4-30.7 9.5-46zM247 201v46h-53.9c.5-15.3 2-30.6 4.7-46H247zm18 0h49.2c2.7 15.4 4.2 30.7 4.7 46H265v-46zm67.5 0H393c5 15.3 8.2 30.7 9.4 46h-65.5c-.5-15.3-1.9-30.6-4.4-46zm79.3 0h52.1c3.9 14.8 6.2 30.2 6.9 46h-50.4c-1.1-15.4-4-30.8-8.6-46zM41.2 265h49.8c.2 15.5 2.2 30.9 6 46H48.1c-3.9-14.8-6.2-30.2-6.9-46zm67.8 0h66.1c.5 15.3 1.9 30.6 4.4 46h-63.9c-4.1-15.2-6.3-30.6-6.6-46zm84.1 0H247v46h-49.2c-2.7-15.4-4.2-30.7-4.7-46zm71.9 0h53.9c-.5 15.3-2 30.6-4.7 46H265v-46zm71.9 0H403c-.3 15.4-2.5 30.8-6.6 46h-63.9c2.5-15.4 3.9-30.7 4.4-46zm84.1 0h49.8c-.7 15.8-3 31.2-6.9 46H415c3.7-15.1 5.7-30.5 6-46zM53.7 329h48.7c5.4 15.7 12.8 31.1 22.1 46H76.9c-9.5-14.2-17.3-29.7-23.2-46zm67.7 0H183c3.3 15.2 7.5 30.5 12.9 46h-50c-10.4-14.9-18.5-30.3-24.5-46zm80 0H247v46h-32.1c-5.6-15.5-10.1-30.8-13.5-46zm63.6 0h45.6c-3.4 15.2-7.9 30.5-13.5 46H265v-46zm64 0h61.6c-6 15.7-14.1 31.1-24.5 46h-50c5.4-15.5 9.6-30.8 12.9-46zm80.6 0h48.7c-5.9 16.3-13.7 31.8-23.2 46h-47.6c9.3-14.9 16.7-30.3 22.1-46zM90.3 393h46.6c20.3 27.1 47.3 52.3 80.9 74.6-51-9.1-95.8-36.3-127.5-74.6zm69.3 0h42.9c7.9 20.4 17.6 41 29 62.1-29.3-18.9-53.2-39.8-71.9-62.1zM247 393v53c-9.7-18-18.1-35.7-25.1-53H247zm18 0h25.1c-7 17.3-15.4 35-25.1 53v-53zm44.5 0h42.9c-18.7 22.3-42.6 43.2-71.9 62.1 11.4-21.1 21.1-41.7 29-62.1zm65.6 0h46.6c-31.7 38.3-76.5 65.5-127.5 74.6 33.6-22.3 60.6-47.5 80.9-74.6z"/></svg></div><h3>Donnees Trilingues</h3><p>Lexique complet en chinois, anglais et francais pour que chaque terme corresponde a votre client de jeu.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTS MYSTIQUES (ancre) -->
+<div class="divider"></div>
+
+<!-- SIMULATEUR MONTE CARLO -->
+<div class="divider"></div>
+<section class="montecarlo-section" id="montecarlo">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Simulation Avancee</p>
+      <h2 class="section-title">Moteur de Rotation Monte Carlo</h2>
+      <p class="section-desc">Des milliers de cycles de combat simules pour trouver le DPS reel de votre build. Pas une simple formule, mais la realite statistique.</p>
+    </div>
+    <div class="mc-layout reveal">
+      <div class="mc-timeline-mock">
+        <div class="mc-timeline-header">
+          <span class="mc-tl-label">Timeline de Rotation</span>
+          <span class="mc-tl-dur">T = 8.4s</span>
+        </div>
+        <div class="mc-timeline-bar">
+          <div class="mc-skill" style="width:14%;background:rgba(212,165,84,.25)" data-tip="Tranche">Tranche</div>
+          <div class="mc-skill" style="width:10%;background:rgba(78,205,196,.2)" data-tip="Pas Nuage">Nuage</div>
+          <div class="mc-skill" style="width:22%;background:rgba(212,165,84,.35)" data-tip="Celeste">Celeste</div>
+          <div class="mc-skill" style="width:8%;background:rgba(139,34,50,.25)" data-tip="Esquive">Esquive</div>
+          <div class="mc-skill" style="width:18%;background:rgba(212,165,84,.25)" data-tip="Atq Lourde">Lourde</div>
+          <div class="mc-skill" style="width:15%;background:rgba(78,205,196,.2)" data-tip="Rugissement">Lion</div>
+          <div class="mc-skill" style="width:13%;background:rgba(212,165,84,.35)" data-tip="Finisseur">Final</div>
+        </div>
+        <div class="mc-timeline-legend">
+          <span><i style="background:rgba(212,165,84,.3)"></i> Physique</span>
+          <span><i style="background:rgba(78,205,196,.25)"></i> Art Mystique</span>
+          <span><i style="background:rgba(139,34,50,.25)"></i> Deplacement</span>
+        </div>
+      </div>
+      <div class="mc-details">
+        <div class="mc-detail-card">
+          <span class="mc-val">10 000</span>
+          <span class="mc-lbl">Simulations par run</span>
+        </div>
+        <div class="mc-detail-card">
+          <span class="mc-val">±2.3%</span>
+          <span class="mc-lbl">Intervalle de confiance</span>
+        </div>
+        <div class="mc-detail-card">
+          <span class="mc-val">Glisser-Deposer</span>
+          <span class="mc-lbl">Palette → Timeline</span>
+        </div>
+        <div class="mc-detail-card">
+          <span class="mc-val">Temps reel</span>
+          <span class="mc-lbl">Delais d'animation + Buffs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIMISATION IA -->
+<div class="divider"></div>
+<section class="ai-section" id="ai">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Couche Intelligente</p>
+      <h2 class="section-title">Optimisation par IA</h2>
+      <p class="section-desc">Laissez le machine learning guider votre progression, des ameliorations d'equipement aux refontes completes de build.</p>
+    </div>
+    <div class="ai-grid reveal">
+      <div class="ai-card">
+        <div class="ai-card-glow"></div>
+        <div class="ai-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--jade)" stroke-width="1.5"><path d="M12 2a4 4 0 014 4v2a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M9 14h6l2 8H7l2-8z"/><circle cx="12" cy="6" r="1" fill="var(--jade)"/><path d="M5 10l-2 2m16-2l2 2M12 16v4"/></svg>
+        </div>
+        <h3>Meilleur Equipement</h3>
+        <p>L'IA analyse vos stats actuelles et propose la piece optimale pour chaque emplacement, classee par gain marginal de DPS.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-glow"></div>
+        <div class="ai-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--jade)" stroke-width="1.5"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+        </div>
+        <h3>Conseiller de Stats</h3>
+        <p>Identifie le goulot d'etranglement de votre build, que ce soit le plafond de critique, le seuil de penetration ou les rendements decroissants d'affinite, puis indique ou chaque point compte le plus.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-glow"></div>
+        <div class="ai-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--jade)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Optimiseur de Rotation</h3>
+        <p>Propose l'enchainement de competences au DPS le plus eleve en analysant les cancels d'animation, les fenetres de buffs et l'alignement des cooldowns sur des milliers de runs Monte Carlo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTS MYSTIQUES -->
+<div class="divider"></div>
+<section class="mystic-section" id="mystic">
+  <div class="section-inner" style="padding-bottom:2rem"><div class="reveal"><p class="section-label">40+ Techniques Martiales</p><h2 class="section-title">Bibliotheque d'Arts Mystiques</h2><p class="section-desc">Chaque Art Mystique integre avec ses coefficients de degats et son suivi de buffs.</p></div></div>
+  <div class="mystic-track">
+    <div class="mystic-card"><img src="assets/mystic/tai-chi.png" alt="Tai Chi"><span>Tai Chi</span></div>
+    <div class="mystic-card"><img src="assets/mystic/lions-roar.png" alt="Rugissement du Lion"><span>Rugissement</span></div>
+    <div class="mystic-card"><img src="assets/mystic/dragons-breath.png" alt="Souffle du Dragon"><span>Souffle Dragon</span></div>
+    <div class="mystic-card"><img src="assets/mystic/cloud-steps.png" alt="Pas Nuage"><span>Pas Nuage</span></div>
+    <div class="mystic-card"><img src="assets/mystic/celestial-seize.png" alt="Saisie Celeste"><span>Saisie Celeste</span></div>
+    <div class="mystic-card"><img src="assets/mystic/golden-body.png" alt="Corps Dore"><span>Corps Dore</span></div>
+    <div class="mystic-card"><img src="assets/mystic/flaming-meteor.png" alt="Meteore Ardent"><span>Meteore Ardent</span></div>
+    <div class="mystic-card"><img src="assets/mystic/ghostly-steps.png" alt="Pas Spectraux"><span>Pas Spectraux</span></div>
+    <div class="mystic-card"><img src="assets/mystic/drunken-poet.png" alt="Poete Ivre"><span>Poete Ivre</span></div>
+    <div class="mystic-card"><img src="assets/mystic/dragon-head.png" alt="Tete de Dragon"><span>Tete Dragon</span></div>
+    <div class="mystic-card"><img src="assets/mystic/yaksha-rush.png" alt="Assaut Yaksha"><span>Assaut Yaksha</span></div>
+    <div class="mystic-card"><img src="assets/mystic/wolflike-frenzy.png" alt="Frenesie Lupine"><span>Frenesie Lupine</span></div>
+    <div class="mystic-card"><img src="assets/mystic/guardian-palm.png" alt="Paume Gardien"><span>Paume Gardien</span></div>
+    <div class="mystic-card"><img src="assets/mystic/soaring-spin.png" alt="Vrille Ascendante"><span>Vrille Ascendante</span></div>
+    <div class="mystic-card"><img src="assets/mystic/talon-strike.png" alt="Frappe Serre"><span>Frappe Serre</span></div>
+    <div class="mystic-card"><img src="assets/mystic/meridian-touch.png" alt="Toucher Meridien"><span>Toucher Meridien</span></div>
+    <div class="mystic-card"><img src="assets/mystic/serene-breeze.png" alt="Brise Sereine"><span>Brise Sereine</span></div>
+    <div class="mystic-card"><img src="assets/mystic/blinding-mist.png" alt="Brume Aveuglante"><span>Brume Aveuglante</span></div>
+    <div class="mystic-card"><img src="assets/mystic/ghost-bind.png" alt="Lien Spectral"><span>Lien Spectral</span></div>
+    <div class="mystic-card"><img src="assets/mystic/free-morph.png" alt="Metamorphose"><span>Metamorphose</span></div>
+    <div class="mystic-card"><img src="assets/mystic/leaping-toad.png" alt="Bond du Crapaud"><span>Bond Crapaud</span></div>
+    <div class="mystic-card"><img src="assets/mystic/veil-of-stillness.png" alt="Voile de Quietude"><span>Voile Quietude</span></div>
+    <div class="mystic-card"><img src="assets/mystic/honking-havoc.png" alt="Chaos Strident"><span>Chaos Strident</span></div>
+    <div class="mystic-card"><img src="assets/mystic/glow-of-fireflies.png" alt="Lucioles"><span>Lucioles</span></div>
+  </div>
+</section>
+
+<!-- APERCU -->
+<div class="divider"></div>
+<section class="showcase" id="preview">
+  <div class="section-inner">
+    <div class="reveal"><p class="section-label">Apercu de l'Interface</p><h2 class="section-title">Concu pour le Jianghu</h2><p class="section-desc">Une interface qui rend hommage a l'esthetique du jeu : encre, or et esprit des arts martiaux.</p></div>
+    <div class="showcase-frame reveal">
+      <div class="showcase-inner">
+        <div class="mock-nav"><span class="mock-nav-brand">⚔ WWM CALCULATOR</span><div class="mock-tabs"><span class="mock-tab active">DPS</span><span class="mock-tab">Gear</span><span class="mock-tab">Skills</span><span class="mock-tab">Build</span></div></div>
+        <div class="mock-body">
+          <div class="mock-stats">
+            <div class="mock-stat-card"><div><div class="mock-stat-label">Attack Power</div><div class="mock-stat-value">12,847</div></div><span class="mock-stat-change up">+342</span></div>
+            <div class="mock-stat-card"><div><div class="mock-stat-label">Critical Rate</div><div class="mock-stat-value">47.3%</div></div><span class="mock-stat-change up">+2.1%</span></div>
+            <div class="mock-stat-card"><div><div class="mock-stat-label">Crit Damage</div><div class="mock-stat-value">186.5%</div></div><span class="mock-stat-change down">-1.2%</span></div>
+            <div class="mock-stat-card"><div><div class="mock-stat-label">Penetration</div><div class="mock-stat-value">2,410</div></div><span class="mock-stat-change up">+180</span></div>
+          </div>
+          <div class="mock-chart">
+            <div class="mock-dps-ring">
+              <svg viewBox="0 0 140 140"><defs><linearGradient id="mockGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e8c882"/><stop offset="100%" stop-color="#a67c3d"/></linearGradient></defs><circle class="bg" cx="70" cy="70" r="60"/><circle class="progress" cx="70" cy="70" r="60"/></svg>
+              <div class="mock-dps-center"><div class="mock-dps-val">21,289</div><div class="mock-dps-label">Score DPS</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-badge">✦ Apercu · v1.0</div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK TECHNIQUE -->
+<div class="divider"></div>
+<section id="tech">
+  <div class="section-inner">
+    <div class="reveal"><p class="section-label">Technologies</p><h2 class="section-title">Architecture Moderne</h2><p class="section-desc">Stack de production optimise pour la performance, la surete de typage et l'experience developpeur.</p></div>
+    <div class="tech-grid">
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 180 180" width="28" height="28"><mask id="nM" style="mask-type:alpha"><circle cx="90" cy="90" r="90" fill="#fff"/></mask><g mask="url(#nM)"><circle cx="90" cy="90" r="90" fill="#000"/><path d="M149.5 171.3L79.1 80.2v66.8h-7.7V33l78.1 109.8a90 90 0 01-13.5 15.3z" fill="url(#nG)"/><circle cx="120.5" cy="49" r="12" fill="url(#nG2)"/></g><defs><linearGradient id="nG" x1="86" y1="72" x2="142" y2="155"><stop stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="nG2" x1="120" y1="37" x2="120" y2="61"><stop stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs></svg></div><div class="tech-name">Next.js</div><div class="tech-ver">v16 App Router</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="-11.5 -10.2 23 20.5" width="28" height="28"><circle r="2.05" fill="#61dafb"/><g stroke="#61dafb" fill="none" stroke-width="1"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg></div><div class="tech-name">React</div><div class="tech-ver">v19 + RSC</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 28 28" width="28" height="28"><path d="M0 14v14h28V0H0v14zm22.7-1.3L17.5 21H15l3.2-5.1-3.5-5.6h2.6l2.2 3.7 2.2-3.7h2.5l-3.5 5.6 3.2 5.1h-2.5l-2.2-3.7zm-10-8.4H15v16.4h-2.3V4.3z" fill="#3178C6"/></svg></div><div class="tech-name">TypeScript</div><div class="tech-ver">Mode Strict</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 54 33" width="28" height="18"><path fill-rule="evenodd" clip-rule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.514-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.514-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" fill="#38BDF8"/></svg></div><div class="tech-name">Tailwind</div><div class="tech-ver">v3 + tailwind-merge</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 159 194" width="22" height="28"><path d="M0 33.3v127.4l69.2 33.1V167l-45.5-21.3V49l45.5 25.5v-28L0 33.3z" fill="#0C344B"/><path d="M89.8 0L20.6 33.3l69.2 33.1 69.1-33.1L89.8 0zm0 80.6L44.3 57.8V104l45.5 25.5V80.6z" fill="#2D3748"/><path d="M89.8 80.6v48.9l45.5-25.5V57.8L89.8 80.6zm69.1-47.3l-69.1 33.1v28l69.1-33.1V33.3z" fill="#5A67D8"/></svg></div><div class="tech-name">Prisma</div><div class="tech-ver">ORM + PostgreSQL</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.088 2.477L24 7.606 12.521 19.482l-5.816-.582L19.088 2.477zm-6.87 7.946l-7.3 7.635L0 17.12 10.746 5.544l1.472 4.88z" fill="#3068B7"/></svg></div><div class="tech-name">Zod</div><div class="tech-ver">Validation Schema</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 165 165" width="26" height="26"><path d="M120.8 55.3a45.5 45.5 0 10-76.6 0L82.5 120l38.3-64.7z" fill="#fcc72b"/><path d="M82.5 120l38.3-64.7a45.5 45.5 0 00-76.6 0L82.5 120z" fill="#729B1B" opacity=".75"/></svg></div><div class="tech-name">Vitest</div><div class="tech-ver">Tests Unitaires</div></div>
+      <div class="tech-item reveal"><div class="tech-icon"><svg viewBox="0 0 400 400" width="26" height="26"><path d="M190.5 58.5l-95 165h60l35-60 35 60h60l-95-165z" fill="#2EAD33"/><path d="M190.5 283.5l-50 58h100l-50-58z" fill="#E2574C"/><circle cx="285.5" cy="223.5" r="35" fill="#D65348"/></svg></div><div class="tech-name">Playwright</div><div class="tech-ver">Tests E2E</div></div>
+    </div>
+    <div class="stats-row reveal" style="margin-top:3rem">
+      <div class="stat-block"><div class="stat-number" data-target="8" data-suffix="">0</div><div class="stat-label">Types d'Armes</div></div>
+      <div class="stat-block"><div class="stat-number" data-target="40" data-suffix="+">0</div><div class="stat-label">Arts Martiaux</div></div>
+      <div class="stat-block"><div class="stat-number" data-target="412" data-suffix="">0</div><div class="stat-label">Tests Valides</div></div>
+      <div class="stat-block"><div class="stat-number" data-target="100" data-suffix="%">0</div><div class="stat-label">Libre &amp; Open Source</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOONKNIGHT -->
+<section class="moon-section" id="moonknight">
+  <div class="moon-scene">
+    <div id="moon-canvas-wrap"></div>
+    <div class="moon-text reveal">
+      <p class="moon-quote">Devenir plus fort, devenir un maitre.</p>
+      <p class="moon-guild">Moon<span class="mk-highlight">Knights</span></p>
+      <p class="moon-sub">Projet de Guilde WWM</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="divider"></div>
+<section class="cta">
+  <div class="section-inner">
+    <div class="cta-box reveal">
+      <p class="section-label">Rejoignez le Jianghu</p>
+      <h2 class="section-title">Pret a Maitriser Votre Build ?</h2>
+      <p>Que vous soyez un epeeiste solitaire ou un stratege de guilde, ce calculateur est votre voie vers la perfection martiale.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem">
+        <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.333-1.723-1.333-1.723-1.089-.731.083-.716.083-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56C20.565 21.917 24 17.495 24 12.292 24 5.78 18.627.5 12 .5z"/></svg>
+          <span>Voir sur GitHub</span>
+        </a>
+        <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/wiki/FR%E2%80%90Formules%E2%80%90de%E2%80%90Jeu" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Documentation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">逆水寒 · 武学</div>
+  <div class="footer-links">
+    <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://discord.gg/GrKdj7HUUQ" target="_blank" rel="noopener noreferrer">Discord</a>
+    <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/wiki" target="_blank" rel="noopener noreferrer">Wiki</a>
+    <a href="https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/releases" target="_blank" rel="noopener noreferrer">Releases</a>
+  </div>
+  <p>WWM Ultimate Calculator · Projet Open Source par Anthony aka Nix pour la guilde MOONKNIGHTS</p>
+  <p style="margin-top:.4rem;font-size:.65rem;color:rgba(200,195,185,.2)">Non affilie a NetEase Games ou Everstone Studio. Outil fan-made.</p>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
