@@ -384,7 +384,7 @@ if(track){track.innerHTML+=track.innerHTML}
     else{sparkActive=false;sCtx.clearRect(0,0,vw,vh)}
   }
 
-  /* Scroll-driven convergence */
+  /* Scroll-driven convergence — center-based universal approach */
   var converged=false;
   var convergeThr=0.50;
   var fadeThr=0.62;
@@ -394,29 +394,36 @@ if(track){track.innerHTML+=track.innerHTML}
     var progress=Math.max(0,Math.min(1,-spacerRect.top/spacerH));
     var t=Math.min(1,progress/convergeThr);
     var ease=t<0.5?2*t*t:(1-Math.pow(-2*t+2,2)/2);
-    /* Target: convergence at 60% viewport width to avoid video text overlap */
-    var meetX=vw*0.6;
+    /*
+     * Both elements have CSS: left:50%.
+     * Left block: translateX goes from -110vw to -100% (right edge at center)
+     * Right block: translateX goes from +110vw to 0 (left edge at center)
+     * This centers perfectly on ANY screen width.
+     */
     var leftW=left.offsetWidth;
     var rightW=right.offsetWidth;
-    var targetLeftX=meetX-leftW;
-    var targetRightX=meetX;
-    /* Horizontal animation */
-    var lx=-leftW-50+(targetLeftX+leftW+50)*ease;
-    var rx=vw+(targetRightX-vw)*ease;
-    /* Vertical: left sits ABOVE line (-100%), right sits BELOW line (0%) */
+    /* Left: start far left, end with right edge at viewport center */
+    var lxStart=-vw*1.1;
+    var lxEnd=-leftW;
+    var lx=lxStart+(lxEnd-lxStart)*ease;
+    /* Right: start far right, end with left edge at viewport center */
+    var rxStart=vw*1.1;
+    var rxEnd=0;
+    var rx=rxStart+(rxEnd-rxStart)*ease;
+    /* Vertical: left above line (-100%), right below line (0%) */
     left.style.transform='translate('+lx+'px,-100%)';
-    right.style.left=rx+'px';
-    right.style.right='auto';
-    right.style.transform='translate(0,0%)';
+    right.style.transform='translate('+rx+'px,0%)';
 
-    /* Convergence trigger — double strike synced with anvil sound */
+    /* Convergence trigger — double strike */
     if(ease>=0.98&&!converged){
       converged=true;
       left.classList.add('converged');
       right.classList.add('converged');
       playAnvilHit();
-      var sparkY=vh*0.72;
-      /* Hit — flash + sparks in same render frame */
+      /* Sparks at the center meeting point, at the CSS top position */
+      var topPct=parseFloat(getComputedStyle(left).top)/vh;
+      var sparkX=vw/2;
+      var sparkY=left.getBoundingClientRect().bottom;
       function strike(x,y){
         var wasActive=sparkActive;
         spawnSparks(x,y);
@@ -426,10 +433,9 @@ if(track){track.innerHTML+=track.innerHTML}
           setTimeout(function(){flash.style.opacity='0'},120);
         });
       }
-      strike(meetX,sparkY);
-      /* Hit 2 — 500ms later (synced with 2nd anvil hit) */
+      strike(sparkX,sparkY);
       setTimeout(function(){
-        strike(meetX+Math.random()*30-15,sparkY+Math.random()*16-8);
+        strike(sparkX+Math.random()*30-15,sparkY+Math.random()*16-8);
       },600);
     }
     if(ease<0.85&&converged){
