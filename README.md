@@ -1,6 +1,6 @@
 > [!IMPORTANT]
 > **This project is source-available and community-driven**, licensed under the [Business Source License 1.1](./LICENSE).
-> All contributions — code, formulas, data, and bug reports — remain the collective property of their authors under the terms of the BSL 1.1.
+> All contributions (code, formulas, data, and bug reports) remain the collective property of their authors under the terms of the BSL 1.1.
 > **Non-commercial use is free and open.** Commercial use or proprietary appropriation of this codebase requires a commercial license from the author; otherwise it is strictly prohibited.
 >
 > **Contributing?** Please read the [Contributing Guide](./CONTRIBUTING.md), follow the [Code of Conduct](./CODE_OF_CONDUCT.md), and report security issues privately via our [Security Policy](./SECURITY.md).
@@ -12,7 +12,7 @@
 
 **Calculateur de dégâts complet pour [Where Winds Meet](https://www.wherewindsmeetgame.com/)**
 
-Développé pour la guilde **MoonKnights** — Serveur Global OW12
+Développé pour la guilde **MoonKnights**, Serveur Global OW12
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)](https://react.dev/)
@@ -36,8 +36,8 @@ Développé pour la guilde **MoonKnights** — Serveur Global OW12
 - [Architecture](#architecture)
 - [Modèle de données](#modèle-de-données)
 - [Système de calcul](#système-de-calcul)
-- [Journal de developpement](#journal-de-developpement)
-- [Securisation et CI/CD](#securisation-et-cicd)
+- [Journal de développement](#journal-de-développement)
+- [Sécurisation et CI/CD](#sécurisation-et-cicd)
 - [Progression](#progression)
 - [Installation](#installation)
 - [Scripts](#scripts)
@@ -74,15 +74,15 @@ Le choix de chaque technologie répond à un besoin identifié en amont.
 | **State** | Zustand | 5 | Store léger, pas de boilerplate Redux, sélecteurs typés, persistence localStorage. |
 | **Data fetching** | React Query | 5 | Cache, mutations, invalidation. Découple la logique serveur du state local. |
 | **Validation** | Zod | 4 | Validation runtime des payloads API. Migration de v3 à v4 en Phase 3 (cf. journal). |
-| **UI Components** | shadcn/ui + Radix | — | Composants accessibles, non-opinionated, personnalisables via Tailwind. Style New York. |
+| **UI Components** | shadcn/ui + Radix | - | Composants accessibles, non-opinionated, personnalisables via Tailwind. Style New York. |
 | **Styling** | Tailwind CSS | 3.4 | Utility-first, tokens CSS custom pour le design system wuxia. |
 | **Charts** | Recharts | 2.15 | Composable, compatible React, adapté aux graphiques DPS/distribution. |
 | **Tests** | Vitest | 3.0 | Rapide, compatible Vite, API Jest-like. Couverture v8 intégrée. |
 | **E2E** | Playwright | 1.58 | Tests navigateur multi-browser, prévu en Phase 5.5. |
 | **Package manager** | pnpm | 10.30 | Résolution stricte, symlinks, espace disque réduit. Ni npm ni yarn. |
-| **Environnement** | WSL Ubuntu + Docker | — | PostgreSQL 16 en conteneur, développement sous WSL. |
+| **Environnement** | WSL Ubuntu + Docker | - | PostgreSQL 16 en conteneur, développement sous WSL. |
 
-> **Note** — Certaines dépendances sont installées mais pas encore implémentées (Stripe, Resend, Upstash Redis, Anthropic SDK). Les modèles Prisma correspondants existent dans le schema pour ne pas casser les migrations futures, mais aucune route API ne les expose. Leur intégration est planifiée en post-MVP.
+> **Note :** Certaines dépendances sont installées mais pas encore implémentées (Stripe, Resend, Upstash Redis, Anthropic SDK). Les modèles Prisma correspondants existent dans le schema pour ne pas casser les migrations futures, mais aucune route API ne les expose. Leur intégration est planifiée en post-MVP.
 
 
 ---
@@ -151,8 +151,8 @@ Trois tiers utilisateur sont définis dans l'enum `SubscriptionTier` (FREE, PREM
 | `wwm_weapons_martial_arts.json` | Armes et arts martiaux | 33 armes |
 | `wwm_inner_ways.json` | Voies intérieures (passifs) | 37 voies |
 | `wwm_gear_sets.json` | Sets d'équipement et bonus | 13 sets |
-| `wwm_mystic_arts.json` | Arts occultes | — |
-| `wwm_glossary.json` | Terminologie FR/EN/CN | — |
+| `wwm_mystic_arts.json` | Arts occultes | - |
+| `wwm_glossary.json` | Terminologie FR/EN/CN | - |
 
 Ces fichiers sont la source de données brute. Les formules de calcul proviennent d'un document de référence séparé, vérifié contre les sources communautaires chinoises (NGA Forums, calculatrice yoka, Bilibili).
 
@@ -214,35 +214,35 @@ Le `SimulationService` complète ce pipeline avec une simulation Monte Carlo (N 
 
 ---
 
-## Journal de developpement
+## Journal de développement
 
-Le journal complet des decisions techniques, erreurs et decouvertes est tenu dans le wiki :
+Le journal complet des décisions techniques, erreurs et découvertes est tenu dans le wiki :
 
-**[Journal de Dev (wiki)](https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/wiki/Journal-de-Dev)**
+**[Journal de Dev (wiki)](https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/wiki/FR%E2%80%90Journal%E2%80%90de%E2%80%90Dev)**
 
-Il couvre les choix d'architecture, les bugs rencontres, les erreurs et les lecons tirees depuis le debut du projet.
+Il couvre les choix d'architecture, les bugs rencontrés, les erreurs et les leçons tirées depuis le début du projet.
 
 ---
 
-## Securisation et CI/CD
+## Sécurisation et CI/CD
 
-Le repository est protege par plusieurs couches complementaires. Le detail complet des politiques, decisions et incidents est documente dans le wiki :
+Le repository est protégé par plusieurs couches complémentaires. Le détail complet des politiques, décisions et incidents est documenté dans le wiki :
 
-**[Watchdog (wiki)](https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/wiki/FR-%E2%80%90-Watchdog)**
+**[Watchdog (wiki)](https://github.com/Anthony-Faria-dos-santos/WWM_Ultimate_calculator/wiki/FR%E2%80%90Watchdog)**
 
-En resume :
+En résumé :
 
-- **CI/CD :** Deux workflows GitHub Actions. `ci.yml` couvre `dev` et `main` (lint, type-check, tests, build). `release-gate.yml` sert de verrou supplementaire sur les PR `dev` vers `main`.
-- **Dependances :** Renovate gere les packages npm (PR vers `dev`, majeures bloquees, vulnerabilites documentees). Dependabot gere les GitHub Actions.
-- **Verrouillages :** 8 packages critiques verrouilles sur leur majeure actuelle (next, react, tailwindcss, eslint, prisma, typescript, vitest, node).
-- **Securite :** GitGuardian (secrets), CodeQL (analyse statique), `pnpm.overrides` (CVE sur deps transitives).
-- **Branches :** `main` et `dev` protegees (PR obligatoire, CI requise). PR automatiques ciblent `dev`, jamais `main`.
+- **CI/CD :** Deux workflows GitHub Actions. `ci.yml` couvre `dev` et `main` (lint, type-check, tests, build). `release-gate.yml` sert de verrou supplémentaire sur les PR `dev` vers `main`.
+- **Dépendances :** Renovate gère les packages npm (PR vers `dev`, majeures bloquées, vulnérabilités documentées). Dependabot gère les GitHub Actions.
+- **Verrouillages :** 8 packages critiques verrouillés sur leur majeure actuelle (next, react, tailwindcss, eslint, prisma, typescript, vitest, node).
+- **Sécurité :** GitGuardian (secrets), CodeQL (analyse statique), `pnpm.overrides` (CVE sur deps transitives).
+- **Branches :** `main` et `dev` protégées (PR obligatoire, CI requise). PR automatiques ciblent `dev`, jamais `main`.
 
 ---
 
 ## Progression
 
-### Phase 1 — Core Backend
+### Phase 1 - Core Backend
 
 - [x] Types métier (7 fichiers : Character, Skill, Combat, DPS, CombatContext, MartialArts, EquipmentSet)
 - [x] Constantes et formules (GAME_CONSTANTS, FORMULAS)
@@ -254,7 +254,7 @@ En resume :
 - [x] Données jeu typées (12 armes, 69 talents, 13 sets)
 - [x] Fix CVE : ajv >=6.14.0, qs >=6.14.2
 
-### Phase 2 — Services & DPS
+### Phase 2 - Services & DPS
 
 - [x] Pipeline complet CombatService.calculateWithFullBuild (talents + sets + stats)
 - [x] BonusZoneRouter (dispatch talents/sets → zones ou stat modifiers)
@@ -262,7 +262,7 @@ En resume :
 - [x] Tests intégration pipeline + simulation (28 tests)
 - [x] Audit : 0 `any`, JSDoc FR complet, barrels propres, 324/324 tests
 
-### Phase 3 — Database & API
+### Phase 3 - Database & API
 
 - [x] Prisma Client singleton (PrismaPg driver adapter)
 - [x] Schema raffiné (objective, rotation, shareSlug, level=85 pour OW12)
@@ -276,7 +276,7 @@ En resume :
 - [x] Seed data (user test + build démo)
 - [x] 88 tests API (validation, auth, builds, calculate)
 
-### Phase 4 — Frontend Integration (en cours)
+### Phase 4 - Frontend Integration (en cours)
 
 - [x] Design system tokens + shadcn/ui + fonts + layout
 - [x] Stores Zustand (calculatorStore, uiStore)
@@ -286,7 +286,7 @@ En resume :
 - [ ] Helpers frontend (formatters, transformers, constants)
 - [ ] Tests stores + hooks
 
-### Phase 5 — UX/UI & Production
+### Phase 5 - UX/UI & Production
 
 - [ ] Landing page wuxia (hero parallax, features, schools carousel)
 - [ ] Composants calculateur (Equipment Grid, Stats Panel, DPS Dashboard)
@@ -432,7 +432,7 @@ wwm-ultimate-calculator/
 | Calculateurs | 17 | 296 | > 95% |
 | Services (intégration) | 4 | 28 | Pipeline complet |
 | API (validation, auth, CRUD, calculate) | 4 | 88 | Mocks Prisma + NextAuth |
-| Utilitaires | 2 | — | Validation, formatting |
+| Utilitaires | 2 | - | Validation, formatting |
 
 **Stratégie de test par phase :**
 
@@ -450,7 +450,7 @@ pnpm test:coverage       # Avec couverture
 
 ## Roadmap
 
-### v0.1 — MVP (en cours)
+### v0.1 - MVP (en cours)
 
 - [x] Moteur de calcul complet (9 zones, 17 calculateurs)
 - [x] API REST (CRUD builds + 6 endpoints calcul)
@@ -461,7 +461,7 @@ pnpm test:coverage       # Avec couverture
 - [ ] Dashboard builds utilisateur
 - [ ] Déploiement
 
-### v1.0 — Release
+### v1.0 - Release
 
 - [ ] Landing page wuxia (parallax, schools carousel)
 - [ ] Responsive mobile complet (tabs bottom navigation)
@@ -470,7 +470,7 @@ pnpm test:coverage       # Avec couverture
 - [ ] SEO et OG images
 - [ ] Performance (code splitting, lazy loading)
 
-### v2.0 — Évolutions
+### v2.0 - Évolutions
 
 - [ ] Multi-langue (FR, EN, CN)
 - [ ] Import de builds depuis le jeu
@@ -507,5 +507,5 @@ Les issues labellisées `good first issue` et `help wanted` sont un bon point d'
 ## Licence
 
 This project is licensed under the [Business Source License 1.1](./LICENSE).
-Copyright © 2026 Anthony Faria Dos Santos — all forks and derivative works must remain source-available and distributed under the same Business Source License 1.1 terms.
+Copyright © 2026 Anthony Faria Dos Santos. All forks and derivative works must remain source-available and distributed under the same Business Source License 1.1 terms.
 
