@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
-    "@auth/core": "0.34.3",
+    "@auth/core": "0.41.3",
     "@auth/prisma-adapter": "^2.7.4",
     "@prisma/adapter-pg": "7.5.0",
     "@radix-ui/react-dialog": "^1.1.4",
